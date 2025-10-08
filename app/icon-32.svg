@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg32" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f4c3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a3528;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="text32" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4f5b9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a8e583;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="url(#bg32)"/>
+  <rect x="1" y="1" width="30" height="30" rx="6" fill="none" stroke="#16a34a" stroke-width="0.5" opacity="0.3"/>
+  <text x="16" y="21" font-size="16" font-family="system-ui, -apple-system, sans-serif" font-weight="800" text-anchor="middle" fill="url(#text32)" letter-spacing="-1">LR</text>
+  <circle cx="24" cy="8" r="1.5" fill="#22c55e" opacity="0.6"/>
+</svg>
