@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Legion Theme Colors */
+  --fel-green: #22c55e;
+  --fel-dark: #15803d;
+  --fel-darker: #166534;
+  --bronze: #d97706;
+  --bronze-light: #f59e0b;
+  --arcane-blue: #3b82f6;
+  --arcane-purple: #8b5cf6;
+
+  /* Background */
+  --bg-primary: #030712;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+
+  /* Borders */
+  --border-primary: #374151;
+  --border-accent: #22c55e;
+
+  --background: #030712;
+  --foreground: #f9fafb;
 }
 
 @theme inline {
@@ -12,15 +30,131 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: var(--bg-primary);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fel-dark);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fel-green);
+}
+
+/* Fel glow effect */
+.fel-glow {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.fel-glow-strong {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+}
+
+/* Bronze glow effect */
+.bronze-glow {
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
 }
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+}
+
+/* Text gradient */
+.text-gradient-fel {
+  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-bronze {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.8);
+  }
+}
+
+.pulse-fel {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Hero section background */
+.hero-bg {
+  background: linear-gradient(135deg, #0a3d0f 0%, #1a5928 50%, #0f2819 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(22, 163, 74, 0.15) 0%, transparent 50%);
+  animation: gradient-shift 20s ease infinite;
+}
+
+/* Class color themes */
+.class-warrior { color: #C79C6E; }
+.class-paladin { color: #F58CBA; }
+.class-hunter { color: #ABD473; }
+.class-rogue { color: #FFF569; }
+.class-priest { color: #FFFFFF; }
+.class-death-knight { color: #C41F3B; }
+.class-shaman { color: #0070DE; }
+.class-mage { color: #69CCF0; }
+.class-warlock { color: #9482C9; }
+.class-monk { color: #00FF96; }
+.class-druid { color: #FF7D0A; }
+.class-demon-hunter { color: #A330C9; }
+.class-evoker { color: #33937F; }
