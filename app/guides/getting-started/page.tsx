@@ -4,6 +4,7 @@ import { remixPhases } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Getting Started Guide',
@@ -11,11 +12,34 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/guides/getting-started'),
   },
+  other: {
+    'article:published_time': '2025-10-07',
+    'article:modified_time': new Date().toISOString(),
+    'article:author': 'Legion Remix Hub Team',
+    'article:section': 'Gaming Guide',
+  },
 };
 
 export default function GettingStartedPage() {
+  const articleSchema = createArticleSchema({
+    headline: 'Getting Started with Legion Remix',
+    description: 'Learn how Legion Remix works, the event timeline, and how to prepare your Timerunner for Skies of Fire.',
+    url: 'https://legionremixhub.com/guides/getting-started',
+    datePublished: '2025-10-07',
+    dateModified: new Date().toISOString(),
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides' },
+    { name: 'Getting Started', path: '/guides/getting-started' },
+  ]);
+
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
+
       <div className="max-w-4xl mx-auto">
         <Link
           href="/guides"
@@ -25,7 +49,15 @@ export default function GettingStartedPage() {
         </Link>
 
         <article className="prose prose-invert prose-lg max-w-none">
-          <h1 className="text-4xl font-bold text-white mb-6">Getting Started with Legion Remix</h1>
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-4xl font-bold text-white mb-0">Getting Started with Legion Remix</h1>
+          </div>
+
+          <div className="text-sm text-gray-400 mb-6 flex items-center gap-4">
+            <span>📅 Updated: {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+            <span>•</span>
+            <span>📖 15 min read</span>
+          </div>
 
           <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border border-green-700/50 rounded-lg p-6 mb-8">
             <p className="text-gray-200 text-lg mb-0">

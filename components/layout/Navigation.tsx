@@ -35,6 +35,7 @@ const navigation = [
   },
   { name: 'Rewards', href: '/rewards' },
   { name: 'Bronze Calculator', href: '/calculator' },
+  { name: 'FAQ', href: '/faq' },
 ];
 
 export default function Navigation() {

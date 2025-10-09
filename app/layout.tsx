@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
+import { createWebSiteSchema, JsonLd } from "@/lib/schema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,9 +96,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = createWebSiteSchema();
+
   return (
     <html lang="en">
       <head>
+        <JsonLd data={websiteSchema} />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1CTHKQNSKD"
           strategy="afterInteractive"
