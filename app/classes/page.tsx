@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Legion Remix Classes Guide',
+  description: 'Compare all 12 Legion Remix classes, specs, Fel mounts, and leveling tips to plan your Timerunner roster.',
+  alternates: {
+    canonical: buildCanonicalUrl('/classes'),
+  },
+};
 
 export default function ClassesPage() {
   return (

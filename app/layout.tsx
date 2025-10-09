@@ -48,9 +48,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: "https://legionremixhub.com",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",

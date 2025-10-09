@@ -1,7 +1,17 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { eventDates, remixPhases } from '@/data/timeline';
+import { remixPhases } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Legion Remix Getting Started Guide',
+  description: 'Learn how Legion Remix works, the event timeline, and how to prepare your Timerunner for Skies of Fire.',
+  alternates: {
+    canonical: buildCanonicalUrl('/guides/getting-started'),
+  },
+};
 
 export default function GettingStartedPage() {
   return (

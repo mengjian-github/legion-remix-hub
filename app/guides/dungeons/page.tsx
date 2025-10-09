@@ -1,7 +1,17 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { dungeons, farmingMethods } from '@/data/dungeons';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Legion Remix Dungeon Roadmap',
+  description: 'Track Timeworn Keystone tiers, affixes, and best dungeon farms throughout the Legion Remix phases.',
+  alternates: {
+    canonical: buildCanonicalUrl('/guides/dungeons'),
+  },
+};
 
 const phaseRecommendations: Record<string, string[]> = {
   'Phase 1: Skies of Fire': ['maw-of-souls', 'eye-of-azshara', 'darkheart-thicket'],

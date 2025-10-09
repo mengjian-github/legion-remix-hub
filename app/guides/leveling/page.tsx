@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { dungeons, farmingMethods, getBestXPDungeons } from '@/data/dungeons';
 import { legionImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Legion Remix Leveling Guide',
+  description: 'Power level to 80 with optimized dungeon routes, Heroic World Tier tips, and weekly Legion Remix planning.',
+  alternates: {
+    canonical: buildCanonicalUrl('/guides/leveling'),
+  },
+};
 
 export default function LevelingGuidePage() {
   const bestDungeons = getBestXPDungeons();

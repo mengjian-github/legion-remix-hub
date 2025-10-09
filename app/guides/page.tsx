@@ -1,5 +1,15 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Legion Remix Guides Hub',
+  description: 'Browse Legion Remix leveling, bronze farming, dungeon, and raid guides to plan your Timerunner adventure.',
+  alternates: {
+    canonical: buildCanonicalUrl('/guides'),
+  },
+};
 
 const guides = [
   {

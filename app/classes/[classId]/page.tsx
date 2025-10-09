@@ -1,7 +1,9 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
 
 export async function generateStaticParams() {
   return classes.map((cls) => ({
@@ -9,8 +11,32 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ClassPage({ params }: { params: Promise<{ classId: string }> }) {
-  const { classId } = await params;
+export async function generateMetadata(
+  { params }: { params: { classId: string } },
+): Promise<Metadata> {
+  const { classId } = params;
+  const classData = classes.find((c) => c.id === classId);
+
+  if (!classData) {
+    return {
+      title: 'Class Not Found',
+      alternates: {
+        canonical: buildCanonicalUrl(`/classes/${classId}`),
+      },
+    };
+  }
+
+  return {
+    title: `${classData.name} Legion Remix Guide`,
+    description: classData.description,
+    alternates: {
+      canonical: buildCanonicalUrl(`/classes/${classId}`),
+    },
+  };
+}
+
+export default function ClassPage({ params }: { params: { classId: string } }) {
+  const { classId } = params;
   const classData = classes.find((c) => c.id === classId);
 
   if (!classData) {

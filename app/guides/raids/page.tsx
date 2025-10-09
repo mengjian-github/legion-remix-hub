@@ -1,7 +1,17 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
 import { rewardSpotlights } from '@/data/rewards';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Legion Remix Raid Progression Guide',
+  description: 'Plan your Legion Remix raid progression with phase unlocks, loot highlights, and weekly tips.',
+  alternates: {
+    canonical: buildCanonicalUrl('/guides/raids'),
+  },
+};
 
 interface RaidSummary {
   name: string;

@@ -1,7 +1,17 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { farmingMethods, getBestBronzeDungeons } from '@/data/dungeons';
 import { totalBronzeCost, rewardSpotlights } from '@/data/rewards';
 import { legionImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Legion Remix Bronze Farming Guide',
+  description: 'Farm Bronze efficiently with dungeon routes, open-world methods, and priority purchases for Legion Remix 2025.',
+  alternates: {
+    canonical: buildCanonicalUrl('/guides/bronze-farming'),
+  },
+};
 
 export default function BronzeFarmingPage() {
   const bestDungeons = getBestBronzeDungeons();

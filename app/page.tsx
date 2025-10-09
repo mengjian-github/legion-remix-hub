@@ -1,9 +1,17 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Countdown from '@/components/ui/Countdown';
 import { eventDates, remixPhases, getCurrentPhase } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
+import { buildCanonicalUrl } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: buildCanonicalUrl('/'),
+  },
+};
 
 export default function Home() {
   const currentPhase = getCurrentPhase();
