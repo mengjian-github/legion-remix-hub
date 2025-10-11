@@ -101,6 +101,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-1081201777589554" />
         <JsonLd data={websiteSchema} />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1CTHKQNSKD"
