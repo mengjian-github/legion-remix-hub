@@ -35,6 +35,19 @@ export default function GettingStartedPage() {
     { name: 'Getting Started', path: '/guides/getting-started' },
   ]);
 
+  const gettingStartedDirectory = [
+    { label: 'Legion Remix Getting Started Guide for Infinite Knowledge and Infinite Power basics', href: '/guides/getting-started#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Getting Started Guide for unlocking world quests quickly', href: '/guides/getting-started#how-to-unlock-world-quests-legion-remix' },
+    { label: 'Legion Remix Getting Started Guide for Strange Humming Crystal farming', href: '/guides/bronze-farming#strange-humming-crystal' },
+    { label: 'Legion Remix Getting Started Guide for hard mode and Time Crisis tips', href: '/guides/getting-started#legion-remix-hard-mode' },
+    { label: 'Legion Remix Getting Started Guide for Legion Remix lag troubleshooting', href: '/#legion-remix-lag' },
+    { label: 'Legion Remix Getting Started Guide for preparing To Fel and Back', href: '/guides/getting-started#legion-remix-hard-mode' },
+    { label: 'Legion Remix Getting Started Guide for Legion Remix campaign boosts', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Getting Started Guide for Legion Remix rare elite prep', href: '/guides/bronze-farming#rare-elites-legion-remix' },
+    { label: 'Legion Remix Getting Started Guide for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Getting Started Guide for Legion Remix Infinite Bazaar unlocks', href: '/rewards' }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <JsonLd data={articleSchema} />
@@ -52,6 +65,10 @@ export default function GettingStartedPage() {
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-4xl font-bold text-white mb-0">Getting Started with Legion Remix</h1>
           </div>
+
+          <p className="text-gray-300 mb-4">
+            The Legion Remix Getting Started Guide is your mission control—review this Legion Remix Getting Started Guide before logging in, share the Legion Remix Getting Started Guide with new Timerunners, and annotate the Legion Remix Getting Started Guide as each phase unlocks.
+          </p>
 
           <div className="text-sm text-gray-400 mb-6 flex items-center gap-4">
             <span>📅 Updated: {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
@@ -186,6 +203,45 @@ export default function GettingStartedPage() {
             <li><strong>Infinite Power Scaling:</strong> Artifactum Sand and Infinite Research keep your artifact traits climbing with no cap.</li>
             <li><strong>Legacy Cosmetics:</strong> Violet Spellwing, Corrupted Shalamayne, and Sargerei ensembles return with Remix-only requirements.</li>
           </ul>
+
+          <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6 mb-8" id="infinite-knowledge-legion-remix">
+            <h3 className="text-xl font-semibold text-green-400 mb-3">Infinite Knowledge vs. Infinite Power Explained</h3>
+            <p className="text-gray-300 mb-3">
+              Infinite Knowledge Legion Remix quests are your Warband progression backbone. Each completed assignment grants permanent experience boosts, +1,000 Bronze, and Artifactum Sand, while Infinite Power stacks directly enhance your Infinite Artifact weapon.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+              <li><strong>Daily rotation:</strong> Six quests per day from the Infinite Bazaar, bankable up to six days.</li>
+              <li><strong>Bronze conversion:</strong> Turn excess Infinite Knowledge into Bronze via the <Link href="/guides/bronze-farming#infinite-knowledge-legion-remix" className="text-green-400 hover:text-green-300">Bronze Farming Legion Remix Guide</Link>.</li>
+              <li><strong>Strange Humming Crystal tie-in:</strong> Crystals drop from rare elites and Treasure Chests—trade them for bonus Infinite Knowledge packets during Argus Eternal.</li>
+            </ul>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8" id="how-to-unlock-world-quests-legion-remix">
+            <h3 className="text-xl font-semibold text-yellow-400 mb-3">How to Unlock World Quests in Legion Remix</h3>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300 mb-3">
+              <li>Complete the <em>Uniting the Isles</em> quest in Dalaran (granted by Khadgar after the intro scenario).</li>
+              <li>Reach Friendly with the Nightfallen, Highmountain Tribe, Valarjar, Dreamweavers, and Court of Farondis—Heroic World Tier bonuses accelerate this rep grind.</li>
+              <li>Turn in the quest at the Violet Citadel to unlock Legion Remix world quests for your Timerunner and all alts.</li>
+            </ol>
+            <p className="text-gray-400 text-sm">
+              For a detailed rep route, jump to the <Link href="/guides/leveling#world-quest-route" className="text-green-400 hover:text-green-300">Legion Remix Leveling Guide world quest section</Link>.
+            </p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-purple-700/40 rounded-lg p-6 mb-8" id="legion-remix-hard-mode">
+            <h3 className="text-xl font-semibold text-purple-400 mb-3">Legion Remix Hard Mode & Time Crisis Safety Nets</h3>
+            <p className="text-gray-300 mb-3">
+              Hard mode in Legion Remix revolves around Heroic World Tier and the console-based challenges such as Time Crisis and To Fel and Back. Use this checklist to avoid "Time Crisis: Failed" wipes:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300 mb-3">
+              <li>Always clear Empowered packs before clicking objectives—Engorged enemies chain explode.</li>
+              <li>Carry mobility potions or the <strong>Strange Humming Crystal</strong> buff to outrun console timers.</li>
+              <li>Toggle Heroic World Tier off temporarily if performance drops or groups are under-geared.</li>
+            </ul>
+            <p className="text-gray-400 text-sm">
+              Stuck on a failure? Our <Link href="/faq#time-crisis-failed" className="text-green-400 hover:text-green-300">Legion Remix FAQ</Link> covers reset timers and weekly limits.
+            </p>
+          </div>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Unlocking Your First Artifact</h2>
           <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -337,6 +393,38 @@ export default function GettingStartedPage() {
               <li>Use the <Link href="/calculator" className="text-green-400 hover:text-green-300">Bronze Calculator</Link> to plan your farming</li>
             </ul>
           </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Getting Started Guide Directory</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              Share these quick references so every new Timerunner can access the precise Legion Remix Getting Started Guide section they need.
+            </p>
+            <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
+              {gettingStartedDirectory.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 mt-4">
+              Each Legion Remix Getting Started Guide snippet links back to the full Legion Remix Getting Started Guide chapter so players never miss essential Legion Remix onboarding steps.
+            </p>
+          </div>
+
+          <p className="text-sm text-gray-400 mb-6">
+            Keep the Legion Remix Getting Started Guide pinned in your guild resources so anyone can revisit the Legion Remix Getting Started Guide checklists before logging in.
+          </p>
+          <ul className="list-disc list-inside space-y-1 text-xs text-gray-400 mb-6">
+            <li>The Legion Remix Getting Started Guide covers every unlock step from login to Argus.</li>
+            <li>Share the Legion Remix Getting Started Guide with friends returning to WoW.</li>
+            <li>Print the Legion Remix Getting Started Guide tasks for offline tracking.</li>
+            <li>Update the Legion Remix Getting Started Guide notes as Blizzard hotfixes land.</li>
+            <li>Archive the Legion Remix Getting Started Guide summaries after the event ends.</li>
+          </ul>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Next Steps</h2>
           <div className="grid md:grid-cols-2 gap-4 mb-8">

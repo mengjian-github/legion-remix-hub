@@ -14,6 +14,18 @@ export const metadata: Metadata = {
 
 export default function LevelingGuidePage() {
   const bestDungeons = getBestXPDungeons();
+  const levelingDirectory = [
+    { label: 'Legion Remix Leveling Guide for fastest leveling path', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Leveling Guide for Havoc Demon Hunter builds', href: '/classes/demon-hunter/havoc' },
+    { label: 'Legion Remix Leveling Guide for Brewmaster Monk tank leveling', href: '/classes/monk/brewmaster' },
+    { label: 'Legion Remix Leveling Guide for Heroic World Tier solo play', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Leveling Guide for Zygor addon alternatives', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Leveling Guide for world quest unlock route', href: '/guides/leveling#world-quest-route' },
+    { label: 'Legion Remix Leveling Guide for Infinite Knowledge integration', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Leveling Guide for Legion Remix rare elite XP', href: '/guides/bronze-farming#rare-elites-legion-remix' },
+    { label: 'Legion Remix Leveling Guide for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Leveling Guide for Legion Remix group dungeon compositions', href: '/guides/leveling#fastest-way-to-level-legion-remix' }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -27,12 +39,19 @@ export default function LevelingGuidePage() {
 
         <article className="prose prose-invert prose-lg max-w-none">
           <h1 className="text-4xl font-bold text-white mb-6">Legion Remix Leveling Guide</h1>
+          <p className="text-gray-300 mb-4">
+            This Legion Remix Leveling Guide compiles every proven Legion Remix leveling route, from 10-80 solo farm paths to group dungeon chains, so your Legion Remix leveling plans stay ahead of Turbo Boost weeks and Infinite Knowledge bonus windows.
+          </p>
 
           <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border border-green-700/50 rounded-lg p-6 mb-8">
             <p className="text-gray-200 text-lg mb-0">
               <strong>Goal:</strong> Reach level 80 as fast as possible to unlock your Felscorched mount and maximize Bronze farming time.
             </p>
           </div>
+
+          <p className="text-gray-300 mb-4">
+            Treat this Legion Remix Leveling Guide as a living document—update the Legion Remix Leveling Guide after each session and re-read the Legion Remix Leveling Guide before pushing into new phases.
+          </p>
 
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Leveling Overview</h2>
@@ -70,6 +89,36 @@ export default function LevelingGuidePage() {
                 <li className="text-yellow-400">Consider toggling off in challenging areas</li>
               </ul>
             </div>
+          </div>
+
+          <div className="bg-gray-900/40 border border-green-700/50 rounded-lg p-6 mb-8" id="fastest-way-to-level-legion-remix">
+            <h2 className="text-2xl font-bold text-white mb-3">Fastest Way to Level in Legion Remix</h2>
+            <p className="text-gray-300 mb-4">
+              Looking for the fastest way to level in Legion Remix? Follow this sprint plan:
+            </p>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300">
+              <li><strong>Levels 10-25:</strong> Chain Intro scenario, Val'Sharah bonus objectives, and Treasure Caches using a <Link href="/guides/getting-started#infinite-knowledge-legion-remix" className="text-green-400 hover:text-green-300">Strange Humming Crystal</Link> buff.</li>
+              <li><strong>Levels 25-60:</strong> Queue Maw of Souls, Darkheart Thicket, and Eye of Azshara with Heroic World Tier enabled—Havoc Demon Hunter Legion Remix builds shine here.</li>
+              <li><strong>Levels 60-80:</strong> Rotate Mythic+ keystones during Turbo Boost weeks (October 7-13 and November 4-10) for 500% XP plus Infinite Power.</li>
+            </ol>
+            <p className="text-gray-400 text-sm mt-3">
+              Prefer addons? Compare <strong>Zygor Legion Remix</strong> routes with our planner—we link the most time-saving quest chains and skip steps.
+            </p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-blue-700/50 rounded-lg p-6 mb-8" id="world-quest-route">
+            <h2 className="text-2xl font-bold text-white mb-3">Legion Remix World Quest Route</h2>
+            <p className="text-gray-300 mb-3">
+              Once world quests unlock, prioritize this circuit for steady XP, Bronze, and Infinite Knowledge packets:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+              <li><strong>Azsuna → Val'Sharah:</strong> Stack Arcane and Dreamweaver emissaries, hit Strange Humming Crystal events, then port to Dalaran.</li>
+              <li><strong>Highmountain → Stormheim:</strong> Use <em>Flight Master's Whistle</em> and Heroic World Tier toggles to farm rare elites and Time Crisis objectives.</li>
+              <li><strong>Suramar Nights:</strong> Complete Nightfallen Withered Army Training for Infinite Knowledge caches.</li>
+            </ul>
+            <p className="text-gray-400 text-sm mt-3">
+              Need Bronze tips? Jump to the <Link href="/guides/bronze-farming#rare-elites-legion-remix" className="text-green-400 hover:text-green-300">Rare Elite farming loop</Link> for optimized kill routes.
+            </p>
           </div>
 
         <h2 className="text-2xl font-bold text-white mt-8 mb-4">Turbo Boost Windows</h2>
@@ -231,6 +280,39 @@ export default function LevelingGuidePage() {
               Level your first character to 70-80 to unlock Warband bonuses, then create new Timerunners for even faster leveling. Your 2nd+ characters will benefit from all accumulated XP bonuses and complete 30-50% faster!
             </p>
           </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Leveling Guide Directory</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              Keep these Legion Remix Leveling Guide quick links handy for the most searched routes and builds.
+            </p>
+            <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
+              {levelingDirectory.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 mt-4">
+              Every Legion Remix Leveling Guide tile above reinforces the full Legion Remix Leveling Guide so teammates can locate the exact Legion Remix leveling topic they need.
+            </p>
+          </div>
+
+          <p className="text-sm text-gray-400 mb-6">
+            Repeat this Legion Remix Leveling Guide mantra: review the Legion Remix Leveling Guide before each session, share the Legion Remix Leveling Guide with your group, log your gains against the Legion Remix Leveling Guide checklist, and celebrate every new achievement by updating the Legion Remix Leveling Guide leaderboard.
+          </p>
+          <ul className="list-disc list-inside space-y-1 text-xs text-gray-400 mb-6">
+            <li>The Legion Remix Leveling Guide details every Turbo Boost window.</li>
+            <li>Pin this Legion Remix Leveling Guide to your raid Discord.</li>
+            <li>Use the Legion Remix Leveling Guide to brief Havoc Demon Hunters.</li>
+            <li>Cross-reference dungeon notes with the Legion Remix Leveling Guide.</li>
+            <li>Celebrate milestones by updating the Legion Remix Leveling Guide progress bar.</li>
+            <li>Archive the Legion Remix Leveling Guide after the season to prep for future remixes.</li>
+          </ul>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Next Steps</h2>
           <div className="grid md:grid-cols-2 gap-4 mb-8">

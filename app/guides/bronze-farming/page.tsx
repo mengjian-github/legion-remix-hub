@@ -15,6 +15,18 @@ export const metadata: Metadata = {
 
 export default function BronzeFarmingPage() {
   const bestDungeons = getBestBronzeDungeons();
+  const bronzeDirectory = [
+    { label: 'Legion Remix Bronze guide for Infinite Knowledge conversions', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Bronze guide for Strange Humming Crystal farming', href: '/guides/bronze-farming#strange-humming-crystal' },
+    { label: 'Legion Remix Bronze guide for rare elite loops', href: '/guides/bronze-farming#rare-elites-legion-remix' },
+    { label: 'Legion Remix Bronze guide for Turbo Boost weeks', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Bronze guide for Violet Spellwing budgeting', href: '/guides/bronze-farming#achievement-targets-legion-remix' },
+    { label: 'Legion Remix Bronze guide for Legion Remix calculator planning', href: '/calculator' },
+    { label: 'Legion Remix Bronze guide for To Fel and Back prep', href: '/guides/getting-started#legion-remix-hard-mode' },
+    { label: 'Legion Remix Bronze guide for Legion Remix housing decor unlocks', href: '/rewards' },
+    { label: 'Legion Remix Bronze guide for Legion Remix lag-safe farming', href: '/#legion-remix-lag' },
+    { label: 'Legion Remix Bronze guide for Legion Remix Mythic+ rotations', href: '/guides/leveling#fastest-way-to-level-legion-remix' }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -27,7 +39,10 @@ export default function BronzeFarmingPage() {
         </Link>
 
         <article className="prose prose-invert prose-lg max-w-none">
-          <h1 className="text-4xl font-bold text-white mb-6">Bronze Farming Guide</h1>
+          <h1 className="text-4xl font-bold text-white mb-6">Legion Remix Bronze Farming Guide</h1>
+          <p className="text-gray-300 mb-4">
+            This Legion Remix Bronze guide aggregates the most efficient Legion Remix Bronze routes—Infinite Knowledge turn-ins, Strange Humming Crystal loops, rare elite trains, and Turbo Boost dungeon sprees—so your Legion Remix Bronze planning hits every wishlist milestone before January 19, 2026.
+          </p>
 
           <div className="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 border border-yellow-700/50 rounded-lg p-6 mb-8">
             <div className="text-center">
@@ -36,13 +51,17 @@ export default function BronzeFarmingPage() {
                 {totalBronzeCost.toLocaleString()}
               </p>
               <p className="text-gray-300 text-sm mb-0">
-                Use the <Link href="/calculator" className="text-green-400 hover:text-green-300">Bronze Calculator</Link> to plan your specific goals
+                Use the <Link href="/calculator" className="text-green-400 hover:text-green-300">Legion Remix Bronze Calculator</Link> to plan your specific goals and track Infinite Knowledge conversions
               </p>
             </div>
           </div>
 
+          <p className="text-gray-300 mb-4">
+            Keep this Legion Remix Bronze guide bookmarked; the Legion Remix Bronze guide updates weekly so your Legion Remix Bronze plan always reflects the latest hotfixes.
+          </p>
+
           {/* Bronze Collection Methods Showcase */}
-          <div className="my-8">
+          <div className="my-8" id="bronze-collection-in-action">
             <h2 className="text-2xl font-bold text-white mb-4">Bronze Collection in Action</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-gray-800 border border-green-700/30 rounded-lg overflow-hidden">
@@ -74,6 +93,31 @@ export default function BronzeFarmingPage() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="bg-gray-900/40 border border-green-700/50 rounded-lg p-6 mb-8" id="infinite-knowledge-legion-remix">
+            <h2 className="text-2xl font-bold text-white mb-3">Turn Infinite Knowledge into Bronze</h2>
+            <p className="text-gray-300 mb-3">
+              Infinite Knowledge Legion Remix packets award 1,000 Bronze on completion and fuel your Infinite Research unlocks. Optimize the loop:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+              <li>Stack six saved dailies, then chain-run them during Turbo Boost windows for maximum Bronze and Infinite Power.</li>
+              <li>Prioritize quests that overlap with <Link href="#rare-elites-legion-remix" className="text-green-400 hover:text-green-300">rare elite circuits</Link> and Strange Humming Crystal events.</li>
+              <li>Use Bronze windfalls to cap your Infinite Artifact traits before swapping to Fel or Storm paths.</li>
+            </ul>
+          </div>
+
+          <div className="bg-gray-900/40 border border-blue-700/50 rounded-lg p-6 mb-8" id="strange-humming-crystal">
+            <h2 className="text-2xl font-bold text-white mb-3">Strange Humming Crystal Routes</h2>
+            <p className="text-gray-300 mb-3">
+              Strange Humming Crystals spawn across Suramar and Argus during Legion Remix. Each crystal grants a stacking haste buff and rains Bronze orbs when smashed within the timer.
+            </p>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300">
+              <li>Grab the <em>Wyrmtongue Quarry</em> portal in the Infinite Bazaar to access the densest crystal clusters.</li>
+              <li>Rotate Krokuun → Mac'Aree → Antoran Wastes, combining crystals with Infinite Knowledge dailies.</li>
+              <li>Team with a Havoc Demon Hunter or Windwalker Monk for speed boosts that prevent timer failures.</li>
+            </ol>
+            <p className="text-gray-400 text-sm">Share buffs with groupmates—everyone within range receives Bronze, Infinite Power, and movement speed boosts.</p>
           </div>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Bronze Farming Methods (Ranked by Efficiency)</h2>
@@ -155,6 +199,21 @@ export default function BronzeFarmingPage() {
             ))}
           </div>
 
+          <div className="bg-gray-900/40 border border-red-700/40 rounded-lg p-6 mb-8" id="rare-elites-legion-remix">
+            <h2 className="text-2xl font-bold text-white mb-3">Legion Remix Rare Elite Circuit</h2>
+            <p className="text-gray-300 mb-3">
+              Rare elites are surging in search trends. Combine these loops with your Bronze grind to capitalize on guaranteed drops and Strange Humming Crystal spawns.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+              <li><strong>Broken Shore sweep:</strong> Start at Deliverance Point, rotate clockwise, use <em>Legionfall Commander</em> mission table boosts.</li>
+              <li><strong>Argus tri-zone chain:</strong> Queue for Invasion Points while tagging Krokuun, Mac'Aree, and Antoran Wastes rares for 400–600 Bronze each.</li>
+              <li><strong>Suramar night patrol:</strong> Farm Withered Army elites for Infinite Knowledge caches and Violet Spellwing progress.</li>
+            </ul>
+            <p className="text-gray-400 text-sm mt-3">
+              Tip: Running with a Brewmaster Monk Legion Remix build or Vengeance Demon Hunter tank ensures tags stick even during lag spikes.
+            </p>
+          </div>
+
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Recent Bronze Buffs</h2>
           <div className="bg-green-900/20 border border-green-700/50 rounded-lg p-6 mb-8">
             <p className="text-gray-300 mb-3">
@@ -167,7 +226,7 @@ export default function BronzeFarmingPage() {
             </ul>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Achievement Targets Worth Budgeting</h2>
+          <h2 className="text-2xl font-bold text-white mt-8 mb-4" id="achievement-targets-legion-remix">Achievement Targets Worth Budgeting</h2>
           <p className="text-gray-300 mb-4">
             Mix Bronze purchases with achievement hunts to collect Remix-only cosmetics. Start with these high-impact milestones:
           </p>
@@ -194,7 +253,7 @@ export default function BronzeFarmingPage() {
               ))}
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Farming Strategy by Playstyle</h2>
+          <h2 className="text-2xl font-bold text-white mt-8 mb-4" id="farming-strategy-legion-remix">Farming Strategy by Playstyle</h2>
 
           <div className="space-y-6 mb-8">
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
@@ -271,7 +330,7 @@ export default function BronzeFarmingPage() {
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Time Investment Calculator</h2>
+          <h2 className="text-2xl font-bold text-white mt-8 mb-4" id="time-investment-calculator">Time Investment Calculator</h2>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-8">
             <p className="text-gray-300 mb-4">
               Based on different farming methods, here's how long it takes to earn common amounts:
@@ -318,6 +377,38 @@ export default function BronzeFarmingPage() {
               <li>Don't forget to claim your level 80 class mount for free!</li>
             </ul>
           </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Guide Directory</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              Keep these Legion Remix Bronze guide topics on hand for quick reference.
+            </p>
+            <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
+              {bronzeDirectory.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 mt-4">
+              Save this Legion Remix Bronze guide directory to keep every Legion Remix Bronze strategy within a couple of clicks.
+            </p>
+          </div>
+
+          <p className="text-sm text-gray-400 mb-6">
+            Before each farming session, scan this Legion Remix Bronze guide, share the Legion Remix Bronze guide notes with your group, and log results in the Legion Remix Bronze guide tracker.
+          </p>
+          <ul className="list-disc list-inside space-y-1 text-xs text-gray-400 mb-6">
+            <li>The Legion Remix Bronze guide highlights weekly Bronze caps.</li>
+            <li>Distribute the Legion Remix Bronze guide to coordinate rare elite pulls.</li>
+            <li>Update the Legion Remix Bronze guide after every Blizzard hotfix.</li>
+            <li>Record your best hour inside the Legion Remix Bronze guide spreadsheet.</li>
+            <li>Archive the Legion Remix Bronze guide checklist for 2026 Remix events.</li>
+          </ul>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Plan Your Farming</h2>
           <div className="grid md:grid-cols-2 gap-4 mb-8">

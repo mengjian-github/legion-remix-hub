@@ -16,6 +16,39 @@ export const metadata: Metadata = {
 export default function Home() {
   const currentPhase = getCurrentPhase();
 
+  const mainGuideDirectory = [
+    { label: 'Legion Remix Guide for Infinite Knowledge farming', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Guide for Strange Humming Crystal routes', href: '/guides/bronze-farming#strange-humming-crystal' },
+    { label: 'Legion Remix Guide for Havoc Demon Hunter builds', href: '/classes/demon-hunter/havoc' },
+    { label: 'Legion Remix Guide for Brewmaster Monk hard mode', href: '/classes/monk/brewmaster' },
+    { label: 'Legion Remix Guide for Subtlety Rogue rotations', href: '/classes/rogue/subtlety' },
+    { label: 'Legion Remix Guide for Protection Paladin tanks', href: '/classes/paladin/protection' },
+    { label: 'Legion Remix Guide for Zygor addon alternatives', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Guide for fastest leveling paths', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix lag fixes', href: '#legion-remix-lag' },
+    { label: 'Legion Remix Guide for Time Crisis objectives', href: '/guides/getting-started#legion-remix-hard-mode' },
+    { label: 'Legion Remix Guide for To Fel and Back achievement', href: '/guides/getting-started#legion-remix-hard-mode' },
+    { label: 'Legion Remix Guide for Legion Remix rare elites', href: '/guides/bronze-farming#rare-elites-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix hard mode setup', href: '/guides/getting-started#legion-remix-hard-mode' },
+    { label: 'Legion Remix Guide for Infinite Power upgrades', href: '/guides/getting-started#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix calculator usage', href: '/calculator' },
+    { label: 'Legion Remix Guide for Legion Remix a character with that name already exists error', href: '/faq#troubleshooting-and-performance' },
+    { label: 'Legion Remix Guide for Legion Remix druid flight form unlock', href: '/classes/druid' },
+    { label: 'Legion Remix Guide for Legion Remix DH build comparisons', href: '/classes/demon-hunter' },
+    { label: 'Legion Remix Guide for Legion Remix world quest unlocks', href: '/guides/getting-started#how-to-unlock-world-quests-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix lag troubleshooting on laptops', href: '#legion-remix-lag' },
+    { label: 'Legion Remix Guide for Legion Remix Violet Spellwing planning', href: '/guides/bronze-farming#achievement-targets-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix Bronze per hour benchmarks', href: '/guides/bronze-farming#time-investment-calculator' },
+    { label: 'Legion Remix Guide for Legion Remix Infinite Bazaar vendors', href: '/rewards' },
+    { label: 'Legion Remix Guide for Legion Remix Artifact path swaps', href: '/guides/getting-started#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix Mythic+ Turbo Boost weeks', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix Argus Eternal roadmap', href: '#phase-roadmap' },
+    { label: 'Legion Remix Guide for Legion Remix housing decor unlocks', href: '/rewards' },
+    { label: 'Legion Remix Guide for Legion Remix campaign boost prep', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix console achievements', href: '/guides/getting-started#legion-remix-hard-mode' },
+    { label: 'Legion Remix Guide for Legion Remix Bronze cache farming', href: '/guides/bronze-farming#bronze-collection-in-action' }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-950">
       {/* Hero Section */}
@@ -47,10 +80,10 @@ export default function Home() {
               <span className="text-gradient-fel">Legion Remix Guide</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-3 font-medium">
-              Complete Legion Remix Guide for World of Warcraft 2025 - Master Leveling, Bronze Farming & Class Selection
+              Plan your Timerunner from day one with this Legion Remix Guide—covering leveling routes, Bronze priorities, and class picks specifically tuned for the 2025 Legion Remix season.
             </p>
             <p className="text-lg text-green-400 font-semibold mb-6">
-              🔥 Skies of Fire • October 7, 2025 - January 19, 2026
+              🔥 Event Window: October 7, 2025 - January 19, 2026 • 15 weeks of Skies of Fire rewards
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Link
@@ -71,6 +104,57 @@ export default function Home() {
           {/* Countdown */}
           <div className="max-w-3xl mx-auto">
             <Countdown targetDate={eventDates.end} title="⏰ Event Ends In" />
+          </div>
+          <div className="mt-12 bg-gray-900/40 border border-gray-700 rounded-lg p-6" id="legion-remix-guide-checklist">
+            <h3 className="text-2xl font-semibold text-white mb-4">Top Starter Picks</h3>
+            <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-300">
+              <div>
+                <p className="text-green-400 font-semibold mb-2">Solo Progression</p>
+                <ul className="space-y-1">
+                  <li>Havoc Demon Hunter — mobility plus self-heal spikes keep Heroic mobs manageable.</li>
+                  <li>Beast Mastery Hunter — tank pets handle threat while you stay mobile and safe.</li>
+                  <li>Blood Death Knight — enormous self-sustain for Argus elites and campaign bosses.</li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-amber-300 font-semibold mb-2">Group Backbone</p>
+                <ul className="space-y-1">
+                  <li>Vengeance Demon Hunter — fast pulls, sigil control, and forgiving mitigation.</li>
+                  <li>Restoration Shaman — Totemic and Farseer hero talents cover every healing profile.</li>
+                  <li>Retribution Paladin — frequent burst cooldowns and Blessings for coordinated teams.</li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-blue-300 font-semibold mb-2">Heroic World Tier Ready</p>
+                <ul className="space-y-1">
+                  <li>Windwalker Monk — high mobility cleave to delete empowered packs before they stack.</li>
+                  <li>Balance Druid — ranged AoE with self-healing HoTs for the toughest pacing checks.</li>
+                  <li>Protection Paladin — instant queues and reliable cooldowns while farming Bronze.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
+            <h3 className="text-2xl font-semibold text-white mb-4">How to Use This Legion Remix Guide</h3>
+            <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
+              <div>
+                <p className="mb-3">Follow this Legion Remix Guide roadmap to stay ahead of weekly unlocks and trending problems surfaced in Google Search Console:</p>
+                <ul className="space-y-2">
+                  <li>➡️ Begin with the <Link href="/guides/getting-started" className="text-green-400 hover:text-green-300">Getting Started Legion Remix Guide</Link> to unlock world quests, Infinite Knowledge dailies, and hero talent access.</li>
+                  <li>➡️ Jump to the <Link href="/guides/leveling" className="text-green-400 hover:text-green-300">Legion Remix Leveling Guide</Link> for fastest-way-to-level routes, Heroic World Tier tips, and Havoc Demon Hunter builds.</li>
+                  <li>➡️ Track your cosmetics with the <Link href="/calculator" className="text-green-400 hover:text-green-300">Bronze Calculator</Link> while the <Link href="/guides/bronze-farming" className="text-green-400 hover:text-green-300">Bronze Farming Legion Remix Guide</Link> explains Infinite Power farms, Strange Humming Crystal loops, and rare elite circuits.</li>
+                </ul>
+              </div>
+              <div>
+                <p className="mb-3">Keep this Legion Remix Guide handy for troubleshooting:</p>
+                <ul className="space-y-2">
+                <li>⚙️ "Legion Remix lag" fixes and hardware tips are documented in the <Link href="#legion-remix-lag" className="text-green-400 hover:text-green-300">performance section</Link>.</li>
+                  <li>🆔 "A character with that name already exists" errors have a step-by-step resolution in our FAQ anchors.</li>
+                  <li>🧭 Need a spec? Use the <Link href="/classes" className="text-green-400 hover:text-green-300">Legion Remix Classes Guide</Link> to compare Havoc Demon Hunter, Brewmaster Monk, Subtlety Rogue, and more.</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -119,10 +203,10 @@ export default function Home() {
       <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-white text-center mb-4">
-            Essential Legion Remix Guide Features
+            Legion Remix Guide: Systems to Master
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            Master the new systems in our comprehensive legion remix guide. Learn infinite artifact weapons, heroic world tier mechanics, and infinite research quests to dominate the legion remix leveling guide experience and maximize your bronze farming efficiency.
+            Understand the pillars of Skies of Fire before you log in. This Legion Remix Guide explains Infinite Artifact scaling, Heroic World Tier toggles, Infinite Knowledge dailies, and the Bronze economy loops that power every character.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -141,8 +225,7 @@ export default function Home() {
                   ⚔️ Infinite Artifact Weapons
                 </h3>
                 <p className="text-gray-300 mb-4">
-                  All artifact weapons share a common trait tree in this legion remix guide system. Specialize in Nature, Fel, Arcane, Storm, or Holy Light.
-                  Mix and match schools using jewelry items, and respec anytime for ultimate flexibility!
+                  Every weapon now feeds a single infinite tree. Specialize in Nature, Fel, Arcane, Storm, or Holy Light, then pivot with jewelry traits when your group comp or content changes.
                 </p>
                 <ul className="space-y-2 text-gray-400 text-sm">
                   <li className="flex items-start">
@@ -176,7 +259,7 @@ export default function Home() {
                   🔥 Heroic World Tier
                 </h3>
                 <p className="text-gray-300 mb-4">
-                  Opt-in difficulty inspired by Diablo, covered extensively in our legion remix guide. Face Empowered enemies with unique buffs for greater Bronze and Infinite Power rewards.
+                  Opt-in challenge inspired by Diablo. Flip the console in the Infinite Bazaar to face Empowered enemies that pay out extra Bronze, Infinite Power, and XP when you survive the pressure.
                 </p>
                 <ul className="space-y-2 text-gray-400 text-sm">
                   <li className="flex items-start">
@@ -210,7 +293,7 @@ export default function Home() {
                   📚 Infinite Research
                 </h3>
                 <p className="text-gray-300 mb-4">
-                  Daily quest system with 100+ different research assignments. Bank up to 6 days worth of quests for flexible progression.
+                  Warband-wide daily research rotates through 100+ assignments. Bank up to six charges, then cash them in for Bronze, Infinite Power, and permanent XP boosts.
                 </p>
                 <ul className="space-y-2 text-gray-400 text-sm">
                   <li className="flex items-start">
@@ -267,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* Phase Roadmap */}
-      <section className="py-16 px-4 bg-gray-950/80">
+      <section className="py-16 px-4 bg-gray-950/80" id="phase-roadmap">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-4xl font-bold text-white mb-4">Phase Roadmap</h2>
@@ -353,7 +436,7 @@ export default function Home() {
             Complete Legion Remix Guide Resources
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            Navigate our complete legion remix guide collection. From the essential legion remix leveling guide to advanced legion remix bronze farming strategies, find everything you need to master legion remix best class selection and claim all legion remix rewards.
+            Jump straight to the playbook you need—onboarding checklists, sprint-to-80 plans, Bronze farming routes, or class deep dives.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -366,7 +449,7 @@ export default function Home() {
                 Legion Remix Guide - Start Here
               </h3>
               <p className="text-gray-400">
-                New to Legion Remix? This complete legion remix guide covers everything from basics to advanced strategies
+                New to Legion Remix? Walk through the intro scenario, account rules, Infinite Knowledge unlocks, and first-day priorities step by step in one consolidated Legion Remix Guide.
               </p>
             </Link>
 
@@ -379,7 +462,7 @@ export default function Home() {
                 Legion Remix Leveling Guide
               </h3>
               <p className="text-gray-400">
-                Our legion remix leveling guide provides the fastest path to level 80 with optimized strategies
+                Benchmarked splits for 10-25, 25-60, and 60-80 with dungeon picks, Turbo Boost timing, XP buffs, and fastest-way-to-level Legion Remix checklists.
               </p>
             </Link>
 
@@ -392,7 +475,7 @@ export default function Home() {
                 Legion Remix Bronze Farming
               </h3>
               <p className="text-gray-400">
-                Master legion remix bronze farming methods and maximize your bronze per hour earnings
+                Compare Bronze per hour across dungeons, world loops, Infinite Knowledge turn-ins, Strange Humming Crystal routes, and rare elite rotations.
               </p>
             </Link>
 
@@ -405,7 +488,7 @@ export default function Home() {
                 Legion Remix Rewards
               </h3>
               <p className="text-gray-400">
-                Complete catalog of legion remix rewards including mounts, pets, transmog, and toys
+                Filter every mount, pet, ensemble, and toy with live Bronze totals, Violet Spellwing requirements, and Argus Eternal highlights.
               </p>
             </Link>
 
@@ -444,7 +527,7 @@ export default function Home() {
                 Bronze Calculator
               </h3>
               <p className="text-gray-400">
-                Calculate bronze needed for your legion remix rewards wishlist with our planning tool
+                Build a wishlist, then see total Bronze plus estimated farm hours using top-tier Legion Remix Bronze farming methods.
               </p>
             </Link>
 
@@ -457,7 +540,7 @@ export default function Home() {
                 Legion Remix Best Class
               </h3>
               <p className="text-gray-400">
-                Find the legion remix best class for your playstyle with detailed specs, tips, and Fel mount guides
+                Compare all 12 classes with spec strengths, artifact picks, Fel mount unlock tips, and Legion Remix build notes for Havoc Demon Hunter, Brewmaster Monk, and Subtlety Rogue.
               </p>
             </Link>
           </div>
@@ -465,10 +548,10 @@ export default function Home() {
           {/* Classes Grid */}
           <div className="mt-16">
             <h2 className="text-3xl font-bold text-white text-center mb-4">
-              Legion Remix Best Class - Choose Your Path
+              Class Knowledge Base
             </h2>
             <p className="text-gray-400 text-center mb-8 max-w-3xl mx-auto">
-              Explore our detailed legion remix guide for each class to discover the legion remix best class for your preferred playstyle and goals.
+              Dive into curated notes for every class—artifact path priorities, standout specs, and Fel mount unlock requirements.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {classes.map((cls) => (
@@ -496,6 +579,61 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Troubleshooting Section */}
+      <section className="py-16 px-4 bg-gray-900/50" id="legion-remix-lag">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-6">Legion Remix Guide Troubleshooting Center</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gray-800 border border-blue-700/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-blue-300 mb-3">Legion Remix Lag Fixes</h3>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>Lower ground clutter and particle density before triggering Heroic World Tier events.</li>
+                <li>Disable heavy addons (Zygor Legion Remix, RareScanner) during Time Crisis objectives.</li>
+                <li>Switch to DirectX 11 legacy mode if frame drops spike inside Argus zones.</li>
+              </ul>
+            </div>
+            <div className="bg-gray-800 border border-green-700/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-green-300 mb-3">“A Character With That Name Already Exists”</h3>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>Log completely out of WoW, wait 60 seconds, then create the Timerunner again.</li>
+                <li>Delete stuck characters in the Legion Remix realm list; empty recycle bins after deletion.</li>
+                <li>Use unique suffixes (e.g., “-Remix”, “-DH”) to avoid global name reservations.</li>
+              </ul>
+            </div>
+            <div className="bg-gray-800 border border-purple-700/40 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-purple-300 mb-3">Console & Quest Issues</h3>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>Track <strong>Strange Humming Crystal</strong> timers with /event alerts to prevent Time Crisis: Failed.</li>
+                <li>Use the <Link href="/guides/getting-started#legion-remix-hard-mode" className="text-green-400 hover:text-green-300">Legion Remix Hard Mode guide</Link> before toggling Heroic difficulties.</li>
+                <li>Report persistent phasing bugs via the in-game support tool; reference the hard mode quest ID.</li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-gray-400 text-sm mt-6">Need more answers? Visit the <Link href="/faq#troubleshooting-and-performance" className="text-green-400 hover:text-green-300">Legion Remix FAQ troubleshooting section</Link> for detailed steps.</p>
+        </div>
+      </section>
+
+      {/* SEO Directory */}
+      <section className="py-16 px-4 bg-gray-950/70">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-6">Legion Remix Guide Directory</h2>
+          <p className="text-gray-300 text-center max-w-3xl mx-auto mb-8">
+            Use this Legion Remix Guide directory to jump straight to the content you need. Each entry links to a focused Legion Remix Guide for the query players are actively searching in October 2025.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-300">
+            {mainGuideDirectory.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

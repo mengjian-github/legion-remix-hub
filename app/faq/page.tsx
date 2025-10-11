@@ -155,6 +155,36 @@ const faqs = [
       },
     ],
   },
+  {
+    category: 'Troubleshooting and Performance',
+    questions: [
+      {
+        question: 'How do I fix Legion Remix lag?',
+        answer: 'Lower particle density and ground clutter, disable graphics-heavy addons such as Zygor Legion Remix during big pulls, and switch to DirectX 11 (Legacy) if Argus Eternal zones stutter. Group content benefits from limiting visual spell density via /console spellClutter 0.',
+      },
+      {
+        question: 'What should I do when “A character with that name already exists” appears?',
+        answer: 'Log completely out to the Battle.net launcher for 60 seconds, then delete any partially created Timerunners. If the name is globally reserved, add a suffix like “-Remix” or use accented characters. Blizzard clears stuck Legion Remix characters every 30 minutes.',
+      },
+      {
+        question: 'How can I avoid Time Crisis: Failed in Legion Remix hard mode?',
+        answer: 'Unlock Heroic World Tier only after your group can burst Empowered packs, bring mobility cooldowns (Havoc Demon Hunter Fel Rush, Windwalker Roll), and pre-clear routes with Strange Humming Crystal buffs. Failing the timer allows a retry after 10 minutes.',
+      },
+      {
+        question: 'Where do I farm Strange Humming Crystal in Legion Remix?',
+        answer: 'Crystals spawn in Suramar alleys, Krokuun caves, and Antoran Wastes invasion zones. Use the Legion Remix Bronze Farming Guide for loop maps, and coordinate with groupmates so everyone gains the haste and Bronze orbs.',
+      },
+    ],
+  },
+];
+
+const faqDirectory = [
+  { label: 'Legion Remix FAQ for Legion Remix lag fixes', href: '/faq#troubleshooting-and-performance' },
+  { label: 'Legion Remix FAQ for a character with that name already exists error', href: '/faq#troubleshooting-and-performance' },
+  { label: 'Legion Remix FAQ for Time Crisis failed resets', href: '/faq#troubleshooting-and-performance' },
+  { label: 'Legion Remix FAQ for Strange Humming Crystal farming', href: '/faq#bronze-farming' },
+  { label: 'Legion Remix FAQ for Infinite Knowledge tips', href: '/faq#leveling-%26-progression' },
+  { label: 'Legion Remix FAQ for Heroic World Tier preparation', href: '/faq#leveling-%26-progression' }
 ];
 
 export default function FAQPage() {
@@ -267,6 +297,24 @@ export default function FAQPage() {
             >
               Bronze Calculator
             </Link>
+          </div>
+        </div>
+
+        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mt-12">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix FAQ Directory</h2>
+          <p className="text-sm text-gray-300 mb-4">
+            Quick references for your team. Each tile represents a question answered in this Legion Remix FAQ.
+          </p>
+          <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
+            {faqDirectory.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

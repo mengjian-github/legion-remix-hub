@@ -23,11 +23,11 @@ export const classes: WowClass[] = [
   {
     id: 'warrior',
     name: 'Warrior',
-    description: 'A fierce melee combatant who uses rage to fuel devastating attacks.',
+    description: 'Plate bruiser that swaps between banner support, execute burst, and indomitable tanking.',
     specs: [
-      { name: 'Arms', role: 'DPS', description: 'Two-handed weapon specialist' },
-      { name: 'Fury', role: 'DPS', description: 'Dual-wielding berserker' },
-      { name: 'Protection', role: 'Tank', description: 'Stalwart defender' }
+      { name: 'Arms', role: 'DPS', description: 'Two-hander that bleeds foes before detonating execute windows' },
+      { name: 'Fury', role: 'DPS', description: 'Dual-wield berserker that sustains Enrage-fueled cleave' },
+      { name: 'Protection', role: 'Tank', description: 'Shield tank layering block chains and spell reflects' }
     ],
     primaryStat: 'Strength',
     armorType: 'Plate',
@@ -37,11 +37,11 @@ export const classes: WowClass[] = [
   {
     id: 'paladin',
     name: 'Paladin',
-    description: 'A holy warrior who wields the Light to protect allies and smite enemies.',
+    description: 'Holy crusader offering blessings, reactive heals, and plate-clad survivability in every role.',
     specs: [
-      { name: 'Holy', role: 'Healer', description: 'Light-powered healer' },
-      { name: 'Protection', role: 'Tank', description: 'Holy defender' },
-      { name: 'Retribution', role: 'DPS', description: 'Melee crusader' }
+      { name: 'Holy', role: 'Healer', description: 'Beacon-healing support with potent cooldown layering' },
+      { name: 'Protection', role: 'Tank', description: 'Block-centric tank that chains mitigation and group buffs' },
+      { name: 'Retribution', role: 'DPS', description: 'Explosive melee crusader built around Holy Power bursts' }
     ],
     primaryStat: 'Strength',
     armorType: 'Plate',
@@ -51,11 +51,11 @@ export const classes: WowClass[] = [
   {
     id: 'hunter',
     name: 'Hunter',
-    description: 'A master of ranged combat who hunts with faithful animal companions.',
+    description: 'Mobile marksman fighting shoulder-to-shoulder with loyal beasts, traps, and volleys.',
     specs: [
-      { name: 'Beast Mastery', role: 'DPS', description: 'Pet master' },
-      { name: 'Marksmanship', role: 'DPS', description: 'Precision sniper' },
-      { name: 'Survival', role: 'DPS', description: 'Melee tracker' }
+      { name: 'Beast Mastery', role: 'DPS', description: 'Hands-off pet general that keeps damage flowing while on the move' },
+      { name: 'Marksmanship', role: 'DPS', description: 'Precision sniper specializing in priority shots and volley cleave' },
+      { name: 'Survival', role: 'DPS', description: 'Melee tracker juggling bombs, bleeds, and pet utility' }
     ],
     primaryStat: 'Agility',
     armorType: 'Mail',
@@ -65,11 +65,11 @@ export const classes: WowClass[] = [
   {
     id: 'rogue',
     name: 'Rogue',
-    description: 'A stealthy assassin who strikes from the shadows with deadly precision.',
+    description: 'Stealth powerhouse swapping between poisons, blade flurries, and shadow magic.',
     specs: [
-      { name: 'Assassination', role: 'DPS', description: 'Poison and bleed specialist' },
-      { name: 'Outlaw', role: 'DPS', description: 'Swashbuckling pirate' },
-      { name: 'Subtlety', role: 'DPS', description: 'Shadow dancer' }
+      { name: 'Assassination', role: 'DPS', description: 'Poison bleeds that ramp DoT pressure on priority targets' },
+      { name: 'Outlaw', role: 'DPS', description: 'Swashbuckler with cooldown cycling and Blade Flurry cleave' },
+      { name: 'Subtlety', role: 'DPS', description: 'Shadow dancer striking from stealth windows for massive burst' }
     ],
     primaryStat: 'Agility',
     armorType: 'Leather',
@@ -79,11 +79,11 @@ export const classes: WowClass[] = [
   {
     id: 'priest',
     name: 'Priest',
-    description: 'A versatile spellcaster who can heal allies or assault minds.',
+    description: 'Cloth caster balancing radiant healing, preventive shields, and void-fueled damage.',
     specs: [
-      { name: 'Discipline', role: 'Healer', description: 'Preventive healer' },
-      { name: 'Holy', role: 'Healer', description: 'Traditional healer' },
-      { name: 'Shadow', role: 'DPS', description: 'Dark magic caster' }
+      { name: 'Discipline', role: 'Healer', description: 'Hybrid atonement healer that pairs damage with absorbs' },
+      { name: 'Holy', role: 'Healer', description: 'Classic throughput healer with powerful group cooldowns' },
+      { name: 'Shadow', role: 'DPS', description: 'Void caster ramping Insanity into Devouring Plague bursts' }
     ],
     primaryStat: 'Intellect',
     armorType: 'Cloth',
@@ -93,11 +93,11 @@ export const classes: WowClass[] = [
   {
     id: 'death-knight',
     name: 'Death Knight',
-    description: 'An undead warrior who commands dark magic and diseases.',
+    description: 'Runeblade juggernaut wielding necromantic magic, diseases, and self-healing.',
     specs: [
-      { name: 'Blood', role: 'Tank', description: 'Self-healing tank' },
-      { name: 'Frost', role: 'DPS', description: 'Dual-wield specialist' },
-      { name: 'Unholy', role: 'DPS', description: 'Disease and minion master' }
+      { name: 'Blood', role: 'Tank', description: 'Drain-tank with unmatched sustain and crowd control' },
+      { name: 'Frost', role: 'DPS', description: 'Dual-wield or two-hand striker spamming icy obliterates' },
+      { name: 'Unholy', role: 'DPS', description: 'Disease summoner commanding an undead army for burst windows' }
     ],
     primaryStat: 'Strength',
     armorType: 'Plate',
@@ -107,11 +107,11 @@ export const classes: WowClass[] = [
   {
     id: 'shaman',
     name: 'Shaman',
-    description: 'A spellcaster who channels the elements and ancestral spirits.',
+    description: 'Elemental conduit calling on storms, spirits, and totems for every encounter.',
     specs: [
-      { name: 'Elemental', role: 'DPS', description: 'Ranged elemental caster' },
-      { name: 'Enhancement', role: 'DPS', description: 'Melee shaman' },
-      { name: 'Restoration', role: 'Healer', description: 'Nature healer' }
+      { name: 'Elemental', role: 'DPS', description: 'Ranged nuker weaving lava bursts and earthquake cleave' },
+      { name: 'Enhancement', role: 'DPS', description: 'Dual-wield striker empowering weapons with elemental surges' },
+      { name: 'Restoration', role: 'Healer', description: 'Totemic healer flexing between proactive and reactive builds' }
     ],
     primaryStat: 'Intellect/Agility',
     armorType: 'Mail',
@@ -121,11 +121,11 @@ export const classes: WowClass[] = [
   {
     id: 'mage',
     name: 'Mage',
-    description: 'A powerful arcane spellcaster who manipulates fire, frost, and arcane magic.',
+    description: 'Arcane prodigy that manipulates time, firestorms, and freezing control.',
     specs: [
-      { name: 'Arcane', role: 'DPS', description: 'Pure magic specialist' },
-      { name: 'Fire', role: 'DPS', description: 'Combustion master' },
-      { name: 'Frost', role: 'DPS', description: 'Ice magic controller' }
+      { name: 'Arcane', role: 'DPS', description: 'Mana management spec with huge burst windows and mobility tricks' },
+      { name: 'Fire', role: 'DPS', description: 'Combustion specialist chaining crits into phoenix flames' },
+      { name: 'Frost', role: 'DPS', description: 'Control mage with consistent cleave and icy slows' }
     ],
     primaryStat: 'Intellect',
     armorType: 'Cloth',
@@ -135,11 +135,11 @@ export const classes: WowClass[] = [
   {
     id: 'warlock',
     name: 'Warlock',
-    description: 'A dark spellcaster who wields fel magic and commands demons.',
+    description: 'Fel spellcaster commanding demons, curses, and reality-bending chaos magic.',
     specs: [
-      { name: 'Affliction', role: 'DPS', description: 'DoT specialist' },
-      { name: 'Demonology', role: 'DPS', description: 'Demon summoner' },
-      { name: 'Destruction', role: 'DPS', description: 'Chaos bolt caster' }
+      { name: 'Affliction', role: 'DPS', description: 'Damage-over-time master spreading rot across packs' },
+      { name: 'Demonology', role: 'DPS', description: 'Commander of a demon swarm with implosion burst' },
+      { name: 'Destruction', role: 'DPS', description: 'Chaos Bolt turret launching devastating nukes' }
     ],
     primaryStat: 'Intellect',
     armorType: 'Cloth',
@@ -149,11 +149,11 @@ export const classes: WowClass[] = [
   {
     id: 'monk',
     name: 'Monk',
-    description: 'A martial artist who harnesses chi energy in combat.',
+    description: 'Agile martial artist weaving chi-fueled strikes, brews, and healing mists.',
     specs: [
-      { name: 'Brewmaster', role: 'Tank', description: 'Drunken brawler tank' },
-      { name: 'Mistweaver', role: 'Healer', description: 'Mist healer' },
-      { name: 'Windwalker', role: 'DPS', description: 'Melee striker' }
+      { name: 'Brewmaster', role: 'Tank', description: 'Stagger tank smoothing damage with elusive brews' },
+      { name: 'Mistweaver', role: 'Healer', description: 'Mobile healer mixing enveloping mists and melee punches' },
+      { name: 'Windwalker', role: 'DPS', description: 'Combo-driven striker with exceptional mobility and AoE' }
     ],
     primaryStat: 'Agility/Intellect',
     armorType: 'Leather',
@@ -163,12 +163,12 @@ export const classes: WowClass[] = [
   {
     id: 'druid',
     name: 'Druid',
-    description: 'A shapeshifter who takes on different forms to fulfill various roles.',
+    description: 'Shape-shifting guardian attuned to moonfire, claws, bear hide, and soothing growth.',
     specs: [
-      { name: 'Balance', role: 'DPS', description: 'Ranged nature caster' },
-      { name: 'Feral', role: 'DPS', description: 'Melee cat form' },
-      { name: 'Guardian', role: 'Tank', description: 'Bear tank' },
-      { name: 'Restoration', role: 'Healer', description: 'HoT healer' }
+      { name: 'Balance', role: 'DPS', description: 'Eclipse caster with strong AoE and mobility through shapeshifts' },
+      { name: 'Feral', role: 'DPS', description: 'Bleed-focused cat weaving combo points and high mobility' },
+      { name: 'Guardian', role: 'Tank', description: 'Bear tank with massive health and Frenzied Regen uptime' },
+      { name: 'Restoration', role: 'Healer', description: 'Heal-over-time specialist layering HoTs and cooldowns' }
     ],
     primaryStat: 'Intellect/Agility',
     armorType: 'Leather',
@@ -178,10 +178,10 @@ export const classes: WowClass[] = [
   {
     id: 'demon-hunter',
     name: 'Demon Hunter',
-    description: 'An agile melee fighter who sacrificed their sight for demonic power.',
+    description: 'Illidari avenger with double-jump mobility and fel-charged aggression.',
     specs: [
-      { name: 'Havoc', role: 'DPS', description: 'Agile demon slayer' },
-      { name: 'Vengeance', role: 'Tank', description: 'Demonic tank' }
+      { name: 'Havoc', role: 'DPS', description: 'Acrobatic melee DPS with Eye Beam burst and constant movement' },
+      { name: 'Vengeance', role: 'Tank', description: 'Self-healing tank leveraging soul fragments and fiery brands' }
     ],
     primaryStat: 'Agility',
     armorType: 'Leather',
