@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { getClassSpecs } from '@/data/specs';
 
 export async function generateStaticParams() {
   return classes.map((cls) => ({
@@ -12,9 +13,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  { params }: { params: { classId: string } },
+  { params }: { params: Promise<{ classId: string }> },
 ): Promise<Metadata> {
-  const { classId } = params;
+  const { classId } = await params;
   const classData = classes.find((c) => c.id === classId);
 
   if (!classData) {
@@ -35,9 +36,10 @@ export async function generateMetadata(
   };
 }
 
-export default function ClassPage({ params }: { params: { classId: string } }) {
-  const { classId } = params;
+export default async function ClassPage({ params }: { params: Promise<{ classId: string }> }) {
+  const { classId } = await params;
   const classData = classes.find((c) => c.id === classId);
+  const classSpecs = getClassSpecs(classId);
 
   if (!classData) {
     notFound();
@@ -87,24 +89,47 @@ export default function ClassPage({ params }: { params: { classId: string } }) {
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-white mb-6">Specializations</h2>
               <div className="space-y-4">
-                {classData.specs.map((spec) => (
-                  <div
-                    key={spec.name}
-                    className="bg-gray-750 border border-gray-600 rounded-lg p-4"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xl font-semibold text-white">{spec.name}</h3>
-                      <span className={`px-3 py-1 rounded text-sm font-medium ${
-                        spec.role === 'Tank' ? 'bg-blue-600 text-white' :
-                        spec.role === 'Healer' ? 'bg-green-600 text-white' :
-                        'bg-red-600 text-white'
-                      }`}>
-                        {spec.role}
-                      </span>
+                {classData.specs.map((spec) => {
+                  const specSlug = spec.name.toLowerCase().replace(/\s+/g, '-');
+                  const hasDetailedGuide = classSpecs.some(s => s.specName === spec.name);
+
+                  return (
+                    <div
+                      key={spec.name}
+                      className="bg-gray-750 border border-gray-600 rounded-lg p-4 hover:border-green-500 transition-colors"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-xl font-semibold text-white">{spec.name}</h3>
+                          {hasDetailedGuide && (
+                            <span className="px-2 py-0.5 bg-green-600 text-white text-xs rounded font-semibold">
+                              Detailed Guide Available
+                            </span>
+                          )}
+                        </div>
+                        <span className={`px-3 py-1 rounded text-sm font-medium ${
+                          spec.role === 'Tank' ? 'bg-blue-600 text-white' :
+                          spec.role === 'Healer' ? 'bg-green-600 text-white' :
+                          'bg-red-600 text-white'
+                        }`}>
+                          {spec.role}
+                        </span>
+                      </div>
+                      <p className="text-gray-400 mb-3">{spec.description}</p>
+                      {hasDetailedGuide && (
+                        <Link
+                          href={`/classes/${classId}/${specSlug}`}
+                          className="inline-flex items-center text-green-400 hover:text-green-300 text-sm font-semibold"
+                        >
+                          View {spec.name} Guide
+                          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      )}
                     </div>
-                    <p className="text-gray-400">{spec.description}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
