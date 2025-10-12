@@ -118,6 +118,15 @@ export default function ClassesPage() {
             <li>✅ <Link href="/classes/rogue/subtlety" className="text-green-400 hover:text-green-300">Subtlety Rogue Legion Remix Guide</Link> with openers for Time Crisis and hard mode.
             </li>
           </ul>
+          <p className="text-sm text-gray-300 mt-4">
+            Our Legion Remix Demon Hunter guide bundle now ships with fresh Havoc burst windows and a Legion Remix Vengeance Demon Hunter mitigation planner, so you can reference a single legion remix demon hunter guide whether you are DPSing keys or tanking raids.
+          </p>
+        </div>
+
+        <div className="bg-gray-900/40 border border-green-700/40 rounded-lg p-6 mb-10">
+          <p className="text-sm text-gray-300">
+            Looking for a WoW Legion Remix Paladin guide or a WoW Legion Remix paladin build refresher? This matrix also spotlights every WoW Legion Remix warlock guide update for WoW Legion Remix warlock players, plus a quick Legion Remix DPS tier snapshot so you can see how each Legion Remix DPS spec lines up on the current Legion Remix roadmap before you swap mains.
+          </p>
         </div>
 
         {/* Role Filter Info */}

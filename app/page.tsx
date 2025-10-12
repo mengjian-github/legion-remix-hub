@@ -23,6 +23,8 @@ export default function Home() {
     { label: 'Legion Remix Guide for Brewmaster Monk hard mode', href: '/classes/monk/brewmaster' },
     { label: 'Legion Remix Guide for Subtlety Rogue rotations', href: '/classes/rogue/subtlety' },
     { label: 'Legion Remix Guide for Protection Paladin tanks', href: '/classes/paladin/protection' },
+    { label: 'Holy Paladin Legion Remix guide for raid healing', href: '/classes/paladin/holy' },
+    { label: 'Legion Remix Holy Paladin guide for Mythic+ sustain', href: '/classes/paladin/holy' },
     { label: 'Legion Remix Guide for Zygor addon alternatives', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Guide for fastest leveling paths', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix lag fixes', href: '#legion-remix-lag' },
@@ -46,7 +48,10 @@ export default function Home() {
     { label: 'Legion Remix Guide for Legion Remix housing decor unlocks', href: '/rewards' },
     { label: 'Legion Remix Guide for Legion Remix campaign boost prep', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix console achievements', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Guide for Legion Remix Bronze cache farming', href: '/guides/bronze-farming#bronze-collection-in-action' }
+    { label: 'Legion Remix Guide for Legion Remix Bronze cache farming', href: '/guides/bronze-farming#bronze-collection-in-action' },
+    { label: 'Warlock Legion Remix guide for Destruction burst', href: '/classes/warlock/destruction' },
+    { label: 'Legion Remix Warlock guide for Affliction DoTs', href: '/classes/warlock/affliction' },
+    { label: 'Legion Remix guide for Demonology Warlock tyrant setups', href: '/classes/warlock/demonology' }
   ];
 
   return (

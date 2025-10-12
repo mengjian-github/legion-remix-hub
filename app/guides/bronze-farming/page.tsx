@@ -41,7 +41,7 @@ export default function BronzeFarmingPage() {
         <article className="prose prose-invert prose-lg max-w-none">
           <h1 className="text-4xl font-bold text-white mb-6">Legion Remix Bronze Farming Guide</h1>
           <p className="text-gray-300 mb-4">
-            This Legion Remix Bronze guide aggregates the most efficient Legion Remix Bronze routes—Infinite Knowledge turn-ins, Strange Humming Crystal loops, rare elite trains, and Turbo Boost dungeon sprees—so your Legion Remix Bronze planning hits every wishlist milestone before January 19, 2026.
+            This Legion Remix Bronze guide aggregates the most efficient Legion Remix Bronze routes—Infinite Knowledge turn-ins, Strange Humming Crystal loops, rare elite trains, and Turbo Boost dungeon sprees—so your Legion Remix Bronze planning hits every wishlist milestone before January 19, 2026. Whenever possible, tether these loops to a Legion Remix infinite power farm so Artifactum Sand, Infinite Research, and Bronze gains spike together.
           </p>
 
           <div className="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 border border-yellow-700/50 rounded-lg p-6 mb-8">
@@ -202,7 +202,7 @@ export default function BronzeFarmingPage() {
           <div className="bg-gray-900/40 border border-red-700/40 rounded-lg p-6 mb-8" id="rare-elites-legion-remix">
             <h2 className="text-2xl font-bold text-white mb-3">Legion Remix Rare Elite Circuit</h2>
             <p className="text-gray-300 mb-3">
-              Rare elites are surging in search trends. Combine these loops with your Bronze grind to capitalize on guaranteed drops and Strange Humming Crystal spawns.
+              Rare elites are surging in search trends. Combine these loops with your Bronze grind to capitalize on guaranteed drops and Strange Humming Crystal spawns—each Legion Remix rare elite drops at least 400 Bronze plus a shot at Infinite Knowledge packets.
             </p>
             <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
               <li><strong>Broken Shore sweep:</strong> Start at Deliverance Point, rotate clockwise, use <em>Legionfall Commander</em> mission table boosts.</li>

@@ -52,6 +52,14 @@ const faqs = [
         question: 'What are Infinite Artifact Weapons?',
         answer: 'Unlike original Legion, all artifact weapons now share one unified trait tree powered by Infinite magic. You specialize in 5 schools (Nature, Fel, Arcane, Storm, Holy Light) and upgrade with Artifactum Sand. There\'s no power cap - you can keep upgrading infinitely!',
       },
+      {
+        question: 'How do WoW Legion Remix world quests work?',
+        answer: 'WoW Legion Remix world quests unlock after you complete “Uniting the Isles” and reach Friendly with the five core factions. Once active, WoW Legion Remix world quests pay 200 Bronze, Strange Humming Crystals, and Infinite Knowledge tokens—prioritize Challiane Vineyards, Withered Army Training, and Argus assault hubs for the fastest rotations.',
+      },
+      {
+        question: 'How do I farm WoW Legion Remix Infinite Knowledge quickly?',
+        answer: 'Stack Infinite Research Legion Remix dailies, clear Argus rare trains, and hand in world quests during Turbo Boost windows. Chromie now highlights “gold” objectives worth 1,000 Bronze plus WoW Legion Remix Infinite Knowledge packets, so bank six quests and finish them during your Legion Remix infinite power farm route.',
+      },
     ],
   },
   {
@@ -72,6 +80,14 @@ const faqs = [
       {
         question: 'Do Bronze rewards carry over to my main account?',
         answer: 'Yes! All cosmetic rewards (mounts, pets, transmogs, toys, housing decor) are account-wide and transfer to your main Warband. Bronze currency itself does NOT transfer - it stays with your Timerunner character.',
+      },
+      {
+        question: 'What is the best Legion Remix infinite power farm?',
+        answer: 'Chain Krokuun invasion points, Antoran Wastes rares, and the Seat of the Triumvirate dungeon while Heroic World Tier is active. This Legion Remix infinite power farm produces Artifactum Sand, WoW Legion Remix Infinite Knowledge packets, and 12,000+ Bronze per hour when paired with Infinite Research Legion Remix dailies.',
+      },
+      {
+        question: 'How do I get the Torn Invitation Legion Remix fox mount?',
+        answer: 'Complete Suramar emissaries and Withered Army Training for a chance at the Torn Invitation Legion Remix letter. Turn it in at the Insurrection quest hub, finish “Just Between Us” and “Lock, Stock, and Two Smoking Goblins,” then spend 10,000 Bronze during A Noble Event to claim the fox mount recolor.',
       },
     ],
   },
@@ -159,16 +175,16 @@ const faqs = [
     category: 'Troubleshooting and Performance',
     questions: [
       {
-        question: 'How do I fix Legion Remix lag?',
-        answer: 'Lower particle density and ground clutter, disable graphics-heavy addons such as Zygor Legion Remix during big pulls, and switch to DirectX 11 (Legacy) if Argus Eternal zones stutter. Group content benefits from limiting visual spell density via /console spellClutter 0.',
+        question: 'How do I fix WoW Legion Remix lag?',
+        answer: 'Lower particle density and ground clutter, disable graphics-heavy addons such as Zygor Legion Remix during big pulls, and switch to DirectX 11 (Legacy) if Argus Eternal zones stutter. For persistent WoW Legion Remix lag, cap foreground FPS, pre-load textures in Dalaran, and limit spell density via /console spellClutter 0 before entering raids.',
       },
       {
-        question: 'What should I do when “A character with that name already exists” appears?',
-        answer: 'Log completely out to the Battle.net launcher for 60 seconds, then delete any partially created Timerunners. If the name is globally reserved, add a suffix like “-Remix” or use accented characters. Blizzard clears stuck Legion Remix characters every 30 minutes.',
+        question: 'What should I do when the WoW Legion Remix “A character with that name already exists” error appears?',
+        answer: 'Log completely out to the Battle.net launcher for 60 seconds, then delete any partially created Timerunners. If the name is globally reserved, add a suffix like “-Remix” or use accented characters. Blizzard clears stuck Legion Remix characters every 30 minutes, so the WoW Legion Remix a character with that name already exists error usually resolves quickly.',
       },
       {
-        question: 'How can I avoid Time Crisis: Failed in Legion Remix hard mode?',
-        answer: 'Unlock Heroic World Tier only after your group can burst Empowered packs, bring mobility cooldowns (Havoc Demon Hunter Fel Rush, Windwalker Roll), and pre-clear routes with Strange Humming Crystal buffs. Failing the timer allows a retry after 10 minutes.',
+        question: 'How can I avoid the Legion Remix Time Crisis failed message?',
+        answer: 'Unlock Heroic World Tier only after your group can burst Empowered packs, bring mobility cooldowns (Havoc Demon Hunter Fel Rush, Windwalker Roll), and pre-clear routes with Strange Humming Crystal buffs. If the Legion Remix Time Crisis failed warning still appears, reset the console, wait 10 minutes, and drop difficulty for one run to stabilize timers.',
       },
       {
         question: 'Where do I farm Strange Humming Crystal in Legion Remix?',
@@ -179,11 +195,14 @@ const faqs = [
 ];
 
 const faqDirectory = [
-  { label: 'Legion Remix FAQ for Legion Remix lag fixes', href: '/faq#troubleshooting-and-performance' },
+  { label: 'Legion Remix FAQ for WoW Legion Remix lag fixes', href: '/faq#troubleshooting-and-performance' },
   { label: 'Legion Remix FAQ for a character with that name already exists error', href: '/faq#troubleshooting-and-performance' },
   { label: 'Legion Remix FAQ for Time Crisis failed resets', href: '/faq#troubleshooting-and-performance' },
   { label: 'Legion Remix FAQ for Strange Humming Crystal farming', href: '/faq#bronze-farming' },
+  { label: 'Legion Remix FAQ for Legion Remix infinite power farm routes', href: '/faq#bronze-farming' },
+  { label: 'Legion Remix FAQ for Torn Invitation Legion Remix mount', href: '/faq#bronze-farming' },
   { label: 'Legion Remix FAQ for Infinite Knowledge tips', href: '/faq#leveling-%26-progression' },
+  { label: 'Legion Remix FAQ for WoW Legion Remix world quests', href: '/faq#leveling-%26-progression' },
   { label: 'Legion Remix FAQ for Heroic World Tier preparation', href: '/faq#leveling-%26-progression' }
 ];
 

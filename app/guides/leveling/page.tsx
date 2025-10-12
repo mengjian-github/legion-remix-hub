@@ -65,6 +65,18 @@ export default function LevelingGuidePage() {
             <li><strong>Group Players:</strong> Chain dungeons with premade groups</li>
           </ul>
 
+          <div className="bg-gray-900/40 border border-green-700/40 rounded-lg p-6 mb-8" id="legion-remix-demon-hunter-guide">
+            <h3 className="text-xl font-semibold text-green-400 mb-3">Legion Remix Demon Hunter Guide Spotlight</h3>
+            <p className="text-gray-300 mb-3">
+              Havoc remains the poster child for the Legion Remix demon hunter guide thanks to Eye Beam cleave, while the Legion Remix Vengeance Demon Hunter toolkit now scales into +20 keys with Spirit Bomb sustain. Use this quick primer before respeccing: 
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+              <li><strong>Momentum Havoc:</strong> Rush between pulls with Fel Rush, then convert Legion Remix infinite power farm procs into Chaos Strike bursts.</li>
+              <li><strong>Legion Remix Vengeance Demon Hunter:</strong> Pair Fiery Brand with Sigil of Silence to control empowered packs; Sigil macros keep Vengeance DH Legion Remix dungeon runs smooth.</li>
+              <li><strong>Talent Planning:</strong> Bookmark the classes hub for weekly Legion Remix talent builds covering both Havoc and Vengeance hero talent swaps.</li>
+            </ul>
+          </div>
+
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">XP Multipliers & Bonuses</h2>
           <div className="space-y-4 mb-8">
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">

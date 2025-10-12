@@ -223,8 +223,26 @@ export default function GettingStartedPage() {
               <li>Reach Friendly with the Nightfallen, Highmountain Tribe, Valarjar, Dreamweavers, and Court of Farondis—Heroic World Tier bonuses accelerate this rep grind.</li>
               <li>Turn in the quest at the Violet Citadel to unlock Legion Remix world quests for your Timerunner and all alts.</li>
             </ol>
+            <p className="text-gray-300 mb-3">
+              This WoW Legion Remix world quests route flows through Suramar; bookmark Challiane Vineyards right after you open Shal&apos;Aran so you can farm Strange Humming Crystals and rep tokens while clearing elite patrols.
+            </p>
             <p className="text-gray-400 text-sm">
               For a detailed rep route, jump to the <Link href="/guides/leveling#world-quest-route" className="text-green-400 hover:text-green-300">Legion Remix Leveling Guide world quest section</Link>.
+            </p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-green-700/40 rounded-lg p-6 mb-8" id="infinite-research-legion-remix">
+            <h3 className="text-xl font-semibold text-green-400 mb-3">Infinite Research Legion Remix Planner</h3>
+            <p className="text-gray-300 mb-3">
+              Treat every Infinite Research Legion Remix assignment as part of your daily power budget. Bank six quests, then detonate them alongside dungeon clears so the Infinite Research Legion Remix buffs overlap with your Legion Remix infinite power farm rotation.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300 mb-3">
+              <li>Track objectives with a WoW Legion Remix Infinite Knowledge sheet—Chromie now flags 1,000 Bronze quests in gold.</li>
+              <li>Pair emissary hand-ins with Argus rares to convert the Infinite Research Legion Remix XP buff into double Bronze payouts.</li>
+              <li>Rotate to Krokuun on Turbo Boost weeks; the Legion Remix infinite power farm there lines up perfectly with raid kill assignments.</li>
+            </ul>
+            <p className="text-gray-400 text-sm">
+              Need the exact numbers? The <Link href="/guides/bronze-farming#infinite-knowledge-legion-remix" className="text-green-400 hover:text-green-300">Bronze Farming Guide</Link> breaks down how Infinite Research Legion Remix quests funnel into Strange Humming Crystals and Infinite Power.
             </p>
           </div>
 
@@ -237,9 +255,29 @@ export default function GettingStartedPage() {
               <li>Always clear Empowered packs before clicking objectives—Engorged enemies chain explode.</li>
               <li>Carry mobility potions or the <strong>Strange Humming Crystal</strong> buff to outrun console timers.</li>
               <li>Toggle Heroic World Tier off temporarily if performance drops or groups are under-geared.</li>
+              <li>Use defensive cooldowns when Legion Remix empowered enemies roll Imperious or Beacon combos; the buffs stack harder than standard Mythic dungeons.</li>
             </ul>
             <p className="text-gray-400 text-sm">
-              Stuck on a failure? Our <Link href="/faq#time-crisis-failed" className="text-green-400 hover:text-green-300">Legion Remix FAQ</Link> covers reset timers and weekly limits.
+              Stuck on a failure? If the Legion Remix Time Crisis failed warning keeps popping up, our <Link href="/faq#time-crisis-failed" className="text-green-400 hover:text-green-300">Legion Remix FAQ</Link> covers reset timers and weekly limits.
+            </p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-yellow-700/40 rounded-lg p-6 mb-8" id="torn-invitation-legion-remix">
+            <h3 className="text-xl font-semibold text-yellow-400 mb-3">Trending Legion Remix Quest Targets</h3>
+            <p className="text-gray-300 mb-3">
+              Weekly hotfixes keep pushing classic campaign beats back into the spotlight. Use this checklist to sync your achievements, mounts, and Legion Remix talent builds with the latest Google Trends spikes:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300 mb-3">
+              <li><strong>Torn Invitation Legion Remix:</strong> Complete Suramar emissaries and Withered Army Training to mail yourself the fox mount letter, then spend Bronze for the recolor once you reach level 80.</li>
+              <li><strong>Just Between Us Legion Remix:</strong> Finish Stellagosa&apos;s Azsuna arc for bonus WoW Legion Remix Infinite Knowledge tokens before diving into Eye of Azshara keys.</li>
+              <li><strong>Lock, Stock, and Two Smoking Goblins Legion Remix:</strong> Stack this Stormheim quest with Wyrmtongue cache runs during Turbo Boost weeks for 2,500+ Bronze loops.</li>
+              <li><strong>To Fel and Back Legion Remix:</strong> Cap the Argus campaign and Heroic World Tier challenge so the achievement, Felscorched mount, and Time Crisis credit unlock together.</li>
+              <li><strong>A Noble Event Legion Remix:</strong> Budget 10,000 Bronze for the micro-holiday vendor that appears every other Friday in Dalaran.</li>
+              <li><strong>Challiane Vineyards Legion Remix:</strong> Park a gathering alt here during Suramar assaults—world quests award Strange Humming Crystals and 600 Bronze per clear.</li>
+              <li><strong>WoW Infinite Research Fel Skies:</strong> When Phase 5 hits, pop your banked quests during Fel Skies to stack Infinite Knowledge and Artifactum Sand together.</li>
+            </ul>
+            <p className="text-gray-400 text-sm">
+              Finish the checklist, then hop to the <Link href="/classes" className="text-green-400 hover:text-green-300">classes hub</Link> to lock in Legion Remix talent builds for your next Timerunner.
             </p>
           </div>
 

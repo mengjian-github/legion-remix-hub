@@ -89,7 +89,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'paladin',
     specName: 'Holy',
     role: 'Healer',
-    metaDescription: 'Complete Holy Paladin guide for Legion Remix. Learn the best Arcane artifact path, optimal talents, stat priorities, and leveling strategies to dominate as a healer in Legion Remix 2025.',
+    metaDescription: 'Holy Paladin Legion Remix guide covering the best Arcane artifact path, optimal talents, stat priorities, and leveling strategies—your quick Legion Remix Holy Paladin build overview and Legion Remix paladin guide starting point.',
 
     bestArtifactPath: 'arcane',
     alternateArtifactPaths: [
@@ -153,7 +153,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'paladin',
     specName: 'Protection',
     role: 'Tank',
-    metaDescription: 'Master Protection Paladin in Legion Remix with our comprehensive guide. Discover the best Fel artifact path, tanking talents, stat priorities, and strategies for dungeons, raids, and solo content.',
+    metaDescription: 'Protection Paladin Legion Remix guide detailing the best Fel artifact path, tanking talents, stat priorities, and strategies for dungeons, raids, and solo content with a Legion Remix Prot Paladin guide focus.',
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -217,7 +217,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'paladin',
     specName: 'Retribution',
     role: 'DPS',
-    metaDescription: 'Comprehensive Retribution Paladin guide for Legion Remix. Learn the best Fel artifact path, top DPS talents, stat priorities, and dominate both solo and group content in Legion Remix.',
+    metaDescription: 'Retribution Paladin Legion Remix guide outlining the best Fel artifact path, top DPS talents, stat priorities, and ways to dominate both solo and group content—use this Legion Remix Paladin guide slice to plan your burst windows.',
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -275,6 +275,328 @@ export const specGuides: SpecGuide[] = [
     },
 
     groupTier: 'A',
+    soloTier: 'S',
+    heroicWorldTier: true
+  },
+
+  // WARLOCK SPECS
+  {
+    classId: 'warlock',
+    specName: 'Affliction',
+    role: 'DPS',
+    metaDescription: 'Affliction Warlock Legion Remix guide focusing on multi-target DoTs, the best Storm artifact path, stat priorities, and tips to excel in The War Within 11.2.5 event—an all-in-one warlock remix guide for DoT lovers.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Pairs huge DoT ramps with Twisted Crusade burn phases' },
+      { pathId: 'nature', reason: 'Adds sustain and crowd control while leveling solo' }
+    ],
+
+    recommendedTraits: ['Volatile Magics', 'Terror from Below', 'Touch of Malice'],
+
+    statPriority: [
+      'Intellect',
+      'Haste',
+      'Mastery',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Spread Agony and Corruption on every pull to keep Soul Shard income flowing',
+      'Use Phantom Singularity or Vile Taint to delete stacked Legion Remix packs',
+      'Drain Life spam with multiple DoTs active provides incredible self-healing',
+      'Maintain Unstable Affliction on priority targets for burst windows',
+      'Take Heroic World Tier with a tank pet for 500% XP and Bronze bonuses',
+      'Prioritize relics with haste to smooth DoT refresh and Soul Shard spenders'
+    ],
+
+    rotationOverview: {
+      title: 'Affliction Warlock Legion Remix Priority',
+      priority: [
+        'Keep Agony, Corruption, and Unstable Affliction active on all targets',
+        'Seed of Corruption for 3+ targets to spread Corruption instantly',
+        'Refresh Haunt or Soul Rot during burst windows',
+        'Malefic Rapture as primary Soul Shard spender',
+        'Maintain Phantom Singularity/Vile Taint cooldown usage',
+        'Drain Soul or Shadow Bolt as filler when nothing else is available'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Upgrade Artifact Weapon to unlock Tempest Wrath haste scaling',
+      '2. Buy high item level intellect gear and trinkets',
+      '3. Secure tier set pieces for empowered DoT snapshots',
+      '4. Purchase the Felscorched Dreadsteed mount at level 80 (FREE first unlock)',
+      '5. Stockpile Bronze for class transmog appearances',
+      '6. Pick up toys and cosmetic spell effects for alt characters'
+    ],
+
+    builds: {
+      leveling: 'Storm path build that front-loads DoTs with big Phantom Singularity detonations',
+      openWorld: 'Sustain-heavy build with Drain Life talents and a Voidwalker tank',
+      mythicPlus: 'Seed of Corruption spam with Storm path haste stacking',
+      raid: 'Single-target Soul Rot and Malefic Rapture optimization'
+    },
+
+    groupTier: 'A',
+    soloTier: 'S',
+    heroicWorldTier: true
+  },
+
+  {
+    classId: 'warlock',
+    specName: 'Demonology',
+    role: 'DPS',
+    metaDescription: 'Demonology Warlock Legion Remix guide highlighting the best Fel artifact path, demonic army builds, stat priorities, and Bronze spending for Patch 11.2.5, rounding out our Legion Remix warlock build playbook.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Storm path supercharges Implosion cleave in dungeons' },
+      { pathId: 'arcane', reason: 'Arcane path rewards precise Tyrant setups with defensive shielding' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Volatile Magics'],
+
+    statPriority: [
+      'Intellect',
+      'Mastery',
+      'Haste',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Summon Vilefiend and Grimoire: Felguard on cooldown for large burst packs',
+      'Implosion your Wild Imps at 4+ stacks to vaporize Remix trash mobs',
+      'Use Felguard\'s Axe Toss to interrupt dangerous legion casters',
+      'Demonic Consumption Tyrant builds obliterate Timewalking bosses',
+      'Queue Heroic World Tier dungeons for instant Bronze farming',
+      'Prioritize mastery gear to scale pet damage and Tyrant windows'
+    ],
+
+    rotationOverview: {
+      title: 'Demonology Warlock Legion Remix Priority',
+      priority: [
+        'Maintain Doom Brand with Hand of Gul\'dan casts',
+        'Summon Vilefiend and Grimoire: Felguard before Tyrant',
+        'Dreadstalkers on cooldown for Demonic Core procs',
+        'Implosion when Wild Imps reach 4+ stacks or mobs are about to die',
+        'Summon Demonic Tyrant aligned with Twisted Crusade burn windows',
+        'Shadow Bolt or Demonbolt as filler to generate shards'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Max the Fel artifact path to supercharge Tyrant damage',
+      '2. Acquire high item level weapons and mastery trinkets',
+      '3. Complete tier sets for demon army amplification',
+      '4. Unlock the Felscorched Dreadsteed at level 80 for free',
+      '5. Purchase demonic-themed transmog ensembles',
+      '6. Bank Bronze for alt unlocks and housing cosmetics'
+    ],
+
+    builds: {
+      leveling: 'Fel path with Implosion talents for explosive questing',
+      openWorld: 'Balanced build with survivability and demon sustain',
+      mythicPlus: 'Storm path cleave build focused on Implosion and AoE Tyrant',
+      raid: 'Single-target Tyrant build with precise cooldown stacking'
+    },
+
+    groupTier: 'S',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+
+  {
+    classId: 'warlock',
+    specName: 'Destruction',
+    role: 'DPS',
+    metaDescription: 'Destruction Warlock Legion Remix guide updated for Patch 11.2.5 covering the best Fel artifact path, Chaos Bolt builds, stat priorities, and Bronze spending tips—the go-to Legion Remix warlock talents snapshot for turret players.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Storm path excels at Inferno and Rain of Fire dungeon pulls' },
+      { pathId: 'arcane', reason: 'Arcane path shields turret casting during heavy mechanics' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Volatile Magics'],
+
+    statPriority: [
+      'Intellect',
+      'Haste',
+      'Critical Strike',
+      'Mastery',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Use Cataclysm to apply Immolate to entire packs before channeling Rain of Fire',
+      'Backdraft from Conflagrate keeps Chaos Bolt casts fast even while soloing',
+      'Havoc + Chaos Bolt deletes Remix rares during split phases',
+      'Carry healthstones and make use of Soul Leech for passive absorbs',
+      'Heroic World Tier dungeons are efficient thanks to massive AoE potential',
+      'Prioritize haste gear to smooth shard generation and channel times'
+    ],
+
+    rotationOverview: {
+      title: 'Destruction Warlock Legion Remix Priority',
+      priority: [
+        'Keep Immolate active on all primary targets',
+        'Spend Soul Shards on Chaos Bolt (single target) or Rain of Fire (AoE)',
+        'Conflagrate on cooldown to generate Backdraft charges',
+        'Incinerate as filler to build shards when nothing else is available',
+        'Summon Infernal to align with Fel path burst windows',
+        'Use Havoc to duplicate Chaos Bolts on critical priority mobs'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Fully upgrade the Fel artifact path for Twisted Crusade crit chains',
+      '2. Purchase high item level weapons and haste trinkets',
+      '3. Target tier set bonuses that empower Chaos Bolt damage',
+      '4. Claim the Felscorched Dreadsteed mount for free at level 80',
+      '5. Invest Bronze into Legion spell effect transmogs',
+      '6. Save remaining Bronze for alt gearing or housing décor'
+    ],
+
+    builds: {
+      leveling: 'Fel path cleave build with Inferno and Cataclysm talents',
+      openWorld: 'Sustained build leveraging Soul Leech and Rain of Fire',
+      mythicPlus: 'Storm path AoE spam with frequent Infernal resets',
+      raid: 'Single-target Chaos Bolt turret with Arcane defensive support'
+    },
+
+    groupTier: 'A',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+
+  // DEMON HUNTER SPECS
+  {
+    classId: 'demon-hunter',
+    specName: 'Havoc',
+    role: 'DPS',
+    metaDescription: 'Havoc Demon Hunter Legion Remix guide covering Fel path burst windows, Infinite Power farming, and stat priorities for the 2025 Timerunning season.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Storm path supercharges Eye Beam cleave during dungeon spam' },
+      { pathId: 'arcane', reason: 'Arcane path shields Fel Barrage channels in high damage fights' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Volatile Magics'],
+
+    statPriority: [
+      'Agility',
+      'Haste',
+      'Critical Strike',
+      'Mastery',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Chain Fel Rush and Vengeful Retreat to stay permanently in motion between Legion Remix objectives.',
+      'Meta + Eye Beam melts empowered packs—line it up with Legion Remix infinite power farm routes.',
+      'Use Blur and Darkness to cover Heroic World Tier pulls while you learn mechanics.',
+      'Slot Touch of the Magi trinkets for extra burst in Legion Remix Demon Hunter guide dungeon runs.',
+      'Practice double jump glides through Suramar rooftops to tag Challiane Vineyards rares quickly.',
+      'Spend early Bronze on weapon upgrades; Havoc damage scales dramatically with item level.'
+    ],
+
+    rotationOverview: {
+      title: 'Havoc Demon Hunter Legion Remix Priority',
+      priority: [
+        'Keep Immolation Aura on cooldown for Fury generation.',
+        'Cast Eye Beam when 2+ targets are up or during Metamorphosis for Chaos Brand uptime.',
+        'Dump Fury with Chaos Strike (single target) or Blade Dance (AoE).',
+        'Use Fel Rush offensively when Momentum is talented.',
+        'Activate Metamorphosis on cooldown for burst windows tied to Fel artifact procs.',
+        'Throw Glaive or Demon\'s Bite as filler when low on Fury.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Upgrade Fel artifact path to unlock Twisted Crusade and crit synergy.',
+      '2. Purchase high item level warglaives and haste trinkets.',
+      '3. Secure tier set bonuses for Momentum and Eye Beam amplifiers.',
+      '4. Unlock the Felscorched Slayer mount at level 80 (free first claim).',
+      '5. Invest Bronze into Legion Remix Demon Hunter guide cosmetics like the Felstalker set.',
+      '6. Save 10,000 Bronze for Torn Invitation week to snag the fox mount variant.'
+    ],
+
+    builds: {
+      leveling: 'Fel path Momentum build with Fel Rush resets for open world speed.',
+      openWorld: 'Sustained build mixing Demonic and Glaive Tempest talents.',
+      mythicPlus: 'Storm path Eye Beam spam for stacked dungeon pulls.',
+      raid: 'Single-target Chaos Strike focus with Arcane shielding for survivability.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+
+  {
+    classId: 'demon-hunter',
+    specName: 'Vengeance',
+    role: 'Tank',
+    metaDescription: 'Vengeance Demon Hunter Legion Remix guide detailing Fel path tank builds, soul fragment management, and Bronze priorities for Timeworn keystones.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'nature', reason: 'Nature path adds passive healing for aggressive solo play' },
+      { pathId: 'storm', reason: 'Storm path ramps Infernal Strike AoE in Mythic+ cleave' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Volatile Magics'],
+
+    statPriority: [
+      'Agility',
+      'Haste',
+      'Versatility',
+      'Mastery',
+      'Critical Strike'
+    ],
+
+    levelingTips: [
+      'Spam Infernal Strike to tag packs before DPS arrive; momentum keeps Bronze per hour high.',
+      'Craft Legion Healthstone bundles so vengeance DH legion remix dungeon runs stay self-sufficient.',
+      'Use Spirit Bomb to consume soul fragments and maintain 20% leech uptime.',
+      'Rotate Fiery Brand and Demon Spikes to survive Heroic World Tier Time Crisis attempts.',
+      'Pick up the Arcway attunement early—its tight corridors favor Sigil of Silence stun locks.',
+      'Spend Bronze on trinkets with on-use shields; they stack with Metamorphosis for boss spikes.'
+    ],
+
+    rotationOverview: {
+      title: 'Vengeance Demon Hunter Legion Remix Priority',
+      priority: [
+        'Keep Demon Spikes active during physical burst windows.',
+        'Apply Fiery Brand on cooldown to the highest damage target.',
+        'Generate fragments with Felblade, Immolation Aura, and Shear/Fracture.',
+        'Consume fragments with Spirit Bomb for healing and damage.',
+        'Use Sigil of Flame on cooldown for AoE threat.',
+        'Metamorphosis or Fel Devastation as major cooldowns for lethal spikes.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Max out the Fel artifact path for reflection damage and leech.',
+      '2. Purchase high item level shields and trinkets with defensive procs.',
+      '3. Buy tier set pieces that extend Fiery Brand uptime.',
+      '4. Unlock the Felscorched Slayer mount at 80 (free first unlock).',
+      '5. Invest in Legion Remix talent build tomes to swap between raid and Mythic+ setups.',
+      '6. Stock Strange Humming Crystals to pair with Legion Remix infinite power farm routes.'
+    ],
+
+    builds: {
+      leveling: 'Fel path with Spirit Bomb focus for massive self-healing.',
+      openWorld: 'Nature path sustain build when solo farming quests.',
+      mythicPlus: 'Storm path cleave with Infernal Strike and Sigil management.',
+      raid: 'Fel path mitigation with Last Resort and defensive trinkets.'
+    },
+
+    groupTier: 'S',
     soloTier: 'S',
     heroicWorldTier: true
   },
