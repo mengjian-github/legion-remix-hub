@@ -279,6 +279,173 @@ export const specGuides: SpecGuide[] = [
     heroicWorldTier: true
   },
 
+  // WARRIOR SPECS
+  {
+    classId: 'warrior',
+    specName: 'Arms',
+    role: 'DPS',
+    metaDescription:
+      'Arms Warrior Legion Remix guide covering Fel path burst windows, Infinite Knowledge priorities, and optimal Bronze spending during The War Within 11.2.5.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Adds haste and cleave uptime for Mythic+ farming' },
+      { pathId: 'nature', reason: 'Bolsters self-healing when leveling solo in Heroic World Tier' },
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Volatile Magics'],
+
+    statPriority: ['Strength', 'Critical Strike', 'Mastery', 'Haste', 'Versatility'],
+
+    levelingTips: [
+      'Stack Fel nodes early—Execute crits carry Phase 1 quest bosses.',
+      'Use Leap + Heroic Throw to tag Bronze rares before other Timerunners.',
+      'Storm path unlocks during Phase 2 for cleave-heavy Timeworn Keystone pushes.',
+      'Bank Infinite Research quests and spend them before tackling +20 keys for extra ranks.',
+      'Invest Bronze into a high ilvl two-hander and offensive trinkets first.',
+    ],
+
+    rotationOverview: {
+      title: 'Arms Warrior Priority',
+      priority: [
+        'Keep Rend active and spend Mortal Strike on cooldown.',
+        'Overpower to buff Mortal Strike; Execute overrides everything sub-35%.',
+        'Bladestorm or Cleave during high-density Bronze farms.',
+        'Align Avatar + Colossus Smash with Turbo Boost and Fel Twisted Crusade procs.',
+        'Use Defensive Stance and Ignore Pain to survive Heroic World Tier spikes.',
+      ],
+    },
+
+    bronzePriority: [
+      '1. Weapon + trinket upgrades from the Infinite Bazaar',
+      '2. Artifact Fel path completion followed by Storm path nodes',
+      '3. Tier set bonuses that empower Execute uptime',
+      '4. Felscorched Battlewolf unlock (free on first warrior)',
+      '5. Cosmetics and ensemble purchases after Antorus progression',
+    ],
+
+    builds: {
+      leveling: 'Fel burst build with Sweeping Strikes for questing and world bosses.',
+      openWorld: 'Storm/Fel hybrid for Bronze orb loops and Strange Humming Crystal events.',
+      mythicPlus: 'Storm path haste build with Bladestorm for +20 Timeworn keystones.',
+      raid: 'Single-target Colossus Smash + Executioner’s Precision rotation.',
+    },
+
+    groupTier: 'A',
+    soloTier: 'B',
+    heroicWorldTier: true,
+  },
+  {
+    classId: 'warrior',
+    specName: 'Fury',
+    role: 'DPS',
+    metaDescription:
+      'Fury Warrior Legion Remix guide with Storm path haste stacking, Rampage uptime tips, and Phase 4 Bronze priorities.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Adds Twisted Crusade burst for raid bosses' },
+      { pathId: 'nature', reason: 'Improves sustain while duo-leveling or soloing rares' },
+    ],
+
+    recommendedTraits: ['Storm Surger', 'Touch of Malice', 'Terror from Below'],
+
+    statPriority: ['Strength', 'Haste', 'Critical Strike', 'Mastery', 'Versatility'],
+
+    levelingTips: [
+      'Upgrade both weapons immediately—weapon damage drives Rampage output.',
+      'Storm path Tempest Wrath lines up perfectly with Recklessness for keystone pulls.',
+      'Use Enraged Regeneration plus Bloodthirst to stay alive in Heroic World Tier.',
+      'Keep Infinite Knowledge ranks flowing so your artifact fuels constant Enrage.',
+      'Spend Bronze on trinkets that trigger haste or Rage to extend burst windows.',
+    ],
+
+    rotationOverview: {
+      title: 'Fury Warrior Priority',
+      priority: [
+        'Rampage at 100 Rage to maintain Enrage.',
+        'Press Bloodthirst on cooldown for Rage, healing, and Enrage uptime.',
+        'Use Raging Blow/Crushing Blow and Odyn’s Fury while Enraged.',
+        'Whirlwind before AoE finishers to cleave.',
+        'Time Recklessness with Tempest Wrath and Turbo Boost periods.',
+      ],
+    },
+
+    bronzePriority: [
+      '1. Dual-wield ilvl upgrades from the Bazaar',
+      '2. Finish Storm path, then Fel for boss burst',
+      '3. Secure tier set pieces that extend Enrage uptime',
+      '4. Unlock Felscorched Battlewolf for account collection',
+      '5. Cosmetics and toys once weapons are capped',
+    ],
+
+    builds: {
+      leveling: 'Storm haste stack with Onslaught talents for nonstop Rampage.',
+      openWorld: 'Fel hybrid to boost single-target rares while keeping AoE intact.',
+      mythicPlus: 'Whirlwind-centric build aligned with Turbo Boost keystone weeks.',
+      raid: 'Cold Steel, Hot Blood combos for maximal single-target damage.',
+    },
+
+    groupTier: 'A',
+    soloTier: 'A',
+    heroicWorldTier: true,
+  },
+  {
+    classId: 'warrior',
+    specName: 'Protection',
+    role: 'Tank',
+    metaDescription:
+      'Protection Warrior Legion Remix guide explaining Storm bulwark mitigation, Time Crisis readiness, and Bronze upgrade order in the 11.2.5 event.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Adds needed damage for small-group Bronze farming' },
+      { pathId: 'arcane', reason: 'Layered shielding for high-end Antorus progression' },
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Storm Surger', 'Volatile Magics'],
+
+    statPriority: ['Strength', 'Haste', 'Mastery', 'Versatility', 'Critical Strike'],
+
+    levelingTips: [
+      'Maintain Shield Block uptime—Storm path converts mitigation into Tempest shields.',
+      'Heroic Throw + Thunder Clap let you gather Bronze packs quickly while tanking.',
+      'Demoralizing Shout and Spell Block counter Empowered affixes like Imperious.',
+      'Invest Bronze into shields and defensive trinkets before cosmetics.',
+      'Swap to Fel nodes in Phase 4 for extra damage when Antorus opens.',
+    ],
+
+    rotationOverview: {
+      title: 'Protection Warrior Rotation',
+      priority: [
+        'Shield Slam and Revenge on cooldown to fuel Rage.',
+        'Keep Shield Block or Spell Block active for incoming spikes.',
+        'Use Ignore Pain with excess Rage for smoothing.',
+        'Thunder Clap and Shockwave control large Bronze pulls.',
+        'Rotate Last Stand, Shield Wall, and Bolster for Time Crisis objectives.',
+      ],
+    },
+
+    bronzePriority: [
+      '1. Shield + weapon upgrades from Infinite Bazaar vendors',
+      '2. Finish Storm Tempest Bulwark nodes before Fel',
+      '3. Acquire defensive trinkets and tier bonuses',
+      '4. Unlock the Felscorched Battlewolf after level 80',
+      '5. Invest in cosmetics and housing once gear is settled',
+    ],
+
+    builds: {
+      leveling: 'Storm-centric mitigation build for gigantic open-world pulls.',
+      openWorld: 'Fel hybrid for solo Bronze loops where damage matters.',
+      mythicPlus: 'Bolster + Rend combination for +20 keystones and beyond.',
+      raid: 'Arcane shielding build for progression on high magic bosses.',
+    },
+
+    groupTier: 'A',
+    soloTier: 'B',
+    heroicWorldTier: true,
+  },
+
   // WARLOCK SPECS
   {
     classId: 'warlock',

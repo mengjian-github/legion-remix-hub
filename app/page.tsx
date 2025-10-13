@@ -17,7 +17,7 @@ export default function Home() {
   const currentPhase = getCurrentPhase();
 
   const mainGuideDirectory = [
-    { label: 'Legion Remix Guide for Infinite Knowledge farming', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Guide for Infinite Knowledge farming', href: '/guides/infinite-knowledge' },
     { label: 'Legion Remix Guide for Strange Humming Crystal routes', href: '/guides/bronze-farming#strange-humming-crystal' },
     { label: 'Legion Remix Guide for Havoc Demon Hunter builds', href: '/classes/demon-hunter/havoc' },
     { label: 'Legion Remix Guide for Brewmaster Monk hard mode', href: '/classes/monk/brewmaster' },
@@ -32,7 +32,7 @@ export default function Home() {
     { label: 'Legion Remix Guide for To Fel and Back achievement', href: '/guides/getting-started#legion-remix-hard-mode' },
     { label: 'Legion Remix Guide for Legion Remix rare elites', href: '/guides/bronze-farming#rare-elites-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix hard mode setup', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Guide for Infinite Power upgrades', href: '/guides/getting-started#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Guide for Infinite Power upgrades', href: '/guides/infinite-knowledge#phase-1' },
     { label: 'Legion Remix Guide for Legion Remix calculator usage', href: '/calculator' },
     { label: 'Legion Remix Guide for Legion Remix a character with that name already exists error', href: '/faq#troubleshooting-and-performance' },
     { label: 'Legion Remix Guide for Legion Remix druid flight form unlock', href: '/classes/druid' },
@@ -42,7 +42,7 @@ export default function Home() {
     { label: 'Legion Remix Guide for Legion Remix Violet Spellwing planning', href: '/guides/bronze-farming#achievement-targets-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix Bronze per hour benchmarks', href: '/guides/bronze-farming#time-investment-calculator' },
     { label: 'Legion Remix Guide for Legion Remix Infinite Bazaar vendors', href: '/rewards' },
-    { label: 'Legion Remix Guide for Legion Remix Artifact path swaps', href: '/guides/getting-started#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Guide for Legion Remix Artifact path swaps', href: '/guides/infinite-knowledge' },
     { label: 'Legion Remix Guide for Legion Remix Mythic+ Turbo Boost weeks', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix Argus Eternal roadmap', href: '#phase-roadmap' },
     { label: 'Legion Remix Guide for Legion Remix housing decor unlocks', href: '/rewards' },

@@ -37,6 +37,14 @@ const guides = [
     image: legionImages.wyrmtongue
   },
   {
+    id: 'infinite-knowledge',
+    title: 'Infinite Knowledge',
+    description: 'All rank sources, phase achievements, and overflow Bronze conversion strategies.',
+    icon: '♾️',
+    color: 'from-purple-900/40 to-indigo-900/40',
+    image: legionImages.infiniteResearch ?? legionImages.infiniteResearchQuests ?? legionImages.timewornKeystone
+  },
+  {
     id: 'dungeons',
     title: 'Dungeon Roadmap',
     description: 'Timeworn Keystone breakpoints, best-of-phase recommendations, and affix prep.',
@@ -56,7 +64,7 @@ const guides = [
 
 export default function GuidesPage() {
   const guidesDirectory = [
-    { label: 'Legion Remix Guides hub for Infinite Knowledge farming', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Guides hub for Infinite Knowledge farming', href: '/guides/infinite-knowledge' },
     { label: 'Legion Remix Guides hub for Legion Remix lag fixes', href: '/#legion-remix-lag' },
     { label: 'Legion Remix Guides hub for Strange Humming Crystal routes', href: '/guides/bronze-farming#strange-humming-crystal' },
     { label: 'Legion Remix Guides hub for Legion Remix hard mode objectives', href: '/guides/getting-started#legion-remix-hard-mode' },
@@ -223,7 +231,7 @@ export default function GuidesPage() {
               <h3 className="text-lg font-semibold text-green-400 mb-1 group-hover:text-green-300">Fastest Way to Level in Legion Remix</h3>
               <p>Updated XP windows, Turbo Boost weeks, and Havoc Demon Hunter Legion Remix talent strings.</p>
             </Link>
-            <Link href="/guides/bronze-farming#infinite-knowledge-legion-remix" className="group bg-gray-900/40 border border-gray-700 rounded-lg p-4 hover:border-yellow-500 transition-all">
+            <Link href="/guides/infinite-knowledge" className="group bg-gray-900/40 border border-gray-700 rounded-lg p-4 hover:border-yellow-500 transition-all">
               <h3 className="text-lg font-semibold text-yellow-400 mb-1 group-hover:text-yellow-300">Infinite Knowledge & Infinite Power Farms</h3>
               <p>Turn Infinite Knowledge and Strange Humming Crystal drops into Bronze and artifact upgrades.</p>
             </Link>

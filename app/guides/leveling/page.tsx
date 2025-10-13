@@ -21,7 +21,7 @@ export default function LevelingGuidePage() {
     { label: 'Legion Remix Leveling Guide for Heroic World Tier solo play', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Leveling Guide for Zygor addon alternatives', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Leveling Guide for world quest unlock route', href: '/guides/leveling#world-quest-route' },
-    { label: 'Legion Remix Leveling Guide for Infinite Knowledge integration', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
+    { label: 'Legion Remix Leveling Guide for Infinite Knowledge integration', href: '/guides/infinite-knowledge' },
     { label: 'Legion Remix Leveling Guide for Legion Remix rare elite XP', href: '/guides/bronze-farming#rare-elites-legion-remix' },
     { label: 'Legion Remix Leveling Guide for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Leveling Guide for Legion Remix group dungeon compositions', href: '/guides/leveling#fastest-way-to-level-legion-remix' }
@@ -109,7 +109,7 @@ export default function LevelingGuidePage() {
               Looking for the fastest way to level in Legion Remix? Follow this sprint plan:
             </p>
             <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300">
-              <li><strong>Levels 10-25:</strong> Chain Intro scenario, Val'Sharah bonus objectives, and Treasure Caches using a <Link href="/guides/getting-started#infinite-knowledge-legion-remix" className="text-green-400 hover:text-green-300">Strange Humming Crystal</Link> buff.</li>
+              <li><strong>Levels 10-25:</strong> Chain Intro scenario, Val'Sharah bonus objectives, and Treasure Caches while tracking <Link href="/guides/infinite-knowledge#infinite-knowledge-legion-remix" className="text-green-400 hover:text-green-300">Infinite Knowledge ranks</Link> to keep your artifact ahead of schedule.</li>
               <li><strong>Levels 25-60:</strong> Queue Maw of Souls, Darkheart Thicket, and Eye of Azshara with Heroic World Tier enabled—Havoc Demon Hunter Legion Remix builds shine here.</li>
               <li><strong>Levels 60-80:</strong> Rotate Mythic+ keystones during Turbo Boost weeks (October 7-13 and November 4-10) for 500% XP plus Infinite Power.</li>
             </ol>
