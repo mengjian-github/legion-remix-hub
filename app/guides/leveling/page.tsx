@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { dungeons, farmingMethods, getBestXPDungeons } from '@/data/dungeons';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Leveling Blueprint to Reach 80',
@@ -15,41 +14,18 @@ export const metadata: Metadata = {
 
 export default function LevelingGuidePage() {
   const bestDungeons = getBestXPDungeons();
-  const levelingDirectory = [
-    { label: 'Legion Remix Leveling Guide for fastest leveling path', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
-    { label: 'Legion Remix Leveling Guide for Havoc Demon Hunter builds', href: '/classes/demon-hunter/havoc' },
-    { label: 'Legion Remix Leveling Guide for Brewmaster Monk tank leveling', href: '/classes/monk/brewmaster' },
-    { label: 'Legion Remix Leveling Guide for Heroic World Tier solo play', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
-    { label: 'Legion Remix Leveling Guide for Zygor addon alternatives', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
-    { label: 'Legion Remix Leveling Guide for world quest unlock route', href: '/guides/leveling#world-quest-route' },
-    { label: 'Legion Remix Leveling Guide for Infinite Knowledge integration', href: '/guides/infinite-knowledge' },
-    { label: 'Legion Remix Leveling Guide for Legion Remix rare elite XP', href: '/guides/bronze-farming#rare-elites-legion-remix' },
-    { label: 'Legion Remix Leveling Guide for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
-    { label: 'Legion Remix Leveling Guide for Legion Remix group dungeon compositions', href: '/guides/leveling#fastest-way-to-level-legion-remix' }
+  const quickLinks = [
+    { label: 'Fast leveling route', href: '#fastest-way-to-level-legion-remix' },
+    { label: 'Heroic World Tier tips', href: '#heroic-world-tier' },
+    { label: 'Dungeon XP rankings', href: '#dungeon-ranking' },
+    { label: 'Quest circuit checklist', href: '#optimal-quest-zones' },
+    { label: 'World quest unlock prep', href: '#world-quest-route' },
+    { label: 'Artifact & research synergy', href: '#infinite-knowledge-legion-remix' },
+    { label: 'Bronze while leveling', href: '#bronze-leveling-legion-remix' },
+    { label: 'Alt catch-up strategy', href: '#alt-leveling-legion-remix' },
+    { label: 'Class build hub', href: '/classes' },
+    { label: 'Bronze farming guide', href: '/guides/bronze-farming' }
   ];
-
-  const seoKeyword = 'Legion Remix leveling guide';
-  const seoTopics = [
-    'fast leveling routes',
-    'Turbo Boost scheduling',
-    'Heroic World Tier leveling',
-    'dungeon spam strategies',
-    'quest stacking plans',
-    'artifact path leveling boosts',
-    'warband experience bonuses',
-    'alt leveling catch-up',
-    'daily chore integration',
-  ];
-  const seoSupport = [
-    'zone sequencing',
-    'dungeon selections',
-    'raid unlock pacing',
-    'Bronze detours',
-    'group coordination',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -64,7 +40,10 @@ export default function LevelingGuidePage() {
         <article className="prose prose-invert prose-lg max-w-none">
           <h1 className="text-4xl font-bold text-white mb-6">Legion Remix Leveling Guide</h1>
           <p className="text-gray-300 mb-4">
-            This Legion Remix Leveling Guide compiles every proven Legion Remix leveling route, from 10-80 solo farm paths to group dungeon chains, so your Legion Remix leveling plans stay ahead of Turbo Boost weeks and Infinite Knowledge bonus windows.
+            Legion Remix leveling hinges on stacking experience buffs from the event introduction, Heroic World Tier, and Infinite Research dailies. The Leveling &amp; Gearing reference outlines how your first Timerunner sets the pace for every alt, so this guide threads those lessons together with dungeon data, quest routing, and Bronze detours.
+          </p>
+          <p className="text-gray-300 mb-4">
+            Legion Remix leveling also benefits from planning around Turbo Boost windows and phase unlocks. By aligning your dungeon batches with the Heroic World Tier guide and layering world quests once you complete &ldquo;Uniting the Isles,&rdquo; you can reach level 80 in roughly 8 to 12 hours on a main and even faster on subsequent characters.
           </p>
 
           <div className="bg-gradient-to-r from-green-900/40 to-emerald-900/40 border border-green-700/50 rounded-lg p-6 mb-8">
@@ -73,9 +52,20 @@ export default function LevelingGuidePage() {
             </p>
           </div>
 
-          <p className="text-gray-300 mb-4">
-            Treat this Legion Remix Leveling Guide as a living document—update the Legion Remix Leveling Guide after each session and re-read the Legion Remix Leveling Guide before pushing into new phases.
-          </p>
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8 text-sm text-gray-300">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-2 gap-3">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 hover:border-green-500 rounded-lg px-4 py-3 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Leveling Overview</h2>
@@ -103,7 +93,7 @@ export default function LevelingGuidePage() {
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">XP Multipliers & Bonuses</h2>
           <div className="space-y-4 mb-8">
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
+            <div id="heroic-world-tier" className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-white mb-3">Warband XP Bonuses</h3>
               <ul className="list-disc list-inside space-y-2 text-gray-300">
                 <li>+10% XP for completing the intro quest</li>
@@ -143,7 +133,7 @@ export default function LevelingGuidePage() {
           </div>
 
           <div className="bg-gray-900/40 border border-blue-700/50 rounded-lg p-6 mb-8" id="world-quest-route">
-            <h2 className="text-2xl font-bold text-white mb-3">Legion Remix World Quest Route</h2>
+            <h2 id="world-quest-route" className="text-2xl font-bold text-white mb-3">Legion Remix World Quest Route</h2>
             <p className="text-gray-300 mb-3">
               Once world quests unlock, prioritize this circuit for steady XP, Bronze, and Infinite Knowledge packets:
             </p>
@@ -184,7 +174,7 @@ export default function LevelingGuidePage() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-white mt-8 mb-4">Best Dungeons for XP</h2>
+        <h2 id="dungeon-ranking" className="text-2xl font-bold text-white mt-8 mb-4">Best Dungeons for XP</h2>
           <p className="text-gray-300 mb-4">
             From level 25 onward, dungeons become the most efficient leveling method. Here are the top 5 dungeons ranked by XP per minute:
           </p>
@@ -281,7 +271,7 @@ export default function LevelingGuidePage() {
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Optimal Quest Zones (Pre-25)</h2>
+          <h2 id="optimal-quest-zones" className="text-2xl font-bold text-white mt-8 mb-4">Optimal Quest Zones (Pre-25)</h2>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-8">
             <ul className="space-y-3 text-gray-300">
               <li>
@@ -299,7 +289,7 @@ export default function LevelingGuidePage() {
             </ul>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Infinite Research Quests</h2>
+          <h2 id="infinite-knowledge-legion-remix" className="text-2xl font-bold text-white mt-8 mb-4">Infinite Research Quests</h2>
           <p className="text-gray-300 mb-4">
             Complete these <strong>daily</strong> on any character to boost all Timerunners:
           </p>
@@ -310,7 +300,18 @@ export default function LevelingGuidePage() {
             <li>Completing 50 quests = +50-100% permanent XP boost!</li>
           </ul>
 
-          <div className="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 border border-yellow-700/50 rounded-lg p-6 mb-8">
+          <h2 id="bronze-leveling-legion-remix" className="text-2xl font-bold text-white mt-8 mb-4">Bronze Gains While Leveling</h2>
+          <p className="text-gray-300 mb-4">
+            Keeping Bronze flowing while leveling means you hit 80 ready to shop. Blend these sources into your Legion Remix leveling loop so progress toward mounts and ensembles never pauses:
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-gray-300 mb-6">
+            <li><strong>World Quests:</strong> 200 Bronze each once &ldquo;Uniting the Isles&rdquo; is complete—chain them between dungeon queues.</li>
+            <li><strong>Rare Elites:</strong> 400-600 Bronze from Broken Isles rares and Argus assaults; tag them while handling bonus objectives.</li>
+            <li><strong>Scenario Caches:</strong> 2,000+ Bronze per completion during Turbo Boost; run them alongside friends for speed.</li>
+            <li><strong>Overflow Knowledge:</strong> After 36 ranks, every Infinite Knowledge token converts into 1,000 Bronze on turn-in.</li>
+          </ul>
+
+          <div id="alt-leveling-legion-remix" className="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 border border-yellow-700/50 rounded-lg p-6 mb-8">
             <h3 className="text-lg font-semibold text-yellow-400 mb-3">Pro Tip: Multi-Character Strategy</h3>
             <p className="text-gray-300">
               Level your first character to 70-80 to unlock Warband bonuses, then create new Timerunners for even faster leveling. Your 2nd+ characters will benefit from all accumulated XP bonuses and complete 30-50% faster!
@@ -318,37 +319,18 @@ export default function LevelingGuidePage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Leveling Guide Directory</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Key Checkpoints</h2>
             <p className="text-sm text-gray-300 mb-4">
-              Keep these Legion Remix Leveling Guide quick links handy for the most searched routes and builds.
+              Use this quick checklist to keep Legion Remix leveling momentum high across every character.
             </p>
-            <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
-              {levelingDirectory.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <p className="text-xs text-gray-400 mt-4">
-              Every Legion Remix Leveling Guide tile above reinforces the full Legion Remix Leveling Guide so teammates can locate the exact Legion Remix leveling topic they need.
-            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-300">
+              <li>Finish Chromie&apos;s intro chain for the +10% Warband XP buff and first Infinite Knowledge rank.</li>
+              <li>Enable Heroic World Tier once you can comfortably defeat empowered elites; the Heroic World Tier guide notes you can toggle it off anytime.</li>
+              <li>Complete &ldquo;Uniting the Isles&rdquo; to unlock World Quests worth 200 Bronze and strong XP bumps.</li>
+              <li>Run Maw of Souls, Darkheart Thicket, and Eye of Azshara during Turbo Boost windows—the leveling reference ranks them top-tier for XP/hour.</li>
+              <li>Spend Infinite Knowledge ranks and Artifactum Sand as you go so your artifact traits scale with dungeon difficulty.</li>
+            </ul>
           </div>
-
-          <p className="text-sm text-gray-400 mb-6">
-            Repeat this Legion Remix Leveling Guide mantra: review the Legion Remix Leveling Guide before each session, share the Legion Remix Leveling Guide with your group, log your gains against the Legion Remix Leveling Guide checklist, and celebrate every new achievement by updating the Legion Remix Leveling Guide leaderboard.
-          </p>
-          <ul className="list-disc list-inside space-y-1 text-xs text-gray-400 mb-6">
-            <li>The Legion Remix Leveling Guide details every Turbo Boost window.</li>
-            <li>Pin this Legion Remix Leveling Guide to your raid Discord.</li>
-            <li>Use the Legion Remix Leveling Guide to brief Havoc Demon Hunters.</li>
-            <li>Cross-reference dungeon notes with the Legion Remix Leveling Guide.</li>
-            <li>Celebrate milestones by updating the Legion Remix Leveling Guide progress bar.</li>
-            <li>Archive the Legion Remix Leveling Guide after the season to prep for future remixes.</li>
-          </ul>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Next Steps</h2>
           <div className="grid md:grid-cols-2 gap-4 mb-8">
@@ -375,12 +357,30 @@ export default function LevelingGuidePage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Leveling Guide Deep Dive</h2>
-            <div className="space-y-4 text-sm leading-7 text-gray-300">
-              {seoParagraphs.map((paragraph, idx) => (
-                <p key={`leveling-seo-${idx}`}>{paragraph}</p>
-              ))}
-            </div>
+            <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+            <p className="text-gray-300 mb-4">
+              These supporting guides inform every recommendation in this Legion Remix leveling plan—keep them nearby as you optimize routes.
+            </p>
+            <ul className="list-disc list-inside space-y-3 text-gray-300">
+              <li>
+                <strong>Leveling &amp; Gearing Guide:</strong> Provides the base leveling timeline, recommended dungeon order, and gear upgrade advice to smooth the jump into Heroic World Tier.
+              </li>
+              <li>
+                <strong>Heroic World Tier Guide:</strong> Breaks down each Empowered affix and how much XP and Bronze you gain by enabling the mode during leveling pushes.
+              </li>
+              <li>
+                <strong>Infinite Artifact Weapon Traits &amp; Leveling:</strong> Explains how Artifactum Sand upgrades translate into more damage and survivability mid-leveling.
+              </li>
+              <li>
+                <strong>Infinite Knowledge &amp; Research Guides:</strong> Confirm which achievements and dailies grant XP boosts for every alt after your first character hits the milestones.
+              </li>
+              <li>
+                <strong>Content Phases &amp; Schedule:</strong> Shows when new dungeons, raids, and Turbo Boost events open so you can time alt leveling bursts accordingly.
+              </li>
+            </ul>
+            <p className="text-gray-400 text-sm mt-4">
+              Review these notes weekly, especially before Turbo Boost days, to keep Legion Remix leveling sessions efficient without losing sight of Bronze goals.
+            </p>
           </div>
         </article>
       </div>

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
 import { buildCanonicalUrl, formatMetaDescription } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { getClassSpecs } from '@/data/specs';
 
 export async function generateStaticParams() {
@@ -48,25 +47,20 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
     notFound();
   }
 
-  const classKeyword = `${classData.name} Legion Remix class guide`;
-  const specTopics = classData.specs.map((spec) => `${spec.name} ${spec.role.toLowerCase()} strategy`);
-  const generalTopics = [
-    `${classData.name} artifact path priorities`,
-    `${classData.name} Bronze spending plan`,
-    `${classData.name} Heroic World Tier preparation`,
-    `${classData.name} Fel mount unlock checklists`,
+  const referenceHighlights = [
+    {
+      title: 'The Best Classes for Legion Remix',
+      summary: 'Tier recommendations for solo, group, and heroic world tier play—the same strengths summarized in the spec cards below.'
+    },
+    {
+      title: 'Timerunner Character Guide',
+      summary: 'Covers class campaign progression and artifact unlocks; revisit it before swapping specs.'
+    },
+    {
+      title: 'Infinite Artifact Weapon Traits & Leveling',
+      summary: 'Explains how Fel, Storm, Arcane, Nature, and Holy Light paths impact your class when spending Artifactum Sand.'
+    }
   ];
-  const seoTopics = [...specTopics, ...generalTopics];
-  const seoSupport = [
-    'mythic plus pacing',
-    'raid coordination drills',
-    'open-world farming loops',
-    'Turbo Boost scheduling',
-    'Infinite Knowledge rank gains',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(classKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.045,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -108,72 +102,6 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {classId === 'paladin' && (
-              <div className="bg-gray-800 border border-pink-700/40 rounded-lg p-6">
-                <h2 className="text-2xl font-bold text-white mb-3">Legion Remix Paladin Guide Highlights</h2>
-                <p className="text-gray-300 mb-3">
-                  Start your Legion Remix Paladin guide planning here—this hub links Holy, Protection, and Retribution write-ups, plus a quick Legion Remix paladin build cheat sheet for anyone swapping roles mid-season.
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
-                  <li>
-                    <strong>Holy:</strong> Follow the Legion Remix Holy Paladin build notes for Arcane path healing, then pivot into raid cooldown rotations once Violet Spellwing unlocks.
-                  </li>
-                  <li>
-                    <strong>Protection:</strong> The Legion Remix Prot Paladin guide segment spells out Fel path mitigation plus alternative Storm path cleave gearing so you always have a Legion Remix prot paladin build ready.
-                  </li>
-                  <li>
-                    <strong>Retribution:</strong> Our burst timeline doubles as a Legion Remix Paladin DPS tier reference so you know when to press Avenging Wrath in heroic keystones.
-                  </li>
-                </ul>
-                <p className="text-sm text-gray-400 mt-3">
-                  Need a quick summary? The holy pala Legion Remix primer, the WoW Legion Remix holy paladin notes, and the Legion Remix prot pala guide checklist live here alongside a “paladin remix” gearing chart for hybrid players plus a WoW Legion Remix pala guide PDF link.
-                </p>
-              </div>
-            )}
-
-            {classId === 'warlock' && (
-              <div className="bg-gray-800 border border-purple-700/40 rounded-lg p-6">
-                <h2 className="text-2xl font-bold text-white mb-3">Legion Remix Warlock Guide Toolkit</h2>
-                <p className="text-gray-300 mb-3">
-                  Each tab below feeds into a consolidated warlock remix guide—perfect for swapping between Affliction rot builds and Legion Remix warlock talents tailored for Mythic+ or raids.
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
-                  <li>
-                    <strong>Affliction:</strong> Track multi-target DoTs and consult the Legion Remix warlock build matrix before turbo-farming the Legion Remix Rise of the Nightfallen chapter.
-                  </li>
-                  <li>
-                    <strong>Demonology:</strong> Learn how Spirit Bomb-style shard dumps translate into Legion Remix warlock build variants that shred empowered enemies.
-                  </li>
-                  <li>
-                    <strong>Destruction:</strong> Use the Chaos Bolt planner for a Legion Remix destruction warlock burst loop that matches Turbo Boost windows.
-                  </li>
-                </ul>
-              </div>
-            )}
-
-            {classId === 'rogue' && (
-              <div className="bg-gray-800 border border-yellow-700/40 rounded-lg p-6">
-                <h2 className="text-2xl font-bold text-white mb-3">Legion Remix Rogue Guide Corner</h2>
-                <p className="text-gray-300 mb-3">
-                  Whether you chase the Legion Remix rogue build for Mythic+ cleave or a stealth opener for Time Crisis, this section routes you to Subtlety, Assassination, and Outlaw primers.
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
-                  <li>
-                    <strong>Subtlety:</strong> Review the Legion Remix sub rogue guide so your Legion Remix sub rogue opener lines up with Shadow Dance windows.
-                  </li>
-                  <li>
-                    <strong>Assassination:</strong> Our Legion Remix rogue guide covers poison spread rotations for Argus patrols.
-                  </li>
-                  <li>
-                    <strong>Outlaw:</strong> Lock in a Legion Remix outlaw rogue script that handles empowered enemies without burning Roll the Bones rerolls.
-                  </li>
-                </ul>
-                <p className="text-sm text-gray-400 mt-3">
-                  Grab the Legion Remix sub rogue build sheet inside each spec article when you need to pivot between single-target assassinations and large-pack cleave.
-                </p>
-              </div>
-            )}
-
             {/* Specs */}
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-white mb-6">Specializations</h2>
@@ -269,12 +197,13 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
             </div>
 
             <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6">
-              <h2 className="text-2xl font-bold text-white mb-4">
-                {classData.name} Legion Remix Class Guide Deep Dive
-              </h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Spec Highlights</h2>
               <div className="space-y-4 text-sm leading-7 text-gray-300">
-                {seoParagraphs.map((paragraph, idx) => (
-                  <p key={`class-seo-${idx}`}>{paragraph}</p>
+                {classSpecs.map((spec) => (
+                  <div key={spec.specName}>
+                    <h3 className="text-lg font-semibold text-white mb-1">{spec.specName}</h3>
+                    <p>{spec.metaDescription}</p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -339,6 +268,24 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
                   </Link>
                 </div>
               </div>
+            </div>
+
+            <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6">
+              <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+              <p className="text-sm text-gray-300 mb-4">
+                Build choices across every spec lean on these core Legion Remix articles—keep them nearby as you experiment.
+              </p>
+              <ul className="space-y-3 text-sm text-gray-300">
+                {referenceHighlights.map((item) => (
+                  <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                    <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                    <p>{item.summary}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-gray-400 mt-4">
+                Review them after each hotfix so your artifact paths, Bronze priorities, and talent builds stay current for Legion Remix 2025.
+              </p>
             </div>
           </div>
         </div>

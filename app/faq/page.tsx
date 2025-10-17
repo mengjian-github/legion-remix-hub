@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { createFAQSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -195,18 +194,6 @@ const faqs = [
   },
 ];
 
-const faqDirectory = [
-  { label: 'Legion Remix FAQ for WoW Legion Remix lag fixes', href: '/faq#troubleshooting-and-performance' },
-  { label: 'Legion Remix FAQ for a character with that name already exists error', href: '/faq#troubleshooting-and-performance' },
-  { label: 'Legion Remix FAQ for Time Crisis failed resets', href: '/faq#troubleshooting-and-performance' },
-  { label: 'Legion Remix FAQ for Strange Humming Crystal farming', href: '/faq#bronze-farming' },
-  { label: 'Legion Remix FAQ for Legion Remix infinite power farm routes', href: '/faq#bronze-farming' },
-  { label: 'Legion Remix FAQ for Torn Invitation Legion Remix mount', href: '/faq#bronze-farming' },
-  { label: 'Legion Remix FAQ for Infinite Knowledge tips', href: '/faq#leveling-%26-progression' },
-  { label: 'Legion Remix FAQ for WoW Legion Remix world quests', href: '/faq#leveling-%26-progression' },
-  { label: 'Legion Remix FAQ for Heroic World Tier preparation', href: '/faq#leveling-%26-progression' }
-];
-
 export default function FAQPage() {
   // Flatten all FAQs for schema
   const allQuestions = faqs.flatMap((category) =>
@@ -221,28 +208,24 @@ export default function FAQPage() {
     { name: 'Home', path: '/' },
     { name: 'FAQ', path: '/faq' },
   ]);
-  const seoKeyword = 'Legion Remix FAQ guide';
-  const seoTopics = [
-    'event overview answers',
-    'leveling frequently asked questions',
-    'Bronze farming troubleshooting',
-    'class and spec recommendations',
-    'raid scheduling clarification',
-    'Heroic World Tier guidance',
-    'Infinite Knowledge explanations',
-    'performance and lag fixes',
-    'reward transfer details',
+  const referenceHighlights = [
+    {
+      title: 'Legion Remix Overview',
+      summary: 'Covers the Timerunner concept, dates, and feature differences—answers many “what is Legion Remix?” prompts answered below.'
+    },
+    {
+      title: 'How to Unlock World Quests in Legion Remix',
+      summary: 'Guides you through the Friendly reputation requirement mentioned in the leveling questions.'
+    },
+    {
+      title: 'Infinite Knowledge / Infinite Research Guides',
+      summary: 'Provide the detailed rank and daily assignment information referenced throughout the progression and currency sections.'
+    },
+    {
+      title: 'Content Phases & Schedule',
+      summary: 'Lists the exact unlock windows behind phase questions and Turbo Boost timing.'
+    }
   ];
-  const seoSupport = [
-    'support tickets',
-    'community forums',
-    'blue post recaps',
-    'patch hotfix summaries',
-    'weekly recap notes',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -343,30 +326,21 @@ export default function FAQPage() {
         </div>
 
         <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mt-12">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix FAQ Directory</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
           <p className="text-sm text-gray-300 mb-4">
-            Quick references for your team. Each tile represents a question answered in this Legion Remix FAQ.
+            When you need more context than the short answers above, jump into these supporting articles pulled from the Legion Remix research pack.
           </p>
-          <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
-            {faqDirectory.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
-              >
-                {item.label}
-              </Link>
+          <ul className="space-y-3 text-sm text-gray-300">
+            {referenceHighlights.map((item) => (
+              <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                <p>{item.summary}</p>
+              </li>
             ))}
-          </div>
-        </div>
-
-        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mt-12">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix FAQ Guide Deep Dive</h2>
-          <div className="space-y-4 text-sm leading-7 text-gray-300">
-            {seoParagraphs.map((paragraph, idx) => (
-              <p key={`faq-seo-${idx}`}>{paragraph}</p>
-            ))}
-          </div>
+          </ul>
+          <p className="text-xs text-gray-400 mt-4">
+            Keep the overview and phase schedule handy—they resolve most questions that surface as new phases unlock.
+          </p>
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Guides Hub & Strategy Vault 2025',
@@ -64,40 +63,40 @@ const guides = [
 ];
 
 export default function GuidesPage() {
-  const guidesDirectory = [
-    { label: 'Legion Remix Guides hub for Infinite Knowledge farming', href: '/guides/infinite-knowledge' },
-    { label: 'Legion Remix Guides hub for Legion Remix lag fixes', href: '/#legion-remix-lag' },
-    { label: 'Legion Remix Guides hub for Strange Humming Crystal routes', href: '/guides/bronze-farming#strange-humming-crystal' },
-    { label: 'Legion Remix Guides hub for Legion Remix hard mode objectives', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Guides hub for Legion Remix Time Crisis strategies', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Guides hub for Legion Remix rare elite loops', href: '/guides/bronze-farming#rare-elites-legion-remix' },
-    { label: 'Legion Remix Guides hub for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
-    { label: 'Legion Remix Guides hub for Legion Remix To Fel and Back achievement', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Guides hub for Legion Remix calculator best practices', href: '/calculator' }
+  const quickLinks = [
+    { label: 'First steps checklist', href: '/guides/getting-started#timerunner-creation' },
+    { label: 'Fast leveling routes', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
+    { label: 'Bronze farming loops', href: '/guides/bronze-farming#bronze-collection-in-action' },
+    { label: 'Infinite Knowledge ranks', href: '/guides/infinite-knowledge#rank-breakdown' },
+    { label: 'Dungeon rotation planner', href: '/guides/dungeons#keystone-roadmap' },
+    { label: 'Raid unlock timeline', href: '/guides/raids#phase-unlocks' },
+    { label: 'Rewards wish list', href: '/rewards' },
+    { label: 'Bronze calculator', href: '/calculator' },
+    { label: 'FAQ & troubleshooting', href: '/faq' }
   ];
 
-  const seoKeyword = 'Legion Remix guides hub';
-  const seoTopics = [
-    'leveling roadmap planning',
-    'Bronze farming loops',
-    'dungeon keystone schedules',
-    'raid unlock timelines',
-    'Infinite Knowledge achievements',
-    'class build comparisons',
-    'Turbo Boost week preparation',
-    'daily chore checklists',
-    'mythic plus pathing notes',
+  const referenceHighlights = [
+    {
+      title: 'Legion Remix Overview',
+      summary: 'Covers the 15-week schedule from October 7, 2025 through January 19, 2026, explains Heroic World Tier, Infinite Bazaar vendors, and the features omitted from the remix (auction house, professions, ranked PvP).'
+    },
+    {
+      title: 'Content Phases & Schedule',
+      summary: 'Lists the five unlock waves—Skies of Fire, Rise of the Nightfallen, Legionfall, Argus Eternal, and Infinite Echoes—so you can time alts, raid goals, and housing decor shopping.'
+    },
+    {
+      title: 'Leveling & Gearing Guide',
+      summary: 'Details the 10-80 path, the XP bonuses from Infinite Research and Warband milestones, and when to pivot from quests to dungeons.'
+    },
+    {
+      title: 'Infinite Knowledge / Research Guides',
+      summary: 'Explain how 46 achievements and daily research packets feed the 36 ranks that later convert into 1,000 Bronze each on overflow.'
+    },
+    {
+      title: 'Rewards Compendium',
+      summary: 'Breaks down mounts, toys, ensembles, and the total 7,934,500 Bronze cost so you can prioritize purchases.'
+    }
   ];
-  const seoSupport = [
-    'community coordination',
-    'spreadsheet tracking',
-    'open-world farming routes',
-    'raid cooldown mapping',
-    'warband progression goals',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -106,17 +105,31 @@ export default function GuidesPage() {
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Legion Remix Guides Hub</h1>
           <p className="text-gray-400 text-lg mb-6">
-            Comprehensive Legion Remix Guides to help you handle onboarding, fastest leveling routes, Infinite Knowledge, Bronze farming, and new hard mode challenges.
-            Use this hub as your Legion Remix playbook from launch through Infinite Echoes.
+            Legion Remix runs from October 7, 2025 through January 19, 2026 and reimagines the Legion campaign with Heroic World Tier, Infinite Bazaar vendors, and a unified artifact tree. The overview and content schedule in our reference pack outline every phase unlock—use this hub to jump straight to the guide that answers your current question.
           </p>
           <p className="text-sm text-gray-400 mb-6">
-            Share this Legion Remix Guides hub with your raid, revisit the Legion Remix Guides hub before each phase, and annotate the Legion Remix Guides hub as hotfixes drop.
+            Whether you need the introductory quest walkthrough, a dungeon XP ranking, or a Bronze budget before Infinite Echoes opens housing decor, the cards below funnel you to the right deep dive. Bookmark the quick links for Turbo Boost weekends so your group can react to hotfixes without hunting through patch notes.
           </p>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-300">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Featured Guide Banner */}
           <div className="relative rounded-lg overflow-hidden border border-green-700/30 mb-8">
             <img
-              src={legionImages.contentUpdate}
+              src={legionImages.referenceSplash ?? legionImages.contentUpdate}
               alt="Legion Remix Content"
               className="w-full h-64 object-cover"
             />
@@ -289,35 +302,21 @@ export default function GuidesPage() {
         </div>
 
         <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-16">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Guides Directory</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
           <p className="text-sm text-gray-300 mb-4">
-            Bookmark these Legion Remix Guides so every team member can jump straight to the right walkthrough.
+            These core articles informed the summaries above—consult them whenever you need raw numbers or step-by-step walkthroughs straight from the source material.
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm text-gray-300">
-            {guidesDirectory.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
-              >
-                {item.label}
-              </Link>
+          <ul className="space-y-3 text-sm text-gray-300">
+            {referenceHighlights.map((item) => (
+              <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                <p className="text-gray-300 text-sm">{item.summary}</p>
+              </li>
             ))}
-          </div>
-          <ul className="list-disc list-inside space-y-1 text-xs text-gray-400 mt-4">
-            <li>Update the Legion Remix Guides directory weekly with new findings.</li>
-            <li>Encourage guildmates to read the Legion Remix Guides directory before raids.</li>
-            <li>Archive the Legion Remix Guides directory after the season for future remixes.</li>
           </ul>
-        </div>
-
-        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-16">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Guides Hub Deep Dive</h2>
-          <div className="space-y-4 text-sm leading-7 text-gray-300">
-            {seoParagraphs.map((paragraph, idx) => (
-              <p key={`guides-seo-${idx}`}>{paragraph}</p>
-            ))}
-          </div>
+          <p className="text-xs text-gray-400 mt-4">
+            Keep a copy of the reference pack handy during Turbo Boost weekends—most questions about ranks, Bronze payouts, or unlock timing can be answered with a quick skim of these documents.
+          </p>
         </div>
       </div>
     </div>

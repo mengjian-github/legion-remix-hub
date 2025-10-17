@@ -4,7 +4,6 @@ import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
 import { rewardSpotlights } from '@/data/rewards';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Raid Progression Planner 2025',
@@ -89,28 +88,32 @@ const savageChecklist = [
 export default function RaidsGuidePage() {
   const ensembleSpotlight = rewardSpotlights.find((item) => item.id === 'sargerei-ensembles');
   const argusSpotlight = rewardSpotlights.find((item) => item.id === 'argus-legacies');
-  const seoKeyword = 'Legion Remix raid guide';
-  const seoTopics = [
-    'raid unlock timelines',
-    'loot target planning',
-    'Violet Spellwing scheduling',
-    'Turbo Boost raid strategy',
-    'Heroic and Mythic preparation',
-    'group composition balancing',
-    'Bronze budgeting for raids',
-    'warband raid progression logging',
-    'achievement and challenge planning',
+  const quickLinks = [
+    { label: 'Phase unlock grid', href: '#raid-checklist' },
+    { label: 'Ensemble rewards', href: '#sargerei-ensembles' },
+    { label: 'Argus cosmetics', href: '#argus-legacies' },
+    { label: 'Savage challenge prep', href: '#savage-prep' },
+    { label: 'Bronze budgeting', href: '/rewards' }
   ];
-  const seoSupport = [
-    'cooldown assignments',
-    'boss phase mapping',
-    'raid night checklists',
-    'loot council notes',
-    'community coordination',
+
+  const referenceHighlights = [
+    {
+      title: 'Raid Locations, Difficulties & Achievements',
+      summary: 'Lists every raid wing, difficulty, and achievement needed for cosmetics like Violet Spellwing and the Fallen King blades.'
+    },
+    {
+      title: 'Content Phases & Schedule',
+      summary: 'Provides the exact unlock dates for each raid, aligning with the timeline summarized in the phase grid.'
+    },
+    {
+      title: 'Legion Remix Rewards Guide',
+      summary: 'Breaks down the Bronze costs for Sargerei ensembles, Violet Spellwing, and Argus legacies so you can set raid shopping goals.'
+    },
+    {
+      title: 'Infinite Knowledge & Research Guides',
+      summary: 'Highlight how raid achievements contribute to the 36 Knowledge ranks and the Bronze overflow once you cap them.'
+    }
   ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -124,6 +127,21 @@ export default function RaidsGuidePage() {
           <p className="text-gray-300 mb-6">
             Stay ahead of each phase unlock, plan your achievement runs, and map out the cosmetics you want before the event ends on January 19, 2026.
           </p>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-300">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="grid lg:grid-cols-2 gap-6 mb-10">
             <div className="bg-gray-900/50 border border-gray-700 rounded-lg overflow-hidden">
@@ -145,7 +163,7 @@ export default function RaidsGuidePage() {
             </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-4">Raid Checklist by Phase</h2>
+          <h2 id="raid-checklist" className="text-3xl font-bold text-white mb-4">Raid Checklist by Phase</h2>
           <div className="space-y-4 mb-10">
             {remixPhases.map((phase) => (
               <div key={phase.id} className="bg-gray-800 border border-gray-700 rounded-lg p-6">
@@ -173,7 +191,7 @@ export default function RaidsGuidePage() {
           </div>
 
           {ensembleSpotlight && (
-            <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden mb-10">
+            <div id="sargerei-ensembles" className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden mb-10">
               <img src={ensembleSpotlight.image} alt={ensembleSpotlight.title} className="w-full h-auto" />
               <div className="p-6">
                 <h2 className="text-3xl font-bold text-white mb-3">{ensembleSpotlight.title}</h2>
@@ -191,7 +209,7 @@ export default function RaidsGuidePage() {
           )}
 
           {argusSpotlight && (
-            <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden mb-10">
+            <div id="argus-legacies" className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden mb-10">
               <img src={argusSpotlight.image} alt={argusSpotlight.title} className="w-full h-auto" />
               <div className="p-6">
                 <h2 className="text-3xl font-bold text-white mb-3">{argusSpotlight.title}</h2>
@@ -209,7 +227,7 @@ export default function RaidsGuidePage() {
             </div>
           )}
 
-          <h2 className="text-3xl font-bold text-white mb-4">Savage Challenge Prep</h2>
+          <h2 id="savage-prep" className="text-3xl font-bold text-white mb-4">Savage Challenge Prep</h2>
           <div className="bg-gray-900/40 border border-red-700/40 rounded-lg p-6 mb-12">
             <p className="text-sm text-gray-300 mb-4">
               Use these quick reminders to keep your roster ready for Remix-specific achievements.
@@ -222,12 +240,21 @@ export default function RaidsGuidePage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Raid Guide Deep Dive</h2>
-            <div className="space-y-4 text-sm leading-7 text-gray-300">
-              {seoParagraphs.map((paragraph, idx) => (
-                <p key={`raid-seo-${idx}`}>{paragraph}</p>
+            <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              Need detailed boss mechanics or cosmetic unlock specifics? Start with these reference articles pulled from the Legion Remix research pack.
+            </p>
+            <ul className="space-y-3 text-sm text-gray-300">
+              {referenceHighlights.map((item) => (
+                <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                  <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                  <p>{item.summary}</p>
+                </li>
               ))}
-            </div>
+            </ul>
+            <p className="text-xs text-gray-400 mt-4">
+              Revisit them before each phase unlock so your raid night plans and Bronze spending stay aligned with the latest timeline.
+            </p>
           </div>
         </article>
       </div>

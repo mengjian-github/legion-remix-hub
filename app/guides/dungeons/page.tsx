@@ -4,7 +4,6 @@ import { dungeons, farmingMethods } from '@/data/dungeons';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Dungeon Roadmap & Keystone Planner',
@@ -63,28 +62,32 @@ const affixCallouts = [
 const dungeonById = Object.fromEntries(dungeons.map((dungeon) => [dungeon.id, dungeon]));
 
 export default function DungeonsGuidePage() {
-  const seoKeyword = 'Legion Remix dungeon guide';
-  const seoTopics = [
-    'Timeworn Keystone laddering',
-    'affix adaptation planning',
-    'boss mechanic callouts',
-    'trash skip routing',
-    'Turbo Boost dungeon strategy',
-    'Bronze drops from keystones',
-    'artifact path synergies',
-    'Heroic World Tier dungeon prep',
-    'Timerunner group communication',
+  const quickLinks = [
+    { label: 'Phase spotlight', href: '#phase-recommendations' },
+    { label: 'Keystone breakpoints', href: '#keystone-breakpoints' },
+    { label: 'Affix tips', href: '#empowered-affixes' },
+    { label: 'Bronze synergy', href: '#bronze-synergy' },
+    { label: 'Turbo Boost timing', href: '/guides/bronze-farming#time-investment-calculator' }
   ];
-  const seoSupport = [
-    'route notes',
-    'cooldown mapping',
-    'healer assignments',
-    'tank pathing',
-    'planning spreadsheets',
+
+  const referenceHighlights = [
+    {
+      title: 'Dungeon Locations, Difficulties & Achievements',
+      summary: 'Lists every Legion dungeon, boss count, and Bronze reward—use it to double-check the stats summarized in each card here.'
+    },
+    {
+      title: 'Timeworn Keystone Guide',
+      summary: 'Explains how Empowered affixes rotate at +10, +20, and +30, along with the cosmetic rewards for pushing higher tiers.'
+    },
+    {
+      title: 'Content Phases & Schedule',
+      summary: 'Confirms which dungeon wings unlock during Skies of Fire through Infinite Echoes so you can schedule premade nights.'
+    },
+    {
+      title: 'Leveling & Gearing Guide',
+      summary: 'Highlights Maw of Souls, Eye of Azshara, and Court of Stars as the fastest XP farms—the same runs feed Bronze while leveling alts.'
+    }
   ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -98,6 +101,21 @@ export default function DungeonsGuidePage() {
           <p className="text-gray-300 mb-6">
             Track the Timeworn Keystone cadence, spotlight the strongest Bronze and XP routes each phase, and prepare for Empowered affix combos before they go live.
           </p>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-300">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="bg-gray-900/50 border border-gray-700 rounded-lg overflow-hidden mb-10">
             <img
@@ -113,7 +131,7 @@ export default function DungeonsGuidePage() {
             </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-4">Recommended Dungeons by Phase</h2>
+          <h2 id="phase-recommendations" className="text-3xl font-bold text-white mb-4">Recommended Dungeons by Phase</h2>
           <div className="space-y-4 mb-10">
             {remixPhases.map((phase) => {
               const featured = phaseRecommendations[phase.name] || [];
@@ -150,7 +168,7 @@ export default function DungeonsGuidePage() {
             })}
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-4">Timeworn Keystone Breakpoints</h2>
+          <h2 id="keystone-breakpoints" className="text-3xl font-bold text-white mb-4">Timeworn Keystone Breakpoints</h2>
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             {keystoneTips.map((tip) => (
               <div key={tip.title} className="bg-gray-800 border border-gray-700 rounded-lg p-5">
@@ -160,7 +178,7 @@ export default function DungeonsGuidePage() {
             ))}
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-4">Empowered Affix Cheat Sheet</h2>
+          <h2 id="empowered-affixes" className="text-3xl font-bold text-white mb-4">Empowered Affix Cheat Sheet</h2>
           <div className="bg-gray-900/40 border border-purple-700/40 rounded-lg p-6 mb-10">
             <div className="grid md:grid-cols-2 gap-6">
               {affixCallouts.map((affix) => (
@@ -172,7 +190,7 @@ export default function DungeonsGuidePage() {
             </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-4">Bronze & Infinite Power Synergy</h2>
+          <h2 id="bronze-synergy" className="text-3xl font-bold text-white mb-4">Bronze & Infinite Power Synergy</h2>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-12">
             <p className="text-sm text-gray-300 mb-4">
               Pair your dungeon runs with weekly goals to stay ahead of the Infinite Power curve:
@@ -185,12 +203,21 @@ export default function DungeonsGuidePage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Dungeon Guide Deep Dive</h2>
-            <div className="space-y-4 text-sm leading-7 text-gray-300">
-              {seoParagraphs.map((paragraph, idx) => (
-                <p key={`dungeon-seo-${idx}`}>{paragraph}</p>
+            <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              For full dungeon maps, boss abilities, and achievement lists, lean on these original Legion Remix resources.
+            </p>
+            <ul className="space-y-3 text-sm text-gray-300">
+              {referenceHighlights.map((item) => (
+                <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                  <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                  <p>{item.summary}</p>
+                </li>
               ))}
-            </div>
+            </ul>
+            <p className="text-xs text-gray-400 mt-4">
+              Keep them open on a second screen while you route Mythic+ nights—most pulls trace back to these notes.
+            </p>
           </div>
         </article>
       </div>

@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react';
 import { bronzeRewards, BronzeReward } from '@/data/rewards';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { farmingMethods } from '@/data/dungeons';
 
 export default function CalculatorPage() {
@@ -42,28 +41,20 @@ export default function CalculatorPage() {
     return hours;
   }, [totalBronze]);
 
-  const seoKeyword = 'Legion Remix Bronze calculator';
-  const seoTopics = [
-    'wishlist tracking workflow',
-    'Bronze per hour projections',
-    'reward category budgeting',
-    'Turbo Boost planning with calculator',
-    'account-wide Bronze coordination',
-    'mount and ensemble calculations',
-    'daily Bronze logging',
-    'team sharing of calculator snapshots',
-    'warband progression planning',
+  const referenceHighlights = [
+    {
+      title: 'Legion Remix Rewards Compendium',
+      summary: 'Use the master list of Bronze prices and reward descriptions while you build or share wishlist snapshots.'
+    },
+    {
+      title: 'Bronze Farming Blueprint',
+      summary: 'Cross-check the per-hour estimates for dungeons, scenarios, and world quests featured in the time calculator above.'
+    },
+    {
+      title: 'Content Phases & Schedule',
+      summary: 'Note when housing decor, Argus rares, and Infinite Echoes vendors unlock so you can plan large purchases ahead of time.'
+    }
   ];
-  const seoSupport = [
-    'spreadsheet exports',
-    'group decision making',
-    'Bronze farming loops',
-    'event timeline checkpoints',
-    'community coordination',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.05,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -71,7 +62,7 @@ export default function CalculatorPage() {
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">Bronze Calculator</h1>
           <p className="text-gray-400">
-            Select the rewards you want to earn and calculate how much Bronze you need to farm.
+            Select the rewards you want from the Infinite Bazaar and see how much Bronze the run will cost. Numbers mirror the prices listed in the rewards compendium and hook into the Bronze-per-hour estimates from the farming blueprint.
           </p>
         </div>
 
@@ -270,12 +261,21 @@ export default function CalculatorPage() {
         </div>
 
         <div className="mt-16 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Calculator Deep Dive</h2>
-          <div className="space-y-4 text-sm leading-7 text-gray-300">
-            {seoParagraphs.map((paragraph, idx) => (
-              <p key={`calculator-seo-${idx}`}>{paragraph}</p>
+          <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+          <p className="text-sm text-gray-300 mb-4">
+            Keep these resources open while you budget—each one feeds data into the calculator or helps validate your plan.
+          </p>
+          <ul className="space-y-3 text-sm text-gray-300">
+            {referenceHighlights.map((item) => (
+              <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                <p>{item.summary}</p>
+              </li>
             ))}
-          </div>
+          </ul>
+          <p className="text-xs text-gray-400 mt-4">
+            Export your totals to guild spreadsheets or screenshot the summary so everyone knows the Bronze target before the next reset.
+          </p>
         </div>
       </div>
     </div>

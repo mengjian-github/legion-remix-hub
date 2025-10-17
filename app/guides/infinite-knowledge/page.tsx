@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Infinite Knowledge Mastery Guide',
@@ -66,28 +65,32 @@ const farmingChecklist = [
 ];
 
 export default function InfiniteKnowledgeGuidePage() {
-  const seoKeyword = 'Legion Remix Infinite Knowledge guide';
-  const seoTopics = [
-    'rank unlock milestones',
-    'achievement farming routes',
-    'artifact overflow conversions',
-    'phase-by-phase knowledge gains',
-    'Bronze to knowledge trading',
-    'Timerunner research priorities',
-    'daily quest scheduling',
-    'Heroic World Tier knowledge boosts',
-    'alt catch-up strategies',
+  const quickLinks = [
+    { label: 'Phase roadmap', href: '#phase-1' },
+    { label: 'Daily checklist', href: '#daily-checklist' },
+    { label: 'Overflow planning', href: '#system-synergy' },
+    { label: 'Calculator setup', href: '/calculator' },
+    { label: 'Bronze farming loops', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' }
   ];
-  const seoSupport = [
-    'research vendors',
-    'artifact nodes',
-    'raid checkpoints',
-    'keystone milestones',
-    'community spreadsheets',
+
+  const referenceHighlights = [
+    {
+      title: 'Infinite Knowledge Guide',
+      summary: 'Explains the 36-rank cap, lists every achievement that grants a rank, and notes that overflow tokens convert into 1,000 Bronze.'
+    },
+    {
+      title: 'Infinite Research Guide',
+      summary: 'Details the daily assignments from Eternus, how many packets you can store, and the bonuses tied to each phase.'
+    },
+    {
+      title: 'How to Unlock World Quests',
+      summary: 'Reminds you that Friendly reputation with the five Broken Isles factions is required before world quest achievements can award Knowledge.'
+    },
+    {
+      title: 'Content Phases & Schedule',
+      summary: 'Provides the exact dates for Skies of Fire through Infinite Echoes so you can schedule rank pushes around big unlocks.'
+    }
   ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <div className="max-w-4xl mx-auto">
@@ -100,6 +103,21 @@ export default function InfiniteKnowledgeGuidePage() {
           <p className="text-gray-300 mb-4">
             Infinite Knowledge is the most important long-term system in Legion Remix: every rank permanently increases how much Infinite Power you earn. Hotfixes confirm a 36-rank cap—anything beyond that converts directly into Bronze. This page collects phase releases, daily routines, and tips for turning overflow into cosmetics.
           </p>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-300">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="bg-gray-900/40 border border-green-700/40 rounded-lg overflow-hidden mb-8">
             <img src={legionImages.infiniteResearch ?? legionImages.infiniteResearchQuests ?? legionImages.heroBanner} alt="Infinite Knowledge roadmap" className="w-full h-auto" />
@@ -132,7 +150,7 @@ export default function InfiniteKnowledgeGuidePage() {
             ))}
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-4">Daily Planning Checklist</h2>
+          <h2 id="daily-checklist" className="text-3xl font-bold text-white mb-4">Daily Planning Checklist</h2>
           <p className="text-gray-300 mb-4">
             Follow this list to keep Knowledge and Bronze snowballing across mains and alts.
           </p>
@@ -144,7 +162,7 @@ export default function InfiniteKnowledgeGuidePage() {
             </ul>
           </div>
 
-          <h2 className="text-3xl font-bold text-white mb-4">System Synergy</h2>
+          <h2 id="system-synergy" className="text-3xl font-bold text-white mb-4">System Synergy</h2>
           <ul className="list-disc list-inside space-y-3 text-sm text-gray-300 mb-10">
             <li>
               <strong>Infinite Artifact Weapons:</strong> Spending Knowledge unlocks additional paths—max the weapon for your primary spec before branching into alt builds.
@@ -169,12 +187,21 @@ export default function InfiniteKnowledgeGuidePage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mt-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Infinite Knowledge Guide Deep Dive</h2>
-            <div className="space-y-4 text-sm leading-7 text-gray-300">
-              {seoParagraphs.map((paragraph, idx) => (
-                <p key={`infinite-knowledge-seo-${idx}`}>{paragraph}</p>
+            <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              Cross-check the original guides when you need exact achievement names, Bronze payouts, or daily assignment details.
+            </p>
+            <ul className="space-y-3 text-sm text-gray-300">
+              {referenceHighlights.map((item) => (
+                <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                  <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                  <p>{item.summary}</p>
+                </li>
               ))}
-            </div>
+            </ul>
+            <p className="text-xs text-gray-400 mt-4">
+              Keep these references handy near reset day so you never miss a Knowledge packet or Bronze conversion opportunity.
+            </p>
           </div>
         </article>
       </div>

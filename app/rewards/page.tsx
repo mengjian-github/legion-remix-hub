@@ -3,7 +3,6 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { bronzeRewards, rewardsByCategory, totalBronzeCost, getRewardsByType, rewardSpotlights } from '@/data/rewards';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { legionImages } from '@/data/images';
 
 export default function RewardsPage() {
@@ -28,29 +27,32 @@ export default function RewardsPage() {
       return acc;
     }, {} as Record<string, typeof bronzeRewards>);
   }, [filteredRewards]);
+  const quickLinks = [
+    { label: 'Cost breakdown', href: '#reward-stats' },
+    { label: 'Featured cosmetics', href: '#exclusive-rewards' },
+    { label: 'Achievement metas', href: '#meta-rewards' },
+    { label: 'Farming tips', href: '#farming-tips' },
+    { label: 'Bronze calculator', href: '/calculator' }
+  ];
 
-  const seoKeyword = 'Legion Remix rewards tracker';
-  const seoTopics = [
-    'Bronze cost planning',
-    'mount collection priorities',
-    'pet and toy unlocks',
-    'ensemble shopping lists',
-    'weekly vendor rotation tracking',
-    'Infinite Bazaar budgeting',
-    'Turbo Boost reward strategies',
-    'warband sharing reminders',
-    'achievement cosmetic planning',
+  const referenceHighlights = [
+    {
+      title: 'Legion Remix Rewards: Titles, Toys, Mounts, Pets, Transmog, & Housing',
+      summary: 'Contains the master list of Infinite Bazaar items, Bronze prices, and noted returning cosmetics referenced throughout this page.'
+    },
+    {
+      title: 'Content Phases & Schedule',
+      summary: 'Explains when new vendors and housing decor arrive so you can time large Bronze purchases.'
+    },
+    {
+      title: 'Legion Remix Overview',
+      summary: 'Clarifies how rewards are account-wide via Warband sharing and which systems (auction house, professions) are disabled.'
+    },
+    {
+      title: 'Bronze Farming Blueprint',
+      summary: 'Pairs each major reward tier with recommended Bronze-per-hour routes, helping you fund this wishlist.'
+    }
   ];
-  const seoSupport = [
-    'spreadsheet management',
-    'loot filter tagging',
-    'alt character shopping',
-    'Bronze farming loops',
-    'event timeline checkpoints',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.05,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -59,7 +61,7 @@ export default function RewardsPage() {
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">Legion Remix Rewards</h1>
           <p className="text-gray-400 mb-4">
-            Browse all available rewards from the Infinite Bazaar. Use the Bronze Calculator to plan your farming.
+            The Infinite Bazaar stocks legacy mounts, toys, ensembles, and brand-new Legion-themed housing decor. The rewards reference confirms every cosmetic is Warband-wide, while the content schedule lays out when new vendors arrive between October 7, 2025 and January 19, 2026.
           </p>
           <div className="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 border border-yellow-700/50 rounded-lg p-6">
             <div className="text-center">
@@ -77,8 +79,23 @@ export default function RewardsPage() {
           </div>
         </div>
 
+        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-10">
+          <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+          <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-300">
+            {quickLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="block bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:border-green-500 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Featured Rewards Showcase */}
-        <div className="mb-12">
+        <div id="exclusive-rewards" className="mb-12">
           <h2 className="text-3xl font-bold text-white text-center mb-8">
             Exclusive New Rewards
           </h2>
@@ -147,16 +164,16 @@ export default function RewardsPage() {
             <div className="bg-gray-800 border border-yellow-700/30 rounded-lg overflow-hidden">
               <div className="relative h-56">
                 <img
-                  src={legionImages.firstSatyrSpaulders}
-                  alt="The First Satyr's Spaulders"
+                  src={legionImages.housingDecorReference ?? legionImages.housingDecor}
+                  alt="Legion Remix Housing Decor"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-xl font-bold text-yellow-400 mb-2">🎯 Rare Drop Items</h3>
-                <p className="text-sm text-gray-300 mb-2">Previously hard-to-get items now guaranteed</p>
+                <h3 className="text-xl font-bold text-yellow-400 mb-2">🏠 Housing Decor Vendor</h3>
+                <p className="text-sm text-gray-300 mb-2">Infinite Echoes unlock brings dozens of unique furnishings</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">Armor Pieces</span>
+                  <span className="text-xs text-gray-400">Housing Items</span>
                   <span className="text-yellow-500 font-bold">Various</span>
                 </div>
               </div>
@@ -165,17 +182,17 @@ export default function RewardsPage() {
             <div className="bg-gray-800 border border-red-700/30 rounded-lg overflow-hidden">
               <div className="relative h-56">
                 <img
-                  src={legionImages.scytheOfUnmaker}
-                  alt="Scythe of the Unmaker"
+                  src={legionImages.rewardsToysReference ?? legionImages.felshatterIllusion}
+                  alt="Legion Remix Toys"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-xl font-bold text-red-400 mb-2">🔱 Scythe of the Unmaker</h3>
-                <p className="text-sm text-gray-300 mb-2">Argus the Unmaker's iconic weapon variants</p>
+                <h3 className="text-xl font-bold text-red-400 mb-2">🎲 Remix Toys & Illusions</h3>
+                <p className="text-sm text-gray-300 mb-2">Collect seasonal toys, illusions, and party tricks</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">Multiple Colors</span>
-                  <span className="text-yellow-500 font-bold">Price TBA</span>
+                  <span className="text-xs text-gray-400">Cosmetics</span>
+                  <span className="text-yellow-500 font-bold">Various</span>
                 </div>
               </div>
             </div>
@@ -206,7 +223,7 @@ export default function RewardsPage() {
           </div>
 
           {/* Achievement & Meta Reward Highlights */}
-          <div className="mb-12">
+          <div id="meta-rewards" className="mb-12">
             <h2 className="text-3xl font-bold text-white text-center mb-4">
               Achievement & Meta Reward Highlights
             </h2>
@@ -250,7 +267,7 @@ export default function RewardsPage() {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid md:grid-cols-4 gap-4 mb-8">
+        <div id="reward-stats" className="grid md:grid-cols-4 gap-4 mb-8">
           <div className="bg-gray-800 border border-green-700/30 rounded-lg p-4">
             <div className="text-3xl font-bold text-green-400 mb-1">
               {getRewardsByType('mount').length}
@@ -397,7 +414,7 @@ export default function RewardsPage() {
 
         {/* Farming Tips Section */}
         {filteredRewards.length > 0 && (
-          <div className="mt-16 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-8">
+          <div id="farming-tips" className="mt-16 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-8">
             <h2 className="text-2xl font-bold text-white mb-6">💡 Farming Tips & Strategy</h2>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -456,12 +473,21 @@ export default function RewardsPage() {
         )}
 
         <div className="mt-16 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Rewards Tracker Deep Dive</h2>
-          <div className="space-y-4 text-sm leading-7 text-gray-300">
-            {seoParagraphs.map((paragraph, idx) => (
-              <p key={`rewards-seo-${idx}`}>{paragraph}</p>
+          <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+          <p className="text-sm text-gray-300 mb-4">
+            Cross-reference these articles whenever you need the raw Bronze prices, vendor unlock timing, or rarity notes behind each cosmetic listed above.
+          </p>
+          <ul className="space-y-3 text-sm text-gray-300">
+            {referenceHighlights.map((item) => (
+              <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                <p>{item.summary}</p>
+              </li>
             ))}
-          </div>
+          </ul>
+          <p className="text-xs text-gray-400 mt-4">
+            Keep the rewards compendium handy while you shop—stock and Bronze costs will not surprise you mid-farm.
+          </p>
         </div>
 
       </div>

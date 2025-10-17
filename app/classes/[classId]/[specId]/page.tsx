@@ -10,74 +10,40 @@ import type { ArtifactPath } from '@/data/artifact-paths';
 import { buildCanonicalUrl, formatMetaDescription } from '@/lib/seo';
 import { classMountImages, legionImages } from '@/data/images';
 
-const MIN_PARAGRAPH_KEYWORD_OCCURRENCES = 3;
-const MIN_SEO_WORDS = 820;
-const MIN_KEYWORD_RATIO = 0.03;
-const MAX_KEYWORD_RATIO = 0.05;
-
 const normalizeSpaces = (value: string) => value.replace(/\s+/g, ' ').trim();
-
-const countWords = (value: string) => normalizeSpaces(value).split(' ').filter(Boolean).length;
-
-const countKeywordOccurrences = (value: string, keyword: string) =>
-  (normalizeSpaces(value).match(new RegExp(keyword, 'gi')) ?? []).length;
-
-const appendKeywordSentences = (base: string, keyword: string, topic: string, targetOccurrences = MIN_PARAGRAPH_KEYWORD_OCCURRENCES) => {
-  let paragraph = normalizeSpaces(base);
-  let currentOccurrences = countKeywordOccurrences(paragraph, keyword);
-  const sentenceTemplates = [
-    `This ${keyword} framework keeps ${topic} consistent across every phase.`,
-    `${keyword} groups revisit this focus weekly to stay ahead of the Bronze curve.`,
-    `Use ${keyword} habits to reinforce timing for Turbo Boost, raids, and open-world chores.`,
-    `${keyword} practice sessions help Timerunners adjust rotations without losing pace.`,
-  ];
-
-  let templateIndex = 0;
-  while (currentOccurrences < targetOccurrences) {
-    paragraph = normalizeSpaces(`${paragraph} ${sentenceTemplates[templateIndex % sentenceTemplates.length]}`);
-    templateIndex += 1;
-    currentOccurrences = countKeywordOccurrences(paragraph, keyword);
-  }
-
-  return paragraph;
-};
-
-const buildSpecSeoParagraphs = (
+const buildSpecNarrative = (
   specGuide: SpecGuide,
   classData: WowClass,
   artifactPath?: ArtifactPath,
   alternatePaths?: Array<{ path?: ArtifactPath; reason: string }>,
 ) => {
-  const keyword = `${specGuide.specName} ${classData.name} Legion Remix`;
   const paragraphs: string[] = [];
-
-  const addParagraph = (content: string, topic: string) => {
-    const paragraph = appendKeywordSentences(content, keyword, topic);
-    paragraphs.push(paragraph);
-  };
 
   const primaryStat = specGuide.statPriority[0] ?? 'core stats';
   const artifactFocus = artifactPath?.name ?? 'artifact path';
 
-  addParagraph(
-    `${keyword} players open the season by anchoring their toolkit around ${primaryStat} gains, maintaining Bronze momentum, and syncing cooldown cycles with the wider Legion Remix roadmap.`,
-    `${primaryStat} priorities`,
+  paragraphs.push(
+    normalizeSpaces(
+      `${specGuide.specName} ${classData.name} players open Legion Remix by focusing on ${primaryStat}. Pair early gear upgrades with the class campaign so cooldowns stay aligned with the event roadmap.`,
+    ),
   );
 
   const levelingSummary = specGuide.levelingTips
     .map((tip, index) => `Leveling focus ${index + 1}: ${tip}`)
     .join(' ');
   if (levelingSummary) {
-    addParagraph(
-      `${keyword} leveling plans revolve around ${levelingSummary}. The blend of daily quests, keystone pushes, and open-world loops feeds a steady supply of Infinite Knowledge.`,
-      'leveling execution',
+    paragraphs.push(
+      normalizeSpaces(
+        `Leveling priorities include ${levelingSummary}. Blend daily quests, keystone pushes, and open-world loops to keep Infinite Knowledge flowing to your artifact.`,
+      ),
     );
   }
 
   if (artifactPath) {
-    addParagraph(
-      `${keyword} artifact progression spotlights the ${artifactPath.name} path with the ${artifactPath.activeAbility} ability delivering ${artifactPath.focus}. ${artifactPath.description}`,
-      `${artifactPath.name} artifact path`,
+    paragraphs.push(
+      normalizeSpaces(
+        `Recommended artifact path: ${artifactPath.name}. Its signature ability, ${artifactPath.activeAbility}, focuses on ${artifactPath.focus}. ${artifactPath.description}`,
+      ),
     );
   }
 
@@ -87,32 +53,36 @@ const buildSpecSeoParagraphs = (
       .map((alt) => `${alt.path?.name}: ${alt.reason}`)
       .join(' ');
     if (alternates) {
-      addParagraph(
-        `${keyword} alternatives include ${alternates}, letting Timerunners customize for keystones, raids, or solo Bronze farming without losing baseline survivability.`,
-        'alternate artifact paths',
+      paragraphs.push(
+        normalizeSpaces(
+          `Alternate artifact routes worth testing — ${alternates}. Swap based on whether you queue for keystones, raids, or open-world Bronze farming.`,
+        ),
       );
     }
   }
 
   if (specGuide.recommendedTraits.length) {
-    addParagraph(
-      `${keyword} gearing favors traits such as ${specGuide.recommendedTraits.join(', ')}, weaving proc-based burst with defensive uptime so the rotation never collapses during Heroic World Tier pulls.`,
-      'gearing traits',
+    paragraphs.push(
+      normalizeSpaces(
+        `Recommended jewelry traits: ${specGuide.recommendedTraits.join(', ')}. Mix them for reliable burst and survivability during Heroic World Tier pulls.`,
+      ),
     );
   }
 
   if (specGuide.rotationOverview?.priority?.length) {
     const rotationSummary = specGuide.rotationOverview.priority.join(' ');
-    addParagraph(
-      `${keyword} rotations depend on ${rotationSummary} to stabilize openers, mythic pulls, and raid burn phases while lining up cooldowns with Turbo Boost timers.`,
-      'rotation cadence',
+    paragraphs.push(
+      normalizeSpaces(
+        `Rotation snapshot: ${rotationSummary}. Practice the opener on heroic dummy targets so cooldowns line up with Turbo Boost timers.`,
+      ),
     );
   }
 
   if (specGuide.bronzePriority.length) {
-    addParagraph(
-      `${keyword} Bronze priorities follow ${specGuide.bronzePriority.join(' ')} so every purchase ladders into higher damage, stronger mitigation, and cosmetic unlocks before the event sunsets.`,
-      'Bronze priorities',
+    paragraphs.push(
+      normalizeSpaces(
+        `Bronze priorities: ${specGuide.bronzePriority.join(' ')}. Knock these out first so damage, mitigation, and cosmetic unlocks stay on schedule.`,
+      ),
     );
   }
 
@@ -120,72 +90,26 @@ const buildSpecSeoParagraphs = (
     .filter(([, value]) => Boolean(value))
     .map(([mode, value]) => `${mode} focus: ${value}`);
   if (buildSummaries.length) {
-    addParagraph(
-      `${keyword} build swapping covers ${buildSummaries.join(' ')}. This flexibility keeps weekly chores fast while preserving burst windows for group content.`,
-      'build variations',
+    paragraphs.push(
+      normalizeSpaces(
+        `Build notes — ${buildSummaries.join(' ')}. Swap talents to match dungeon speed runs, open-world loops, or raid burn phases.`,
+      ),
     );
   }
 
   if (specGuide.statPriority.length) {
-    addParagraph(
-      `${keyword} stat tuning follows ${specGuide.statPriority.join(', ')}, ensuring every new drop or Bronze purchase pushes the spec deeper into its best-in-slot profile.`,
-      'stat tuning',
+    paragraphs.push(
+      normalizeSpaces(
+        `Stat priority: ${specGuide.statPriority.join(', ')}. Spend Bronze and choose drops with this order in mind.`,
+      ),
     );
   }
 
-  addParagraph(
-    `${keyword} prep should include weekly reviews of Infinite Knowledge quests, Bronze vendors, and raid lockouts so no Timerunner falls behind when phases rotate.`,
-    'weekly prep',
+  paragraphs.push(
+    normalizeSpaces(
+      `Weekly checklist: review Infinite Knowledge quests, refresh Bronze vendor priorities, and plan raid lockouts so the spec stays ready as phases rotate.`,
+    ),
   );
-
-  const aggregateText = () => normalizeSpaces(paragraphs.join(' '));
-  let totalWords = countWords(aggregateText());
-  let keywordCount = countKeywordOccurrences(aggregateText(), keyword);
-  let density = keywordCount / Math.max(totalWords, 1);
-
-  const reinforcementTopics = [
-    'group coordination',
-    'Bronze budgeting',
-    'Turbo Boost scheduling',
-    'Heroic World Tier survivability',
-    'artifact refinement',
-    'rotation discipline',
-  ];
-  let reinforcementIndex = 0;
-
-  while (totalWords < MIN_SEO_WORDS) {
-    const topic = reinforcementTopics[reinforcementIndex % reinforcementTopics.length];
-    addParagraph(
-      `${keyword} grinders revisit ${topic} milestones each Sunday, locking in spreadsheet updates, reroll plans, and carry strategies before Bronze resets land.`,
-      topic,
-    );
-    reinforcementIndex += 1;
-    totalWords = countWords(aggregateText());
-    keywordCount = countKeywordOccurrences(aggregateText(), keyword);
-    density = keywordCount / Math.max(totalWords, 1);
-  }
-
-  while (density < MIN_KEYWORD_RATIO) {
-    const topic = reinforcementTopics[reinforcementIndex % reinforcementTopics.length];
-    addParagraph(
-      `${keyword} review blocks summarize ${topic}, keeping communications tight and ensuring every Timerunner shares the same macro plan before queues begin.`,
-      topic,
-    );
-    reinforcementIndex += 1;
-    totalWords = countWords(aggregateText());
-    keywordCount = countKeywordOccurrences(aggregateText(), keyword);
-    density = keywordCount / Math.max(totalWords, 1);
-  }
-
-  while (density > MAX_KEYWORD_RATIO && paragraphs.length > 1) {
-    const removed = paragraphs.pop();
-    if (!removed) {
-      break;
-    }
-    totalWords = countWords(aggregateText());
-    keywordCount = countKeywordOccurrences(aggregateText(), keyword);
-    density = keywordCount / Math.max(totalWords, 1);
-  }
 
   return paragraphs;
 };
@@ -273,7 +197,7 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
     ...alt,
     path: artifactPaths.find(p => p.id === alt.pathId)
   }));
-  const seoParagraphs = buildSpecSeoParagraphs(specGuide, classData, artifactPath, alternatePathsData);
+  const narrativeParagraphs = buildSpecNarrative(specGuide, classData, artifactPath, alternatePathsData);
   const formattedMetaDescription = formatMetaDescription(specGuide.metaDescription);
 
   return (
@@ -489,7 +413,7 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
                 {specGuide.specName} {classData.name} Legion Remix Deep Dive
               </h2>
               <div className="space-y-4 text-sm leading-7 text-gray-300">
-                {seoParagraphs.map((paragraph, idx) => (
+                {narrativeParagraphs.map((paragraph, idx) => (
                   <p key={`seo-paragraph-${idx}`}>{paragraph}</p>
                 ))}
               </div>

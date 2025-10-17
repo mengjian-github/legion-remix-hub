@@ -4,7 +4,6 @@ import { remixPhases } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -36,41 +35,18 @@ export default function GettingStartedPage() {
     { name: 'Getting Started', path: '/guides/getting-started' },
   ]);
 
-  const gettingStartedDirectory = [
-    { label: 'Legion Remix Getting Started Guide for Infinite Knowledge and Infinite Power basics', href: '/guides/getting-started#infinite-knowledge-legion-remix' },
-    { label: 'Legion Remix Getting Started Guide for unlocking world quests quickly', href: '/guides/getting-started#how-to-unlock-world-quests-legion-remix' },
-    { label: 'Legion Remix Getting Started Guide for Strange Humming Crystal farming', href: '/guides/bronze-farming#strange-humming-crystal' },
-    { label: 'Legion Remix Getting Started Guide for hard mode and Time Crisis tips', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Getting Started Guide for Legion Remix lag troubleshooting', href: '/#legion-remix-lag' },
-    { label: 'Legion Remix Getting Started Guide for preparing To Fel and Back', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Getting Started Guide for Legion Remix campaign boosts', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
-    { label: 'Legion Remix Getting Started Guide for Legion Remix rare elite prep', href: '/guides/bronze-farming#rare-elites-legion-remix' },
-    { label: 'Legion Remix Getting Started Guide for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
-    { label: 'Legion Remix Getting Started Guide for Legion Remix Infinite Bazaar unlocks', href: '/rewards' }
+  const quickLinks = [
+    { label: 'Timerunner creation & intro quests', href: '#timerunner-creation' },
+    { label: 'Heroic World Tier setup', href: '#legion-remix-hard-mode' },
+    { label: 'How to unlock world quests', href: '#how-to-unlock-world-quests-legion-remix' },
+    { label: 'Class selection & campaign order', href: '#choosing-your-class' },
+    { label: 'Infinite Knowledge & Research basics', href: '#infinite-knowledge-legion-remix' },
+    { label: 'Bronze budgeting basics', href: '#bronze-budget-legion-remix' },
+    { label: 'Phase roadmap checkpoints', href: '#phase-roadmap' },
+    { label: 'Performance & troubleshooting tips', href: '#legion-remix-hard-mode' },
+    { label: 'Getting started checklist', href: '#getting-started-checklist' },
+    { label: 'Rewards and calculator tools', href: '/rewards' }
   ];
-
-  const seoKeyword = 'Legion Remix getting started guide';
-  const seoTopics = [
-    'account preparation steps',
-    'Timerunner character creation',
-    'phase timeline planning',
-    'Heroic World Tier setup',
-    'Infinite Knowledge unlocks',
-    'Bronze planning at launch',
-    'warband progression goals',
-    'daily checklists for new players',
-    'hardware and performance setup',
-  ];
-  const seoSupport = [
-    'quest routing',
-    'dungeon unlocks',
-    'raid milestones',
-    'Turbo Boost windows',
-    'community coordination',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -91,7 +67,10 @@ export default function GettingStartedPage() {
           </div>
 
           <p className="text-gray-300 mb-4">
-            The Legion Remix Getting Started Guide is your mission control—review this Legion Remix Getting Started Guide before logging in, share the Legion Remix Getting Started Guide with new Timerunners, and annotate the Legion Remix Getting Started Guide as each phase unlocks.
+            Legion Remix getting started steps begin the moment you create a Timerunner. The official overview explains that the remix runs from October 7, 2025, through January 19, 2026, and lets you relive the Legion campaign with current-timeline talents and account-wide cosmetics. This guide stitches together the starting quest walkthrough, Timerunner character primer, and phase roadmap so you hit Dalaran ready to fly, spend, and experiment.
+          </p>
+          <p className="text-gray-300 mb-4">
+            Legion Remix getting started also means lining up systems before the first reset: bind your Infinite Artifact weapon, unlock Heroic World Tier, and queue the class campaign for order hall access. With those pillars in place you can pursue the 36 ranks of Infinite Knowledge, unlock World Quests, and put Bronze toward class mounts and ensembles without stopping to research the basics mid-session.
           </p>
 
           <div className="text-sm text-gray-400 mb-6 flex items-center gap-4">
@@ -104,6 +83,21 @@ export default function GettingStartedPage() {
             <p className="text-gray-200 text-lg mb-0">
               <strong>Event Duration:</strong> October 7, 2025 - January 19, 2026 (15 weeks)
             </p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8 text-sm text-gray-300">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-2 gap-3">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 hover:border-green-500 rounded-lg px-4 py-3 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">What is Legion Remix?</h2>
@@ -129,7 +123,7 @@ export default function GettingStartedPage() {
             <li><strong>Experimental Gameplay:</strong> Push Mythic+ keys to extreme levels with wild power scaling</li>
           </ul>
 
-          <div className="bg-gray-900/40 border border-gray-700 rounded-lg overflow-hidden mb-8">
+          <div id="phase-roadmap" className="bg-gray-900/40 border border-gray-700 rounded-lg overflow-hidden mb-8">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative">
                 <img
@@ -360,7 +354,7 @@ export default function GettingStartedPage() {
             </ul>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">How to Create a Timerunner</h2>
+          <h2 id="timerunner-creation" className="text-2xl font-bold text-white mt-8 mb-4">How to Create a Timerunner</h2>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-6">
             <ol className="list-decimal list-inside space-y-3 text-gray-300">
               <li>Click "New Character" in character selection</li>
@@ -398,7 +392,7 @@ export default function GettingStartedPage() {
             ))}
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Choosing Your Class</h2>
+          <h2 id="choosing-your-class" className="text-2xl font-bold text-white mt-8 mb-4">Choosing Your Class</h2>
           <p className="text-gray-300 mb-4">
             All 12 original Legion classes are available. Each class earns a unique Felscorched mount variant at level 80. Consider:
           </p>
@@ -430,7 +424,7 @@ export default function GettingStartedPage() {
             View All Classes →
           </Link>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Bronze Currency System</h2>
+          <h2 id="bronze-budget-legion-remix" className="text-2xl font-bold text-white mt-8 mb-4">Bronze Currency System</h2>
           <p className="text-gray-300 mb-4">
             Bronze is the primary currency in Legion Remix. You earn it from:
           </p>
@@ -457,38 +451,30 @@ export default function GettingStartedPage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Getting Started Guide Directory</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Checkpoints to Revisit</h2>
             <p className="text-sm text-gray-300 mb-4">
-              Share these quick references so every new Timerunner can access the precise Legion Remix Getting Started Guide section they need.
+              Share these Legion Remix getting started checkpoints with returning players so everyone repeats the critical unlocks in the right order.
             </p>
-            <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
-              {gettingStartedDirectory.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <p className="text-xs text-gray-400 mt-4">
-              Each Legion Remix Getting Started Guide snippet links back to the full Legion Remix Getting Started Guide chapter so players never miss essential Legion Remix onboarding steps.
-            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-300">
+              <li>
+                <strong>Chromie&apos;s Orientation:</strong> Finish the Infinite Bazaar tour to receive your first Infinite Knowledge rank, skyriding access, and the Bronze cache guaranteed in the reference intro quests.
+              </li>
+              <li>
+                <strong>Order Hall Kickoff:</strong> Start your class campaign immediately to secure the Scouting Map, second and third artifact weapons, and mission table followers described in the class campaign guide.
+              </li>
+              <li>
+                <strong>World Quest Unlock:</strong> Grind the five Friendly reputations for &ldquo;Uniting the Isles&rdquo; so you can weave 200-Bronze World Quests into every play session.
+              </li>
+              <li>
+                <strong>Heroic World Tier Toggle:</strong> Enable the mode at the Bazaar after testing enemies around Azsuna. The Heroic World Tier guide calls out the four Empowered affixes to watch for: Imperious, Beacon of Chaos, Fel Raiser, and Engorged.
+              </li>
+              <li>
+                <strong>Infinite Research Loop:</strong> Complete daily assignments from Lieutenant Soraya or Alard so Infinite Knowledge ranks and Bronze payouts continue without downtime.
+              </li>
+            </ul>
           </div>
 
-          <p className="text-sm text-gray-400 mb-6">
-            Keep the Legion Remix Getting Started Guide pinned in your guild resources so anyone can revisit the Legion Remix Getting Started Guide checklists before logging in.
-          </p>
-          <ul className="list-disc list-inside space-y-1 text-xs text-gray-400 mb-6">
-            <li>The Legion Remix Getting Started Guide covers every unlock step from login to Argus.</li>
-            <li>Share the Legion Remix Getting Started Guide with friends returning to WoW.</li>
-            <li>Print the Legion Remix Getting Started Guide tasks for offline tracking.</li>
-            <li>Update the Legion Remix Getting Started Guide notes as Blizzard hotfixes land.</li>
-            <li>Archive the Legion Remix Getting Started Guide summaries after the event ends.</li>
-          </ul>
-
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Next Steps</h2>
+          <h2 id="getting-started-checklist" className="text-2xl font-bold text-white mt-8 mb-4">Next Steps</h2>
           <div className="grid md:grid-cols-2 gap-4 mb-8">
             <Link
               href="/guides/leveling"
@@ -513,12 +499,30 @@ export default function GettingStartedPage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Getting Started Guide Deep Dive</h2>
-            <div className="space-y-4 text-sm leading-7 text-gray-300">
-              {seoParagraphs.map((paragraph, idx) => (
-                <p key={`getting-started-seo-${idx}`}>{paragraph}</p>
-              ))}
-            </div>
+            <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+            <p className="text-gray-300 mb-4">
+              Cross-reference these primary guides whenever you revisit Legion Remix getting started decisions. Each source below contributed the numbers and unlock steps summarized throughout this page.
+            </p>
+            <ul className="list-disc list-inside space-y-3 text-gray-300">
+              <li>
+                <strong>Timerunner Character Guide:</strong> Confirms class restrictions (no Evoker), starting at level 10 in Dalaran, and the order hall campaign beats that unlock your additional artifact weapons.
+              </li>
+              <li>
+                <strong>Starting Questline Walkthrough:</strong> Details Chromie&apos;s tutorial, the Infinite Bazaar orientation, and the first Bronze cache. Follow its quest order to activate skyriding and bank Bronze without backtracking.
+              </li>
+              <li>
+                <strong>How to Unlock World Quests:</strong> Covers the reputation thresholds and turn-in steps for &ldquo;Uniting the Isles.&rdquo; Add those to your opening weekend plan so Legion Remix getting started momentum never stalls.
+              </li>
+              <li>
+                <strong>Infinite Knowledge &amp; Infinite Research Guides:</strong> Explain the 36-rank cap, achievement sources, and daily research packets that keep Bronze and power flowing to every alt.
+              </li>
+              <li>
+                <strong>Content Phases &amp; Schedule:</strong> Lists when each phase unlocks zones, raids, and vendors. Align alt leveling and reward purchases with those dates to stay ahead of the crowd.
+              </li>
+            </ul>
+            <p className="text-gray-400 text-sm mt-4">
+              Keep this Legion Remix getting started outline pinned in your guild resources, and revisit it weekly as new phases unlock to confirm you have every prerequisite squared away before chasing the next wave of rewards.
+            </p>
           </div>
         </article>
       </div>

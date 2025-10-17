@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Class Comparison & Builds 2025',
@@ -14,43 +13,33 @@ export const metadata: Metadata = {
 };
 
 export default function ClassesPage() {
-  const classDirectory = [
-    { label: 'Legion Remix Classes guide for Havoc Demon Hunter talents', href: '/classes/demon-hunter/havoc' },
-    { label: 'Legion Remix Classes guide for Vengeance Demon Hunter tanking', href: '/classes/demon-hunter/vengeance' },
-    { label: 'Legion Remix Classes guide for Brewmaster Monk mitigation', href: '/classes/monk/brewmaster' },
-    { label: 'Legion Remix Classes guide for Windwalker Monk Heroic World Tier', href: '/classes/monk/windwalker' },
-    { label: 'Legion Remix Classes guide for Protection Paladin builds', href: '/classes/paladin/protection' },
-    { label: 'Legion Remix Classes guide for Holy Paladin healing', href: '/classes/paladin/holy' },
-    { label: 'Legion Remix Classes guide for Subtlety Rogue openers', href: '/classes/rogue/subtlety' },
-    { label: 'Legion Remix Classes guide for Assassination Rogue poison setups', href: '/classes/rogue/assassination' },
-    { label: 'Legion Remix Classes guide for Balance Druid AoE rotations', href: '/classes/druid/balance' },
-    { label: 'Legion Remix Classes guide for Restoration Druid raid healing', href: '/classes/druid/restoration' },
-    { label: 'Legion Remix Classes guide for Destruction Warlock burn phases', href: '/classes/warlock/destruction' },
-    { label: 'Legion Remix Classes guide for Legion Remix druid flight form unlock', href: '/classes/druid' }
+  const featuredLinks = [
+    { label: 'Havoc & Vengeance Demon Hunter builds', href: '/classes/demon-hunter' },
+    { label: 'Brewmaster Monk mitigation planner', href: '/classes/monk/brewmaster' },
+    { label: 'Protection Paladin raid toolkit', href: '/classes/paladin/protection' },
+    { label: 'Restoration Druid raid healing tips', href: '/classes/druid/restoration' },
+    { label: 'Subtlety Rogue opener notes', href: '/classes/rogue/subtlety' },
+    { label: 'Class mount gallery', href: '/rewards#meta-rewards' }
   ];
 
-  const seoKeyword = 'Legion Remix classes guide';
-  const seoTopics = [
-    'tank roster planning',
-    'healer utility coverage',
-    'DPS burst and cleave archetypes',
-    'Fel class mount unlocks',
-    'artifact path prioritization',
-    'Heroic World Tier preparation',
-    'Bronze budgeting for alts',
-    'Timerunner roster synergy',
-    'phase-by-phase roster pivots',
+  const referenceHighlights = [
+    {
+      title: 'The Best Classes for Legion Remix: Tier List & Rankings',
+      summary: 'Outlines which specs excel at solo play, dungeon farming, and raid roles—mirrored in the spotlight sections below.'
+    },
+    {
+      title: 'Timerunner Character Guide',
+      summary: 'Explains class campaign unlocks, artifact acquisition, and hero talent access referenced in each spec page.'
+    },
+    {
+      title: 'Infinite Artifact Weapon Traits & Leveling',
+      summary: 'Shows how each class routes Artifactum Sand and Knowledge into their artifact tree, a key topic across the class guides.'
+    },
+    {
+      title: 'Infinite Knowledge Guide',
+      summary: 'Details the account-wide rank system that gives alts a head start—useful when planning multi-class rosters.'
+    }
   ];
-  const seoSupport = [
-    'dungeon keystone pacing',
-    'raid composition checks',
-    'open-world farming efficiency',
-    'Turbo Boost scheduling',
-    'Infinite Knowledge loops',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.045,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -61,6 +50,21 @@ export default function ClassesPage() {
           <p className="text-gray-400 text-lg mb-6">
             Choose Timerunners that match your goals—soloing Heroic world tiers, anchoring Mythic+ groups, or rushing Bronze. Start with the recommendations below, then dive into spec guides for deeper tuning.
           </p>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-300">
+              {featuredLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:border-green-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Fel Mounts Showcase Banner */}
           <div className="relative rounded-lg overflow-hidden border border-green-700/30 mb-8">
@@ -130,28 +134,7 @@ export default function ClassesPage() {
           </div>
         </div>
 
-        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Classes Guide Quick Checklist</h2>
-          <p className="text-sm text-gray-300 mb-4">
-            Bookmark this Legion Remix Classes Guide to answer the hottest search queries: Havoc Demon Hunter Legion Remix talents, Brewmaster Monk Legion Remix builds, Subtlety Rogue Legion Remix opener, and how to unlock Legion Remix Druid flight form.
-          </p>
-          <ul className="grid md:grid-cols-2 gap-4 text-sm text-gray-300">
-            <li>✅ <Link href="/classes/demon-hunter" className="text-green-400 hover:text-green-300">Havoc Demon Hunter Legion Remix Guide</Link> with momentum vs. Demonic talent strings.</li>
-            <li>✅ <Link href="/classes/monk" className="text-green-400 hover:text-green-300">Brewmaster Monk Legion Remix Guide</Link> covering hard mode defensive chains.</li>
-            <li>✅ <Link href="/classes/druid" className="text-green-400 hover:text-green-300">Legion Remix Druid Guide</Link> explaining owl travel form and flight form unlocks.</li>
-            <li>✅ <Link href="/classes/rogue/subtlety" className="text-green-400 hover:text-green-300">Subtlety Rogue Legion Remix Guide</Link> with openers for Time Crisis and hard mode.
-            </li>
-          </ul>
-          <p className="text-sm text-gray-300 mt-4">
-            Our Legion Remix Demon Hunter guide bundle now ships with fresh Havoc burst windows and a Legion Remix Vengeance Demon Hunter mitigation planner, so you can reference a single legion remix demon hunter guide whether you are DPSing keys or tanking raids.
-          </p>
-        </div>
-
-        <div className="bg-gray-900/40 border border-green-700/40 rounded-lg p-6 mb-10">
-          <p className="text-sm text-gray-300">
-            Looking for a WoW Legion Remix Paladin guide or a WoW Legion Remix paladin build refresher? This matrix also spotlights every WoW Legion Remix warlock guide update for WoW Legion Remix warlock players, plus a quick Legion Remix DPS tier snapshot so you can see how each Legion Remix DPS spec lines up on the current Legion Remix roadmap before you swap mains.
-          </p>
-        </div>
+        
 
         {/* Role Filter Info */}
         <div className="grid md:grid-cols-3 gap-4 mb-8">
@@ -331,30 +314,21 @@ export default function ClassesPage() {
         </div>
 
         <div className="mt-12 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Classes Guide Directory</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
           <p className="text-sm text-gray-300 mb-4">
-            Quick links for popular searches. Each tile points to a Legion Remix Classes guide variant so players land on the exact Legion Remix Classes advice they need.
+            These are the source articles that inform class rankings, artifact paths, and leveling suggestions across every spec page.
           </p>
-          <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
-            {classDirectory.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
-              >
-                {item.label}
-              </Link>
+          <ul className="space-y-3 text-sm text-gray-300">
+            {referenceHighlights.map((item) => (
+              <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
+                <p>{item.summary}</p>
+              </li>
             ))}
-          </div>
-        </div>
-
-        <div className="mt-12 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Classes Guide Deep Dive</h2>
-          <div className="space-y-4 text-sm leading-7 text-gray-300">
-            {seoParagraphs.map((paragraph, idx) => (
-              <p key={`classes-seo-${idx}`}>{paragraph}</p>
-            ))}
-          </div>
+          </ul>
+          <p className="text-xs text-gray-400 mt-4">
+            Review the tier list and Timerunner guide before swapping mains—they track the latest hotfix adjustments and unlock requirements.
+          </p>
         </div>
       </div>
     </div>

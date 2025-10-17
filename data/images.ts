@@ -18,6 +18,7 @@ export const legionImages = {
   timewarped: "/images/game/timewarped.png",
   housingDecor: "/images/game/housing-decor.png",
   contentUpdate: "/images/game/content-update.png",
+  referenceSplash: "/images/reference/legion-remix-splash.jpg",
 
   // 游戏截图 - Wowhead
   wyrmtongue: "/images/game/wyrmtongue.png",
@@ -47,6 +48,8 @@ export const legionImages = {
   felshatterIllusion: "/images/game/felshatter-illusion.jpg",
   turboBoostSpells: "/images/game/turbo-boost-ui.jpg",
   turboBoostBuffs: "/images/game/turbo-boost-buffs.jpg",
+  housingDecorReference: "/images/reference/legion-remix-housing-decor.jpg",
+  rewardsToysReference: "/images/reference/legion-remix-toys.jpg",
 };
 
 export const officialVideos = {

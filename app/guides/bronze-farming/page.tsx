@@ -4,7 +4,6 @@ import { farmingMethods, getBestBronzeDungeons } from '@/data/dungeons';
 import { totalBronzeCost, rewardSpotlights } from '@/data/rewards';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
-import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Bronze Farming Blueprint 2025',
@@ -16,41 +15,18 @@ export const metadata: Metadata = {
 
 export default function BronzeFarmingPage() {
   const bestDungeons = getBestBronzeDungeons();
-  const bronzeDirectory = [
-    { label: 'Legion Remix Bronze guide for Infinite Knowledge conversions', href: '/guides/bronze-farming#infinite-knowledge-legion-remix' },
-    { label: 'Legion Remix Bronze guide for Strange Humming Crystal farming', href: '/guides/bronze-farming#strange-humming-crystal' },
-    { label: 'Legion Remix Bronze guide for rare elite loops', href: '/guides/bronze-farming#rare-elites-legion-remix' },
-    { label: 'Legion Remix Bronze guide for Turbo Boost weeks', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
-    { label: 'Legion Remix Bronze guide for Violet Spellwing budgeting', href: '/guides/bronze-farming#achievement-targets-legion-remix' },
-    { label: 'Legion Remix Bronze guide for Legion Remix calculator planning', href: '/calculator' },
-    { label: 'Legion Remix Bronze guide for To Fel and Back prep', href: '/guides/getting-started#legion-remix-hard-mode' },
-    { label: 'Legion Remix Bronze guide for Legion Remix housing decor unlocks', href: '/rewards' },
-    { label: 'Legion Remix Bronze guide for Legion Remix lag-safe farming', href: '/#legion-remix-lag' },
-    { label: 'Legion Remix Bronze guide for Legion Remix Mythic+ rotations', href: '/guides/leveling#fastest-way-to-level-legion-remix' }
+  const quickLinks = [
+    { label: 'Bronze from Infinite Knowledge turn-ins', href: '#infinite-knowledge-legion-remix' },
+    { label: 'Strange Humming Crystal routes', href: '#strange-humming-crystal' },
+    { label: 'Rare elite loop checklist', href: '#rare-elites-legion-remix' },
+    { label: 'Turbo Boost dungeon schedule', href: '#bronze-collection-in-action' },
+    { label: 'Achievement targets worth budgeting', href: '#achievement-targets-legion-remix' },
+    { label: 'Time investment calculator', href: '#time-investment-calculator' },
+    { label: 'Bronze weekly checklist', href: '#weekly-checklist' },
+    { label: 'Farming recommendations by playstyle', href: '#farming-strategy-legion-remix' },
+    { label: 'Calculator for reward planning', href: '/calculator' },
+    { label: 'Full rewards browser', href: '/rewards' }
   ];
-
-  const seoKeyword = 'Legion Remix Bronze guide';
-  const seoTopics = [
-    'Infinite Knowledge conversions',
-    'Strange Humming Crystal loops',
-    'rare elite routing',
-    'Turbo Boost dungeon rotations',
-    'Bronze vendor priorities',
-    'Heroic World Tier Bronze farming',
-    'warband Bronze sharing',
-    'daily quest Bronze bursts',
-    'Bronze budgeting for rewards',
-  ];
-  const seoSupport = [
-    'mythic plus keystones',
-    'open-world objectives',
-    'raid lockout planning',
-    'artifact path spending',
-    'timerunner alt preparation',
-  ];
-  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
-    targetDensity: 0.048,
-  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -65,8 +41,32 @@ export default function BronzeFarmingPage() {
         <article className="prose prose-invert prose-lg max-w-none">
           <h1 className="text-4xl font-bold text-white mb-6">Legion Remix Bronze Farming Guide</h1>
           <p className="text-gray-300 mb-4">
-            This Legion Remix Bronze guide aggregates the most efficient Legion Remix Bronze routes—Infinite Knowledge turn-ins, Strange Humming Crystal loops, rare elite trains, and Turbo Boost dungeon sprees—so your Legion Remix Bronze planning hits every wishlist milestone before January 19, 2026. Whenever possible, tether these loops to a Legion Remix infinite power farm so Artifactum Sand, Infinite Research, and Bronze gains spike together.
+            Legion Remix Bronze farming keeps your Timerunner on track for the event&apos;s biggest cosmetics. The 2025 season runs from October 7 through January 19, giving you fifteen weeks to gather Bronze from the Broken Isles, Argus, and the Infinite Bazaar. This playbook combines dungeon pacing from the Legion Remix overview, phase unlock notes from the content schedule, and World Quest advice from the Broken Isles zone guides so every hour you spend contributes directly to the rewards board.
           </p>
+          <p className="text-gray-300 mb-4">
+            Efficient Legion Remix Bronze farming leans on a mix of activities. Dungeons grant 1,200 to 2,200 Bronze per clear, rare elites reward 400 to 600 Bronze apiece, and Infinite Research dailies stack another 1,000 Bronze every time you ship a packet back to the Bazaar. World Quests jump to 200 Bronze each as soon as you finish &ldquo;Uniting the Isles,&rdquo; so rotating through Stormheim, Val&apos;sharah, Highmountain, Azsuna, and Suramar keeps your coffers full while progress continues on class campaigns and reputations.
+          </p>
+          <p className="text-gray-300 mb-4">
+            Legion Remix Bronze farming also thrives on account-wide unlocks. The Infinite Knowledge guide confirms that your first 36 ranks accelerate Infinite Power gains, and every rank beyond that flips into an instant 1,000 Bronze payout. Combine those payouts with Artifactum Sand drops to advance the shared Infinite Artifact tree, then funnel the extra Bronze into the Infinite Bazaar&apos;s rotating stock of mounts, toys, and ensembles.
+          </p>
+          <p className="text-gray-300 mb-6">
+            As phases roll out—Rise of the Nightfallen, Legionfall, Argus Eternal, and Infinite Echoes—you&apos;ll weave fresh Bronze sources into your route, from Violet Spellwing raid wings to player housing decor. Use the quick links below whenever you need a refresher on Legion Remix Bronze farming topics during a busy Turbo Boost window.
+          </p>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8 text-sm text-gray-300">
+            <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
+            <div className="grid md:grid-cols-2 gap-3">
+              {quickLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block bg-gray-800 border border-gray-700 hover:border-green-500 rounded-lg px-4 py-3 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 border border-yellow-700/50 rounded-lg p-6 mb-8">
             <div className="text-center">
@@ -329,7 +329,7 @@ export default function BronzeFarmingPage() {
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-8 mb-4">Weekly Checklist</h2>
+          <h2 id="weekly-checklist" className="text-2xl font-bold text-white mt-8 mb-4">Weekly Checklist</h2>
           <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-8">
             <ul className="space-y-3">
               {[
@@ -402,38 +402,6 @@ export default function BronzeFarmingPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Guide Directory</h2>
-            <p className="text-sm text-gray-300 mb-4">
-              Keep these Legion Remix Bronze guide topics on hand for quick reference.
-            </p>
-            <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
-              {bronzeDirectory.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-green-500 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <p className="text-xs text-gray-400 mt-4">
-              Save this Legion Remix Bronze guide directory to keep every Legion Remix Bronze strategy within a couple of clicks.
-            </p>
-          </div>
-
-          <p className="text-sm text-gray-400 mb-6">
-            Before each farming session, scan this Legion Remix Bronze guide, share the Legion Remix Bronze guide notes with your group, and log results in the Legion Remix Bronze guide tracker.
-          </p>
-          <ul className="list-disc list-inside space-y-1 text-xs text-gray-400 mb-6">
-            <li>The Legion Remix Bronze guide highlights weekly Bronze caps.</li>
-            <li>Distribute the Legion Remix Bronze guide to coordinate rare elite pulls.</li>
-            <li>Update the Legion Remix Bronze guide after every Blizzard hotfix.</li>
-            <li>Record your best hour inside the Legion Remix Bronze guide spreadsheet.</li>
-            <li>Archive the Legion Remix Bronze guide checklist for 2026 Remix events.</li>
-          </ul>
-
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Plan Your Farming</h2>
           <div className="grid md:grid-cols-2 gap-4 mb-8">
             <Link
@@ -459,12 +427,27 @@ export default function BronzeFarmingPage() {
           </div>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Guide Deep Dive</h2>
-            <div className="space-y-4 text-sm leading-7 text-gray-300">
-              {seoParagraphs.map((paragraph, idx) => (
-                <p key={`bronze-seo-${idx}`}>{paragraph}</p>
-              ))}
-            </div>
+            <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
+            <p className="text-gray-300 mb-4">
+              Cross-check your Legion Remix Bronze farming plans with the primary reference articles so nothing slips through a reset. Each bullet below calls out a proven tactic from the overview, rewards, or research guides that pairs well with the playstyle sections above.
+            </p>
+            <ul className="list-disc list-inside space-y-3 text-gray-300">
+              <li>
+                <strong>Overview &amp; Phases:</strong> The Legion Remix overview confirms Heroic World Tier as a repeatable 75% Bronze accelerator, while the phase schedule explains when Argus and Infinite Echoes unlock new rares and housing vendors. Slot those windows into your Legion Remix Bronze farming calendar.
+              </li>
+              <li>
+                <strong>Infinite Knowledge &amp; Research:</strong> Both guides spell out the 36-rank cap, the achievement sources, and the daily research packets. Record every hand-in; once capped, the same route pays 1,000 Bronze per token on top of Artifactum Sand and Infinite Power gains.
+              </li>
+              <li>
+                <strong>World Quests &amp; Class Campaigns:</strong> The Broken Isles zone walkthroughs and world quest unlock article highlight which reputations matter for Suramar, Nightfallen, and Order Hall upgrades. Prioritize those story beats so your Legion Remix Bronze farming loops layer class hall missions with outdoor bonuses.
+              </li>
+              <li>
+                <strong>Rewards Planning:</strong> The rewards compendium lists Bronze prices for ensembles, toys, and legacy items like Corrupted Shalamayne. Compare your wishlist against the calculator each Sunday so your Legion Remix Bronze farming sessions stay focused on the cosmetics you truly want.
+              </li>
+            </ul>
+            <p className="text-gray-400 text-sm mt-4">
+              Maintain a simple spreadsheet or use the built-in calculator to track how much Legion Remix Bronze farming you still owe before the event ends on January 19, 2026. A steady mix of dungeons, World Quests, research, and Argus rares will hit every target comfortably.
+            </p>
           </div>
         </article>
       </div>
