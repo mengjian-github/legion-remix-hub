@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { classLoreList } from '@/data/classLore';
 
 export const metadata: Metadata = {
   title: 'Legion Remix Class Comparison & Builds 2025',
@@ -264,6 +265,63 @@ export default function ClassesPage() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-white mb-4">Order Hall Postcards</h2>
+          <p className="text-sm text-gray-300 mb-6">
+            Preview each class order hall at a glance—tap a card to dive into lore-rich walkthroughs and full image galleries.
+          </p>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {classLoreList.map((lore) => {
+              const classMeta = classes.find((cls) => cls.id === lore.id);
+              const orderHallSection = lore.sections.find((section) =>
+                section.title.toLowerCase().includes('order hall')
+              );
+              if (!classMeta || !orderHallSection?.image) {
+                return null;
+              }
+              const previewBullets = orderHallSection.bullets?.slice(0, 2) ?? [];
+
+              return (
+                <Link
+                  key={`order-hall-${lore.id}`}
+                  href={`/classes/${lore.id}`}
+                  className="group bg-gray-900/40 border border-gray-700 hover:border-green-500 rounded-xl overflow-hidden transition-colors"
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src={orderHallSection.image.src}
+                      alt={orderHallSection.image.alt ?? `${classMeta.name} order hall`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
+                    <div className="absolute bottom-3 left-4 right-4">
+                      <span className="inline-flex items-center px-3 py-1 bg-gray-900/80 border border-gray-700 text-xs text-gray-200 rounded-full mb-2">
+                        {lore.tagline}
+                      </span>
+                      <div className="flex items-center">
+                        <span className="text-lg font-semibold text-white">{classMeta.name}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-sm text-gray-300 line-clamp-3">{orderHallSection.description}</p>
+                    {previewBullets.length > 0 && (
+                      <ul className="mt-4 space-y-1 text-xs text-gray-400">
+                        {previewBullets.map((item, idx) => (
+                          <li key={`${lore.id}-orderhall-bullet-${idx}`} className="flex items-start">
+                            <span className="text-green-400 mr-2 mt-0.5">▹</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
         {/* Additional Info Section */}

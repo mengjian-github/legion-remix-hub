@@ -5,6 +5,7 @@ import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
 import { buildCanonicalUrl, formatMetaDescription } from '@/lib/seo';
 import { getClassSpecs } from '@/data/specs';
+import { getClassLore } from '@/data/classLore';
 
 export async function generateStaticParams() {
   return classes.map((cls) => ({
@@ -42,6 +43,7 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
   const { classId } = await params;
   const classData = classes.find((c) => c.id === classId);
   const classSpecs = getClassSpecs(classId);
+  const classLore = getClassLore(classId);
 
   if (!classData) {
     notFound();
@@ -92,8 +94,18 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
                 >
                   {classData.name}
                 </span>
+                {classLore?.tagline && (
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-gray-200 border border-gray-700 mb-2">
+                    {classLore.tagline}
+                  </span>
+                )}
                 <h1 className="text-4xl font-bold text-white mb-2">{classData.name}</h1>
                 <p className="text-lg text-gray-200 max-w-3xl">{classData.description}</p>
+                {classLore?.summary && (
+                  <p className="text-sm text-gray-300 max-w-3xl mt-3">
+                    {classLore.summary}
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -207,6 +219,62 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
                 ))}
               </div>
             </div>
+
+            {classLore?.sections.map((section, index) => {
+              const hasImage = Boolean(section.image);
+              const imageFirst = hasImage && index % 2 === 1;
+
+              const figure = hasImage ? (
+                <figure
+                  className={`md:col-span-2 ${imageFirst ? 'order-2 md:order-1' : 'order-2'}`}
+                >
+                  <div className="overflow-hidden rounded-lg border border-gray-700">
+                    <img
+                      src={section.image?.src}
+                      alt={section.image?.alt ?? `${classData.name} illustration`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {section.image?.caption && (
+                    <figcaption className="text-xs text-gray-400 mt-2">
+                      {section.image.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              ) : null;
+
+              return (
+                <section
+                  key={`${section.title}-${index}`}
+                  className="bg-gray-800 border border-gray-700 rounded-lg p-6"
+                >
+                  <div
+                    className={`grid gap-6 ${hasImage ? 'md:grid-cols-5 items-center' : ''}`}
+                  >
+                    {hasImage && imageFirst && figure}
+                    <div
+                      className={`${hasImage ? 'md:col-span-3' : ''} ${
+                        hasImage && imageFirst ? 'order-1 md:order-2' : 'order-1'
+                      }`}
+                    >
+                      <h3 className="text-xl font-semibold text-white mb-2">{section.title}</h3>
+                      <p className="text-sm text-gray-300">{section.description}</p>
+                      {section.bullets && (
+                        <ul className="mt-4 space-y-2 text-sm text-gray-300">
+                          {section.bullets.map((bullet, bulletIdx) => (
+                            <li key={`${section.title}-bullet-${bulletIdx}`} className="flex items-start">
+                              <span className="text-green-400 mr-2 mt-1">•</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                    {hasImage && !imageFirst && figure}
+                  </div>
+                </section>
+              );
+            })}
 
           </div>
 
