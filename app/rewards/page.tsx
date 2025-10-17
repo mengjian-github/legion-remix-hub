@@ -148,6 +148,10 @@ function EntryMeta({ entry }: { entry: RewardEntry }) {
   const excludedKeys = new Set([
     entry.nameField,
     entry.costField ?? '',
+    entry.phaseField ?? '',
+    entry.sourceField ?? '',
+    entry.requirementField ?? '',
+    entry.achievementField ?? '',
     'Bronze',
     'Bronze*',
     'Cost',

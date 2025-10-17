@@ -38,9 +38,13 @@ export interface RewardEntry {
   cost: RewardCost | null;
   costField?: string;
   phase?: string;
+  phaseField?: string;
   source?: string;
+  sourceField?: string;
   requirement?: string;
+  requirementField?: string;
   achievement?: string;
+  achievementField?: string;
   note?: string;
   metadata: Record<string, string>;
 }
@@ -518,9 +522,13 @@ function toEntry(config: RewardTableConfig, row: RewardRow, sectionTitle: string
     cost,
     costField: config.costField,
     phase: config.phaseField ? row[config.phaseField] || undefined : undefined,
+    phaseField: config.phaseField,
     source: config.sourceField ? row[config.sourceField] || undefined : undefined,
+    sourceField: config.sourceField,
     requirement: config.requirementField ? row[config.requirementField] || undefined : undefined,
+    requirementField: config.requirementField,
     achievement: config.achievementField ? row[config.achievementField] || undefined : undefined,
+    achievementField: config.achievementField,
     note: config.note,
     metadata: row
   };
