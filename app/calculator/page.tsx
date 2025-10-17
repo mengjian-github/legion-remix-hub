@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-import { bronzeRewards, BronzeReward } from '@/data/rewards';
+import { useMemo, useState } from 'react';
+import { bronzeEntries } from '@/data/rewards';
 import { farmingMethods } from '@/data/dungeons';
+
+const calculatorTypes = ['all', ...Array.from(new Set(bronzeEntries.map(entry => entry.type)))] as string[];
 
 export default function CalculatorPage() {
   const [selectedRewards, setSelectedRewards] = useState<Set<string>>(new Set());
@@ -21,17 +23,33 @@ export default function CalculatorPage() {
 
   const totalBronze = useMemo(() => {
     return Array.from(selectedRewards).reduce((sum, id) => {
-      const reward = bronzeRewards.find(r => r.id === id);
-      return sum + (reward?.cost || 0);
+      const reward = bronzeEntries.find(item => item.id === id);
+      return sum + (reward?.cost?.amount ?? 0);
     }, 0);
   }, [selectedRewards]);
 
   const filteredRewards = useMemo(() => {
-    return bronzeRewards.filter(reward => {
+    const term = searchTerm.trim().toLowerCase();
+    return bronzeEntries.filter(reward => {
       const matchesType = filter === 'all' || reward.type === filter;
-      const matchesSearch = reward.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           reward.description.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesType && matchesSearch;
+      if (!matchesType) {
+        return false;
+      }
+      if (!term) {
+        return true;
+      }
+      const haystack = [
+        reward.name,
+        reward.tableLabel,
+        reward.sectionTitle,
+        reward.source,
+        reward.requirement,
+        reward.achievement,
+        ...Object.values(reward.metadata)
+      ]
+        .join(' ')
+        .toLowerCase();
+      return haystack.includes(term);
     });
   }, [filter, searchTerm]);
 
@@ -101,7 +119,7 @@ export default function CalculatorPage() {
                   />
                 </div>
                 <div className="flex gap-2 flex-wrap">
-                  {['all', 'mount', 'pet', 'transmog', 'ensemble', 'toy'].map((type) => (
+                  {calculatorTypes.map((type) => (
                     <button
                       key={type}
                       onClick={() => setFilter(type)}
@@ -120,48 +138,65 @@ export default function CalculatorPage() {
 
             {/* Rewards List */}
             <div className="space-y-3">
-              {filteredRewards.map((reward) => (
-                <div
-                  key={reward.id}
-                  className={`bg-gray-800 border rounded-lg p-4 cursor-pointer transition-all ${
-                    selectedRewards.has(reward.id)
-                      ? 'border-green-500 bg-green-900/20'
-                      : 'border-gray-700 hover:border-gray-600'
-                  }`}
-                  onClick={() => toggleReward(reward.id)}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <input
-                        type="checkbox"
-                        checked={selectedRewards.has(reward.id)}
-                        onChange={() => toggleReward(reward.id)}
-                        className="w-5 h-5 rounded text-green-600 focus:ring-green-500"
-                      />
-                      <div>
-                        <h3 className="text-lg font-semibold text-white">{reward.name}</h3>
-                        <p className="text-sm text-gray-400">{reward.description}</p>
-                        <div className="flex gap-2 mt-1">
-                          <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
-                            {reward.type}
-                          </span>
-                          {reward.category && (
-                            <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
-                              {reward.category}
-                            </span>
+              {filteredRewards.map((reward) => {
+                const detailParts = [
+                  reward.tableLabel,
+                  reward.source,
+                  reward.requirement,
+                  reward.achievement
+                ].filter(Boolean) as string[];
+
+                return (
+                  <div
+                    key={reward.id}
+                    className={`bg-gray-800 border rounded-lg p-4 cursor-pointer transition-all ${
+                      selectedRewards.has(reward.id)
+                        ? 'border-green-500 bg-green-900/20'
+                        : 'border-gray-700 hover:border-gray-600'
+                    }`}
+                    onClick={() => toggleReward(reward.id)}
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="flex items-start space-x-4">
+                        <input
+                          type="checkbox"
+                          checked={selectedRewards.has(reward.id)}
+                          onChange={() => toggleReward(reward.id)}
+                          className="mt-1 w-5 h-5 rounded text-green-600 focus:ring-green-500"
+                        />
+                        <div>
+                          <h3 className="text-lg font-semibold text-white">{reward.name}</h3>
+                          {detailParts.length > 0 && (
+                            <p className="text-sm text-gray-400 mt-1">{detailParts.slice(0, 2).join(' • ')}</p>
                           )}
+                          <div className="flex gap-2 flex-wrap mt-2">
+                            <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                              {reward.type}
+                            </span>
+                            <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                              {reward.sectionTitle}
+                            </span>
+                            <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                              {reward.tableLabel}
+                            </span>
+                            {reward.phase && (
+                              <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                                Phase {reward.phase}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-yellow-500">
-                        {reward.cost.toLocaleString()}
+                      <div className="text-right min-w-[120px]">
+                        <div className="text-2xl font-bold text-yellow-500">
+                          {reward.cost?.amount ? reward.cost.amount.toLocaleString() : '—'}
+                        </div>
+                        <div className="text-xs text-gray-400">Bronze</div>
                       </div>
-                      <div className="text-xs text-gray-400">Bronze</div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {filteredRewards.length === 0 && (
@@ -229,7 +264,7 @@ export default function CalculatorPage() {
                 <div className="space-y-2">
                   <button
                     onClick={() => {
-                      const mountIds = bronzeRewards.filter(r => r.type === 'mount').map(r => r.id);
+                      const mountIds = bronzeEntries.filter(r => r.type === 'mount').map(r => r.id);
                       setSelectedRewards(new Set(mountIds));
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
@@ -238,7 +273,7 @@ export default function CalculatorPage() {
                   </button>
                   <button
                     onClick={() => {
-                      const petIds = bronzeRewards.filter(r => r.type === 'pet').map(r => r.id);
+                      const petIds = bronzeEntries.filter(r => r.type === 'pet').map(r => r.id);
                       setSelectedRewards(new Set(petIds));
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
@@ -247,7 +282,16 @@ export default function CalculatorPage() {
                   </button>
                   <button
                     onClick={() => {
-                      const allIds = bronzeRewards.map(r => r.id);
+                      const housingIds = bronzeEntries.filter(r => r.category === 'housing').map(r => r.id);
+                      setSelectedRewards(new Set(housingIds));
+                    }}
+                    className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
+                  >
+                    Select Housing Decor
+                  </button>
+                  <button
+                    onClick={() => {
+                      const allIds = bronzeEntries.map(r => r.id);
                       setSelectedRewards(new Set(allIds));
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"

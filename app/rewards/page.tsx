@@ -1,495 +1,513 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { bronzeRewards, rewardsByCategory, totalBronzeCost, getRewardsByType, rewardSpotlights } from '@/data/rewards';
+import {
+  rewardCategories,
+  rewardEntries,
+  bronzeEntries,
+  totalBronzeCost,
+  rewardSpotlights,
+  rewardTypes
+} from '@/data/rewards';
+import type { RewardCategoryKey, RewardEntry, RewardTableConfig, RewardType } from '@/data/rewards';
 import { legionImages } from '@/data/images';
 
+const typeFilterOptions = ['all', ...rewardTypes] as const;
+type TypeFilterOption = typeof typeFilterOptions[number];
+
+const categoryFilterOptions = ['all', ...rewardCategories.map(section => section.key)] as const;
+type CategoryFilterOption = typeof categoryFilterOptions[number];
+
+const quickLinks = [
+  { label: 'Overview & Stats', href: '#overview' },
+  { label: 'Search Catalog', href: '#search' },
+  { label: 'Featured Highlights', href: '#spotlights' },
+  ...rewardCategories.map(section => ({ label: section.title, href: `#category-${section.key}` }))
+];
+
+const bronzeItemCount = bronzeEntries.length;
+const catalogItemCount = rewardEntries.length;
+const averageBronze = Math.round(totalBronzeCost / Math.max(1, bronzeItemCount));
+
+interface CategoryStats {
+  allCount: number;
+  bronzeCount: number;
+  bronzeTotal: number;
+}
+
+const categoryStats: Record<RewardCategoryKey, CategoryStats> = rewardCategories.reduce((acc, section) => {
+  const all = rewardEntries.filter(entry => entry.category === section.key);
+  const bronze = bronzeEntries.filter(entry => entry.category === section.key);
+  const bronzeTotal = bronze.reduce((sum, entry) => sum + (entry.cost?.amount ?? 0), 0);
+  acc[section.key] = {
+    allCount: all.length,
+    bronzeCount: bronze.length,
+    bronzeTotal
+  };
+  return acc;
+}, {} as Record<RewardCategoryKey, CategoryStats>);
+
+function formatNumber(value: number) {
+  return value.toLocaleString('en-US');
+}
+
+function RewardTable({ config }: { config: RewardTableConfig }) {
+  const headers = config.reference.headers;
+  const rows = config.reference.rows;
+  return (
+    <div id={config.key} className="mb-8">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
+        <div>
+          <h4 className="text-xl font-semibold text-white">{config.label}</h4>
+          {config.description && <p className="text-sm text-gray-300 mt-1">{config.description}</p>}
+        </div>
+        {config.note && (
+          <span className="text-xs uppercase tracking-wide text-amber-300 bg-amber-900/20 border border-amber-700/50 px-3 py-1 rounded-full">
+            {config.note}
+          </span>
+        )}
+      </div>
+      <div className="overflow-x-auto rounded-xl border border-gray-800 bg-gray-950/60">
+        <table className="min-w-full divide-y divide-gray-900 text-sm">
+          <thead className="bg-gray-900/70">
+            <tr>
+              {headers.map(header => (
+                <th
+                  key={header}
+                  className="px-4 py-3 text-left font-semibold uppercase tracking-wide text-gray-300"
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-900/60">
+            {rows.map((row, rowIndex) => (
+              <tr key={`${config.key}-${rowIndex}`} className="hover:bg-gray-900/40 transition-colors">
+                {headers.map(header => {
+                  const value = row[header];
+                  const isCostColumn = header.toLowerCase().includes('bronze') || header.toLowerCase() === 'cost';
+                  const isPhaseColumn = header.toLowerCase().includes('phase');
+                  return (
+                    <td
+                      key={`${config.key}-${rowIndex}-${header}`}
+                      className="px-4 py-3 align-top"
+                    >
+                      <span
+                        className={[
+                          'block break-words',
+                          isCostColumn ? 'text-emerald-300 font-semibold' : 'text-gray-200',
+                          isPhaseColumn ? 'text-sky-300 font-medium' : ''
+                        ].join(' ')}
+                      >
+                        {value && value.trim().length > 0 ? value : '—'}
+                      </span>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function SpotlightCard({ spotlight }: { spotlight: (typeof rewardSpotlights)[number] }) {
+  return (
+    <div className="bg-gradient-to-br from-gray-900/80 via-gray-900/40 to-gray-900/80 border border-gray-800 rounded-2xl overflow-hidden">
+      <div className="relative h-52">
+        <img
+          src={spotlight.image}
+          alt={spotlight.title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-5">
+          <p className="text-xs uppercase tracking-widest text-emerald-300">Spotlight</p>
+          <h3 className="text-2xl font-semibold text-white">{spotlight.title}</h3>
+          <p className="text-sm text-gray-300 mt-1">{spotlight.subtitle}</p>
+        </div>
+      </div>
+      <div className="p-5 space-y-4">
+        {spotlight.highlights.map(highlight => (
+          <div key={highlight.name} className="bg-gray-900/60 border border-gray-800 rounded-lg p-4">
+            <p className="text-emerald-300 font-medium">{highlight.name}</p>
+            <p className="text-sm text-gray-300 mt-1">{highlight.requirement}</p>
+            {highlight.note && <p className="text-xs text-amber-300 mt-2">{highlight.note}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function EntryMeta({ entry }: { entry: RewardEntry }) {
+  const excludedKeys = new Set([
+    entry.nameField,
+    entry.costField ?? '',
+    'Bronze',
+    'Bronze*',
+    'Cost',
+    'Value'
+  ]);
+  const metadataPairs = Object.entries(entry.metadata).filter(([key, value]) => {
+    if (!value || value === entry.name) return false;
+    if (excludedKeys.has(key)) return false;
+    return true;
+  });
+
+  if (metadataPairs.length === 0 && !entry.source && !entry.requirement && !entry.achievement && !entry.phase) {
+    return null;
+  }
+
+  const fields: { label: string; value: string | undefined }[] = [
+    entry.achievement ? { label: 'Achievement', value: entry.achievement } : null,
+    entry.requirement ? { label: 'Requirement', value: entry.requirement } : null,
+    entry.source ? { label: 'Source', value: entry.source } : null,
+    entry.phase ? { label: 'Phase', value: entry.phase } : null
+  ].filter(Boolean) as { label: string; value: string }[];
+
+  metadataPairs.slice(0, 3).forEach(([key, value]) => {
+    fields.push({ label: key, value });
+  });
+
+  return (
+    <dl className="mt-2 grid gap-2 text-xs text-gray-300">
+      {fields.map(({ label, value }) => (
+        <div key={`${entry.id}-${label}`} className="flex flex-col">
+          <dt className="uppercase tracking-wide text-gray-500">{label}</dt>
+          <dd className="text-gray-200">{value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 export default function RewardsPage() {
-  const [filter, setFilter] = useState<string>('all');
+  const [typeFilter, setTypeFilter] = useState<TypeFilterOption>('all');
+  const [categoryFilter, setCategoryFilter] = useState<CategoryFilterOption>('all');
+  const [bronzeOnly, setBronzeOnly] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredRewards = useMemo(() => {
-    return bronzeRewards.filter(reward => {
-      const matchesType = filter === 'all' || reward.type === filter;
-      const matchesSearch = reward.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           reward.description.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesType && matchesSearch;
-    });
-  }, [filter, searchTerm]);
+  const filteredEntries = useMemo(() => {
+    const base = bronzeOnly ? bronzeEntries : rewardEntries;
+    const term = searchTerm.trim().toLowerCase();
 
-  const rewardsByType = useMemo(() => {
-    return filteredRewards.reduce((acc, reward) => {
-      if (!acc[reward.type]) {
-        acc[reward.type] = [];
+    return base.filter(entry => {
+      if (typeFilter !== 'all' && entry.type !== typeFilter) {
+        return false;
       }
-      acc[reward.type].push(reward);
-      return acc;
-    }, {} as Record<string, typeof bronzeRewards>);
-  }, [filteredRewards]);
-  const quickLinks = [
-    { label: 'Cost breakdown', href: '#reward-stats' },
-    { label: 'Featured cosmetics', href: '#exclusive-rewards' },
-    { label: 'Achievement metas', href: '#meta-rewards' },
-    { label: 'Farming tips', href: '#farming-tips' },
-    { label: 'Bronze calculator', href: '/calculator' }
-  ];
+      if (categoryFilter !== 'all' && entry.category !== categoryFilter) {
+        return false;
+      }
+      if (!term) {
+        return true;
+      }
+      const haystack = [
+        entry.name,
+        entry.source,
+        entry.requirement,
+        entry.achievement,
+        entry.tableLabel,
+        entry.tableHeading ?? '',
+        entry.sectionTitle,
+        ...Object.values(entry.metadata)
+      ]
+        .join(' ')
+        .toLowerCase();
+      return haystack.includes(term);
+    });
+  }, [bronzeOnly, categoryFilter, searchTerm, typeFilter]);
 
-  const referenceHighlights = [
-    {
-      title: 'Legion Remix Rewards: Titles, Toys, Mounts, Pets, Transmog, & Housing',
-      summary: 'Contains the master list of Infinite Bazaar items, Bronze prices, and noted returning cosmetics referenced throughout this page.'
-    },
-    {
-      title: 'Content Phases & Schedule',
-      summary: 'Explains when new vendors and housing decor arrive so you can time large Bronze purchases.'
-    },
-    {
-      title: 'Legion Remix Overview',
-      summary: 'Clarifies how rewards are account-wide via Warband sharing and which systems (auction house, professions) are disabled.'
-    },
-    {
-      title: 'Bronze Farming Blueprint',
-      summary: 'Pairs each major reward tier with recommended Bronze-per-hour routes, helping you fund this wishlist.'
-    }
-  ];
+  const maxResults = 80;
+  const displayedEntries = filteredEntries.slice(0, maxResults);
+  const truncated = filteredEntries.length > maxResults;
+  const matchedBronzeTotal = displayedEntries.reduce((sum, entry) => sum + (entry.cost?.amount ?? 0), 0);
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4">Legion Remix Rewards</h1>
-          <p className="text-gray-400 mb-4">
-            The Infinite Bazaar stocks legacy mounts, toys, ensembles, and brand-new Legion-themed housing decor. The rewards reference confirms every cosmetic is Warband-wide, while the content schedule lays out when new vendors arrive between October 7, 2025 and January 19, 2026.
-          </p>
-          <div className="bg-gradient-to-r from-yellow-900/40 to-amber-900/40 border border-yellow-700/50 rounded-lg p-6">
-            <div className="text-center">
-              <div className="text-sm text-gray-300 mb-2">Total Bronze for Everything</div>
-              <div className="text-5xl font-bold text-yellow-500">
-                {totalBronzeCost.toLocaleString()}
-              </div>
-              <Link
-                href="/calculator"
-                className="inline-block mt-4 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium transition-colors"
-              >
-                Calculate Your Wishlist
-              </Link>
+      <div className="max-w-7xl mx-auto text-white">
+        <header id="overview" className="mb-12">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div>
+              <h1 className="text-4xl font-bold">Legion Remix Rewards Compendium</h1>
+              <p className="text-lg text-gray-300 mt-2 max-w-3xl">
+                Legion Remix runs from <strong className="text-emerald-300">October 7, 2025</strong> through
+                <strong className="text-emerald-300"> January 19, 2026</strong>. Use this catalog to plan every Bronze
+                purchase, achievement unlock, and reputation vendor stop before the event closes on week 15.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-emerald-900/60 to-slate-900/80 border border-emerald-700/60 rounded-2xl px-6 py-4 shadow-lg shadow-emerald-950/40">
+              <p className="text-xs uppercase tracking-widest text-emerald-200">Bronze Needed for Full Collection</p>
+              <p className="text-4xl font-bold text-emerald-300 mt-2">{formatNumber(totalBronzeCost)}</p>
+              <p className="text-sm text-gray-300 mt-1">Includes mounts, pets, toys, ensembles, housing, and more.</p>
             </div>
           </div>
-        </div>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="bg-gray-900/60 border border-gray-800 rounded-xl p-4">
+              <p className="text-xs uppercase tracking-wide text-gray-400">Bronze-priced items</p>
+              <p className="text-2xl font-semibold text-white mt-1">{formatNumber(bronzeItemCount)}</p>
+              <p className="text-sm text-gray-400 mt-2">Eligible for Bronze farming strategies.</p>
+            </div>
+            <div className="bg-gray-900/60 border border-gray-800 rounded-xl p-4">
+              <p className="text-xs uppercase tracking-wide text-gray-400">All catalog entries</p>
+              <p className="text-2xl font-semibold text-white mt-1">{formatNumber(catalogItemCount)}</p>
+              <p className="text-sm text-gray-400 mt-2">Includes achievements, paragon rewards, and vendor unlocks.</p>
+            </div>
+            <div className="bg-gray-900/60 border border-gray-800 rounded-xl p-4">
+              <p className="text-xs uppercase tracking-wide text-gray-400">Average Bronze per item</p>
+              <p className="text-2xl font-semibold text-white mt-1">{formatNumber(averageBronze)}</p>
+              <p className="text-sm text-gray-400 mt-2">Benchmark how much Bronze to reserve per purchase.</p>
+            </div>
+            <div className="bg-gray-900/60 border border-gray-800 rounded-xl p-4">
+              <p className="text-xs uppercase tracking-wide text-gray-400">Phase milestones tracked</p>
+              <p className="text-2xl font-semibold text-white mt-1">{rewardCategories.length}</p>
+              <p className="text-sm text-gray-400 mt-2">Mounts, pets, toys, transmog, housing, and reputations.</p>
+            </div>
+          </div>
+        </header>
 
-        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-10">
-          <h2 className="text-xl font-semibold text-white mb-3">Quick Links</h2>
-          <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-300">
-            {quickLinks.map((item) => (
+        <section className="bg-gray-900/40 border border-gray-800 rounded-2xl p-6 mb-12">
+          <h2 className="text-xl font-semibold text-white mb-4">Quick Links</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {quickLinks.map(link => (
               <Link
-                key={item.label}
-                href={item.href}
-                className="block bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:border-green-500 transition-colors"
+                key={link.href}
+                href={link.href}
+                className="block bg-gray-950/60 border border-gray-800 hover:border-emerald-500 transition-colors rounded-xl px-4 py-3 text-gray-200"
               >
-                {item.label}
+                {link.label}
               </Link>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Featured Rewards Showcase */}
-        <div id="exclusive-rewards" className="mb-12">
-          <h2 className="text-3xl font-bold text-white text-center mb-8">
-            Exclusive New Rewards
-          </h2>
-
-          {/* Top Highlight Rewards */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 border border-green-700/50 rounded-lg overflow-hidden">
-              <div className="relative h-72">
-                <img
-                  src={legionImages.felClassMounts}
-                  alt="Felscorched Class Mounts"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold text-green-400">🐎 Felscorched Class Mounts</h3>
-                    <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">FREE @ 80</span>
-                  </div>
-                  <p className="text-gray-200 mb-2">12 unique fel-infused class mount variants - one for each class!</p>
-                  <p className="text-sm text-gray-300">Automatically earned at level 80, or purchase for 20,000 Bronze for alts</p>
-                </div>
-              </div>
+        <section id="search" className="bg-gray-900/40 border border-gray-800 rounded-2xl p-6 mb-16">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+            <div>
+              <h2 className="text-2xl font-semibold text-white">Search & Filter the Catalog</h2>
+              <p className="text-sm text-gray-300 mt-1">
+                Filter by reward type, category, and Bronze availability. The list updates instantly as you type.
+              </p>
             </div>
-
-            <div className="bg-gradient-to-br from-purple-900/40 to-violet-900/40 border border-purple-700/50 rounded-lg overflow-hidden">
-              <div className="relative h-72">
-                <img
-                  src={legionImages.azsharaTransmog}
-                  alt="Azshara Transmog"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold text-purple-400">👑 Queen Azshara Sets</h3>
-                    <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">NEW!</span>
-                  </div>
-                  <p className="text-gray-200 mb-2">Brand new Queen Azshara-inspired armor appearances</p>
-                  <p className="text-sm text-gray-300">Exclusive to Legion Remix - never available before</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Secondary Featured Rewards */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-gray-800 border border-orange-700/30 rounded-lg overflow-hidden">
-              <div className="relative h-56">
-                <img
-                  src={legionImages.corruptedShalamayne}
-                  alt="Corrupted Shalamayne"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-bold text-orange-400 mb-2">⚔️ Corrupted Shalamayne</h3>
-                <p className="text-sm text-gray-300 mb-2">Varian's legendary swords, fel-corrupted variant</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">Weapon Transmog</span>
-                  <span className="text-yellow-500 font-bold">Price TBA</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-800 border border-yellow-700/30 rounded-lg overflow-hidden">
-              <div className="relative h-56">
-                <img
-                  src={legionImages.housingDecorReference ?? legionImages.housingDecor}
-                  alt="Legion Remix Housing Decor"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-bold text-yellow-400 mb-2">🏠 Housing Decor Vendor</h3>
-                <p className="text-sm text-gray-300 mb-2">Infinite Echoes unlock brings dozens of unique furnishings</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">Housing Items</span>
-                  <span className="text-yellow-500 font-bold">Various</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-800 border border-red-700/30 rounded-lg overflow-hidden">
-              <div className="relative h-56">
-                <img
-                  src={legionImages.rewardsToysReference ?? legionImages.felshatterIllusion}
-                  alt="Legion Remix Toys"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-bold text-red-400 mb-2">🎲 Remix Toys & Illusions</h3>
-                <p className="text-sm text-gray-300 mb-2">Collect seasonal toys, illusions, and party tricks</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">Cosmetics</span>
-                  <span className="text-yellow-500 font-bold">Various</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Violet Spellwing Callout */}
-          <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 border border-purple-700/50 rounded-lg p-6 mb-8">
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-24 h-24 bg-purple-500/20 rounded-full flex items-center justify-center border-2 border-purple-500">
-                  <span className="text-5xl">🦇</span>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-purple-400 mb-2">🌟 Violet Spellwing Returns!</h3>
-                <p className="text-gray-300 mb-2">
-                  The <strong>Violet Spellwing</strong> is back! This previously unobtainable mount from Antorus Heroic is now available for <strong className="text-yellow-500">150,000 Bronze</strong>.
-                </p>
-                <p className="text-sm text-gray-400">
-                  Originally only available during Legion's Ahead of the Curve achievement, this is your chance to add it to your collection!
-                </p>
-              </div>
-              <div className="flex-shrink-0">
-                <span className="text-3xl font-bold text-yellow-500">150,000</span>
-                <div className="text-xs text-gray-400 text-center">Bronze</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Achievement & Meta Reward Highlights */}
-          <div id="meta-rewards" className="mb-12">
-            <h2 className="text-3xl font-bold text-white text-center mb-4">
-              Achievement & Meta Reward Highlights
-            </h2>
-            <p className="text-gray-400 text-center max-w-3xl mx-auto mb-10">
-              Target these milestone objectives to unlock cosmetics that cannot be bought directly with Bronze.
-            </p>
-            <div className="grid md:grid-cols-2 gap-8">
-              {rewardSpotlights.map((spotlight) => (
-                <div
-                  key={spotlight.id}
-                  className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden shadow-lg shadow-black/20"
-                >
-                  <div className="relative h-56">
-                    <img
-                      src={spotlight.image}
-                      alt={spotlight.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                    <div className="absolute bottom-4 left-5 right-5">
-                      <span className="text-xs uppercase tracking-wide text-green-300/80">Meta Reward</span>
-                      <h3 className="text-2xl font-bold text-white mt-1">{spotlight.title}</h3>
-                      <p className="text-sm text-gray-200 mt-1">{spotlight.subtitle}</p>
-                    </div>
-                  </div>
-                  <div className="p-6 space-y-3">
-                    {spotlight.highlights.map((item) => (
-                      <div key={item.name} className="bg-gray-900/40 border border-gray-700/50 rounded-lg p-4">
-                        <h4 className="text-sm font-semibold text-white mb-1">{item.name}</h4>
-                        <p className="text-xs text-gray-300 leading-snug">{item.requirement}</p>
-                        {item.note && (
-                          <p className="text-xs text-gray-500 mt-1">{item.note}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Stats */}
-        <div id="reward-stats" className="grid md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-gray-800 border border-green-700/30 rounded-lg p-4">
-            <div className="text-3xl font-bold text-green-400 mb-1">
-              {getRewardsByType('mount').length}
-            </div>
-            <div className="text-sm text-gray-400">Mounts Available</div>
-          </div>
-          <div className="bg-gray-800 border border-blue-700/30 rounded-lg p-4">
-            <div className="text-3xl font-bold text-blue-400 mb-1">
-              {getRewardsByType('pet').length}
-            </div>
-            <div className="text-sm text-gray-400">Battle Pets</div>
-          </div>
-          <div className="bg-gray-800 border border-purple-700/30 rounded-lg p-4">
-            <div className="text-3xl font-bold text-purple-400 mb-1">
-              {getRewardsByType('ensemble').length + getRewardsByType('transmog').length}
-            </div>
-            <div className="text-sm text-gray-400">Transmog Sets</div>
-          </div>
-          <div className="bg-gray-800 border border-amber-700/30 rounded-lg p-4">
-            <div className="text-3xl font-bold text-amber-400 mb-1">
-              {getRewardsByType('toy').length}
-            </div>
-            <div className="text-sm text-gray-400">Toys & Fun Items</div>
-          </div>
-        </div>
-
-        {/* Filters */}
-        <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">Filter & Search</h3>
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1">
+            <label className="inline-flex items-center gap-2 text-sm text-gray-300">
               <input
-                type="text"
-                placeholder="Search rewards by name or description..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-green-500"
+                type="checkbox"
+                checked={bronzeOnly}
+                onChange={event => setBronzeOnly(event.target.checked)}
+                className="h-4 w-4 rounded border-gray-600 bg-gray-800 text-emerald-500 focus:ring-emerald-400"
               />
-            </div>
+              Show Bronze-priced results only
+            </label>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-4 mb-6">
+            <input
+              type="search"
+              value={searchTerm}
+              onChange={event => setSearchTerm(event.target.value)}
+              placeholder="Search rewards, achievements, vendors, or phases..."
+              className="flex-1 bg-gray-950/70 border border-gray-800 focus:border-emerald-500 focus:ring-emerald-500/40 rounded-xl px-4 py-3 text-gray-100"
+            />
             <div className="flex gap-2 flex-wrap">
-              {['all', 'mount', 'pet', 'transmog', 'ensemble', 'toy'].map((type) => (
+              {typeFilterOptions.map(option => (
                 <button
-                  key={type}
-                  onClick={() => setFilter(type)}
-                  className={`px-4 py-2 rounded-md font-medium transition-colors ${
-                    filter === type
-                      ? 'bg-green-600 text-white'
-                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                  }`}
+                  key={option}
+                  type="button"
+                  onClick={() => setTypeFilter(option)}
+                  className={[
+                    'px-4 py-2 rounded-lg border text-sm transition-colors',
+                    typeFilter === option
+                      ? 'border-emerald-500 bg-emerald-500/20 text-emerald-200'
+                      : 'border-gray-700 bg-gray-900/60 text-gray-300 hover:border-emerald-400'
+                  ].join(' ')}
                 >
-                  {type.charAt(0).toUpperCase() + type.slice(1)}
+                  {option === 'all' ? 'All Types' : option.charAt(0).toUpperCase() + option.slice(1)}
                 </button>
               ))}
             </div>
           </div>
-          <p className="text-xs text-gray-500 mt-3">
-            💡 Tip: Use filters to narrow down rewards by type, or search for specific items
-          </p>
-        </div>
 
-        {/* Rewards Grid */}
-        {Object.entries(rewardsByType).map(([type, rewards]) => (
-          <div key={type} className="mb-12">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-white capitalize">
-                {type === 'ensemble' ? 'Transmog Ensembles' : `${type}s`} ({rewards.length})
-              </h2>
-              <div className="text-sm text-gray-400">
-                Total: <span className="text-yellow-500 font-bold">
-                  {rewards.reduce((sum, r) => sum + r.cost, 0).toLocaleString()}
-                </span> Bronze
+          <div className="flex gap-2 flex-wrap mb-6">
+            {categoryFilterOptions.map(option => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => setCategoryFilter(option)}
+                className={[
+                  'px-4 py-2 rounded-lg border text-sm transition-colors',
+                  categoryFilter === option
+                    ? 'border-sky-500 bg-sky-500/20 text-sky-200'
+                    : 'border-gray-700 bg-gray-900/60 text-gray-300 hover:border-sky-400'
+                ].join(' ')}
+              >
+                {option === 'all'
+                  ? 'All Categories'
+                  : rewardCategories.find(section => section.key === option)?.title ?? option}
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-gray-950/70 border border-gray-800 rounded-2xl">
+            <header className="flex flex-wrap items-center justify-between gap-3 border-b border-gray-900 px-5 py-4">
+              <div>
+                <p className="text-sm text-gray-300">
+                  Showing <strong className="text-emerald-300">{displayedEntries.length}</strong> of{' '}
+                  <strong className="text-emerald-300">{filteredEntries.length}</strong> matches
+                  {bronzeOnly && ' (Bronze items)'}
+                </p>
+                {matchedBronzeTotal > 0 && (
+                  <p className="text-xs text-gray-500 mt-1">
+                    Bronze required for listed results: {formatNumber(matchedBronzeTotal)}
+                  </p>
+                )}
               </div>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {rewards.map((reward) => (
-                <div
-                  key={reward.id}
-                  className="bg-gray-800 border border-gray-700 hover:border-green-500 rounded-lg overflow-hidden transition-all hover:shadow-lg hover:shadow-green-500/20"
-                >
-                  {/* Visual indicator based on type */}
-                  <div className={`h-1 ${
-                    type === 'mount' ? 'bg-green-500' :
-                    type === 'pet' ? 'bg-blue-500' :
-                    type === 'transmog' || type === 'ensemble' ? 'bg-purple-500' :
-                    type === 'toy' ? 'bg-amber-500' : 'bg-gray-500'
-                  }`}></div>
-
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-400 transition-colors">
-                          {reward.name}
-                        </h3>
-                        <div className="flex gap-2 flex-wrap">
-                          <span className={`text-xs px-2 py-1 rounded ${
-                            type === 'mount' ? 'bg-green-900/40 text-green-300 border border-green-700/30' :
-                            type === 'pet' ? 'bg-blue-900/40 text-blue-300 border border-blue-700/30' :
-                            type === 'transmog' || type === 'ensemble' ? 'bg-purple-900/40 text-purple-300 border border-purple-700/30' :
-                            type === 'toy' ? 'bg-amber-900/40 text-amber-300 border border-amber-700/30' :
-                            'bg-gray-700 text-gray-300'
-                          }`}>
-                            {type}
-                          </span>
-                          {reward.category && (
-                            <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded border border-gray-600">
-                              {reward.category}
-                            </span>
-                          )}
-                        </div>
+              {truncated && (
+                <span className="text-xs text-amber-300">
+                  Displaying first {maxResults} results. Refine filters for more precise matches.
+                </span>
+              )}
+            </header>
+            <div className="divide-y divide-gray-900">
+              {displayedEntries.map(entry => (
+                <div key={entry.id} className="px-5 py-4 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                  <div className="flex-1">
+                    <p className="text-sm uppercase tracking-widest text-gray-500 mb-1">
+                      {entry.sectionTitle} • {entry.tableLabel}
+                    </p>
+                    <h3 className="text-lg font-semibold text-white">{entry.name}</h3>
+                    <EntryMeta entry={entry} />
+                  </div>
+                  <div className="text-right min-w-[160px]">
+                    {entry.cost ? (
+                      <div>
+                        <p className="text-xl font-semibold text-emerald-300">
+                          {entry.cost.currency.toLowerCase().startsWith('bronze')
+                            ? `${formatNumber(entry.cost.amount ?? 0)} Bronze`
+                            : entry.cost.display}
+                        </p>
+                        {entry.cost.currency && !entry.cost.currency.toLowerCase().startsWith('bronze') && (
+                          <p className="text-xs text-gray-400 mt-1">Currency: {entry.cost.currency}</p>
+                        )}
                       </div>
-                      <div className="text-right ml-4">
-                        <div className="text-2xl font-bold text-yellow-500">
-                          {reward.cost.toLocaleString()}
-                        </div>
-                        <div className="text-xs text-gray-400">Bronze</div>
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-400 mb-3 min-h-[40px]">{reward.description}</p>
-
-                    <div className="flex items-center justify-between pt-3 border-t border-gray-700">
-                      <div className="text-xs text-gray-500">
-                        <span className="text-gray-400">📍</span> {reward.source}
-                      </div>
-                      {reward.category === 'Rare Mounts' && (
-                        <span className="text-xs bg-red-900/30 text-red-400 px-2 py-1 rounded border border-red-700/30">
-                          ⭐ Rare
-                        </span>
-                      )}
-                    </div>
+                    ) : (
+                      <p className="text-sm text-gray-400 italic">Achievement / unlock reward</p>
+                    )}
+                    <p className="text-xs text-gray-500 mt-2 capitalize">{entry.type}</p>
                   </div>
                 </div>
               ))}
+              {displayedEntries.length === 0 && (
+                <div className="px-5 py-6 text-center text-gray-400">
+                  No rewards match the current filters. Try broadening your search or disabling Bronze-only mode.
+                </div>
+              )}
             </div>
           </div>
-        ))}
+        </section>
 
-        {filteredRewards.length === 0 && (
-          <div className="bg-gray-800 border border-gray-700 rounded-lg p-12 text-center">
-            <p className="text-gray-400 text-lg mb-2">No rewards found matching your filters.</p>
-            <p className="text-gray-500 text-sm">Try adjusting your search or filter settings</p>
-          </div>
-        )}
-
-        {/* Farming Tips Section */}
-        {filteredRewards.length > 0 && (
-          <div id="farming-tips" className="mt-16 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-white mb-6">💡 Farming Tips & Strategy</h2>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-400 mb-3">Most Efficient Methods</h3>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">▸</span>
-                    <span><strong>Heroic Dungeons:</strong> 1,200-2,200 Bronze per run (~15 mins)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">▸</span>
-                    <span><strong>Infinite Research Quests:</strong> +1,000 Bronze bonus each (bank up to 6)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">▸</span>
-                    <span><strong>World Quests:</strong> 200 Bronze each (quick and easy)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">▸</span>
-                    <span><strong>Bronze Caches:</strong> Substantially increased rewards in recent updates</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-yellow-400 mb-3">Priority Recommendations</h3>
-                <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2 mt-1">★</span>
-                    <span><strong>Violet Spellwing first</strong> if you missed it in original Legion</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2 mt-1">★</span>
-                    <span><strong>Ur'zul mounts</strong> are the most expensive but very unique</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2 mt-1">★</span>
-                    <span><strong>Transmog ensembles</strong> unlock full sets instantly</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-400 mr-2 mt-1">★</span>
-                    <span>Use the <Link href="/calculator" className="text-green-400 hover:text-green-300 underline">Bronze Calculator</Link> to plan your wishlist</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-blue-900/20 border border-blue-700/30 rounded-lg p-4">
-              <p className="text-gray-300 text-sm">
-                <strong className="text-blue-400">💎 Pro Tip:</strong> All cosmetic rewards are <strong>account-wide</strong> via Warband system!
-                Once you earn a mount, pet, or transmog on your Timerunner, it's available to all your characters on your Battle.net account.
-              </p>
-            </div>
-          </div>
-        )}
-
-        <div className="mt-16 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">Reference Highlights</h2>
-          <p className="text-sm text-gray-300 mb-4">
-            Cross-reference these articles whenever you need the raw Bronze prices, vendor unlock timing, or rarity notes behind each cosmetic listed above.
-          </p>
-          <ul className="space-y-3 text-sm text-gray-300">
-            {referenceHighlights.map((item) => (
-              <li key={item.title} className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
-                <p>{item.summary}</p>
-              </li>
+        <section id="spotlights" className="mb-16">
+          <h2 className="text-3xl font-bold text-white mb-6">Featured Highlights</h2>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {rewardSpotlights.map(spotlight => (
+              <SpotlightCard key={spotlight.id} spotlight={spotlight} />
             ))}
-          </ul>
-          <p className="text-xs text-gray-400 mt-4">
-            Keep the rewards compendium handy while you shop—stock and Bronze costs will not surprise you mid-farm.
-          </p>
-        </div>
+          </div>
+        </section>
 
+        {rewardCategories.map(section => {
+          const categoryEntriesList = rewardEntries.filter(entry => entry.category === section.key);
+          const bronzeCategoryEntries = bronzeEntries
+            .filter(entry => entry.category === section.key)
+            .sort((a, b) => (b.cost?.amount ?? 0) - (a.cost?.amount ?? 0));
+          const topBronze = bronzeCategoryEntries.slice(0, 3);
+          const phases = Array.from(new Set(bronzeCategoryEntries.map(entry => entry.phase).filter(Boolean)));
+
+          return (
+            <section key={section.key} id={`category-${section.key}`} className="mb-20">
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+                <div>
+                  <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-6">
+                    <div>
+                      <h2 className="text-3xl font-bold text-white">{section.title}</h2>
+                      <p className="text-sm text-gray-300 mt-2 max-w-3xl">{section.subtitle}</p>
+                    </div>
+                    <div className="bg-gray-900/50 border border-gray-800 rounded-xl px-5 py-4 grid grid-cols-3 gap-4 text-center">
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-gray-500">Catalog</p>
+                        <p className="text-lg font-semibold text-white">{formatNumber(categoryStats[section.key].allCount)}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-gray-500">Bronze items</p>
+                        <p className="text-lg font-semibold text-white">{formatNumber(categoryStats[section.key].bronzeCount)}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-gray-500">Bronze total</p>
+                        <p className="text-lg font-semibold text-emerald-300">
+                          {formatNumber(categoryStats[section.key].bronzeTotal)}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {section.tables.map(config => (
+                    <RewardTable key={config.key} config={config} />
+                  ))}
+                </div>
+
+                <aside className="space-y-6">
+                  <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/50">
+                    <img
+                      src={section.image ?? legionImages.referenceSplash}
+                      alt={`${section.title} reference`}
+                      className="w-full h-60 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <p className="text-xs uppercase tracking-widest text-emerald-300">Category Overview</p>
+                      <p className="text-sm text-gray-100 mt-2">
+                        {phases.length > 0
+                          ? `Phase ${phases.join(', ')} releases contain ${section.title.toLowerCase()}.`
+                          : `Refer to tables for unlock requirements across the Remix timeline.`}
+                      </p>
+                    </div>
+                  </div>
+
+                  {topBronze.length > 0 && (
+                    <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-5">
+                      <p className="text-xs uppercase tracking-wide text-gray-400 mb-3">Top Bronze sinks</p>
+                      <ol className="space-y-3 text-sm text-gray-200 list-decimal list-inside">
+                        {topBronze.map(entry => (
+                          <li key={entry.id}>
+                            <span className="font-semibold text-white">{entry.name}</span>
+                            <span className="text-emerald-300"> — {formatNumber(entry.cost?.amount ?? 0)} Bronze</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+
+                  <div className="bg-gray-900/40 border border-gray-800 rounded-2xl p-5">
+                    <p className="text-xs uppercase tracking-wide text-gray-400 mb-3">Helpful Tips</p>
+                    <ul className="space-y-2 text-sm text-gray-300">
+                      <li>Bookmark this section to check vendor rotations during weekly resets.</li>
+                      <li>
+                        Combine the search filters above with category = {section.title.split(' ')[0]} to isolate these
+                        entries.
+                      </li>
+                      <li>
+                        Add Bronze totals into your wishlist calculator to avoid overspending mid-phase.
+                      </li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </section>
+          );
+        })}
       </div>
     </div>
   );
