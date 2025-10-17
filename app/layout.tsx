@@ -18,11 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://legionremixhub.com'),
-  title: {
-    default: "Legion Remix Guide - WoW 2025 Complete Hub",
-    template: "%s | Legion Remix Hub"
-  },
-  description: "Master Legion Remix 2025 with our complete legion remix guide: leveling strategies, bronze farming tips, best classes, rewards calculator & database. Oct 2025-Jan 2026 event.",
+  title: "Legion Remix Guide - WoW 2025 Complete Hub",
+  description: "Master Legion Remix 2025 with a complete guide covering leveling routes, Bronze farming priorities, class builds, rewards planning, and weekly prep for Oct 7.",
   keywords: [
     "legion remix guide",
     "Legion Remix",
@@ -54,7 +51,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://legionremixhub.com",
     title: "Legion Remix Guide - WoW 2025 Complete Hub",
-    description: "Master Legion Remix 2025 with our complete legion remix guide: leveling strategies, bronze farming tips, best classes, rewards calculator & database.",
+    description: "Master Legion Remix 2025 with a complete guide covering leveling routes, Bronze farming priorities, class builds, rewards planning, and weekly prep for Oct 7.",
     siteName: "Legion Remix Hub",
     images: [
       {
@@ -68,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Legion Remix Guide - WoW 2025 Complete Hub",
-    description: "Master Legion Remix 2025 with our complete legion remix guide: leveling, bronze farming, best classes & rewards calculator.",
+    description: "Master Legion Remix 2025 with a complete guide covering leveling routes, Bronze farming priorities, class builds, rewards planning, and weekly prep for Oct 7.",
     images: ["/images/og-image.png"],
   },
   robots: {

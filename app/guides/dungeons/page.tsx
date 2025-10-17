@@ -4,10 +4,11 @@ import { dungeons, farmingMethods } from '@/data/dungeons';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Dungeon Roadmap',
-  description: 'Track Timeworn Keystone tiers, affixes, and best dungeon farms throughout the Legion Remix phases.',
+  title: 'Legion Remix Dungeon Roadmap & Keystone Planner',
+  description: 'Track Legion Remix Timeworn Keystone tiers, affixes, dungeon farms, Turbo Boost scheduling, and keystone prep with our planner crafted for Timerunner teams.',
   alternates: {
     canonical: buildCanonicalUrl('/guides/dungeons'),
   },
@@ -62,6 +63,29 @@ const affixCallouts = [
 const dungeonById = Object.fromEntries(dungeons.map((dungeon) => [dungeon.id, dungeon]));
 
 export default function DungeonsGuidePage() {
+  const seoKeyword = 'Legion Remix dungeon guide';
+  const seoTopics = [
+    'Timeworn Keystone laddering',
+    'affix adaptation planning',
+    'boss mechanic callouts',
+    'trash skip routing',
+    'Turbo Boost dungeon strategy',
+    'Bronze drops from keystones',
+    'artifact path synergies',
+    'Heroic World Tier dungeon prep',
+    'Timerunner group communication',
+  ];
+  const seoSupport = [
+    'route notes',
+    'cooldown mapping',
+    'healer assignments',
+    'tank pathing',
+    'planning spreadsheets',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
+
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <div className="max-w-5xl mx-auto">
@@ -158,6 +182,15 @@ export default function DungeonsGuidePage() {
               <li>Bank caches from World Quests and open them after enabling Heroic World Tier for bonus Bronze.</li>
               <li>Chain with Bronze-friendly methods such as Scenario Spam ({farmingMethods[0].bronzePerHour.toLocaleString()} Bronze/hour baseline) when you need a break from keystones.</li>
             </ul>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Dungeon Guide Deep Dive</h2>
+            <div className="space-y-4 text-sm leading-7 text-gray-300">
+              {seoParagraphs.map((paragraph, idx) => (
+                <p key={`dungeon-seo-${idx}`}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </article>
       </div>

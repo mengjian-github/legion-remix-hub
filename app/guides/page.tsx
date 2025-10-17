@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Guides Hub',
-  description: 'Browse Legion Remix leveling, bronze farming, dungeon, and raid guides to plan your Timerunner adventure.',
+  title: 'Legion Remix Guides Hub & Strategy Vault 2025',
+  description: 'Browse Legion Remix leveling, Bronze farming, dungeon, and raid guides with quick links, recommended routes, and weekly priorities to steer Timerunner planning.',
   alternates: {
     canonical: buildCanonicalUrl('/guides'),
   },
@@ -74,6 +75,29 @@ export default function GuidesPage() {
     { label: 'Legion Remix Guides hub for Legion Remix To Fel and Back achievement', href: '/guides/getting-started#legion-remix-hard-mode' },
     { label: 'Legion Remix Guides hub for Legion Remix calculator best practices', href: '/calculator' }
   ];
+
+  const seoKeyword = 'Legion Remix guides hub';
+  const seoTopics = [
+    'leveling roadmap planning',
+    'Bronze farming loops',
+    'dungeon keystone schedules',
+    'raid unlock timelines',
+    'Infinite Knowledge achievements',
+    'class build comparisons',
+    'Turbo Boost week preparation',
+    'daily chore checklists',
+    'mythic plus pathing notes',
+  ];
+  const seoSupport = [
+    'community coordination',
+    'spreadsheet tracking',
+    'open-world farming routes',
+    'raid cooldown mapping',
+    'warband progression goals',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -285,6 +309,15 @@ export default function GuidesPage() {
             <li>Encourage guildmates to read the Legion Remix Guides directory before raids.</li>
             <li>Archive the Legion Remix Guides directory after the season for future remixes.</li>
           </ul>
+        </div>
+
+        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-16">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Guides Hub Deep Dive</h2>
+          <div className="space-y-4 text-sm leading-7 text-gray-300">
+            {seoParagraphs.map((paragraph, idx) => (
+              <p key={`guides-seo-${idx}`}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>

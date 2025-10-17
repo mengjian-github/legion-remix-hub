@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { dungeons, farmingMethods, getBestXPDungeons } from '@/data/dungeons';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Leveling Guide',
-  description: 'Power level to 80 with optimized dungeon routes, Heroic World Tier tips, and weekly Legion Remix planning.',
+  title: 'Legion Remix Leveling Blueprint to Reach 80',
+  description: 'Power level to 80 in Legion Remix with dungeon routes, Heroic World Tier tips, quest stacking plans, and Bronze farming priorities tailored to Timerunners.',
   alternates: {
     canonical: buildCanonicalUrl('/guides/leveling'),
   },
@@ -26,6 +27,29 @@ export default function LevelingGuidePage() {
     { label: 'Legion Remix Leveling Guide for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Leveling Guide for Legion Remix group dungeon compositions', href: '/guides/leveling#fastest-way-to-level-legion-remix' }
   ];
+
+  const seoKeyword = 'Legion Remix leveling guide';
+  const seoTopics = [
+    'fast leveling routes',
+    'Turbo Boost scheduling',
+    'Heroic World Tier leveling',
+    'dungeon spam strategies',
+    'quest stacking plans',
+    'artifact path leveling boosts',
+    'warband experience bonuses',
+    'alt leveling catch-up',
+    'daily chore integration',
+  ];
+  const seoSupport = [
+    'zone sequencing',
+    'dungeon selections',
+    'raid unlock pacing',
+    'Bronze detours',
+    'group coordination',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -348,6 +372,15 @@ export default function LevelingGuidePage() {
                 Plan your reward farming goals
               </p>
             </Link>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Leveling Guide Deep Dive</h2>
+            <div className="space-y-4 text-sm leading-7 text-gray-300">
+              {seoParagraphs.map((paragraph, idx) => (
+                <p key={`leveling-seo-${idx}`}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </article>
       </div>

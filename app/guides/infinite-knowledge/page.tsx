@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Infinite Knowledge Guide',
+  title: 'Legion Remix Infinite Knowledge Mastery Guide',
   description:
-    'Understand how Infinite Knowledge ranks unlock, the achievements that award them across each phase, and how to convert surplus power into Bronze in Legion Remix 2025.',
+    'Understand how Infinite Knowledge ranks unlock, which achievements award them in each phase, and how to convert surplus power into Bronze during Legion Remix.',
   alternates: {
     canonical: buildCanonicalUrl('/guides/infinite-knowledge'),
   },
@@ -65,6 +66,28 @@ const farmingChecklist = [
 ];
 
 export default function InfiniteKnowledgeGuidePage() {
+  const seoKeyword = 'Legion Remix Infinite Knowledge guide';
+  const seoTopics = [
+    'rank unlock milestones',
+    'achievement farming routes',
+    'artifact overflow conversions',
+    'phase-by-phase knowledge gains',
+    'Bronze to knowledge trading',
+    'Timerunner research priorities',
+    'daily quest scheduling',
+    'Heroic World Tier knowledge boosts',
+    'alt catch-up strategies',
+  ];
+  const seoSupport = [
+    'research vendors',
+    'artifact nodes',
+    'raid checkpoints',
+    'keystone milestones',
+    'community spreadsheets',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <div className="max-w-4xl mx-auto">
@@ -143,6 +166,15 @@ export default function InfiniteKnowledgeGuidePage() {
             <p className="text-sm text-gray-300">
               Hotfixes confirm every rank beyond 36 becomes Bronze. Check in with Eternus at the Infinite Bazaar frequently so every packet turns into real power—or your next collection target.
             </p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mt-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Infinite Knowledge Guide Deep Dive</h2>
+            <div className="space-y-4 text-sm leading-7 text-gray-300">
+              {seoParagraphs.map((paragraph, idx) => (
+                <p key={`infinite-knowledge-seo-${idx}`}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </article>
       </div>

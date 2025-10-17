@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Classes Guide',
-  description: 'Compare all 12 Legion Remix classes, specs, Fel mounts, and leveling tips to plan your Timerunner roster.',
+  title: 'Legion Remix Class Comparison & Builds 2025',
+  description: 'Compare every Legion Remix class with spec roles, mounts, leveling priorities, Heroic World Tier picks, and quick links so your Timerunner roster stays sharp.',
   alternates: {
     canonical: buildCanonicalUrl('/classes'),
   },
@@ -27,6 +28,29 @@ export default function ClassesPage() {
     { label: 'Legion Remix Classes guide for Destruction Warlock burn phases', href: '/classes/warlock/destruction' },
     { label: 'Legion Remix Classes guide for Legion Remix druid flight form unlock', href: '/classes/druid' }
   ];
+
+  const seoKeyword = 'Legion Remix classes guide';
+  const seoTopics = [
+    'tank roster planning',
+    'healer utility coverage',
+    'DPS burst and cleave archetypes',
+    'Fel class mount unlocks',
+    'artifact path prioritization',
+    'Heroic World Tier preparation',
+    'Bronze budgeting for alts',
+    'Timerunner roster synergy',
+    'phase-by-phase roster pivots',
+  ];
+  const seoSupport = [
+    'dungeon keystone pacing',
+    'raid composition checks',
+    'open-world farming efficiency',
+    'Turbo Boost scheduling',
+    'Infinite Knowledge loops',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.045,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -320,6 +344,15 @@ export default function ClassesPage() {
               >
                 {item.label}
               </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Classes Guide Deep Dive</h2>
+          <div className="space-y-4 text-sm leading-7 text-gray-300">
+            {seoParagraphs.map((paragraph, idx) => (
+              <p key={`classes-seo-${idx}`}>{paragraph}</p>
             ))}
           </div>
         </div>

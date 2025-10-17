@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { getClassSpecs } from '@/data/specs';
 
 export async function generateStaticParams() {
@@ -28,8 +29,10 @@ export async function generateMetadata(
   }
 
   return {
-    title: `${classData.name} Legion Remix Guide`,
-    description: classData.description,
+    title: `${classData.name} Legion Remix Class Playbook for 2025`,
+    description: formatMetaDescription(
+      `Plan Legion Remix ${classData.name} gameplay with spec roles, artifact paths, Fel mount perks, gearing priorities, and quick links into builds made for 2025 Timerunners.`,
+    ),
     alternates: {
       canonical: buildCanonicalUrl(`/classes/${classId}`),
     },
@@ -44,6 +47,26 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
   if (!classData) {
     notFound();
   }
+
+  const classKeyword = `${classData.name} Legion Remix class guide`;
+  const specTopics = classData.specs.map((spec) => `${spec.name} ${spec.role.toLowerCase()} strategy`);
+  const generalTopics = [
+    `${classData.name} artifact path priorities`,
+    `${classData.name} Bronze spending plan`,
+    `${classData.name} Heroic World Tier preparation`,
+    `${classData.name} Fel mount unlock checklists`,
+  ];
+  const seoTopics = [...specTopics, ...generalTopics];
+  const seoSupport = [
+    'mythic plus pacing',
+    'raid coordination drills',
+    'open-world farming loops',
+    'Turbo Boost scheduling',
+    'Infinite Knowledge rank gains',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(classKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.045,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -243,6 +266,17 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
                   </span>
                 </li>
               </ul>
+            </div>
+
+            <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6">
+              <h2 className="text-2xl font-bold text-white mb-4">
+                {classData.name} Legion Remix Class Guide Deep Dive
+              </h2>
+              <div className="space-y-4 text-sm leading-7 text-gray-300">
+                {seoParagraphs.map((paragraph, idx) => (
+                  <p key={`class-seo-${idx}`}>{paragraph}</p>
+                ))}
+              </div>
             </div>
 
           </div>

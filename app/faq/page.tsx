@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { createFAQSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Legion Remix FAQ - Frequently Asked Questions',
-  description: 'Get answers to the most common questions about Legion Remix: leveling, bronze farming, rewards, class selection, and event mechanics.',
+  description: 'Get answers to common Legion Remix questions on leveling, Bronze farming, rewards, class picks, timing, lag fixes, and troubleshooting tips for Timerunners.',
   alternates: {
     canonical: buildCanonicalUrl('/faq'),
   },
@@ -220,6 +221,28 @@ export default function FAQPage() {
     { name: 'Home', path: '/' },
     { name: 'FAQ', path: '/faq' },
   ]);
+  const seoKeyword = 'Legion Remix FAQ guide';
+  const seoTopics = [
+    'event overview answers',
+    'leveling frequently asked questions',
+    'Bronze farming troubleshooting',
+    'class and spec recommendations',
+    'raid scheduling clarification',
+    'Heroic World Tier guidance',
+    'Infinite Knowledge explanations',
+    'performance and lag fixes',
+    'reward transfer details',
+  ];
+  const seoSupport = [
+    'support tickets',
+    'community forums',
+    'blue post recaps',
+    'patch hotfix summaries',
+    'weekly recap notes',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -333,6 +356,15 @@ export default function FAQPage() {
               >
                 {item.label}
               </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mt-12">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix FAQ Guide Deep Dive</h2>
+          <div className="space-y-4 text-sm leading-7 text-gray-300">
+            {seoParagraphs.map((paragraph, idx) => (
+              <p key={`faq-seo-${idx}`}>{paragraph}</p>
             ))}
           </div>
         </div>

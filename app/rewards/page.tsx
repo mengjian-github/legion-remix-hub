@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { bronzeRewards, rewardsByCategory, totalBronzeCost, getRewardsByType, rewardSpotlights } from '@/data/rewards';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { legionImages } from '@/data/images';
 
 export default function RewardsPage() {
@@ -27,6 +28,29 @@ export default function RewardsPage() {
       return acc;
     }, {} as Record<string, typeof bronzeRewards>);
   }, [filteredRewards]);
+
+  const seoKeyword = 'Legion Remix rewards tracker';
+  const seoTopics = [
+    'Bronze cost planning',
+    'mount collection priorities',
+    'pet and toy unlocks',
+    'ensemble shopping lists',
+    'weekly vendor rotation tracking',
+    'Infinite Bazaar budgeting',
+    'Turbo Boost reward strategies',
+    'warband sharing reminders',
+    'achievement cosmetic planning',
+  ];
+  const seoSupport = [
+    'spreadsheet management',
+    'loot filter tagging',
+    'alt character shopping',
+    'Bronze farming loops',
+    'event timeline checkpoints',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.05,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -430,6 +454,15 @@ export default function RewardsPage() {
             </div>
           </div>
         )}
+
+        <div className="mt-16 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Rewards Tracker Deep Dive</h2>
+          <div className="space-y-4 text-sm leading-7 text-gray-300">
+            {seoParagraphs.map((paragraph, idx) => (
+              <p key={`rewards-seo-${idx}`}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
 
       </div>
     </div>

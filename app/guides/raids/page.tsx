@@ -4,10 +4,11 @@ import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
 import { rewardSpotlights } from '@/data/rewards';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Raid Progression Guide',
-  description: 'Plan your Legion Remix raid progression with phase unlocks, loot highlights, and weekly tips.',
+  title: 'Legion Remix Raid Progression Planner 2025',
+  description: 'Plan Legion Remix raid progression with phase unlocks, loot highlights, Violet Spellwing timing, and weekly assignments that keep Timerunner raids ready weekly.',
   alternates: {
     canonical: buildCanonicalUrl('/guides/raids'),
   },
@@ -88,6 +89,28 @@ const savageChecklist = [
 export default function RaidsGuidePage() {
   const ensembleSpotlight = rewardSpotlights.find((item) => item.id === 'sargerei-ensembles');
   const argusSpotlight = rewardSpotlights.find((item) => item.id === 'argus-legacies');
+  const seoKeyword = 'Legion Remix raid guide';
+  const seoTopics = [
+    'raid unlock timelines',
+    'loot target planning',
+    'Violet Spellwing scheduling',
+    'Turbo Boost raid strategy',
+    'Heroic and Mythic preparation',
+    'group composition balancing',
+    'Bronze budgeting for raids',
+    'warband raid progression logging',
+    'achievement and challenge planning',
+  ];
+  const seoSupport = [
+    'cooldown assignments',
+    'boss phase mapping',
+    'raid night checklists',
+    'loot council notes',
+    'community coordination',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -196,6 +219,15 @@ export default function RaidsGuidePage() {
                 <li key={item}>• {item}</li>
               ))}
             </ul>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Raid Guide Deep Dive</h2>
+            <div className="space-y-4 text-sm leading-7 text-gray-300">
+              {seoParagraphs.map((paragraph, idx) => (
+                <p key={`raid-seo-${idx}`}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </article>
       </div>

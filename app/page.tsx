@@ -8,6 +8,8 @@ import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
+  title: 'Legion Remix 2025 Guide Hub for Timerunners',
+  description: 'Plan Legion Remix 2025 with a home base covering phase roadmap, leveling routes, Bronze farming loops, class builds, rewards tracking, and daily prep lists.',
   alternates: {
     canonical: buildCanonicalUrl('/'),
   },

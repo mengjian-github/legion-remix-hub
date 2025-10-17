@@ -4,11 +4,12 @@ import { remixPhases } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Getting Started Guide',
-  description: 'Learn how Legion Remix works, the event timeline, and how to prepare your Timerunner for Skies of Fire.',
+  title: 'Legion Remix Getting Started Playbook 2025',
+  description: 'Learn Legion Remix basics with a getting started guide covering account prep, Timerunner creation, phase timeline, Heroic World Tier setup, and Bronze planning.',
   alternates: {
     canonical: buildCanonicalUrl('/guides/getting-started'),
   },
@@ -47,6 +48,29 @@ export default function GettingStartedPage() {
     { label: 'Legion Remix Getting Started Guide for Legion Remix Turbo Boost planning', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Getting Started Guide for Legion Remix Infinite Bazaar unlocks', href: '/rewards' }
   ];
+
+  const seoKeyword = 'Legion Remix getting started guide';
+  const seoTopics = [
+    'account preparation steps',
+    'Timerunner character creation',
+    'phase timeline planning',
+    'Heroic World Tier setup',
+    'Infinite Knowledge unlocks',
+    'Bronze planning at launch',
+    'warband progression goals',
+    'daily checklists for new players',
+    'hardware and performance setup',
+  ];
+  const seoSupport = [
+    'quest routing',
+    'dungeon unlocks',
+    'raid milestones',
+    'Turbo Boost windows',
+    'community coordination',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -486,6 +510,15 @@ export default function GettingStartedPage() {
                 Maximize your Bronze per hour
               </p>
             </Link>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Getting Started Guide Deep Dive</h2>
+            <div className="space-y-4 text-sm leading-7 text-gray-300">
+              {seoParagraphs.map((paragraph, idx) => (
+                <p key={`getting-started-seo-${idx}`}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </article>
       </div>

@@ -4,10 +4,11 @@ import { farmingMethods, getBestBronzeDungeons } from '@/data/dungeons';
 import { totalBronzeCost, rewardSpotlights } from '@/data/rewards';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl } from '@/lib/seo';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Bronze Farming Guide',
-  description: 'Farm Bronze efficiently with dungeon routes, open-world methods, and priority purchases for Legion Remix 2025.',
+  title: 'Legion Remix Bronze Farming Blueprint 2025',
+  description: 'Farm Legion Remix Bronze efficiently with dungeon rotations, open-world loops, Turbo Boost scheduling, and reward priorities tailored to Timerunner cosmetics.',
   alternates: {
     canonical: buildCanonicalUrl('/guides/bronze-farming'),
   },
@@ -27,6 +28,29 @@ export default function BronzeFarmingPage() {
     { label: 'Legion Remix Bronze guide for Legion Remix lag-safe farming', href: '/#legion-remix-lag' },
     { label: 'Legion Remix Bronze guide for Legion Remix Mythic+ rotations', href: '/guides/leveling#fastest-way-to-level-legion-remix' }
   ];
+
+  const seoKeyword = 'Legion Remix Bronze guide';
+  const seoTopics = [
+    'Infinite Knowledge conversions',
+    'Strange Humming Crystal loops',
+    'rare elite routing',
+    'Turbo Boost dungeon rotations',
+    'Bronze vendor priorities',
+    'Heroic World Tier Bronze farming',
+    'warband Bronze sharing',
+    'daily quest Bronze bursts',
+    'Bronze budgeting for rewards',
+  ];
+  const seoSupport = [
+    'mythic plus keystones',
+    'open-world objectives',
+    'raid lockout planning',
+    'artifact path spending',
+    'timerunner alt preparation',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.048,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -432,6 +456,15 @@ export default function BronzeFarmingPage() {
                 See all available mounts, pets, and transmog
               </p>
             </Link>
+          </div>
+
+          <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Guide Deep Dive</h2>
+            <div className="space-y-4 text-sm leading-7 text-gray-300">
+              {seoParagraphs.map((paragraph, idx) => (
+                <p key={`bronze-seo-${idx}`}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </article>
       </div>

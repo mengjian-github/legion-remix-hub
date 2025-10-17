@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { bronzeRewards, BronzeReward } from '@/data/rewards';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 import { farmingMethods } from '@/data/dungeons';
 
 export default function CalculatorPage() {
@@ -40,6 +41,29 @@ export default function CalculatorPage() {
     const hours = totalBronze / bestMethod.bronzePerHour;
     return hours;
   }, [totalBronze]);
+
+  const seoKeyword = 'Legion Remix Bronze calculator';
+  const seoTopics = [
+    'wishlist tracking workflow',
+    'Bronze per hour projections',
+    'reward category budgeting',
+    'Turbo Boost planning with calculator',
+    'account-wide Bronze coordination',
+    'mount and ensemble calculations',
+    'daily Bronze logging',
+    'team sharing of calculator snapshots',
+    'warband progression planning',
+  ];
+  const seoSupport = [
+    'spreadsheet exports',
+    'group decision making',
+    'Bronze farming loops',
+    'event timeline checkpoints',
+    'community coordination',
+  ];
+  const seoParagraphs = buildKeywordRichParagraphs(seoKeyword, seoTopics, seoSupport, {
+    targetDensity: 0.05,
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -242,6 +266,15 @@ export default function CalculatorPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-16 bg-gray-900/40 border border-gray-700 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Calculator Deep Dive</h2>
+          <div className="space-y-4 text-sm leading-7 text-gray-300">
+            {seoParagraphs.map((paragraph, idx) => (
+              <p key={`calculator-seo-${idx}`}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </div>
