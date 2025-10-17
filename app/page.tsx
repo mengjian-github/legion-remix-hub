@@ -44,6 +44,7 @@ export default function Home() {
     { label: 'Legion Remix Guide for Legion Remix Violet Spellwing planning', href: '/guides/bronze-farming#achievement-targets-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix Bronze per hour benchmarks', href: '/guides/bronze-farming#time-investment-calculator' },
     { label: 'Legion Remix Guide for Legion Remix Infinite Bazaar vendors', href: '/rewards' },
+    { label: 'Legion Remix Guide for Broken Isles reputation routes', href: '/reputation' },
     { label: 'Legion Remix Guide for Legion Remix Artifact path swaps', href: '/guides/infinite-knowledge' },
     { label: 'Legion Remix Guide for Legion Remix Mythic+ Turbo Boost weeks', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix Argus Eternal roadmap', href: '#phase-roadmap' },

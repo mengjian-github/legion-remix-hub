@@ -37,6 +37,14 @@ const guides = [
     image: legionImages.wyrmtongue
   },
   {
+    id: 'reputation',
+    title: 'Reputation Guide',
+    description: "Broken Isles emissary routes, Champion's Insignia sources, and vendor highlights.",
+    icon: '🏅',
+    color: 'from-teal-900/40 to-slate-900/40',
+    image: legionImages.rewardVendorFarondis ?? legionImages.phaseTimeline
+  },
+  {
     id: 'infinite-knowledge',
     title: 'Infinite Knowledge',
     description: 'All rank sources, phase achievements, and overflow Bronze conversion strategies.',
@@ -67,6 +75,7 @@ export default function GuidesPage() {
     { label: 'First steps checklist', href: '/guides/getting-started#timerunner-creation' },
     { label: 'Fast leveling routes', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Bronze farming loops', href: '/guides/bronze-farming#bronze-collection-in-action' },
+    { label: 'Reputation emissary planner', href: '/reputation' },
     { label: 'Infinite Knowledge ranks', href: '/guides/infinite-knowledge#rank-breakdown' },
     { label: 'Dungeon rotation planner', href: '/guides/dungeons#keystone-roadmap' },
     { label: 'Raid unlock timeline', href: '/guides/raids#phase-unlocks' },

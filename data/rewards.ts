@@ -75,6 +75,8 @@ export interface RewardCategorySection {
   tables: RewardTableConfig[];
 }
 
+export type RewardCategoryRecord = Record<RewardCategoryKey, RewardCategorySection>;
+
 export interface RewardSpotlightHighlight {
   name: string;
   requirement: string;
@@ -504,6 +506,15 @@ export const rewardCategories: RewardCategorySection[] = [
     tables: reputationTableConfigs
   }
 ];
+
+export const rewardCategoryMap = rewardCategories.reduce((acc, section) => {
+  acc[section.key] = section;
+  return acc;
+}, {} as RewardCategoryRecord);
+
+export const rewardCategoryKeys = rewardCategories.map(section => section.key);
+
+export const getRewardCategory = (key: RewardCategoryKey) => rewardCategoryMap[key];
 
 function toEntry(config: RewardTableConfig, row: RewardRow, sectionTitle: string): RewardEntry {
   const name = row[config.nameField] || Object.values(row)[0] || 'Unknown Reward';

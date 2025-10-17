@@ -3,6 +3,27 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const rewardsSubmenu = [
+  { name: 'Overview', href: '/rewards' },
+  { name: 'Mounts & Class Rides', href: '/rewards/mounts' },
+  { name: 'Battle Pets', href: '/rewards/pets' },
+  { name: 'Toys & Illusions', href: '/rewards/toys' },
+  { name: 'Transmog & Weapons', href: '/rewards/transmog' },
+  { name: 'Housing Decor', href: '/rewards/housing' },
+  { name: 'Reputation Vendors', href: '/rewards/reputation' },
+];
+
+const reputationSubmenu = [
+  { name: 'Overview', href: '/reputation' },
+  { name: 'Court of Farondis', href: '/reputation/court-of-farondis' },
+  { name: 'Dreamweavers', href: '/reputation/dreamweavers' },
+  { name: 'Highmountain Tribe', href: '/reputation/highmountain-tribe' },
+  { name: 'The Nightfallen', href: '/reputation/the-nightfallen' },
+  { name: 'The Wardens', href: '/reputation/the-wardens' },
+  { name: 'Valarjar', href: '/reputation/valarjar' },
+  { name: 'Kirin Tor Emissary', href: '/reputation/kirin-tor' },
+];
+
 const navigation = [
   { name: 'Home', href: '/' },
   {
@@ -14,6 +35,11 @@ const navigation = [
       { name: 'Bronze Farming', href: '/guides/bronze-farming' },
       { name: 'Best Dungeons', href: '/guides/dungeons' },
     ]
+  },
+  {
+    name: 'Reputation',
+    href: '/reputation',
+    submenu: reputationSubmenu,
   },
   {
     name: 'Classes',
@@ -33,7 +59,11 @@ const navigation = [
       { name: 'Demon Hunter', href: '/classes/demon-hunter' },
     ]
   },
-  { name: 'Rewards', href: '/rewards' },
+  {
+    name: 'Rewards',
+    href: '/rewards',
+    submenu: rewardsSubmenu,
+  },
   { name: 'Bronze Calculator', href: '/calculator' },
   { name: 'FAQ', href: '/faq' },
 ];

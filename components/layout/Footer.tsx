@@ -37,6 +37,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/reputation" className="text-gray-400 hover:text-white text-sm">
+                  Reputation Guide
+                </Link>
+              </li>
+              <li>
                 <Link href="/rewards" className="text-gray-400 hover:text-white text-sm">
                   All Rewards
                 </Link>
