@@ -26,6 +26,7 @@ const reputationSubmenu = [
 
 const navigation = [
   { name: 'Home', href: '/' },
+  { name: 'News', href: '/news' },
   {
     name: 'Guides',
     href: '/guides',

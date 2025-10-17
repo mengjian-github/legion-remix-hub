@@ -1,16 +1,16 @@
-// Legion Remix官方图片资源列表
+// Legion Remix official image references
 
 export const legionImages = {
   // Hero Banners
   heroBanner: "/images/game/hero-banner.png",
   wowheadHeader: "/images/game/wowhead-header.jpg",
 
-  // 信息图表
+  // Infographics
   phaseTimeline: "/images/game/phase-timeline.png",
   infiniteResearch: "/images/game/infinite-research.png",
   phaseSchedule: "/images/game/phase-schedule.png",
 
-  // 游戏截图 - Blizzard官方
+  // In-game screenshots - Blizzard official
   druidOrderHall: "/images/game/druid-order-hall.png",
   eternus: "/images/game/eternus.png",
   artifactWeapon: "/images/game/artifact-weapon.png",
@@ -20,7 +20,7 @@ export const legionImages = {
   contentUpdate: "/images/game/content-update.png",
   referenceSplash: "/images/reference/legion-remix-splash.jpg",
 
-  // 游戏截图 - Wowhead
+  // In-game screenshots - Wowhead
   wyrmtongue: "/images/game/wyrmtongue.png",
   artifactTraitTree: "/images/game/artifact-trait-tree.png",
   artifactumSand: "/images/game/artifactum-sand.jpg",
@@ -30,13 +30,13 @@ export const legionImages = {
   eternusScreenshot: "/images/game/eternus-screenshot.png",
   timewornKeystone: "/images/game/timeworn-keystone-schedule.jpg",
 
-  // Empowered效果截图
+  // Empowered effect screenshots
   imperiousEffect: "/images/game/imperious-effect.jpg",
   beaconOfChaos: "/images/game/beacon-of-chaos.jpg",
   felRaiser: "/images/game/fel-raiser.jpg",
   engorgedEffect: "/images/game/engorged-effect.jpg",
 
-  // 奖励截图
+  // Reward imagery
   felClassMounts: "/images/game/fel-class-mounts.jpg",
   azsharaTransmog: "/images/game/azshara-transmog.jpg",
   mannorothShield: "/images/game/mannoroth-shield.jpg",
@@ -50,7 +50,7 @@ export const legionImages = {
   turboBoostBuffs: "/images/game/turbo-boost-buffs.jpg",
   housingDecorReference: "/images/reference/legion-remix-housing-decor.jpg",
   rewardsToysReference: "/images/reference/legion-remix-toys.jpg",
-  // 奖励参考截图 - Warcraft Tavern
+  // Reward reference imagery - Warcraft Tavern
   rewardArcberryManasaber: "/images/reference/rewards/legion-remix-arcberry-manasaber-mount-1024x576.jpg",
   rewardBonesteedMounts: "/images/reference/rewards/legion-remix-bonesteed-mounts-1024x576.jpg",
   rewardCourserMounts: "/images/reference/rewards/legion-remix-courser-mounts-1024x576.jpg",
