@@ -34,7 +34,10 @@ const navigation = [
       { name: 'Getting Started', href: '/guides/getting-started' },
       { name: 'Leveling Guide', href: '/guides/leveling' },
       { name: 'Bronze Farming', href: '/guides/bronze-farming' },
-      { name: 'Best Dungeons', href: '/guides/dungeons' },
+      { name: 'Dungeon Roadmap', href: '/guides/dungeons' },
+      { name: 'Raid Prep', href: '/guides/raids' },
+      { name: 'Infinite Knowledge', href: '/guides/infinite-knowledge' },
+      { name: 'Reputation Guide', href: '/guides/reputation' },
     ]
   },
   {
