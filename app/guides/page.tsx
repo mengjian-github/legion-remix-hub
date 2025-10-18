@@ -72,6 +72,14 @@ const guides = [
     icon: '🔥',
     color: 'from-red-900/40 to-purple-900/40',
     image: legionImages.scytheOfUnmaker
+  },
+  {
+    id: 'challiane-vineyards',
+    title: 'Challiane Vineyards',
+    description: 'Sojourner of Azsuna walkthrough with Turbo Boost routing and Infinite Knowledge planning.',
+    icon: '🍇',
+    color: 'from-rose-900/40 to-violet-900/40',
+    image: legionImages.challianeVineyardsLocation ?? legionImages.challianeVineyardsMap
   }
 ];
 
@@ -85,6 +93,7 @@ export default function GuidesPage() {
     { label: 'Dungeon rotation planner', href: '/guides/dungeons#keystone-roadmap' },
     { label: 'Raid unlock timeline', href: '/guides/raids#phase-unlocks' },
     { label: 'Rewards wish list', href: '/rewards' },
+    { label: 'Challiane Vineyards route', href: '/guides/challiane-vineyards' },
     { label: 'Bronze calculator', href: '/calculator' },
     { label: 'FAQ & troubleshooting', href: '/faq' }
   ];

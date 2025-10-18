@@ -29,6 +29,8 @@ export const legionImages = {
   timeWarpedObelisk: "/images/game/timewarped-obelisk.png",
   eternusScreenshot: "/images/game/eternus-screenshot.png",
   timewornKeystone: "/images/game/timeworn-keystone-schedule.jpg",
+  challianeVineyardsMap: "/images/guides/challiane-vineyards/challiane-vineyards-map.jpg",
+  challianeVineyardsLocation: "/images/guides/challiane-vineyards/challiane-vineyards-location.jpg",
 
   // Empowered effect screenshots
   imperiousEffect: "/images/game/imperious-effect.jpg",
