@@ -94,3 +94,69 @@ export const formatMetaDescription = (
 
   return candidate;
 };
+
+export const formatMetaTitle = (
+  input: string,
+  min: number = 40,
+  max: number = 60,
+  fallback: string = "Legion Remix Hub 2025 Timerunner Strategy",
+): string => {
+  const normalize = (value: string) => value.replace(/\s+/g, " ").trim();
+  let candidate = normalize(input);
+
+  if (!candidate) {
+    candidate = fallback;
+  }
+
+  if (candidate.length > max) {
+    const words = candidate.split(" ");
+    while (candidate.length > max && words.length > 1) {
+      words.pop();
+      candidate = words.join(" ");
+    }
+
+    if (candidate.length > max) {
+      candidate = candidate.slice(0, max).trimEnd();
+    }
+  }
+
+  if (candidate.length < min) {
+    const additions = [
+      "Legion Remix Hub",
+      "Timerunner Strategy",
+      "2025 Event Plan",
+    ];
+
+    for (const addition of additions) {
+      const test = candidate.length > 0
+        ? `${candidate} | ${addition}`
+        : addition;
+
+      if (test.length <= max) {
+        candidate = test;
+      }
+
+      if (candidate.length >= min) {
+        break;
+      }
+    }
+
+    if (candidate.length < min) {
+      candidate = fallback;
+    }
+
+    if (candidate.length > max) {
+      candidate = candidate.slice(0, max).trimEnd();
+    }
+  }
+
+  if (candidate.length < min) {
+    const extended = `${candidate} | Legion Remix Hub`;
+    candidate = extended.length <= max ? extended : candidate;
+    if (candidate.length < min) {
+      candidate = fallback.length <= max ? fallback : fallback.slice(0, max);
+    }
+  }
+
+  return normalize(candidate);
+};

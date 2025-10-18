@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createFAQSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
+const pageTitle = formatMetaTitle('Legion Remix FAQ - Frequently Asked Questions');
+const pageDescription = formatMetaDescription(
+  'Get answers to common Legion Remix questions on leveling, Bronze farming, rewards, class picks, timing, lag fixes, and troubleshooting tips for Timerunners.'
+);
+
 export const metadata: Metadata = {
-  title: 'Legion Remix FAQ - Frequently Asked Questions',
-  description: 'Get answers to common Legion Remix questions on leveling, Bronze farming, rewards, class picks, timing, lag fixes, and troubleshooting tips for Timerunners.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/faq'),
   },
@@ -194,6 +199,25 @@ const faqs = [
   },
 ];
 
+const faqHotQueries = [
+  {
+    keyword: 'Legion Remix heroic world tier',
+    takeaway: 'Enable the console safely, stack mitigation cooldowns, and know when to toggle off for tricky objectives.',
+  },
+  {
+    keyword: 'Legion Remix lag',
+    takeaway: 'Optimize Suramar and Argus performance with graphics tweaks, addon pruning, and shard hopping.',
+  },
+  {
+    keyword: 'Legion Remix bronze calculator',
+    takeaway: 'Plan Infinite Bazaar spending with the calculator before farming Bronze-heavy routes.',
+  },
+  {
+    keyword: 'Legion Remix ret paladin guide',
+    takeaway: 'Review Retribution burst windows, gearing, and Infinite Artifact priorities in the class section.',
+  },
+];
+
 export default function FAQPage() {
   // Flatten all FAQs for schema
   const allQuestions = faqs.flatMap((category) =>
@@ -249,6 +273,16 @@ export default function FAQPage() {
           </p>
           <div className="text-sm text-gray-400 mt-4">
             📅 Updated: {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+          </div>
+          <div className="mt-6 rounded-2xl border border-green-700/40 bg-green-700/10 p-5">
+            <h2 className="text-lg font-semibold text-green-200 mb-2">Current FAQ search hotspots</h2>
+            <ul className="space-y-2 text-sm text-gray-200">
+              {faqHotQueries.map((item) => (
+                <li key={item.keyword}>
+                  <span className="font-semibold text-white">{item.keyword}</span> — {item.takeaway}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

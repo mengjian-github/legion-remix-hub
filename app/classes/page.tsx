@@ -2,12 +2,17 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { classLoreList } from '@/data/classLore';
 
+const pageTitle = formatMetaTitle('Legion Remix Class Comparison & Builds 2025');
+const pageDescription = formatMetaDescription(
+  'Compare every Legion Remix class with spec roles, mounts, leveling priorities, Heroic World Tier picks, and quick links so your Timerunner roster stays sharp.'
+);
+
 export const metadata: Metadata = {
-  title: 'Legion Remix Class Comparison & Builds 2025',
-  description: 'Compare every Legion Remix class with spec roles, mounts, leveling priorities, Heroic World Tier picks, and quick links so your Timerunner roster stays sharp.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/classes'),
   },
@@ -40,6 +45,39 @@ export default function ClassesPage() {
       title: 'Infinite Knowledge Guide',
       summary: 'Details the account-wide rank system that gives alts a head start—useful when planning multi-class rosters.'
     }
+  ];
+
+  const classHotQueries = [
+    {
+      keyword: 'Legion Remix warlock guide',
+      description: 'Compare Affliction DoT planning, Demonology tyrant windows, and Destruction burst for empowered packs.',
+      href: '/classes/warlock',
+    },
+    {
+      keyword: 'Legion Remix ret paladin build',
+      description: 'Master Wake of Ashes burst, Divine Hammer cleave, and Bronze priorities for Retribution.',
+      href: '/classes/paladin/retribution',
+    },
+    {
+      keyword: 'Legion Remix rogue guide',
+      description: 'Split timers between Subtlety opener control, Outlaw cleave, and Assassination DoT ramps.',
+      href: '/classes/rogue',
+    },
+    {
+      keyword: 'Legion Remix holy paladin guide',
+      description: 'Explore raid healing cooldown rotation, Beacon swaps, and Infinite Artifact choices.',
+      href: '/classes/paladin/holy',
+    },
+    {
+      keyword: 'Legion Remix vengeance talents',
+      description: 'Map the Spirit Bomb spec, defensive sigils, and Turbo Boost dungeon travel kits.',
+      href: '/classes/demon-hunter/vengeance',
+    },
+    {
+      keyword: 'Legion Remix balance druid',
+      description: 'Weave Starfall cycles, hero talent swaps, and world quest nukes into your route.',
+      href: '/classes/druid/balance',
+    },
   ];
 
   return (
@@ -132,6 +170,28 @@ export default function ClassesPage() {
                 <strong className="text-blue-200">Protection Paladin Legion Remix build:</strong> Instant queues plus wings-level cooldowns make Bronze hour farms consistent.
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-6 mb-10">
+          <h2 className="text-2xl font-bold text-white mb-3">Hot Class Searches to Answer</h2>
+          <p className="text-sm text-gray-300 mb-4">
+            Each week, Timerunners fire off targeted class queries like “Legion Remix warlock guide” or “Legion Remix ret
+            paladin build”. Use the cards below to jump into the specialization playbooks that respond directly to those
+            searches, keeping your roster aligned with demand.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {classHotQueries.map((item) => (
+              <Link
+                key={item.keyword}
+                href={item.href}
+                className="rounded-xl border border-gray-700 bg-gray-900/60 p-4 hover:border-green-500/60 transition"
+              >
+                <p className="text-xs uppercase tracking-[0.35em] text-green-400/80">Hot Keyword</p>
+                <h3 className="mt-2 text-lg font-semibold text-white">{item.keyword}</h3>
+                <p className="mt-2 text-sm text-gray-300">{item.description}</p>
+              </Link>
+            ))}
           </div>
         </div>
 

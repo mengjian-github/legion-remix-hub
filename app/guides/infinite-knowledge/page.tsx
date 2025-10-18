@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const pageTitle = formatMetaTitle('Legion Remix Infinite Knowledge Mastery Guide');
+const pageDescription = formatMetaDescription(
+  'Understand how Infinite Knowledge ranks unlock, which achievements award them in each phase, and how to convert surplus power into Bronze during Legion Remix.'
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Infinite Knowledge Mastery Guide',
-  description:
-    'Understand how Infinite Knowledge ranks unlock, which achievements award them in each phase, and how to convert surplus power into Bronze during Legion Remix.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/guides/infinite-knowledge'),
   },

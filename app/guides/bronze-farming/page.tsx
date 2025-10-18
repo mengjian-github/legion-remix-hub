@@ -3,11 +3,16 @@ import Link from 'next/link';
 import { farmingMethods, getBestBronzeDungeons } from '@/data/dungeons';
 import { totalBronzeCost, rewardSpotlights } from '@/data/rewards';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const pageTitle = formatMetaTitle('Legion Remix Bronze Farming Blueprint 2025');
+const pageDescription = formatMetaDescription(
+  'Farm Legion Remix Bronze efficiently with dungeon rotations, open-world loops, Turbo Boost scheduling, and reward priorities tailored to Timerunner cosmetics.'
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Bronze Farming Blueprint 2025',
-  description: 'Farm Legion Remix Bronze efficiently with dungeon rotations, open-world loops, Turbo Boost scheduling, and reward priorities tailored to Timerunner cosmetics.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/guides/bronze-farming'),
   },
@@ -26,6 +31,29 @@ export default function BronzeFarmingPage() {
     { label: 'Farming recommendations by playstyle', href: '#farming-strategy-legion-remix' },
     { label: 'Calculator for reward planning', href: '/calculator' },
     { label: 'Full rewards browser', href: '/rewards' }
+  ];
+
+  const bronzeHotQueries = [
+    {
+      keyword: 'Legion Remix bronze farming',
+      insight: 'Mix keystones, rare elites, and Infinite Research routes to sustain 20,000+ Bronze per hour.',
+      anchor: '#bronze-collection-in-action',
+    },
+    {
+      keyword: 'Legion Remix bronze calculator',
+      insight: 'Cross-check every purchase against your Bronze budget so surprise drops never stall progress.',
+      anchor: '/calculator',
+    },
+    {
+      keyword: 'Legion Remix bronze tracker',
+      insight: 'Use the rewards hub to monitor cosmetics, Violet Spellwing, and class mount unlocks.',
+      anchor: '/rewards',
+    },
+    {
+      keyword: 'Infinite power farm Legion Remix',
+      insight: 'Pair Suramar elite loops and Timeworn keystones with Bronze payouts to avoid falling behind the cap.',
+      anchor: '#infinite-knowledge-legion-remix',
+    },
   ];
 
   return (
@@ -63,6 +91,28 @@ export default function BronzeFarmingPage() {
                   className="block bg-gray-800 border border-gray-700 hover:border-green-500 rounded-lg px-4 py-3 transition-colors"
                 >
                   {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-gray-800 border border-yellow-700/40 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-3">Bronze Search Trends Checklist</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              These Legion Remix bronze farming keywords surge on Google and the in-game Group Finder every reset. Review
+              the linked sections so your routing plan answers each phrase directly, from the Legion Remix bronze calculator
+              to Infinite Power farm paths.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2">
+              {bronzeHotQueries.map((item) => (
+                <Link
+                  key={item.keyword}
+                  href={item.anchor}
+                  className="block rounded-xl border border-gray-700 bg-gray-900/60 p-4 hover:border-yellow-500/60 transition"
+                >
+                  <p className="text-xs uppercase tracking-[0.35em] text-yellow-400/80">Hot Keyword</p>
+                  <h3 className="mt-2 text-lg font-semibold text-white">{item.keyword}</h3>
+                  <p className="mt-2 text-sm text-gray-300">{item.insight}</p>
                 </Link>
               ))}
             </div>

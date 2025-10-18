@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { createWebSiteSchema, JsonLd } from "@/lib/schema";
+import { formatMetaDescription, formatMetaTitle } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,10 +17,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const rootTitle = formatMetaTitle("Legion Remix Guide - WoW 2025 Complete Hub");
+const rootDescription = formatMetaDescription(
+  "Master Legion Remix 2025 with a complete guide covering leveling routes, Bronze farming priorities, class builds, rewards planning, and weekly prep for Oct 7."
+);
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://legionremixhub.com'),
-  title: "Legion Remix Guide - WoW 2025 Complete Hub",
-  description: "Master Legion Remix 2025 with a complete guide covering leveling routes, Bronze farming priorities, class builds, rewards planning, and weekly prep for Oct 7.",
+  title: rootTitle,
+  description: rootDescription,
   keywords: [
     "legion remix guide",
     "Legion Remix",
@@ -50,8 +56,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://legionremixhub.com",
-    title: "Legion Remix Guide - WoW 2025 Complete Hub",
-    description: "Master Legion Remix 2025 with a complete guide covering leveling routes, Bronze farming priorities, class builds, rewards planning, and weekly prep for Oct 7.",
+    title: rootTitle,
+    description: rootDescription,
     siteName: "Legion Remix Hub",
     images: [
       {
@@ -64,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Legion Remix Guide - WoW 2025 Complete Hub",
-    description: "Master Legion Remix 2025 with a complete guide covering leveling routes, Bronze farming priorities, class builds, rewards planning, and weekly prep for Oct 7.",
+    title: rootTitle,
+    description: rootDescription,
     images: ["/images/og-image.png"],
   },
   robots: {

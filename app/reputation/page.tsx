@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { reputationFactions } from '@/data/reputations';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const pageTitle = formatMetaTitle('Legion Remix Reputation Hub Planner 2025');
+const pageDescription = formatMetaDescription(
+  "Overview of Legion Remix reputation routes for the Broken Isles. Compare emissary locations, Champion's Insignia sources, vendor highlights, and paragon rewards across Court of Farondis, Dreamweavers, Highmountain Tribe, Nightfallen, Wardens, Valarjar, and the Kirin Tor."
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Reputation Hub - Broken Isles Faction Planner',
-  description:
-    "Overview of Legion Remix reputation routes for the Broken Isles. Compare emissary locations, Champion's Insignia sources, vendor highlights, and paragon rewards across Court of Farondis, Dreamweavers, Highmountain Tribe, Nightfallen, Wardens, Valarjar, and the Kirin Tor.",
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/reputation')
   }
@@ -18,6 +22,20 @@ export default function ReputationOverviewPage() {
     (total, faction) => total + (faction.paragonRewards?.length ?? 0),
     0
   );
+  const reputationHotQueries = [
+    {
+      keyword: 'Challiane Vineyards Legion Remix',
+      summary: 'Route through Suramar vineyards for Dreamweaver emissaries and Strange Humming Crystal overlap.',
+    },
+    {
+      keyword: 'Challiane Vineyards not spawning',
+      summary: 'Shard hop with the group finder and clear neighbouring Withered spawns to reset event timers.',
+    },
+    {
+      keyword: 'Legion Remix reputation tracker',
+      summary: 'Use the faction cards below as your weekly checklist before cashing in Champion’s Insignias.',
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -34,6 +52,16 @@ export default function ReputationOverviewPage() {
             faction below, then dive into dedicated pages for exact emissary positions, Champion&apos;s Insignia routing,
             vendor checklists, and paragon rewards.
           </p>
+          <div className="mt-6 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 p-6">
+            <h2 className="text-lg font-semibold text-emerald-200 mb-3">Reputation keywords you keep searching</h2>
+            <ul className="space-y-3 text-sm text-gray-200">
+              {reputationHotQueries.map(item => (
+                <li key={item.keyword}>
+                  <span className="font-semibold text-white">{item.keyword}</span> — {item.summary}
+                </li>
+              ))}
+            </ul>
+          </div>
         </header>
 
         <section className="mb-12 grid gap-4 md:grid-cols-3">
@@ -155,4 +183,3 @@ export default function ReputationOverviewPage() {
     </div>
   );
 }
-

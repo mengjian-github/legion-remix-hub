@@ -144,6 +144,10 @@ export default function RewardsPage() {
             <div>
               <p className="text-sm text-emerald-300 uppercase tracking-widest">Legion Remix • October 7, 2025 → January 19, 2026</p>
               <h1 className="text-3xl font-bold text-white mt-2">Legion Remix Rewards Hub</h1>
+              <p className="text-sm text-gray-300 mt-2 max-w-2xl">
+                Treat this dashboard as your Legion Remix rewards tracker and Legion Remix bronze tracker in one place. Pair it
+                with the Legion Remix bronze calculator to forecast every mount, toy, pet, and housing purchase before you farm.
+              </p>
             </div>
             <Link
               href="#search"
@@ -175,6 +179,28 @@ export default function RewardsPage() {
             <p className="text-3xl font-semibold text-white mt-2">{formatNumber(catalogItemCount)}</p>
             <p className="text-sm text-gray-400 mt-2">Includes achievements, reputation unlocks, and account-wide rewards.</p>
           </div>
+        </section>
+
+        <section className="mb-12 rounded-3xl border border-emerald-600/30 bg-emerald-600/10 p-6">
+          <h2 className="text-2xl font-semibold text-white mb-3">How to Use This Legion Remix Rewards Tracker</h2>
+          <p className="text-sm text-gray-200 mb-3">
+            This grid doubles as a Legion Remix rewards tracker and Legion Remix bronze tracker. Start each reset by
+            filtering to Bronze-only entries, then mark everything you have already purchased. The totals above show you
+            how far your Legion Remix bronze calculator plans need to stretch—update them every time a new Infinite Echoes
+            vendor rotates pools into the Bazaar.
+          </p>
+          <p className="text-sm text-gray-200 mb-3">
+            Work category by category. Mount hunters should drill into the mount tables, swap over to toys, then finish
+            with ensembles to avoid missing time-limited cosmetics. Housing enthusiasts can narrow to decor and screenshot
+            the results as a shared Legion Remix rewards tracker for their guild. When you are chasing achievements like
+            Violet Spellwing or the Sargerei ensemble, tag them inside your Legion Remix bronze tracker notes so they stay
+            front-of-mind during Turbo Boost windows.
+          </p>
+          <p className="text-sm text-gray-200">
+            Finally, align this dashboard with the Legion Remix bronze calculator. Paste the Bronze totals from your current
+            filter set into the calculator, add the estimated hours from your best farming method, and publish the results
+            to your raid or community Discord. Consistency keeps everyone on the same rewards cadence through January 19.
+          </p>
         </section>
 
         <nav className="mb-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

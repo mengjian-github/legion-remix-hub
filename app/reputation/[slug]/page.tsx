@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { reputationFactions } from '@/data/reputations';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 type PageProps = {
   params: {
@@ -25,8 +25,10 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   return {
-    title: `${faction.name} Reputation Guide - Legion Remix Broken Isles`,
-    description: `${faction.name} reputation route for Legion Remix. Emissary location, Champion's Insignia sources, vendor highlights, paragon rewards, and emissary quest loot.`,
+    title: formatMetaTitle(`${faction.name} Legion Remix Reputation Guide 2025`),
+    description: formatMetaDescription(
+      `${faction.name} reputation route for Legion Remix. Emissary location, Champion's Insignia sources, vendor highlights, paragon rewards, and emissary quest loot.`,
+    ),
     alternates: {
       canonical: buildCanonicalUrl(`/reputation/${faction.slug}`)
     }

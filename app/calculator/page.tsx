@@ -82,6 +82,14 @@ export default function CalculatorPage() {
           <p className="text-gray-400">
             Select the rewards you want from the Infinite Bazaar and see how much Bronze the run will cost. Numbers mirror the prices listed in the rewards compendium and hook into the Bronze-per-hour estimates from the farming blueprint.
           </p>
+          <div className="mt-4 rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-5">
+            <h2 className="text-lg font-semibold text-emerald-200 mb-2">Why the Legion Remix bronze calculator matters</h2>
+            <p className="text-sm text-gray-200">
+              Search spikes for “Legion Remix bronze calculator”, “Legion Remix bronze tracker”, and “Legion Remix rewards tracker”
+              underline how often Timerunners need a single dashboard. Keep this tab open while you route keystones, price
+              out Violet Spellwing, or double-check Infinite Echoes housing decor so every Bronze investment stays deliberate.
+            </p>
+          </div>
         </div>
 
         <div className="mb-8 grid lg:grid-cols-3 gap-6">
@@ -302,6 +310,40 @@ export default function CalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="mt-16 bg-gray-900/60 border border-emerald-700/40 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Calculator Playbook</h2>
+          <p className="text-sm text-gray-300 mb-4">
+            Treat the Legion Remix bronze calculator as more than a checklist. Begin each week by cloning your main
+            wishlist, then duplicate it for alts so you never question where Bronze should flow. The Legion Remix bronze
+            tracker panel on the right updates instantly—compare the time cost of cosmetics versus functional upgrades
+            before committing to a grind.
+          </p>
+          <p className="text-sm text-gray-300 mb-4">
+            Stack your data inputs. When you finish a Mythic+ marathon, jot the Bronze per hour you actually earned next
+            to the farming presets. Enter those numbers into the Legion Remix bronze calculator before bed; the next time
+            you log in, you&apos;ll already know if rare elites, keystones, or Infinite Power farm loops deliver the fastest
+            payoff. Consistent logging keeps the Legion Remix bronze tracker realistic instead of aspirational.
+          </p>
+          <p className="text-sm text-gray-300 mb-4">
+            Evaluate opportunity cost. If the Legion Remix rewards tracker shows you&apos;re two resets away from Violet
+            Spellwing, duplicate your wishlist and strip out non-essential toys. Watch how the Legion Remix bronze tracker
+            drops your time requirement, then re-add items as you bank surplus Bronze. This approach preserves long-term
+            goals while staying responsive to hotfixes or new event drops.
+          </p>
+          <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300 mb-4">
+            <li>Lock a baseline wishlist the day reset hits, and annotate it with the date for easy comparison.</li>
+            <li>Note weekly Bronze income from keystones, world quests, and research; update the calculator with those totals.</li>
+            <li>Tag must-have rewards so you never accidentally clear the list during a binge farming session.</li>
+            <li>Export screenshots after each major purchase to build a Legion Remix bronze tracker history for your guild.</li>
+            <li>Review the top search keywords to ensure your calculator notes answer “Legion Remix bronze calculator” queries directly.</li>
+          </ol>
+          <p className="text-sm text-gray-300">
+            Finally, share the Legion Remix bronze calculator with teammates. Coordination keeps everyone aligned on Bronze
+            priorities, reduces duplicate farming, and makes it easier to pivot when a new Infinite Echoes vendor rotates in.
+            A disciplined Legion Remix bronze tracker routine is the fastest path to clearing every reward before January 19.
+          </p>
         </div>
 
         <div className="mt-16 bg-gray-900/40 border border-gray-700 rounded-lg p-6">

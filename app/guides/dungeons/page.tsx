@@ -3,11 +3,16 @@ import Link from 'next/link';
 import { dungeons, farmingMethods } from '@/data/dungeons';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const pageTitle = formatMetaTitle('Legion Remix Dungeon Roadmap & Keystone Planner');
+const pageDescription = formatMetaDescription(
+  'Track Legion Remix Timeworn Keystone tiers, affixes, dungeon farms, Turbo Boost scheduling, and keystone prep with our planner crafted for Timerunner teams.'
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Dungeon Roadmap & Keystone Planner',
-  description: 'Track Legion Remix Timeworn Keystone tiers, affixes, dungeon farms, Turbo Boost scheduling, and keystone prep with our planner crafted for Timerunner teams.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/guides/dungeons'),
   },

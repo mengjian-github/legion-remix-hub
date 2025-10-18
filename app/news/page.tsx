@@ -2,11 +2,19 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { newsArticles } from '@/data/news';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const newsTitle = formatMetaTitle('Legion Remix News & Hotfix Tracker 2025');
+const newsDescription = formatMetaDescription(
+  'Stay current on Legion Remix 2025 with curated hotfix highlights, blue post breakdowns, and weekly roadmap checkpoints sourced from Warcraft Tavern.'
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix News & Hotfix Tracker',
-  description:
-    'Stay current on Legion Remix 2025 with curated hotfix highlights, blue post breakdowns, and weekly roadmap checkpoints sourced from Warcraft Tavern.',
+  title: newsTitle,
+  description: newsDescription,
+  alternates: {
+    canonical: buildCanonicalUrl('/news'),
+  },
 };
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
@@ -47,6 +55,10 @@ export default function NewsPage() {
                 <span>{featured.author}</span>
               </div>
               <p className="mt-6 text-lg text-gray-200">{featured.excerpt}</p>
+              <p className="mt-4 text-sm text-gray-300">
+                Check back daily for Legion Remix news, hotfix summaries, and Heroic World Tier adjustments—this tracker
+                surfaces every Legion Remix hotfix before it hits the launcher notes.
+              </p>
             </div>
             <div className="rounded-2xl border border-green-500/30 bg-gray-900/70 p-6 shadow-lg backdrop-blur">
               <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-green-300">Key Highlights</h2>

@@ -2,11 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { dungeons, farmingMethods, getBestXPDungeons } from '@/data/dungeons';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const pageTitle = formatMetaTitle('Legion Remix Leveling Blueprint to Reach 80');
+const pageDescription = formatMetaDescription(
+  'Power level to 80 in Legion Remix with dungeon routes, Heroic World Tier tips, quest stacking plans, and Bronze farming priorities tailored to Timerunners.'
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Leveling Blueprint to Reach 80',
-  description: 'Power level to 80 in Legion Remix with dungeon routes, Heroic World Tier tips, quest stacking plans, and Bronze farming priorities tailored to Timerunners.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/guides/leveling'),
   },
@@ -25,6 +30,29 @@ export default function LevelingGuidePage() {
     { label: 'Alt catch-up strategy', href: '#alt-leveling-legion-remix' },
     { label: 'Class build hub', href: '/classes' },
     { label: 'Bronze farming guide', href: '/guides/bronze-farming' }
+  ];
+
+  const levelingHotQueries = [
+    {
+      keyword: 'Legion Remix leveling guide',
+      insight: 'Step-by-step path from level 10 to 80 anchored around dungeon breakpoints and Heroic World Tier toggles.',
+      anchor: '#fastest-way-to-level-legion-remix',
+    },
+    {
+      keyword: 'Legion Remix heroic world tier',
+      insight: 'Unlock at level 10, pair mitigation cooldowns with Engorged weeks, and farm bonus XP safely.',
+      anchor: '#heroic-world-tier',
+    },
+    {
+      keyword: 'Legion Remix leveling route',
+      insight: 'Quest stacking through Azsuna, Val’sharah, then chaining Maw of Souls keystones during Turbo Boost weeks.',
+      anchor: '#optimal-quest-zones',
+    },
+    {
+      keyword: 'Legion Remix fast leveling',
+      insight: 'Leverage Timewalking campaign buffs, Chromie timers, and Bronze infusions for sub-9-hour clears.',
+      anchor: '#bronze-leveling-legion-remix',
+    },
   ];
 
   return (
@@ -63,6 +91,28 @@ export default function LevelingGuidePage() {
                 >
                   {item.label}
                 </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-gray-800 border border-green-700/40 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-3">Leveling Queries on the Rise</h2>
+            <p className="text-sm text-gray-300 mb-4">
+              Search Console shows players typing these Legion Remix leveling guide prompts all week. Work through each
+              linked section so your Timerunner strategy lines up with the exact phrasing people use—perfect for guild
+              coaching, content planning, or personal reference.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2">
+              {levelingHotQueries.map((item) => (
+                <a
+                  key={item.keyword}
+                  href={item.anchor}
+                  className="block rounded-xl border border-gray-700 bg-gray-900/60 p-4 hover:border-green-500/60 transition"
+                >
+                  <p className="text-xs uppercase tracking-[0.35em] text-green-400/80">Hot Keyword</p>
+                  <h3 className="mt-2 text-lg font-semibold text-white">{item.keyword}</h3>
+                  <p className="mt-2 text-sm text-gray-300">{item.insight}</p>
+                </a>
               ))}
             </div>
           </div>

@@ -5,11 +5,16 @@ import Countdown from '@/components/ui/Countdown';
 import { eventDates, remixPhases, getCurrentPhase } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const homeTitle = formatMetaTitle('Legion Remix 2025 Guide Hub for Timerunners');
+const homeDescription = formatMetaDescription(
+  'Plan Legion Remix 2025 with a home base covering phase roadmap, leveling routes, Bronze farming loops, class builds, rewards tracking, and daily prep lists.'
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix 2025 Guide Hub for Timerunners',
-  description: 'Plan Legion Remix 2025 with a home base covering phase roadmap, leveling routes, Bronze farming loops, class builds, rewards tracking, and daily prep lists.',
+  title: homeTitle,
+  description: homeDescription,
   alternates: {
     canonical: buildCanonicalUrl('/'),
   },
@@ -55,6 +60,49 @@ export default function Home() {
     { label: 'Warlock Legion Remix guide for Destruction burst', href: '/classes/warlock/destruction' },
     { label: 'Legion Remix Warlock guide for Affliction DoTs', href: '/classes/warlock/affliction' },
     { label: 'Legion Remix guide for Demonology Warlock tyrant setups', href: '/classes/warlock/demonology' }
+  ];
+
+  const trendingSearches = [
+    {
+      query: 'Legion Remix bronze calculator',
+      blurb: 'Budget every Bronze purchase with live totals and preset wish lists.',
+      href: '/calculator',
+    },
+    {
+      query: 'Legion Remix website',
+      blurb: 'Bookmark the Legion Remix Hub homepage for roadmap, tools, and weekly prep.',
+      href: '/',
+    },
+    {
+      query: 'Legion Remix warlock guide',
+      blurb: 'Pick between Affliction, Demonology, and Destruction builds tuned for Heroic World Tier.',
+      href: '/classes/warlock',
+    },
+    {
+      query: 'Legion Remix ret paladin',
+      blurb: 'Review Retribution Paladin burst windows, Infinite Artifact priorities, and Bronze goals.',
+      href: '/classes/paladin/retribution',
+    },
+    {
+      query: 'Legion Remix rogue guide',
+      blurb: 'Compare Subtlety, Outlaw, and Assassination paths before you grind keystones.',
+      href: '/classes/rogue',
+    },
+    {
+      query: 'Legion Remix rewards tracker',
+      blurb: 'Track Violet Spellwing, class mounts, toys, and ensembles with shareable lists.',
+      href: '/rewards',
+    },
+    {
+      query: 'Legion Remix heroic world tier',
+      blurb: 'Enable the empowered mode safely with spec-specific mitigation tips.',
+      href: '/guides/leveling#heroic-world-tier',
+    },
+    {
+      query: 'Legion Remix lag',
+      blurb: 'Triage performance issues in Suramar, Argus, and high-density Bronze farms.',
+      href: '#legion-remix-lag',
+    },
   ];
 
   return (
@@ -163,6 +211,40 @@ export default function Home() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trending Searches */}
+      <section className="bg-gray-950 border-y border-gray-800">
+        <div className="max-w-7xl mx-auto py-16 px-4">
+          <div className="mb-8 text-center">
+            <p className="text-sm uppercase tracking-[0.4em] text-green-300/80">Search Console Signals</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-white">Trending Legion Remix Searches</h2>
+            <p className="mt-4 text-gray-300 max-w-3xl mx-auto">
+              We weave every popular Legion Remix query straight into our guides so you can react faster than hotfixes.
+              Use the cards below to jump directly to the Legion Remix bronze calculator, class primers, rewards tracker,
+              and troubleshooting hubs people search for most often this week.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {trendingSearches.map((item) => (
+              <Link
+                key={item.query}
+                href={item.href}
+                className="rounded-2xl border border-gray-800 bg-gray-900/60 p-6 transition hover:border-green-500/60 hover:bg-gray-900"
+              >
+                <p className="text-xs uppercase tracking-[0.3em] text-green-400/80">Hot Keyword</p>
+                <h3 className="mt-2 text-xl font-semibold text-white">{item.query}</h3>
+                <p className="mt-3 text-sm text-gray-300">{item.blurb}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-green-400">
+                  Open guide
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

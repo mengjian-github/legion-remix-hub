@@ -3,11 +3,16 @@ import Link from 'next/link';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
 import { rewardSpotlights } from '@/data/rewards';
-import { buildCanonicalUrl } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+
+const pageTitle = formatMetaTitle('Legion Remix Raid Progression Planner 2025');
+const pageDescription = formatMetaDescription(
+  'Plan Legion Remix raid progression with phase unlocks, loot highlights, Violet Spellwing timing, and weekly assignments that keep Timerunner raids ready weekly.'
+);
 
 export const metadata: Metadata = {
-  title: 'Legion Remix Raid Progression Planner 2025',
-  description: 'Plan Legion Remix raid progression with phase unlocks, loot highlights, Violet Spellwing timing, and weekly assignments that keep Timerunner raids ready weekly.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
     canonical: buildCanonicalUrl('/guides/raids'),
   },

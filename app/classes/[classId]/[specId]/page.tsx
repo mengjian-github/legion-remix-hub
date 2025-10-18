@@ -7,7 +7,7 @@ import { specGuides, getSpecGuide } from '@/data/specs';
 import type { SpecGuide } from '@/data/specs';
 import { artifactPaths } from '@/data/artifact-paths';
 import type { ArtifactPath } from '@/data/artifact-paths';
-import { buildCanonicalUrl, formatMetaDescription } from '@/lib/seo';
+import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { classMountImages, legionImages } from '@/data/images';
 
 const normalizeSpaces = (value: string) => value.replace(/\s+/g, ' ').trim();
@@ -144,7 +144,7 @@ export async function generateMetadata(
     };
   }
 
-  const title = `${specGuide.specName} ${classData.name} Legion Remix Guide & Build Tips`;
+  const title = formatMetaTitle(`${specGuide.specName} ${classData.name} Legion Remix Guide Tips`);
   const description = formatMetaDescription(specGuide.metaDescription);
 
   return {
