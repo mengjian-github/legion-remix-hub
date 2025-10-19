@@ -148,6 +148,9 @@ export default function RewardsPage() {
                 Treat this dashboard as your Legion Remix rewards tracker and Legion Remix bronze tracker in one place. Pair it
                 with the Legion Remix bronze calculator to forecast every mount, toy, pet, and housing purchase before you farm.
               </p>
+              <p className="text-sm text-gray-300 mt-2 max-w-2xl">
+                Need a concise Legion Remix reward tracker or a printable Legion Remix rewards list? Toggle the filters below, export your matched results, and share them with guildmates before the next housing decor rotation hits Infinite Echoes.
+              </p>
             </div>
             <Link
               href="#search"

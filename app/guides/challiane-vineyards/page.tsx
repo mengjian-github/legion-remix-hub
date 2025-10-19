@@ -165,6 +165,7 @@ export default function ChallianeVineyardsPage() {
                 <li><strong>Minion’s Minion:</strong> Start “Missing Demon” from Tehd Shoemaker at <code className="text-xs">/way Azsuna 50.44 30.61</code>. Daglop’s follow-ups award large chunks of Infinite Power when completed under Heroic World Tier.</li>
                 <li><strong>Crumbled Palace Cocktails:</strong> Pick up “The Magister of Mixology” and “Presentation is Everything” from Magister Garuhod after you surface near Nar’thalas Academy.</li>
                 <li><strong>A Rather Long Walk:</strong> Swim down to Elder Aldryth immediately after finishing the cocktails chain to avoid phasing back to the surface twice.</li>
+                <li><strong>A Noble Event Legion Remix:</strong> If the micro-holiday is live, hearth to Dalaran for <Link href="/guides/a-noble-event" className="text-green-400 hover:text-green-300">Horos&apos; vendor tab</Link> and queue <Link href="/guides/lock-stock-two-smoking-goblins" className="text-green-400 hover:text-green-300">Lock, Stock, and Two Smoking Goblins</Link> while Strange Humming Crystal buffs tick.</li>
                 <li><strong>Felblaze Ingress:</strong> Close the loop in northeastern Azsuna for another Sojourner tick and back-to-back Infinite Knowledge packets.</li>
               </ul>
             </div>

@@ -82,6 +82,9 @@ export default function CalculatorPage() {
           <p className="text-gray-400">
             Select the rewards you want from the Infinite Bazaar and see how much Bronze the run will cost. Numbers mirror the prices listed in the rewards compendium and hook into the Bronze-per-hour estimates from the farming blueprint.
           </p>
+          <p className="text-gray-400 mt-3">
+            If you landed here searching for a WoW Legion Remix calculator, a Legion Remix reward tracker, or even a shareable Legion Remix bronze spreadsheet, you&apos;re in the right place. Toggle categories, export totals, and keep guildmates aligned on every Bronze purchase before the next Turbo Boost reset.
+          </p>
           <div className="mt-4 rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-5">
             <h2 className="text-lg font-semibold text-emerald-200 mb-2">Why the Legion Remix bronze calculator matters</h2>
             <p className="text-sm text-gray-200">

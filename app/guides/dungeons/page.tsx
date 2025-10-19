@@ -224,6 +224,38 @@ export default function DungeonsGuidePage() {
               Keep them open on a second screen while you route Mythic+ nights—most pulls trace back to these notes.
             </p>
           </div>
+
+          <div className="bg-gray-900/40 border border-green-700/40 rounded-lg p-6 mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Daily Dungeon Planner</h2>
+            <p className="text-sm text-gray-300 mb-3">
+              Trying to balance Legion Remix XP farm loops with keystone push groups? Slot your runs into this lightweight planner so Bronze, Infinite Knowledge, and loot all land in the same session.
+            </p>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300 mb-3">
+              <li><strong>Morning reset:</strong> Clear two +10 keys for the weekly cache, then knock out the Random Dungeon bonus for extra XP on your alt army.</li>
+              <li><strong>Midday break:</strong> Run the <Link href="/guides/lock-stock-two-smoking-goblins" className="text-green-400 hover:text-green-300">Lock, Stock, and Two Smoking Goblins</Link> micro-holiday if it&apos;s active, or pivot to Suramar world quests for Strange Humming Crystals.</li>
+              <li><strong>Prime-time push:</strong> Chain +17 to +22 keys during Turbo Boost, pairing a Legion Remix arms warrior build with a Ret Paladin Legion Remix build for spell reflect and Blessings.</li>
+              <li><strong>Cooldown burn:</strong> Spend the final hour on Scenario Spam or Argus rares to refill Bronze before logging off.</li>
+            </ol>
+            <p className="text-xs text-gray-400">
+              Staple this loop to your guild Discord; consistent cadence beats brute-force grind every time.
+            </p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-purple-700/40 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4">Spec Synergy Cheat Sheet</h2>
+            <p className="text-sm text-gray-300 mb-3">
+              Not sure which classes to slot into tonight’s keystone? Use these pairings as a starting point—each lines up with our class playbooks and keeps the Bronze calculator happy.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+              <li><strong>Legion Remix arms warrior build + Sub rogue legion remix:</strong> Arms handles banners and Piercing Howl while Subtlety deletes priority targets with Shadow Dance.</li>
+              <li><strong>Ret paladin Legion Remix build + Restoration shaman:</strong> Blessings, Cleansing Flame, and Spirit Link Totem smooth empowered packs in Heroic World Tier.</li>
+              <li><strong>Destro warlock Legion Remix + Balance druid legion remix:</strong> Chaos Bolt nukes elites while Starfall controls adds—great for Seat of the Triumvirate.</li>
+              <li><strong>WoW Legion Remix warrior build + Mistweaver monk:</strong> Brewmaster or Protection tanks plus Mistweaver’s Revival keep the group stable during Engorged weeks.</li>
+            </ul>
+            <p className="text-xs text-gray-400 mt-4">
+              Cross-reference any comp with the <Link href="/classes" className="text-green-400 hover:text-green-300">Class Playbooks</Link> to double-check stat priorities before you dive in.
+            </p>
+          </div>
         </article>
       </div>
     </div>

@@ -217,7 +217,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'paladin',
     specName: 'Retribution',
     role: 'DPS',
-    metaDescription: 'Retribution Paladin Legion Remix guide outlining the best Fel artifact path, top DPS talents, stat priorities, and ways to dominate both solo and group content—use this Legion Remix Paladin guide slice to plan your burst windows.',
+    metaDescription: 'Retribution Paladin Legion Remix guide outlining the best Fel artifact path, top DPS talents, stat priorities, and ways to dominate both solo and group content—use this Legion Remix Paladin guide slice to plan your burst windows, Ret Paladin Legion Remix build, and ret pala Legion Remix Bronze priorities.',
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -242,7 +242,8 @@ export const specGuides: SpecGuide[] = [
       'Divine Shield and Lay on Hands provide excellent "panic buttons"',
       'Blessing of Freedom allows you to ignore slows and roots',
       'Strong burst damage makes elite quest mobs easy',
-      'Excellent solo spec - can handle difficult content alone'
+      'Excellent solo spec - can handle difficult content alone',
+      'Bookmark your ret paladin build Legion Remix template in the planner so you can swap talents quickly between raids'
     ],
 
     rotationOverview: {
@@ -285,7 +286,7 @@ export const specGuides: SpecGuide[] = [
     specName: 'Arms',
     role: 'DPS',
     metaDescription:
-      'Arms Warrior Legion Remix guide covering Fel path burst windows, Infinite Knowledge priorities, and optimal Bronze spending during The War Within 11.2.5.',
+      'Arms Warrior Legion Remix guide covering Fel path burst windows, Infinite Knowledge priorities, Legion Remix arms warrior build planning, and optimal Bronze spending during The War Within 11.2.5—your WoW Legion Remix warrior build roadmap for Execute enjoyers.',
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -451,7 +452,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'warlock',
     specName: 'Affliction',
     role: 'DPS',
-    metaDescription: 'Affliction Warlock Legion Remix guide focusing on multi-target DoTs, the best Storm artifact path, stat priorities, and tips to excel in The War Within 11.2.5 event—an all-in-one warlock remix guide for DoT lovers.',
+    metaDescription: 'Affliction Warlock Legion Remix guide focusing on multi-target DoTs, the best Storm artifact path, stat priorities, and tips to excel in The War Within 11.2.5 event—an all-in-one warlock remix guide for DoT lovers, WoW Legion Remix warlock rotations, and players seeking a WoW Legion Remix warlock guide.',
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -515,7 +516,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'warlock',
     specName: 'Demonology',
     role: 'DPS',
-    metaDescription: 'Demonology Warlock Legion Remix guide highlighting the best Fel artifact path, demonic army builds, stat priorities, and Bronze spending for Patch 11.2.5, rounding out our Legion Remix warlock build playbook.',
+    metaDescription: 'Demonology Warlock Legion Remix guide highlighting the best Fel artifact path, demonic army builds, stat priorities, and Bronze spending for Patch 11.2.5, rounding out our Legion Remix warlock build playbook—use this wow legion remix warlock guide to script every tyrant window.',
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -579,7 +580,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'warlock',
     specName: 'Destruction',
     role: 'DPS',
-    metaDescription: 'Destruction Warlock Legion Remix guide updated for Patch 11.2.5 covering the best Fel artifact path, Chaos Bolt builds, stat priorities, and Bronze spending tips—the go-to Legion Remix warlock talents snapshot for turret players.',
+    metaDescription: 'Destruction Warlock Legion Remix guide updated for Patch 11.2.5 covering the best Fel artifact path, Chaos Bolt builds, stat priorities, and Bronze spending tips—the go-to Legion Remix warlock talents snapshot for turret players, with Legion Remix destruction warlock combos, destro warlock Legion Remix tips, legion remix destro warlock burst plans, legion remix destro lock shopping routes, and destro lock Legion Remix rotation callouts.',
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -773,7 +774,7 @@ export const specGuides: SpecGuide[] = [
     classId: 'rogue',
     specName: 'Subtlety',
     role: 'DPS',
-    metaDescription: 'Master Subtlety Rogue in Legion Remix with our detailed guide. Discover the best artifact paths, optimal talents, stat priorities, and strategies to maximize your damage and stealth gameplay.',
+    metaDescription: 'Master Subtlety Rogue in Legion Remix with our detailed guide. Discover the best artifact paths, optimal talents, stat priorities, Legion Remix rogue build notes, and strategies to maximize your damage and stealth gameplay—perfect for any sub rogue legion remix player.',
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -962,6 +963,1340 @@ export const specGuides: SpecGuide[] = [
     groupTier: 'B',
     soloTier: 'A',
     heroicWorldTier: false
+  },
+
+  // HUNTER SPECS
+  {
+    classId: 'hunter',
+    specName: 'Beast Mastery',
+    role: 'DPS',
+    metaDescription: 'Beast Mastery Hunter Legion Remix guide detailing Storm path pet synergies, Legion Remix BM hunter stat priority, Bronze spending, and WoW Legion Remix hunter build tips.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Adds burst for boss burn phases and empowered rares' },
+      { pathId: 'nature', reason: 'Extra survivability for soloing Heroic World Tier during leveling' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Storm Surger', 'Volatile Magics'],
+
+    statPriority: [
+      'Agility',
+      'Mastery',
+      'Critical Strike',
+      'Haste',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Beast Cleave active—Storm path haste lets pets melt packs during bronze farming.',
+      'Toggle on Heroic World Tier with a tank pet to farm Strange Humming Crystals safely.',
+      'Grab the Stalker hero talents for passive movement speed while tagging rares.',
+      'Use your Legion Remix reward tracker to plan pet tome purchases before Infinite Echoes.',
+      'Position pets ahead of you to tag barrels during Lock, Stock, and Two Smoking Goblins.'
+    ],
+
+    rotationOverview: {
+      title: 'Beast Mastery Legion Remix Priority',
+      priority: [
+        'Maintain Frenzy stacks with Kill Command on cooldown.',
+        'Use Barbed Shot to refresh Frenzy and keep focus high.',
+        'Bestial Wrath on cooldown; line it up with Tempest Wrath for huge AoE.',
+        'Cleave with Multi-Shot to keep Beast Cleave active on 2+ targets.',
+        'Dump focus with Cobra Shot when everything else is on cooldown.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Upgrade pet tomes and ranged weapons at the Infinite Bazaar.',
+      '2. Finish the Storm path before swapping to Fel for raid burst.',
+      '3. Purchase trinkets that proc haste or agility for sustained cleave.',
+      '4. Unlock the Felscorched Wolfhawk (free for your first hunter, 20,000 Bronze for alts).',
+      '5. Grab cosmetic quivers and ensembles once you cap Infinite Knowledge.'
+    ],
+
+    builds: {
+      leveling: 'Beast Cleave spam with tank pets and passive focus talents.',
+      openWorld: 'Storm/Fel hybrid to bounce between large pulls and single-target rares.',
+      mythicPlus: 'Cleave-focused build stacking Beast Cleave uptime and Storm path haste.',
+      raid: 'Single-target bestial fury with Fel path for on-demand burst.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'S',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'hunter',
+    specName: 'Marksmanship',
+    role: 'DPS',
+    metaDescription: 'Marksmanship Hunter Legion Remix guide featuring Arcane path volley builds, WoW Legion Remix hunter rotations, and Bronze planning for precision snipers.',
+
+    bestArtifactPath: 'arcane',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Adds cleave haste for Timeworn keystone dungeons' },
+      { pathId: 'fel', reason: 'Burst windows for heroic raid bosses and empowered rares' }
+    ],
+
+    recommendedTraits: ['Volatile Magics', 'Terror from Below', 'Touch of Malice'],
+
+    statPriority: [
+      'Agility',
+      'Critical Strike',
+      'Mastery',
+      'Haste',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Leverage Double Tap into Volley to instantly clear bronze orb packs.',
+      'Arcane path shields prevent one-shots while standing still for Aimed Shot.',
+      'Keep a cleave pet with Growl off for extra tagging when solo farming.',
+      'Use the Legion Remix bronze calculator to decide when to buy weapon upgrades versus trinkets.',
+      'Macro Feign Death to drop threat during Heroic World Tier pulls.'
+    ],
+
+    rotationOverview: {
+      title: 'Marksmanship Priority',
+      priority: [
+        'Maintain Hunter’s Mark on your kill target.',
+        'Aimed Shot with Precise Shots buff for heavy hits.',
+        'Rapid Fire on cooldown (try to pair with Trueshot).',
+        'Arcane Shot or Multi-Shot to trigger Precise Shots for cleave.',
+        'Volley before large pulls to front-load AoE damage.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Secure a high item level bow and agility trinkets.',
+      '2. Unlock Arcane path shielding for safer stationary casts.',
+      '3. Purchase the Legion Remix ranger cosmetic quivers early—they sell out fast on rotation.',
+      '4. Stock Torn Invitations during A Noble Event weekends for fox mount cosmetics.',
+      '5. Finish Storm path nodes if Mythic+ is your main Bronze route.'
+    ],
+
+    builds: {
+      leveling: 'Volley cleave with Steady Focus for endless focus regeneration.',
+      openWorld: 'Arcane shielding combined with Trick Shots for big pulls.',
+      mythicPlus: 'Storm path haste plus Volley/Explosive Shot for stacked packs.',
+      raid: 'Fel-enhanced Trueshot burn for priority targets and boss phases.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'hunter',
+    specName: 'Survival',
+    role: 'DPS',
+    metaDescription: 'Survival Hunter Legion Remix guide outlining Fel path melee burst, Legion Remix survival hunter builds, stat priorities, and Bronze purchases.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Improves cleave uptime for dungeon speed runs' },
+      { pathId: 'nature', reason: 'Adds sustain while leveling or duo farming' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Storm Surger'],
+
+    statPriority: [
+      'Agility',
+      'Haste',
+      'Mastery',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Explosive Shot + Butchery deletes empowered packs during Bronze runs.',
+      'Use Harpoon to stick to target dummies when practicing Momentum flows.',
+      'Drop Tar Trap under Storm path Tempest Wrath for maximum control.',
+      'Use Legion Remix XP farm circuits in Highmountain; traps keep mobs rooted.',
+      'Swap to a ferocity pet for leech during solo Heroic World Tier pulls.'
+    ],
+
+    rotationOverview: {
+      title: 'Survival Priority',
+      priority: [
+        'Keep Serpent Sting active on your target.',
+        'Kill Command on cooldown to trigger Wildfire Infusion effects.',
+        'Wildfire Bomb whenever available; try to line up with adds.',
+        'Butchery or Carve for AoE to reset Wildfire Bomb.',
+        'Use Mongoose Bite with full stacks during Fury of the Eagle windows.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Fel path nodes for Twisted Crusade burst.',
+      '2. Invest Bronze into dual-wield weapon upgrades ASAP—melee scales hard with item level.',
+      '3. Buy on-use trinkets that buff agility or haste for mini burst phases.',
+      '4. Grab class transmogs like the huntress ensemble once core gear is secured.',
+      '5. Save Bronze for the fox mount if you plan to run Lock, Stock, and Two Smoking Goblins weekly.'
+    ],
+
+    builds: {
+      leveling: 'Fel path momentum build with sustained Wildfire Bomb resets.',
+      openWorld: 'Nature hybrid for extra healing plus crowd control traps.',
+      mythicPlus: 'Storm path cleave with Carve/Butchery bleed extensions.',
+      raid: 'Fel burst priority with Mongoose Fury windows on bosses.'
+    },
+
+    groupTier: 'B',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+
+  // MAGE SPECS
+  {
+    classId: 'mage',
+    specName: 'Arcane',
+    role: 'DPS',
+    metaDescription: 'Arcane Mage Legion Remix guide with Arcane path loops, Legion Remix mage stat priority, WoW Legion Remix Arcane build notes, and Bronze goals.',
+
+    bestArtifactPath: 'arcane',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Adds on-demand burst for Time Crisis and raid burn phases' },
+      { pathId: 'storm', reason: 'Improves AoE cleave for dungeon speed runs' }
+    ],
+
+    recommendedTraits: ['Volatile Magics', 'Touch of Malice', 'Storm Surger'],
+
+    statPriority: [
+      'Intellect',
+      'Mastery',
+      'Critical Strike',
+      'Haste',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Use Naran’s Everdisc to bank charges, then burn bosses with Arcane Surge.',
+      'Always plant Rune of Power before spamming Arcane Blast on empowered targets.',
+      'Stack Infinite Knowledge ranks early so mana management feels forgiving.',
+      'Carry Invisibility potions to skip trash during Legion Remix XP farm routes.',
+      'Add Torn Invitation weekends to your Legion Remix website calendar for easy Bronze.'
+    ],
+
+    rotationOverview: {
+      title: 'Arcane Mage Priority',
+      priority: [
+        'Arcane Surge + Radiant Spark before burn windows.',
+        'Arcane Blast to four Arcane Charges.',
+        'Arcane Barrage to drop stacks when mana dips below 50%.',
+        'Touch of the Magi on cooldown and during AoE pulls.',
+        'Use Evocation with Slipstream to refuel and keep damage rolling.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Upgrade weapon and off-hand first—spell power drives all damage.',
+      '2. Complete Arcane path nodes for Everdisc shields and haste.',
+      '3. Buy trinkets that grant intellect on use to align with Arcane Surge.',
+      '4. Collect caster ensembles once Infinite Knowledge caps for Bronze refunds.',
+      '5. Keep spare Bronze for housing decor during Infinite Echoes if cosmetics matter.'
+    ],
+
+    builds: {
+      leveling: 'Arcane Harmony stacking with Arcane Echo for bursty questing.',
+      openWorld: 'Arcane Aegis shielding build with Slipstream for mobile kiting.',
+      mythicPlus: 'Storm path + Resonance for mass AoE explosions.',
+      raid: 'Pure Arcane Surge burn with Magi synergy for priority boss damage.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'mage',
+    specName: 'Fire',
+    role: 'DPS',
+    metaDescription: 'Fire Mage Legion Remix guide explaining Fel path combustion setups, Legion Remix mage builds, stat priority, and Bronze planning for WoW Legion Remix raids.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Boosts Flamestrike cleave during dungeon pulls' },
+      { pathId: 'arcane', reason: 'Adds shields for open world survivability' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Volatile Magics'],
+
+    statPriority: [
+      'Intellect',
+      'Critical Strike',
+      'Haste',
+      'Mastery',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Phoenix Flames ready for Engorged pulls in Heroic World Tier.',
+      'Chain Living Bomb on five-target packs to shred Bronze orb camps.',
+      'Use Shimmer to dodge and keep Combustion uptime high.',
+      'Lock in A Noble Event shopping early so you can afford caster cosmetics.',
+      'Use Mirror Images before activating Fel Twisted Crusade for safety.'
+    ],
+
+    rotationOverview: {
+      title: 'Fire Mage Priority',
+      priority: [
+        'Cast Combustion and immediately deploy Fire Blast charges.',
+        'Pyroblast during Hot Streak procs; hard-cast only inside Combustion.',
+        'Phoenix Flames to generate Hot Streaks on AoE fights.',
+        'Scorch movement filler; maintain Kindling for shorter Combustions.',
+        'Use Meteor or Flamestrike with Infernal Cascade stacks for heavy cleave.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Secure high ilvl weapons and trinkets that trigger crit bursts.',
+      '2. Finish Fel path early to maximize Twisted Crusade combustion windows.',
+      '3. Buy caster-specific ensembles after weapons—style flex optional.',
+      '4. Keep Bronze for the Arcane Scythe illusion drop in The Nighthold.',
+      '5. Purchase extra runes or potions from Horos during A Noble Event weekends.'
+    ],
+
+    builds: {
+      leveling: 'Pyroclasm/Flame Patch build for cleave leveling loops.',
+      openWorld: 'Flame Patch with Flame On to chain Fire Blasts while kiting.',
+      mythicPlus: 'Storm/Fel hybrid to keep Flamestrike procs rolling.',
+      raid: 'Pure combustion setup with Kindling and Sun King’s Blessing.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'mage',
+    specName: 'Frost',
+    role: 'DPS',
+    metaDescription: 'Frost Mage Legion Remix guide covering Storm path control, WoW Legion Remix Frost rotation, Legion Remix mage stat priority, and Bronze upgrades.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'arcane', reason: 'Gives shields to stay alive while turret casting' },
+      { pathId: 'nature', reason: 'Improves sustain during solo XP farm loops' }
+    ],
+
+    recommendedTraits: ['Storm Surger', 'Volatile Magics', 'Touch of Malice'],
+
+    statPriority: [
+      'Intellect',
+      'Haste',
+      'Critical Strike',
+      'Mastery',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Blizzard down to stack Storm path haste and freeze adds for Shatter combos.',
+      'Use Cone of Cold to keep Empowered enemies from reaching you.',
+      'Icy Veins plus Time Warp equals unstoppable all-season heroic pushes.',
+      'Cold Snap resets Ice Block—great for brute forcing Bronze caches.',
+      'Add Legion Remix XP farm loops in Highmountain where kiting is easy.'
+    ],
+
+    rotationOverview: {
+      title: 'Frost Mage Priority',
+      priority: [
+        'Cast Icy Veins and Mirror Image before major pulls.',
+        'Flurry after Frostbolt/Glacial Spike to trigger Shatter.',
+        'Ice Lance during Fingers of Frost procs; treat them as mini-bursts.',
+        'Blizzard on cooldown for AoE and to reduce Frozen Orb timer.',
+        'Frozen Orb as soon as packs are grouped to spawn Fingers of Frost.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Storm Tempest Wrath nodes to keep haste rolling.',
+      '2. Buy trinkets that proc haste or mastery for sustained cleave.',
+      '3. Upgrade weapon/off-hand before focusing on tier pieces.',
+      '4. Pick up the Kaldorei appearance ensemble once Bronze is capped.',
+      '5. Reserve Bronze for housing decor if you enjoy chill screenshot sessions.'
+    ],
+
+    builds: {
+      leveling: 'Freezing Rain build with consistent Blizzard uptime.',
+      openWorld: 'Ice Nova and Frost Bomb to kite empowered mobs.',
+      mythicPlus: 'Storm path cleave with Splitting Ice and sustained Frozen Orbs.',
+      raid: 'Glacial Spike single-target with Arcane shields for safety.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+
+  // SHAMAN SPECS
+  {
+    classId: 'shaman',
+    specName: 'Elemental',
+    role: 'DPS',
+    metaDescription: 'Elemental Shaman Legion Remix guide outlining Storm path lightning builds, Legion Remix elemental shaman stat priority, and Bronze planning.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Boosts Lava Burst combos during raid burn phases' },
+      { pathId: 'nature', reason: 'Adds self-healing when leveling solo or duo' }
+    ],
+
+    recommendedTraits: ['Storm Surger', 'Volatile Magics', 'Touch of Malice'],
+
+    statPriority: [
+      'Intellect',
+      'Haste',
+      'Mastery',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Stormkeeper before every big pull to vaporize empowered packs.',
+      'Keep Flame Shock on everything to bank Lava Burst procs.',
+      'Use Gust of Wind (talent) to kite while Storm path pulses AoE.',
+      'Run Legion Remix XP farm routes in Suramar to line up with Dalaran micro-holiday shopping.',
+      'Drop Capacitor Totem into Lock, Stock, and Two Smoking Goblins to slow other groups.'
+    ],
+
+    rotationOverview: {
+      title: 'Elemental Priority',
+      priority: [
+        'Stormkeeper + Elemental Mastery on demand for massive burst.',
+        'Lava Burst on cooldown (guaranteed crit when Flame Shock is active).',
+        'Use Lightning Bolt or Chain Lightning depending on mob count.',
+        'Earth Shock or Earthquake to spend Maelstrom.',
+        'Icefury when talented to keep Frost Shock empowered.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Finish Storm path nodes to maximize haste scaling.',
+      '2. Purchase intellect trinkets with Lightning procs.',
+      '3. Unlock Fel nodes if you progress into Antorus raids.',
+      '4. Budget Bronze for the Shaman heritage armor variant in Infinite Echoes.',
+      '5. Stock Strange Humming Crystals to pair with Stormkeeper loops.'
+    ],
+
+    builds: {
+      leveling: 'Stormkeeper cleave with Aftershock for constant Earthquakes.',
+      openWorld: 'Nature hybrid to stay topped off while kiting packs.',
+      mythicPlus: 'Storm path + Echo Chamber for trash melts.',
+      raid: 'Fel/Storm hybrid to turbo-charge Lava Burst crit chains.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'shaman',
+    specName: 'Enhancement',
+    role: 'DPS',
+    metaDescription: 'Enhancement Shaman Legion Remix guide showcasing Fel path melee storms, Legion Remix enhancement build tips, stat priority, and Bronze upgrades.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Increases Windfury cleave for Mythic+ spam' },
+      { pathId: 'nature', reason: 'Adds much-needed sustain for solo XP farm routes' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Storm Surger'],
+
+    statPriority: [
+      'Agility',
+      'Haste',
+      'Mastery',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Doom Winds on cooldown—pair it with Tempest Wrath for unstoppable cleave.',
+      'Use Spirit Walk and Wind Rush Totem to sprint between Bronze objectives.',
+      'Keep a shield set handy if you plan to tank Lock, Stock, and Two Smoking Goblins for friends.',
+      'Refresh Flametongue and Frostbrand before entering Heroic World Tier packs.',
+      'Use your Legion Remix reward tracker to plan weapon appearances for each alt.'
+    ],
+
+    rotationOverview: {
+      title: 'Enhancement Priority',
+      priority: [
+        'Cast Primordial Wave before big pulls to duplicate Flame Shock.',
+        'Stormstrike on cooldown for single-target burst.',
+        'Crash Lightning before spreading into AoE.',
+        'Sundering on large packs or when Empowered enemies spawn.',
+        'Use Lava Lash to spread Flame Shock when running Lashing Flames.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Upgrade both weapons ASAP—Enhancement damage lives and dies by weapon ilvl.',
+      '2. Unlock Fel path for Twisted Crusade retaliation damage.',
+      '3. Buy trinkets that grant haste or agility on hit.',
+      '4. Purchase the Felscorched Stormcrow after your first 80 ding.',
+      '5. Add housing decor or totems once Bronze farming goals are met.'
+    ],
+
+    builds: {
+      leveling: 'Fel path with Elemental Spirits for unstoppable solo cleave.',
+      openWorld: 'Nature hybrid to keep sustain high during Bronze loops.',
+      mythicPlus: 'Storm/Fel burst build with Elemental Assault for Windfury spam.',
+      raid: 'Fel burst with Legacy of the Frost Witch to extend Stormstrike chains.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'shaman',
+    specName: 'Restoration',
+    role: 'Healer',
+    metaDescription: 'Restoration Shaman Legion Remix guide with Holy Light path healing, Legion Remix resto shaman builds, stat priority, and Bronze spending advice.',
+
+    bestArtifactPath: 'holy',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Adds haste for Healing Rain spam in dungeon speed clears' },
+      { pathId: 'nature', reason: 'Improves solo questing survivability' }
+    ],
+
+    recommendedTraits: ['Storm Surger', 'Volatile Magics', 'Touch of Malice'],
+
+    statPriority: [
+      'Intellect',
+      'Critical Strike',
+      'Haste',
+      'Mastery',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Leverage Riptide + Healing Stream Totem to stabilize Heroic World Tier groups.',
+      'Swap to Cloudburst Totem during Legion Remix XP farm dungeons for bonus throughput.',
+      'Use Ghost Wolf with Spirit Wolf talent to outrun Empowered enemies in the open world.',
+      'Budget Bronze for healing trinkets; resto shamans scale hard with on-use cooldowns.',
+      'Drop Healing Rain on Lock, Stock, and Two Smoking Goblins barrels to help the raid stack.'
+    ],
+
+    rotationOverview: {
+      title: 'Restoration Priority',
+      priority: [
+        'Riptide on cooldown to prime targets for Tidal Waves.',
+        'Healing Wave/Surge depending on Tidal Waves uptime.',
+        'Chain Heal when 3+ allies are hurt, especially in Bronze rare trains.',
+        'Spirit Link Totem for emergency stabilizing.',
+        'Ascendance during Turbo Boost or empowered boss phases.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Holy Light path for Vindicator’s Judgment healing pulses.',
+      '2. Purchase intellect trinkets and on-use throughput gear.',
+      '3. Grab the Farseer hero talent unlocks in Infinite Bazaar as soon as they appear.',
+      '4. Finish Storm nodes if you main Mythic+ healing.',
+      '5. Buy totems and housing decor once your healing kit is settled.'
+    ],
+
+    builds: {
+      leveling: 'Nature/Holy hybrid so you can solo quests while keeping dungeon queues instant.',
+      openWorld: 'Ancestral Guidance and Primordial Wave for surprise burst damage.',
+      mythicPlus: 'Cloudburst + Storm path for high haste, high output healing.',
+      raid: 'Holy Light path with Wellspring and Spirit Link to anchor progression.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'C',
+    heroicWorldTier: true
+  },
+
+  // DRUID SPECS
+  {
+    classId: 'druid',
+    specName: 'Balance',
+    role: 'DPS',
+    metaDescription: 'Balance Druid Legion Remix guide detailing Storm path eclipses, Legion Remix balance druid stat priority, WoW Legion Remix boomkin build tips, and Bronze plans.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'arcane', reason: 'Shielding helps when turret casting Starfire in Heroic World Tier' },
+      { pathId: 'nature', reason: 'Adds extra regen for solo open-world farm routes' }
+    ],
+
+    recommendedTraits: ['Storm Surger', 'Volatile Magics', 'Touch of Malice'],
+
+    statPriority: [
+      'Intellect',
+      'Mastery',
+      'Haste',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Starfall rolling to delete large packs and spawn Bronze orbs.',
+      'Use Wild Charge to hop between objectives and avoid Empowered affixes.',
+      'Stack Moonfire on everything when running Legion Remix XP farm loops.',
+      'Use the Legion Remix rewards list to prioritize druid-exclusive cosmetics.',
+      'Celestial Alignment pairs perfectly with Tempest Wrath for monstrous AoE.'
+    ],
+
+    rotationOverview: {
+      title: 'Balance Druid Priority',
+      priority: [
+        'Maintain Moonfire and Sunfire DoTs on all targets.',
+        'Use Wrath in Solar Eclipse, Starfire in Lunar Eclipse.',
+        'Starfall for 2+ targets; Astral Communion when you need instant Astral Power.',
+        'Starsurge to spend Astral Power on single targets.',
+        'Use Celestial Alignment/Incarnation during big pulls or boss burn windows.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Finish Storm path nodes to keep haste and damage rolling.',
+      '2. Purchase caster trinkets that proc mastery or haste.',
+      '3. Buy class appearances like the Druid order hall glow once Bronze is plentiful.',
+      '4. Save Bronze for the Boomkin moonkin form customization in Infinite Echoes.',
+      '5. Keep Torn Invitation weeks in mind for druid/caster themed housing decor.'
+    ],
+
+    builds: {
+      leveling: 'Eclipse weaving with Nature’s Balance for constant Astral Power.',
+      openWorld: 'Storm path AoE build with Stellar Flare to handle long fights.',
+      mythicPlus: 'Starlord + Storm path haste for endless Starfalls.',
+      raid: 'Incarnation burst with Twin Moons for multi-dot boss fights.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'druid',
+    specName: 'Feral',
+    role: 'DPS',
+    metaDescription: 'Feral Druid Legion Remix guide covering Fel path bleeds, Legion Remix feral druid build notes, WoW Legion Remix feral stat priority, and Bronze goals.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Adds haste for Mythic+ swipe cleave' },
+      { pathId: 'nature', reason: 'Gives extra sustain while questing or farming solo' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Volatile Magics'],
+
+    statPriority: [
+      'Agility',
+      'Critical Strike',
+      'Mastery',
+      'Haste',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Bleed uptime high—Rip plus Primal Wrath annihilates packs with Fel path reflections.',
+      'Use Tiger Dash to chase Bronze rares before other Timerunners tag them.',
+      'Feral Frenzy resets quickly inside Legion Remix, so hold it for Empowered elites.',
+      'Plan Bronze purchases for daggers/claws; weapon ilvl makes or breaks your DPS.',
+      'Macro Stampeding Roar when the goblins spawn during Lock, Stock, and Two Smoking Goblins.'
+    ],
+
+    rotationOverview: {
+      title: 'Feral Priority',
+      priority: [
+        'Keep Rake and Rip active on all key targets.',
+        'Use Shred to generate combo points; Brutal Slash for AoE.',
+        'Primal Wrath on 3+ targets to blanket bleeds.',
+        'Ferocious Bite to spend combo points when Rip is already rolling.',
+        'Tiger’s Fury on cooldown for energy and damage boost.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Finish Fel path to unlock Twisted Crusade reflect damage.',
+      '2. Upgrade weapons first, then focus on tier pieces for bleed buffs.',
+      '3. Purchase agility trinkets that buff crit mastery combos.',
+      '4. Buy the Feral-inspired ensemble once core power pieces are set.',
+      '5. Set aside Bronze for A Noble Event weekends if you chase fox mount glam.'
+    ],
+
+    builds: {
+      leveling: 'Fel bleed build with Sabertooth for extended Rip.',
+      openWorld: 'Nature hybrid to reduce downtime and keep self-healing rolling.',
+      mythicPlus: 'Primal Wrath cleave with Storm path haste for fast pulls.',
+      raid: 'Fel burst with Apex Predator for frequent Ferocious Bites.'
+    },
+
+    groupTier: 'B',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'druid',
+    specName: 'Guardian',
+    role: 'Tank',
+    metaDescription: 'Guardian Druid Legion Remix guide describing Nature path tanking, Legion Remix guardian druid stat priority, WoW Legion Remix bear build tips, and Bronze purchases.',
+
+    bestArtifactPath: 'nature',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Adds extra haste for Thrash spam in dungeons' },
+      { pathId: 'fel', reason: 'Boosts damage for small group Bronze farming' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Storm Surger', 'Terror from Below'],
+
+    statPriority: [
+      'Agility',
+      'Versatility',
+      'Mastery',
+      'Haste',
+      'Critical Strike'
+    ],
+
+    levelingTips: [
+      'Spam Thrash to keep Ironfur stacks rolling and reflect Nature path shields.',
+      'Use Rage of the Sleeper whenever Empaths spawn in Heroic World Tier.',
+      'Guardian leaps make it easy to tag Bronze rares before other tanks arrive.',
+      'Keep Frenzied Regeneration ready for empowered elites in Stormheim.',
+      'Use Legion Remix XP farm loops on Argus—the bear form handles empowered affixes well.'
+    ],
+
+    rotationOverview: {
+      title: 'Guardian Priority',
+      priority: [
+        'Keep Ironfur active for physical mitigation.',
+        'Use Thrash and Moonfire on cooldown for rage generation.',
+        'Mangle whenever available to fuel Ironfur and Frenzied Regeneration.',
+        'Use Pulverize or Galactic Guardian procs to dump extra damage.',
+        'Barkskin and Survival Instincts staggered for lethal boss combos.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Nature path early for barrier loops.',
+      '2. Buy high ilvl two-handed artifact skins and tank trinkets.',
+      '3. Invest in Storm nodes if you main Mythic+ as a bear.',
+      '4. Grab the Guardian-exclusive cosmetics while Bronze flows.',
+      '5. Save Bronze for the bear form glyphs sold during Infinite Echoes.'
+    ],
+
+    builds: {
+      leveling: 'Nature tank build for unstoppable open-world pulls.',
+      openWorld: 'Fel hybrid with Galactic Guardian for damage while soloing.',
+      mythicPlus: 'Storm/Nature blend for Thrash spam and magic mitigation.',
+      raid: 'Nature defensive setup with Rend and Tear for long boss fights.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'S',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'druid',
+    specName: 'Restoration',
+    role: 'Healer',
+    metaDescription: 'Restoration Druid Legion Remix guide showcasing Holy Light path healing, Legion Remix resto druid stat priority, WoW Legion Remix healer builds, and Bronze plans.',
+
+    bestArtifactPath: 'holy',
+    alternateArtifactPaths: [
+      { pathId: 'nature', reason: 'Adds extra HoT power for solo questing and heroic world tier' },
+      { pathId: 'arcane', reason: 'Shielding for raids with heavy burst damage' }
+    ],
+
+    recommendedTraits: ['Volatile Magics', 'Touch of Malice', 'Storm Surger'],
+
+    statPriority: [
+      'Intellect',
+      'Haste',
+      'Mastery',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Lifebloom and Rejuvenation rolling on tanks while DPSing in Cat form.',
+      'Use Convoke the Spirits in Legion Remix raids for instant HoT blankets.',
+      'A Noble Event weekends are perfect for gathering Bronze and cosmetics between healing queues.',
+      'Wild Charge + Travel Form lets you deliver emergency heals anywhere.',
+      'Plan Bronze spending in the Legion Remix bronze calculator so you can prioritize trinkets.'
+    ],
+
+    rotationOverview: {
+      title: 'Restoration Priority',
+      priority: [
+        'Maintain Efflorescence under the group whenever possible.',
+        'Rejuvenation spam on targets expecting damage.',
+        'Swiftmend on cooldown for big spot heals.',
+        'Wild Growth on 5+ injured players.',
+        'Tranquility during massive raid-wide damage or Turbo Boost keystones.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Holy Light path for Vindicator’s Judgment healing pulses.',
+      '2. Buy intellect trinkets that align with Convoke the Spirits windows.',
+      '3. Pick up tier set pieces that boost HoTs as soon as they’re affordable.',
+      '4. Grab druid-themed ensembles for screenshot sessions once essentials are secured.',
+      '5. Stock extra Bronze for Lock, Stock, and Two Smoking Goblins weekends if you run support.'
+    ],
+
+    builds: {
+      leveling: 'Catweaving resto build with Nature path sustain.',
+      openWorld: 'Ranged Moonfire build while HoTs tick endlessly.',
+      mythicPlus: 'Holy Light path with Flourish for heavy dungeon throughput.',
+      raid: 'Traditional HoT blanket with Convoke and Tranquility anchors.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'C',
+    heroicWorldTier: true
+  },
+
+  // MONK SPECS
+  {
+    classId: 'monk',
+    specName: 'Brewmaster',
+    role: 'Tank',
+    metaDescription: 'Brewmaster Monk Legion Remix guide covering Nature path stagger tricks, Legion Remix brewmaster stat priority, WoW Legion Remix monk build notes, and Bronze plans.',
+
+    bestArtifactPath: 'nature',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Adds haste for faster keg tosses in dungeon pulls' },
+      { pathId: 'fel', reason: 'Boosts damage for small group Bronze farming' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Storm Surger', 'Volatile Magics'],
+
+    statPriority: [
+      'Agility',
+      'Haste',
+      'Versatility',
+      'Mastery',
+      'Critical Strike'
+    ],
+
+    levelingTips: [
+      'Keep Ironskin Brew up around the clock—Nature path shields smooth stagger damage.',
+      'Keg Smash into Breath of Fire ensures Empowered packs stay burning.',
+      'Use Roll and Transcendence to shuttle between Bronze objectives quickly.',
+      'Maintain Celestial Brew for Time Crisis or empowered boss hits.',
+      'Add Lock, Stock, and Two Smoking Goblins to your weekly rotation; Brewmasters shine there.'
+    ],
+
+    rotationOverview: {
+      title: 'Brewmaster Priority',
+      priority: [
+        'Keg Smash on cooldown to reduce brew timers.',
+        'Maintain Breath of Fire for DR and AoE damage.',
+        'Use Blackout Strike to trigger Celestial Brew cdr.',
+        'Keep Ironskin Brew active before pulling big packs.',
+        'Purifying Brew whenever stagger turns yellow/red.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Nature path for shield uptime while staggering damage.',
+      '2. Purchase trinkets with absorb or self-healing procs.',
+      '3. Upgrade weapon quickly—more damage equals more threat and Bronze.',
+      '4. Grab Brewmaster-specific ensembles for screenshot nights after gearing.',
+      '5. Save Bronze for Infinite Echoes decor items if you enjoy housing.'
+    ],
+
+    builds: {
+      leveling: 'Nature tanking with Black Ox Brew for endless brews.',
+      openWorld: 'Fel hybrid to kill rares faster while staying immortal.',
+      mythicPlus: 'Storm/Nature blend for huge keg spam and magic mitigation.',
+      raid: 'Classic stagger-centric build with High Tolerance.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'monk',
+    specName: 'Mistweaver',
+    role: 'Healer',
+    metaDescription: 'Mistweaver Monk Legion Remix guide showing Holy Light path vivify spam, Legion Remix monk healer priorities, stat order, and Bronze purchases.',
+
+    bestArtifactPath: 'holy',
+    alternateArtifactPaths: [
+      { pathId: 'nature', reason: 'Adds extra sustain for fistweaving during solo content' },
+      { pathId: 'storm', reason: 'Boosts haste for rapid Vivify cleave in dungeons' }
+    ],
+
+    recommendedTraits: ['Storm Surger', 'Volatile Magics', 'Touch of Malice'],
+
+    statPriority: [
+      'Intellect',
+      'Critical Strike',
+      'Haste',
+      'Versatility',
+      'Mastery'
+    ],
+
+    levelingTips: [
+      'Swap between fistweaving and caster stance to keep Bronze ticking.',
+      'Use Renewing Mist on cooldown to prep for Vivify cleave.',
+      'Invoke Yu’lon or Chi-Ji during Turbo Boost windows for giant throughput spikes.',
+      'Budget Bronze for healer trinkets with mana returns; Legion Remix fights can run long.',
+      'Keep Ring of Peace handy for controlling Empowered enemies near quest objectives.'
+    ],
+
+    rotationOverview: {
+      title: 'Mistweaver Priority',
+      priority: [
+        'Renewing Mist on cooldown to prep for Vivify cleave.',
+        'Soothing Mist + Enveloping Mist for focused tank healing.',
+        'Vivify as primary filler when two or more targets need heals.',
+        'Essence Font for raid healing or Empowered packs.',
+        'Revival for emergencies or to clear dangerous debuffs.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Holy Light path for massive group healing pulses.',
+      '2. Buy intellect trinkets that restore mana or grant throughput.',
+      '3. Upgrade fist weapons if you fistweave; damage adds up during Bronze farms.',
+      '4. Purchase class-themed ensembles once Infinite Knowledge caps convert to Bronze.',
+      '5. Grab Torn Invitation cosmetics during A Noble Event to stay fashionable.'
+    ],
+
+    builds: {
+      leveling: 'Nature/Holy hybrid that punches while healing with Rising Sun Kick.',
+      openWorld: 'Fistweaving with Ancient Teachings to keep damage high.',
+      mythicPlus: 'Storm path haste with Rising Mist for fast-paced healing.',
+      raid: 'Holy Light path plus Jade Bond for cooldown-extended throughput.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'C',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'monk',
+    specName: 'Windwalker',
+    role: 'DPS',
+    metaDescription: 'Windwalker Monk Legion Remix guide with Fel path momentum, Legion Remix monk DPS stat priority, WoW Legion Remix windwalker build tips, and Bronze planning.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Enhances Spinning Crane Kick cleave during keystones' },
+      { pathId: 'nature', reason: 'Adds sustain for single-player Bronze loops' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Storm Surger'],
+
+    statPriority: [
+      'Agility',
+      'Versatility',
+      'Critical Strike',
+      'Haste',
+      'Mastery'
+    ],
+
+    levelingTips: [
+      'Maintain Hit Combo—mix abilities so the buff never falls off.',
+      'Spam Spinning Crane Kick with Mark of the Crane stacks for monstrous AoE.',
+      'Use Roll and Flying Serpent Kick to zip between Bronze objectives.',
+      'Line up Storm, Earth, and Fire with Fel Twisted Crusade for top-tier burst.',
+      'Keep Leg Sweep ready for Lock, Stock, and Two Smoking Goblins crowds.'
+    ],
+
+    rotationOverview: {
+      title: 'Windwalker Priority',
+      priority: [
+        'Open with Tiger Palm into Rising Sun Kick and Fists of Fury.',
+        'Use Whirling Dragon Punch when both major cooldowns are on CD.',
+        'Maintain Hit Combo by not repeating abilities.',
+        'Spinning Crane Kick for 3+ targets after tagging them with Tiger Palm.',
+        'Storm, Earth, and Fire on cooldown aligned with Fel procs.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Fel path to maximize burst windows.',
+      '2. Upgrade weapons ASAP—dual wield ilvl matters.',
+      '3. Buy haste/versatility trinkets for consistent damage.',
+      '4. Collect monk-themed ensembles once the toolkit is capped.',
+      '5. Save Bronze for Torn Invitation fox mount and micro-holiday toys.'
+    ],
+
+    builds: {
+      leveling: 'Fel momentum build with lots of mobility and cleave.',
+      openWorld: 'Nature hybrid to reduce downtime between fights.',
+      mythicPlus: 'Storm/Fel blend to obliterate large keystone pulls.',
+      raid: 'Fel burst with Invoker’s Delight for single-target dominance.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'A',
+    heroicWorldTier: true
+  },
+
+  // PRIEST SPECS
+  {
+    classId: 'priest',
+    specName: 'Discipline',
+    role: 'Healer',
+    metaDescription: 'Discipline Priest Legion Remix guide describing Arcane path atonement healing, Legion Remix priest stat priority, WoW Legion Remix disc builds, and Bronze planning.',
+
+    bestArtifactPath: 'arcane',
+    alternateArtifactPaths: [
+      { pathId: 'holy', reason: 'Adds raw throughput when progression damage spikes' },
+      { pathId: 'storm', reason: 'Boosts haste for dungeons and Mythic+ healing' }
+    ],
+
+    recommendedTraits: ['Volatile Magics', 'Touch of Malice', 'Storm Surger'],
+
+    statPriority: [
+      'Intellect',
+      'Haste',
+      'Critical Strike',
+      'Mastery',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Power Word: Shield on targets to pre-load atonements before each pull.',
+      'Schism into Mindgames deletes empowered mobs during Bronze runs.',
+      'Evangelism extends atonements for long Legion Remix heroic fights.',
+      'Use the Legion Remix bronze calculator to plan when to upgrade trinkets vs. tier pieces.',
+      'Smite packs while waiting on Lock, Stock, and Two Smoking Goblins spawn timers to sneak in damage.'
+    ],
+
+    rotationOverview: {
+      title: 'Discipline Priority',
+      priority: [
+        'Apply atonement through Power Word: Shield and Radiance.',
+        'Schism + Mind Blast/Mindgames for huge damage-to-healing conversion.',
+        'Penance on cooldown (offensive unless emergency healing needed).',
+        'Smite or Mind Blast to keep DPS flowing when healing is covered.',
+        'Evangelism/Barrier for raid-wide hits or Turbo Boost keys.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Arcane path for Everdisc shields and haste windows.',
+      '2. Purchase intellect + haste trinkets tailored to evangelism windows.',
+      '3. Finish Holy Light nodes if you swap to pure healing for certain raids.',
+      '4. Buy priest-themed ensembles after gear is handled.',
+      '5. Budget Bronze for micro-holiday cosmetics during A Noble Event.'
+    ],
+
+    builds: {
+      leveling: 'Damage-focused disc with Schism and Mindgames.',
+      openWorld: 'Arcane shielding to keep atonement rolling while solo farming.',
+      mythicPlus: 'High haste build with Purge the Wicked for multi-target atonements.',
+      raid: 'Evangelism-centric with Contrition for progression healing.'
+    },
+
+    groupTier: 'S',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'priest',
+    specName: 'Holy',
+    role: 'Healer',
+    metaDescription: 'Holy Priest Legion Remix guide with Holy Light path miracles, Legion Remix holy priest builds, stat priority, and Bronze budgeting for WoW Legion Remix healers.',
+
+    bestArtifactPath: 'holy',
+    alternateArtifactPaths: [
+      { pathId: 'arcane', reason: 'Provides shields for high-damage mythic bosses' },
+      { pathId: 'nature', reason: 'Extra sustain and movement during open world questing' }
+    ],
+
+    recommendedTraits: ['Volatile Magics', 'Storm Surger', 'Touch of Malice'],
+
+    statPriority: [
+      'Intellect',
+      'Critical Strike',
+      'Mastery',
+      'Haste',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Use Holy Fire and Smite between pulls—Legion Remix holy priest can DPS more than before.',
+      'Guardian Spirit on cooldown for empowered elite saves.',
+      'Keep Renew on tanks while channeling Divine Hymn during Turbo Boost keys.',
+      'Schedule Bronze purchases for trinkets that buff Serendipity or Holy Word casts.',
+      'Add Torn Invitation weekends to your Legion Remix site calendar for cosmetics.'
+    ],
+
+    rotationOverview: {
+      title: 'Holy Priest Priority',
+      priority: [
+        'Cast Holy Word: Serenity/ Sanctify whenever someone is low or groups are stacked.',
+        'Circle of Healing and Prayer of Healing for group recovery.',
+        'Renew and Heal filler to maintain Serendipity reductions.',
+        'Divine Hymn during raid-wide damage or infinite echo events.',
+        'Smite/Holy Fire for extra atonement-style damage when safe.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Holy Light path for Vindicator’s Judgment healing pulses.',
+      '2. Purchase intellect trinkets that line up with Salvation or Hymn.',
+      '3. Buy tier set pieces that buff Holy Word usage.',
+      '4. Grab Light-themed ensembles from Infinite Bazaar once core power is set.',
+      '5. Keep Bronze handy for A Noble Event to snag fox mount cosmetics.'
+    ],
+
+    builds: {
+      leveling: 'Holy Fire/Searing build to DPS while keeping Renew rolling.',
+      openWorld: 'Nature hybrid with Cosmic Ripple for auto-heals.',
+      mythicPlus: 'Flash Concentration style with Storm path haste for quick casts.',
+      raid: 'Holy Light path Salvation build for big raid heals.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'C',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'priest',
+    specName: 'Shadow',
+    role: 'DPS',
+    metaDescription: 'Shadow Priest Legion Remix guide outlining Fel path insanity loops, Legion Remix shadow priest stat priority, WoW Legion Remix shadow build tips, and Bronze priorities.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Boosts AoE insanity generation for dungeon farming' },
+      { pathId: 'arcane', reason: 'Provides shields during high-risk solo pulls' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Volatile Magics', 'Terror from Below'],
+
+    statPriority: [
+      'Intellect',
+      'Haste',
+      'Mastery',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Vampiric Touch and Shadow Word: Pain up on everything.',
+      'Devouring Plague whenever insanity reaches 50 for massive single-target damage.',
+      'Voidform plus Twisted Crusade annihilates empowered packs.',
+      'Use Disperse to shrug off Time Crisis spikes in Heroic World Tier.',
+      'Plan Bronze for the Valorous Blue quiver/dagger combos when shopping.'
+    ],
+
+    rotationOverview: {
+      title: 'Shadow Priest Priority',
+      priority: [
+        'Maintain Vampiric Touch and Shadow Word: Pain on all targets.',
+        'Use Mind Blast on cooldown to build insanity.',
+        'Devouring Plague once insanity hits 50.',
+        'Mind Flay filler (or Mind Sear for AoE).',
+        'Voidform/Void Eruption on cooldown for huge burst windows.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Fel path for Devouring Plague reflection damage.',
+      '2. Purchase trinkets that proc haste or insanity generation.',
+      '3. Upgrade weapons early; caster staff ilvl is critical.',
+      '4. Grab shadow-themed ensembles during Infinite Echoes.',
+      '5. Invest Bronze into Torn Invitation weekends for spooky cosmetics.'
+    ],
+
+    builds: {
+      leveling: 'Dot-and-run build with Searing Nightmare for endless AoE.',
+      openWorld: 'Arcane shield hybrid to stay safe while melting packs.',
+      mythicPlus: 'Storm/Fel mix with Idol of C’Thun for insanity explosions.',
+      raid: 'Pure single-target with Idol of Y’Shaarj and Void Torrent.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+
+  // DEATH KNIGHT SPECS
+  {
+    classId: 'death-knight',
+    specName: 'Blood',
+    role: 'Tank',
+    metaDescription: 'Blood Death Knight Legion Remix guide highlighting Nature path survivability, Legion Remix blood DK stat priority, WoW Legion Remix tank builds, and Bronze plans.',
+
+    bestArtifactPath: 'nature',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Adds damage to keep threat during Bronze farming' },
+      { pathId: 'storm', reason: 'Haste boost for Heart Strike spam in dungeons' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Terror from Below', 'Storm Surger'],
+
+    statPriority: [
+      'Strength',
+      'Versatility',
+      'Haste',
+      'Mastery',
+      'Critical Strike'
+    ],
+
+    levelingTips: [
+      'Keep Bone Shield stacks high—Marrowrend as soon as they drop below 5.',
+      'Death Strike after every big hit to convert damage into healing.',
+      'Use Gorefiend’s Grasp to stack empowered mobs on Legion Remix Bronze spawn points.',
+      'Carry a Fel barrier by finishing the Fel path once your Nature nodes are capped.',
+      'Plan Bronze for the Deathlord transmog set and torn invitations if you love undead foxes.'
+    ],
+
+    rotationOverview: {
+      title: 'Blood DK Priority',
+      priority: [
+        'Marrowrend to maintain Bone Shield.',
+        'Heart Strike to generate runic power.',
+        'Death Strike after you take chunks of damage.',
+        'Blood Boil on cooldown for AoE threat.',
+        'Vampiric Blood and Dancing Rune Weapon for large pulls.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Nature path for absorb barriers before tackling Heroic World Tier.',
+      '2. Upgrade weapon and trinkets that give leech/absorbs.',
+      '3. Finish Fel path nodes if you push high keystones for speed.',
+      '4. Buy Death Knight ensembles after core gear is locked in.',
+      '5. Save Bronze for Infinite Echoes housing decor if you want gothic vibes.'
+    ],
+
+    builds: {
+      leveling: 'Nature sustain with Tightening Grasp for large pulls.',
+      openWorld: 'Fel hybrid so you can solo rares faster.',
+      mythicPlus: 'Storm/Nature combination for mass control and damage.',
+      raid: 'Traditional Blood setup with Red Thirst and Tombstone for progression.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'S',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'death-knight',
+    specName: 'Frost',
+    role: 'DPS',
+    metaDescription: 'Frost Death Knight Legion Remix guide describing Storm path obliterates, Legion Remix frost DK stat priority, WoW Legion Remix builds, and Bronze upgrades.',
+
+    bestArtifactPath: 'storm',
+    alternateArtifactPaths: [
+      { pathId: 'fel', reason: 'Adds burst for raid bosses with short burn windows' },
+      { pathId: 'nature', reason: 'Keeps healing high while solo farming Bronze' }
+    ],
+
+    recommendedTraits: ['Storm Surger', 'Touch of Malice', 'Terror from Below'],
+
+    statPriority: [
+      'Strength',
+      'Haste',
+      'Mastery',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Maintain permanent uptime on Pillar of Frost to smash empowered enemies.',
+      'Howling Blast everything—Storm path haste makes it a nuke.',
+      'Chain Death Grip to stack adds under Remorseless Winter.',
+      'Use Wraith Walk to chase Bronze orbs between pulls.',
+      'Plan Bronze upgrades for dual-wield weapons vs. two-handed depending on build.'
+    ],
+
+    rotationOverview: {
+      title: 'Frost DK Priority',
+      priority: [
+        'Keep Remorseless Winter active for AoE damage and Gathering Storm stacks.',
+        'Obliterate to consume Killing Machine procs.',
+        'Howling Blast to apply Frost Fever and for ranged tagging.',
+        'Frost Strike to dump runic power.',
+        'Use Pillar of Frost on cooldown; align with Breath of Sindragosa if talented.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Storm path to supercharge AoE cleave.',
+      '2. Upgrade two weapons quickly—Breath builds demand high ilvl.',
+      '3. Purchase haste/crit trinkets from Bronze vendors.',
+      '4. Grab Frost-specific transmog sets once base power is capped.',
+      '5. Reserve Bronze for A Noble Event if you love fox mount cosmetics.'
+    ],
+
+    builds: {
+      leveling: 'Breath of Sindragosa build for unstoppable AoE.',
+      openWorld: 'Obliteration single-target focus with Nature shields.',
+      mythicPlus: 'Storm/Fel blend for Spammable Howling Blast and Remorseless Winter.',
+      raid: 'Two-handed Obliteration for boss kill phases.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'B',
+    heroicWorldTier: true
+  },
+  {
+    classId: 'death-knight',
+    specName: 'Unholy',
+    role: 'DPS',
+    metaDescription: 'Unholy Death Knight Legion Remix guide featuring Fel path apocalypse bursts, Legion Remix unholy DK stat priority, WoW Legion Remix build notes, and Bronze planning.',
+
+    bestArtifactPath: 'fel',
+    alternateArtifactPaths: [
+      { pathId: 'storm', reason: 'Adds haste for army-building AoE sessions' },
+      { pathId: 'nature', reason: 'Improves sustain when soloing empowered rares' }
+    ],
+
+    recommendedTraits: ['Touch of Malice', 'Volatile Magics', 'Terror from Below'],
+
+    statPriority: [
+      'Strength',
+      'Mastery',
+      'Haste',
+      'Critical Strike',
+      'Versatility'
+    ],
+
+    levelingTips: [
+      'Keep Festering Wounds applied so Scourge Strike and Apocalypse hit hard.',
+      'Use Army of the Dead during Turbo Boost windows for Bronze fireworks.',
+      'Death Coil dumps runic power; use it to maintain Sudden Doom uptime.',
+      'Stack Virulent Plague on mass pulls to spawn constant explosions.',
+      'Set the Legion Remix reward tracker to flag trinkets and two-handed blades before shopping.'
+    ],
+
+    rotationOverview: {
+      title: 'Unholy DK Priority',
+      priority: [
+        'Apply Festering Wound with Festering Strike.',
+        'Use Scourge Strike/Clawing Shadows to pop wounds.',
+        'Apocalypse when you have 4+ Festering Wounds up.',
+        'Death Coil to spend runic power and fish for Sudden Doom procs.',
+        'Summon Gargoyle or Dark Transformation on cooldown for extra burst.'
+      ]
+    },
+
+    bronzePriority: [
+      '1. Unlock Fel path to make Apocalypse detonations even spikier.',
+      '2. Buy two-handed weapon upgrades; mastery scales hard with ilvl.',
+      '3. Purchase trinkets that summon pets or boost mastery.',
+      '4. Save Bronze for necromancer-themed ensembles during Infinite Echoes.',
+      '5. Pick up extra Torn Invitations for undead fox glamour if desired.'
+    ],
+
+    builds: {
+      leveling: 'Festermight build with constant wound explosions.',
+      openWorld: 'Nature hybrid for extra self-healing during solo Bronze loops.',
+      mythicPlus: 'Storm/Fel combo to flood the field with ghouls.',
+      raid: 'Fel burst with Army of the Dead and Summon Gargoyle alignment.'
+    },
+
+    groupTier: 'A',
+    soloTier: 'A',
+    heroicWorldTier: true
   }
 ];
 

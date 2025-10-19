@@ -80,6 +80,22 @@ const guides = [
     icon: '🍇',
     color: 'from-rose-900/40 to-violet-900/40',
     image: legionImages.challianeVineyardsLocation ?? legionImages.challianeVineyardsMap
+  },
+  {
+    id: 'lock-stock-two-smoking-goblins',
+    title: 'Lock, Stock, & Goblins',
+    description: 'Stormheim barrel routes, vendor timings, and fox mount planning during the micro-holiday.',
+    icon: '🦊',
+    color: 'from-orange-900/40 to-amber-900/40',
+    image: legionImages.rewardVendorHemet ?? legionImages.contentUpdate
+  },
+  {
+    id: 'a-noble-event',
+    title: 'A Noble Event',
+    description: 'Dalaran vendor checklist, Torn Invitation farming, and Bronze budgets for the gala weekend.',
+    icon: '🎉',
+    color: 'from-fuchsia-900/40 to-purple-900/40',
+    image: legionImages.rewardVendorHoros ?? legionImages.referenceSplash
   }
 ];
 
@@ -94,6 +110,8 @@ export default function GuidesPage() {
     { label: 'Raid unlock timeline', href: '/guides/raids#phase-unlocks' },
     { label: 'Rewards wish list', href: '/rewards' },
     { label: 'Challiane Vineyards route', href: '/guides/challiane-vineyards' },
+    { label: 'Lock, Stock quest route', href: '/guides/lock-stock-two-smoking-goblins' },
+    { label: 'A Noble Event cheatsheet', href: '/guides/a-noble-event' },
     { label: 'Bronze calculator', href: '/calculator' },
     { label: 'FAQ & troubleshooting', href: '/faq' }
   ];
@@ -132,6 +150,9 @@ export default function GuidesPage() {
           </p>
           <p className="text-sm text-gray-400 mb-6">
             Whether you need the introductory quest walkthrough, a dungeon XP ranking, or a Bronze budget before Infinite Echoes opens housing decor, the cards below funnel you to the right deep dive. Bookmark the quick links for Turbo Boost weekends so your group can react to hotfixes without hunting through patch notes.
+          </p>
+          <p className="text-sm text-gray-400 mb-6">
+            Hunters looking for a remix class guide, paladins chasing “Legion Remix class guide” builds, and anyone comparing hero talents can jump into the class hub from here—every specialization breakdown lives one click away.
           </p>
 
           <div className="bg-gray-900/40 border border-gray-700 rounded-lg p-5 mb-8">

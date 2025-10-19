@@ -59,7 +59,9 @@ export default function Home() {
     { label: 'Legion Remix Guide for Legion Remix Bronze cache farming', href: '/guides/bronze-farming#bronze-collection-in-action' },
     { label: 'Warlock Legion Remix guide for Destruction burst', href: '/classes/warlock/destruction' },
     { label: 'Legion Remix Warlock guide for Affliction DoTs', href: '/classes/warlock/affliction' },
-    { label: 'Legion Remix guide for Demonology Warlock tyrant setups', href: '/classes/warlock/demonology' }
+    { label: 'Legion Remix guide for Demonology Warlock tyrant setups', href: '/classes/warlock/demonology' },
+    { label: 'Lock Stock and Two Smoking Goblins Legion Remix guide', href: '/guides/lock-stock-two-smoking-goblins' },
+    { label: 'A Noble Event Legion Remix guide', href: '/guides/a-noble-event' }
   ];
 
   const trendingSearches = [
@@ -67,6 +69,11 @@ export default function Home() {
       query: 'Legion Remix bronze calculator',
       blurb: 'Budget every Bronze purchase with live totals and preset wish lists.',
       href: '/calculator',
+    },
+    {
+      query: 'Legion Remix site',
+      blurb: 'Launch point to every class build, quest guide, and Infinite Knowledge checklist.',
+      href: '/',
     },
     {
       query: 'Legion Remix website',
@@ -92,6 +99,16 @@ export default function Home() {
       query: 'Legion Remix rewards tracker',
       blurb: 'Track Violet Spellwing, class mounts, toys, and ensembles with shareable lists.',
       href: '/rewards',
+    },
+    {
+      query: 'A Noble Event Legion Remix',
+      blurb: 'Time your Dalaran shopping spree and Torn Invitation hand-ins every other Friday.',
+      href: '/guides/a-noble-event',
+    },
+    {
+      query: 'Lock Stock and Two Smoking Goblins Legion Remix',
+      blurb: 'Snag the fox mount and Bronze cache before the goblins escape Stormheim.',
+      href: '/guides/lock-stock-two-smoking-goblins',
     },
     {
       query: 'Legion Remix heroic world tier',
@@ -137,6 +154,9 @@ export default function Home() {
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-3 font-medium">
               Plan your Timerunner from day one with this Legion Remix Guide—covering leveling routes, Bronze priorities, and class picks specifically tuned for the 2025 Legion Remix season.
+            </p>
+            <p className="text-base md:text-lg text-gray-300 mb-3 max-w-3xl mx-auto">
+              Treat this Legion Remix site as your always-on command center: the Legion Remix website roadmap tracks every phase drop, links to Bronze tools, and highlights the week&apos;s hotfixes so you spend less time scraping forums and more time farming.
             </p>
             <p className="text-lg text-green-400 font-semibold mb-6">
               🔥 Event Window: October 7, 2025 - January 19, 2026 • 15 weeks of Skies of Fire rewards
@@ -446,6 +466,9 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-white mb-4">Phase Roadmap</h2>
             <p className="text-gray-300 max-w-3xl mx-auto">
               Content unlocks every two weeks: Skies of Fire on October 7, Rise of the Nightfallen on October 21, Legionfall on November 4, Argus Eternal on November 18, and Infinite Echoes on December 9. Plan your alts and Bronze spending around these dates.
+            </p>
+            <p className="text-gray-300 max-w-3xl mx-auto">
+              Think of this matrix as the definitive Legion Remix roadmap—spell it “road map” or “roadmap” and you still land on the same schedule that keeps Timerunners sprinting toward Violet Spellwing, Lock, Stock, and Two Smoking Goblins, and every Infinite Echoes vendor debut.
             </p>
           </div>
 

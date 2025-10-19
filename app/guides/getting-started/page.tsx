@@ -293,9 +293,9 @@ export default function GettingStartedPage() {
             <ul className="list-disc list-inside space-y-2 text-sm text-gray-300 mb-3">
               <li><strong>Torn Invitation Legion Remix:</strong> Complete Suramar emissaries and Withered Army Training to mail yourself the fox mount letter, then spend Bronze for the recolor once you reach level 80.</li>
               <li><strong>Just Between Us Legion Remix:</strong> Finish Stellagosa&apos;s Azsuna arc for bonus WoW Legion Remix Infinite Knowledge tokens before diving into Eye of Azshara keys.</li>
-              <li><strong>Lock, Stock, and Two Smoking Goblins Legion Remix:</strong> Stack this Stormheim quest with Wyrmtongue cache runs during Turbo Boost weeks for 2,500+ Bronze loops.</li>
+              <li><strong>Lock, Stock, and Two Smoking Goblins Legion Remix:</strong> Stack this Stormheim quest with Wyrmtongue cache runs during Turbo Boost weeks for 2,500+ Bronze loops—full walkthrough in our <Link href="/guides/lock-stock-two-smoking-goblins" className="text-green-400 hover:text-green-300">dedicated guide</Link>.</li>
               <li><strong>To Fel and Back Legion Remix:</strong> Cap the Argus campaign and Heroic World Tier challenge so the achievement, Felscorched mount, and Time Crisis credit unlock together.</li>
-              <li><strong>A Noble Event Legion Remix:</strong> Budget 10,000 Bronze for the micro-holiday vendor that appears every other Friday in Dalaran.</li>
+              <li><strong>A Noble Event Legion Remix:</strong> Budget 10,000 Bronze for the micro-holiday vendor that appears every other Friday in Dalaran, and review the <Link href="/guides/a-noble-event" className="text-green-400 hover:text-green-300">shopping checklist</Link> before you zone in.</li>
               <li><strong>Challiane Vineyards Legion Remix:</strong> Park a gathering alt here during Suramar assaults—world quests award Strange Humming Crystals and 600 Bronze per clear.</li>
               <li><strong>WoW Infinite Research Fel Skies:</strong> When Phase 5 hits, pop your banked quests during Fel Skies to stack Infinite Knowledge and Artifactum Sand together.</li>
             </ul>

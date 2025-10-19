@@ -257,12 +257,45 @@ export default function RaidsGuidePage() {
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-gray-400 mt-4">
-              Revisit them before each phase unlock so your raid night plans and Bronze spending stay aligned with the latest timeline.
-            </p>
-          </div>
-        </article>
-      </div>
+          <p className="text-xs text-gray-400 mt-4">
+            Revisit them before each phase unlock so your raid night plans and Bronze spending stay aligned with the latest timeline.
+          </p>
+        </div>
+
+        <div className="bg-gray-900/40 border border-green-700/40 rounded-lg p-6 mb-10">
+          <h2 className="text-2xl font-bold text-white mb-4">Raid Night Checklist</h2>
+          <p className="text-sm text-gray-300 mb-3">
+            Print or copy this prep list before your team zones in—half the Legion Remix roadmap revolves around punctual raid clears.
+          </p>
+          <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300 mb-3">
+            <li><strong>Pre-game:</strong> Spend Bronze on weapon upgrades and consumables, then sync ret paladin Legion Remix build and destro warlock Legion Remix builds with the latest hotfix notes.</li>
+            <li><strong>Phase review:</strong> Confirm which bosses unlock this week and cross-check achievements (Violet Spellwing, Fallen King&apos;s blades) against your Legion Remix reward tracker.</li>
+            <li><strong>Consumables:</strong> Stock Strange Humming Crystals, Storm path tomes, and Lock, Stock, and Two Smoking Goblins quest buffs if the micro-holiday overlaps.</li>
+            <li><strong>Cooldown sheet:</strong> Assign external cooldowns (Guardian Spirit, Spirit Link, Blessing of Sacrifice) before pulling Antorus or Tomb of Sargeras bosses.</li>
+            <li><strong>Post-raid:</strong> Update the Bronze calculator with purchases, then queue a quick Legion Remix XP farm dungeon to push any trailing alts.</li>
+          </ol>
+          <p className="text-xs text-gray-400">
+            Share the checklist in guild chat—saving five minutes at the start of raid night often nets an extra boss kill.
+          </p>
+        </div>
+
+        <div className="bg-gray-900/40 border border-purple-700/40 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Role Pairings That Shine</h2>
+          <p className="text-sm text-gray-300 mb-3">
+            Legion Remix raids mix old mechanics with new power spikes. These four pairings keep your roster flexible when you swap difficulties or chase achievements.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-sm text-gray-300 mb-3">
+            <li><strong>WoW Legion Remix warrior build + Discipline priest:</strong> Warriors provide Battle Cry banners while Disc atonements smooth every burst window.</li>
+            <li><strong>Balance druid legion remix + Sub rogue legion remix:</strong> Boomkins cover large add waves while Sub deletes priority targets in the Nighthold.</li>
+            <li><strong>Destro warlock Legion Remix + Holy paladin Legion Remix:</strong> With Blessing of Protection on tap, Chaos Bolt turrets can greed casts safely.</li>
+            <li><strong>Ret paladin Legion Remix build + Vengeance demon hunter:</strong> Buff windows line up beautifully for Argus Eternal burn phases.</li>
+          </ul>
+          <p className="text-xs text-gray-400">
+            Need alternatives? Jump to the <Link href="/classes" className="text-green-400 hover:text-green-300">class playbooks</Link> and mix in specs that match your group’s comfort picks.
+          </p>
+        </div>
+      </article>
     </div>
-  );
+  </div>
+);
 }

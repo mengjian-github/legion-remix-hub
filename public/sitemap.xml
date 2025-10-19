@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://legionremixhub.com/</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/news</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/guides</loc>
-    <lastmod>2025-10-18</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -32,19 +32,19 @@
   </url>
   <url>
     <loc>https://legionremixhub.com/guides/bronze-farming</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/guides/dungeons</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/guides/raids</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -56,19 +56,19 @@
   </url>
   <url>
     <loc>https://legionremixhub.com/guides/challiane-vineyards</loc>
-    <lastmod>2025-10-18</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/calculator</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/rewards</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -164,7 +164,7 @@
   </url>
   <url>
     <loc>https://legionremixhub.com/classes</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -176,67 +176,67 @@
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/warrior</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/paladin</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/hunter</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/rogue</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/priest</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/death-knight</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/shaman</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/mage</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/warlock</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/monk</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/druid</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -246,61 +246,246 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- New Micro-Holiday Guides -->
+  <url>
+    <loc>https://legionremixhub.com/guides/lock-stock-two-smoking-goblins</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/guides/a-noble-event</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.84</priority>
+  </url>
   <!-- Paladin Specialization Pages -->
   <url>
     <loc>https://legionremixhub.com/classes/paladin/holy</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/paladin/protection</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/paladin/retribution</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <!-- Rogue Specialization Pages -->
   <url>
     <loc>https://legionremixhub.com/classes/rogue/subtlety</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/rogue/assassination</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/rogue/outlaw</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <!-- Hunter Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/hunter/beast-mastery</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/hunter/marksmanship</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/hunter/survival</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
   </url>
   <!-- Warrior Specialization Pages -->
   <url>
     <loc>https://legionremixhub.com/classes/warrior/arms</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/warrior/fury</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/classes/warrior/protection</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <!-- Mage Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/mage/arcane</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/mage/fire</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/mage/frost</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <!-- Shaman Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/shaman/elemental</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/shaman/enhancement</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/shaman/restoration</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <!-- Druid Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/druid/balance</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/druid/feral</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/druid/guardian</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/druid/restoration</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <!-- Monk Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/monk/brewmaster</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/monk/mistweaver</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/monk/windwalker</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <!-- Priest Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/priest/discipline</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/priest/holy</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/priest/shadow</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <!-- Warlock Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/warlock/affliction</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/warlock/demonology</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/warlock/destruction</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <!-- Monk already added above -->
+  <!-- Death Knight Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/death-knight/blood</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/death-knight/frost</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/death-knight/unholy</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <!-- Demon Hunter Specialization Pages -->
+  <url>
+    <loc>https://legionremixhub.com/classes/demon-hunter/havoc</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/classes/demon-hunter/vengeance</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

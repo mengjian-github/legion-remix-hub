@@ -50,6 +50,11 @@ export default function BronzeFarmingPage() {
       anchor: '/rewards',
     },
     {
+      keyword: 'Lock Stock and Two Smoking Goblins Legion Remix',
+      insight: 'Line the Stormheim micro-holiday up with Torn Invitation shopping for bonus Bronze.',
+      anchor: '/guides/lock-stock-two-smoking-goblins',
+    },
+    {
       keyword: 'Infinite power farm Legion Remix',
       insight: 'Pair Suramar elite loops and Timeworn keystones with Bronze payouts to avoid falling behind the cap.',
       anchor: '#infinite-knowledge-legion-remix',
@@ -192,6 +197,18 @@ export default function BronzeFarmingPage() {
               <li>Team with a Havoc Demon Hunter or Windwalker Monk for speed boosts that prevent timer failures.</li>
             </ol>
             <p className="text-gray-400 text-sm">Share buffs with groupmates—everyone within range receives Bronze, Infinite Power, and movement speed boosts.</p>
+          </div>
+
+          <div className="bg-gray-900/40 border border-amber-500/40 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-white mb-3">Micro-holiday Bronze Surge</h2>
+            <p className="text-gray-300 mb-3">
+              Every other Friday the <Link href="/guides/a-noble-event" className="text-green-400 hover:text-green-300">A Noble Event Legion Remix</Link> micro-holiday spawns bonus vendors in Dalaran and unlocks <Link href="/guides/lock-stock-two-smoking-goblins" className="text-green-400 hover:text-green-300">Lock, Stock, and Two Smoking Goblins</Link>. Completing both nets 1,000+ Bronze, an Infinite Knowledge packet, and access to Torn Invitation cosmetics.
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+              <li>Budget 14,000 Bronze in the Legion Remix bronze calculator before Horos arrives so you can clear the vendor tab fast.</li>
+              <li>Use the Legion Remix reward tracker to note who already bought the Llothien Prowler and fireworks bundles.</li>
+              <li>Run Stormheim rares right after the quest turn-in; Heroic World Tier doubles their Bronze while you wait for the next goblin spawn.</li>
+            </ul>
           </div>
 
           <h2 className="text-2xl font-bold text-white mt-8 mb-4">Bronze Farming Methods (Ranked by Efficiency)</h2>

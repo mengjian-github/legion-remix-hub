@@ -86,6 +86,35 @@ export default function NewsPage() {
         </section>
       )}
 
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mt-12">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] bg-gray-900/50 border border-gray-800 rounded-3xl p-8">
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-3">How to Use the Legion Remix News Tracker</h2>
+            <p className="text-sm text-gray-300 mb-3">
+              Hotfixes drop without warning, but your Bronze plan doesn’t need to wobble. Treat this page like a newsroom: check the headline banner first, skim the highlight bullets, then update your Legion Remix bronze calculator or class builds accordingly.
+            </p>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300 mb-3">
+              <li><strong>Bookmark cadence:</strong> Refresh after Tuesday reset and before weekend Turbo Boost windows so nerfs or buffs don’t ambush your Legion Remix site prep.</li>
+              <li><strong>Class adjustments:</strong> If a blue post tweaks a spec, flip to the matching class playbook—whether it’s a Legion Remix arms warrior build or destro warlock Legion Remix burst, we update the guides in tandem.</li>
+              <li><strong>Quest alignment:</strong> Micro-holiday notes (Lock, Stock, and Two Smoking Goblins or A Noble Event) appear in the feed 48 hours early, giving you time to stock Bronze.</li>
+              <li><strong>Guild sync:</strong> Drop a quick summary in Discord so everyone knows whether WoW Legion Remix warrior build nerfs or ret paladin Legion Remix changes landed midweek.</li>
+            </ol>
+            <p className="text-xs text-gray-500">
+              Cross-reference any callout with the <Link href="/guides" className="text-green-400 hover:text-green-300">strategy vault</Link> and the <Link href="/rewards" className="text-green-400 hover:text-green-300">reward tracker</Link> to keep your Legion Remix roadmap on schedule.
+            </p>
+          </div>
+          <div className="bg-gray-900/60 border border-gray-800 rounded-2xl p-6">
+            <h3 className="text-lg font-semibold text-white mb-3">24-Hour Hotfix Workflow</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li>Update the Bronze calculator with any vendor price changes.</li>
+              <li>Ping your raid or dungeon lead about tuning shifts.</li>
+              <li>Adjust talent loadouts (e.g., Legion Remix ret paladin build swaps) before logging off.</li>
+              <li>Screenshot noteworthy lines so guildmates catch up quickly.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto mt-14 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2">
           {others.map((article) => (
