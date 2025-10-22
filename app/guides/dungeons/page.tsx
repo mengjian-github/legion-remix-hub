@@ -28,6 +28,11 @@ const phaseRecommendations: Record<string, string[]> = {
 
 const keystoneTips = [
   {
+    title: 'Gift of Eternus Role Buffs',
+    details:
+      'As of October 22, Eternus grants DPS and healers +10% damage, +100% health, and -33% damage taken in Timeworn Keystones (tanks gain +10% healing received). Use this to push beyond the tank-heavy meta.',
+  },
+  {
     title: 'Level 10 — Empowered Start',
     details: 'Timeworn Keystone level 10 unlocks the first Empowered affix. Expect Imperious or Beacon of Chaos during Skies of Fire.'
   },
@@ -69,6 +74,7 @@ const dungeonById = Object.fromEntries(dungeons.map((dungeon) => [dungeon.id, du
 export default function DungeonsGuidePage() {
   const quickLinks = [
     { label: 'Phase spotlight', href: '#phase-recommendations' },
+    { label: 'Karazhan access', href: '#karazhan-access' },
     { label: 'Keystone breakpoints', href: '#keystone-breakpoints' },
     { label: 'Affix tips', href: '#empowered-affixes' },
     { label: 'Bronze synergy', href: '#bronze-synergy' },
@@ -172,6 +178,31 @@ export default function DungeonsGuidePage() {
               );
             })}
           </div>
+
+          <section id="karazhan-access" className="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden mb-10 grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-semibold text-white">Return to Karazhan Access Tips</h3>
+              <p className="text-sm text-gray-300">
+                Phase 2 opened the Return to Karazhan mega-dungeon with 10 boss encounters. Getting there inside Legion Remix is easier than it sounds:
+              </p>
+              <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
+                <li>From Dalaran, step onto the teleport pad in the city center to enter the <strong>Chamber of the Guardian</strong>.</li>
+                <li>The <strong>Portal to Karazhan</strong> is the first doorway on the right. Take it to reach the original raid courtyard.</li>
+                <li>Mount up, fly up the east side of the tower, and slip through the <strong>Karazhan Side Entrance</strong> gate to zone into the dungeon.</li>
+              </ol>
+              <p className="text-xs text-gray-400">
+                Clearing Karazhan once unlocks your weekly cache, contributes to the <em>Looking for Group: Suramar</em> achievement, and now drops Fragmented Mementos—especially when you toggle Heroic World Tier.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src="/images/guides/return-to-karazhan-portal.jpg"
+                alt="Portal to Karazhan inside the Chamber of the Guardian"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />
+            </div>
+          </section>
 
           <h2 id="keystone-breakpoints" className="text-3xl font-bold text-white mb-4">Timeworn Keystone Breakpoints</h2>
           <div className="grid md:grid-cols-2 gap-6 mb-10">

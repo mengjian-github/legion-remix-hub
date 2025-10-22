@@ -96,6 +96,14 @@ const guides = [
     icon: '🎉',
     color: 'from-fuchsia-900/40 to-purple-900/40',
     image: legionImages.rewardVendorHoros ?? legionImages.referenceSplash
+  },
+  {
+    id: 'kaldorei-royal-vestments',
+    title: 'Kaldorei Queen’s Vestments',
+    description: 'Suramar achievement roadmap for unlocking Azshara’s ensemble and banking Infinite Knowledge.',
+    icon: '👑',
+    color: 'from-purple-900/40 to-rose-900/40',
+    image: legionImages.rewardAppearanceKaldorei ?? legionImages.rewardVendorNightfallen
   }
 ];
 
@@ -112,6 +120,7 @@ export default function GuidesPage() {
     { label: 'Challiane Vineyards route', href: '/guides/challiane-vineyards' },
     { label: 'Lock, Stock quest route', href: '/guides/lock-stock-two-smoking-goblins' },
     { label: 'A Noble Event cheatsheet', href: '/guides/a-noble-event' },
+    { label: "Unlock Kaldorei Vestments", href: "/guides/kaldorei-royal-vestments#requirements" },
     { label: 'Bronze calculator', href: '/calculator' },
     { label: 'FAQ & troubleshooting', href: '/faq' }
   ];
@@ -136,6 +145,10 @@ export default function GuidesPage() {
     {
       title: 'Rewards Compendium',
       summary: 'Breaks down mounts, toys, ensembles, and the total 7,934,500 Bronze cost so you can prioritize purchases.'
+    },
+    {
+      title: 'Kaldorei Queen’s Vestments',
+      summary: 'Covers the Suramar achievements needed to claim Azshara’s iconic set during Phase 2.'
     }
   ];
 

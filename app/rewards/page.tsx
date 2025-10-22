@@ -24,6 +24,7 @@ const quickLinks = [
   { label: 'Overview', href: '#overview', icon: '🧭' },
   { label: 'Search', href: '#search', icon: '🔍' },
   { label: 'Highlights', href: '#spotlights', icon: '✨' },
+  { label: 'Kaldorei Vestments', href: '/guides/kaldorei-royal-vestments#requirements', icon: '👑' },
   ...rewardCategories.map(section => ({
     label: section.title,
     href: `/rewards/${section.key}`,
@@ -182,6 +183,38 @@ export default function RewardsPage() {
             <p className="text-3xl font-semibold text-white mt-2">{formatNumber(catalogItemCount)}</p>
             <p className="text-sm text-gray-400 mt-2">Includes achievements, reputation unlocks, and account-wide rewards.</p>
           </div>
+        </section>
+
+        <section className="mb-12 rounded-3xl border border-purple-600/30 bg-purple-600/10 p-6">
+          <h2 className="text-2xl font-semibold text-white mb-3">Phase 2 Bronze Additions (October 21, 2025)</h2>
+          <p className="text-sm text-gray-200 mb-3">
+            Rise of the Nightfallen unlocked new Suramar rewards. Budget Bronze now so you can scoop them up without delaying Violet Spellwing or Argus cosmetics later in the season.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2 text-sm text-gray-200">
+            <div className="rounded-2xl border border-gray-800 bg-gray-900/60 p-5">
+              <h3 className="text-lg font-semibold text-white mb-2">Mounts – 10,000 Bronze each</h3>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Arcberry Manasaber</li>
+                <li>Bonesteed of Oblivion / Plague / Bloodshed / Triumph</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-gray-800 bg-gray-900/60 p-5">
+              <h3 className="text-lg font-semibold text-white mb-2">Toys & Trinkets</h3>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Big Red Raygun — 35,000 Bronze</li>
+                <li>Crate of Bobbers (Can of Worms, Cat Head, Tugboat, Wooden Pepe) — 10,000 Bronze each</li>
+                <li>Golden Hearthstone Card: Lord Jaraxxus — 100,000 Bronze</li>
+                <li>Skull of Corruption — 100,000 Bronze</li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-xs text-gray-400 mt-4">
+            Heads-up: each purchase counts toward Infinite Knowledge overflow once you finish the Suramar achievement roadmap in the{' '}
+            <Link href="/guides/kaldorei-royal-vestments#requirements" className="text-green-300 hover:text-green-200">
+              Kaldorei Queen’s Vestments guide
+            </Link>
+            .
+          </p>
         </section>
 
         <section className="mb-12 rounded-3xl border border-emerald-600/30 bg-emerald-600/10 p-6">

@@ -57,6 +57,8 @@ export default function Home() {
     { label: 'Legion Remix Guide for Legion Remix campaign boost prep', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Legion Remix Guide for Legion Remix console achievements', href: '/guides/getting-started#legion-remix-hard-mode' },
     { label: 'Legion Remix Guide for Legion Remix Bronze cache farming', href: '/guides/bronze-farming#bronze-collection-in-action' },
+    { label: 'Legion Remix guide for Kaldorei Queen transmog', href: '/guides/kaldorei-royal-vestments#requirements' },
+    { label: 'Legion Remix guide for Suramar achievements', href: '/guides/kaldorei-royal-vestments#campaign' },
     { label: 'Warlock Legion Remix guide for Destruction burst', href: '/classes/warlock/destruction' },
     { label: 'Legion Remix Warlock guide for Affliction DoTs', href: '/classes/warlock/affliction' },
     { label: 'Legion Remix guide for Demonology Warlock tyrant setups', href: '/classes/warlock/demonology' },

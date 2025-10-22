@@ -48,7 +48,9 @@ const raidSchedule: Record<string, RaidSummary[]> = {
       unlockDate: 'October 21, 2025',
       highlights: [
         'Gul\'dan drops the Arcane Scythe illusions—combine with Court of Stars farming.',
-        'Completing on Heroic contributes toward Sargerei Commander ensembles.'
+        'Completing on Heroic contributes toward Sargerei Commander ensembles.',
+        'Enter through the Sanctum of Order teleporter network in Suramar City and follow the path past The Arcway meeting stone.',
+        'Clearing the raid once counts toward Looking for Group: Suramar for the Kaldorei Queen’s Vestments unlock.'
       ]
     }
   ],
@@ -95,6 +97,7 @@ export default function RaidsGuidePage() {
   const argusSpotlight = rewardSpotlights.find((item) => item.id === 'argus-legacies');
   const quickLinks = [
     { label: 'Phase unlock grid', href: '#raid-checklist' },
+    { label: 'Nighthold entrance', href: '#nighthold-access' },
     { label: 'Ensemble rewards', href: '#sargerei-ensembles' },
     { label: 'Argus cosmetics', href: '#argus-legacies' },
     { label: 'Savage challenge prep', href: '#savage-prep' },
@@ -167,6 +170,31 @@ export default function RaidsGuidePage() {
               </ul>
             </div>
           </div>
+
+          <section id="nighthold-access" className="bg-gray-900/50 border border-gray-700 rounded-3xl overflow-hidden mb-10 grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-semibold text-white">Finding The Nighthold Entrance</h3>
+              <p className="text-sm text-gray-300">
+                Suramar City can be disorienting, so here’s the fastest route to Gul’dan’s front door when Phase 2 goes live.
+              </p>
+              <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
+                <li>Glide or portal to the <strong>Sanctum of Order</strong> at /way 44.1 60.1 in Suramar City.</li>
+                <li>Enter either doorway—western entrance requires taking the teleport pad down, eastern entrance drops you on the correct level immediately.</li>
+                <li>Follow the hallway past The Arcway meeting stone and continue down the stairs to the raid instance portal.</li>
+              </ol>
+              <p className="text-xs text-gray-400">
+                This run counts toward <em>Looking for Group: Suramar</em>, one of the requirements for the Kaldorei Queen’s Royal Vestments. Queue on Normal if you just need credit, then return for Heroic clears to chase Violet Spellwing and Sargerei ensembles.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src="/images/guides/nighthold-sanctum-of-order.jpg"
+                alt="Sanctum of Order entrance to The Nighthold"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />
+            </div>
+          </section>
 
           <h2 id="raid-checklist" className="text-3xl font-bold text-white mb-4">Raid Checklist by Phase</h2>
           <div className="space-y-4 mb-10">

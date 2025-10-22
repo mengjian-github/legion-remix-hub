@@ -30,24 +30,27 @@ const phaseMilestones = [
     id: 'phase-2',
     title: 'Phase 2 – Rise of the Nightfallen (October 21 – November 3, 2025)',
     bullets: [
-      'The Suramar storyline achievements continue the Infinite Knowledge chain—bank the Withered Army Training quests so you can double-dip Bronze while turning in ranks.',
-      'Court of Stars and Arcway keystones feed the Legion Dungeons: Power of the Ancients objective, accelerating catch-up on alts unlocked during this phase.',
+      'Finish Insurrection and clear Return to Karazhan (Heroic & Mythic) plus The Nighthold once each—those four achievements award four ranks immediately.',
+      'Plan a Suramar evening: campaign chapters, Court of Stars/Arcway keystones, and a Nighthold run complete “Looking for Group: Suramar” for the Kaldorei Vestments while delivering Knowledge packets.',
+      'Bank Withered Army Training tickets before Turbo Boost so each run refunds Bronze, Artifactum Sand, and a Knowledge rank together.',
     ],
   },
   {
     id: 'phase-3',
     title: 'Phase 3 – Legionfall (November 4 – November 17, 2025)',
     bullets: [
-      'Broken Shore metas, including Legionfall Commander and the Sentinax raid events, inject multiple Infinite Knowledge ranks when you group up on Turbo Boost week.',
-      'Timeworn Keystone Adept and higher push goals start handing out repeatable ranks—plan Mythic+ nights around +20 and +30 clears while the Turbo Boost buff is active.',
+      'Knock out Breaching the Tomb, Defending the Broken Isles I & II, and Broken Shore World Bosses during the first reset—each grants a Knowledge rank.',
+      'Clear Heroic: Cathedral of Eternal Night and Tomb of Sargeras for two more ranks while chasing Fel-Corrupted weapon appearances.',
+      'Push keystones to +20 and +30 for Timeworn Keystone Adept/Master achievements; they add repeatable ranks and Bronze as of the October 22 hotfix.',
     ],
   },
   {
     id: 'phase-4',
     title: 'Phase 4 – Argus Eternal (November 18 – December 8, 2025)',
     bullets: [
-      'Krokuun, Mac’Aree, and Antoran Wastes callings unlock the last Infinite Knowledge achievements; combine them with Argus rare trains for Blanket Bronze gains.',
-      'Antorus completion and the Argussian Reach victory achievements close the book on the 36 rank cap; any additional ranks earned after this point convert one-to-one into Bronze.',
+      'Complete “You Are Now Prepared!”, Breaking the Legion I, Greater Invasion Points I & II, Heroic: Seat of the Triumvirate, Legion Remix Dungeoneer + Mythic Dungeoneer, Antorus, and Argus Invasion Point Bosses to finish the rank track.',
+      'Ride Argus rare trains on Heroic World Tier to grab the toy and pet drops while funneling Knowledge and Fragmented Mementos.',
+      'Any ranks earned after Antorus and the final Argus metas immediately convert into Bronze—line up big-ticket purchases before turning them in.',
     ],
   },
   {

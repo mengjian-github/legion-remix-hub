@@ -628,6 +628,30 @@ export const rewardSpotlights: RewardSpotlight[] = [
     ]
   },
   {
+    id: 'kaldorei-royal-vestments',
+    title: 'Kaldorei Queen’s Royal Vestments',
+    subtitle: 'Complete two Suramar achievements during Phase 2 to unlock Azshara’s regalia account-wide.',
+    image: legionImages.rewardAppearanceKaldorei,
+    highlights: [
+      {
+        name: 'Campaign: Suramar',
+        requirement: 'Finish the 17-chapter Insurrection storyline beginning with “Lockdown”.'
+      },
+      {
+        name: 'Tour Suramar',
+        requirement: 'Explore Suramar, defeat rares, and loot treasures—Treasure Map: Suramar speeds it up.'
+      },
+      {
+        name: 'Looking for Group: Suramar',
+        requirement: 'Clear The Arcway, Court of Stars, and The Nighthold once each on any difficulty.'
+      },
+      {
+        name: 'The Nightfallen',
+        requirement: 'Reach Exalted with the Nightfallen emissary in Shal’Aran to complete the meta instantly.'
+      }
+    ]
+  },
+  {
     id: 'housing-keepsakes',
     title: 'Housing Decor Keepsakes',
     subtitle: 'Pair Remix achievements with Bronze spends to furnish your Warband housing.',
