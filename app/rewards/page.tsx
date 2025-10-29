@@ -261,7 +261,26 @@ export default function RewardsPage() {
           </div>
         </section>
 
-        <section id="spotlights" className="mb-12">
+        <section id="spotlights"
+
+        <section className="mb-16 rounded-3xl border border-emerald-700/20 bg-gray-900/60 p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Examples</h2>
+          <ul className="list-disc list-inside text-sm text-gray-300 space-y-2">
+            <li>Create a week-one plan in the Legion Remix reward tracker that reserves Bronze for Violet Spellwing.</li>
+            <li>Run dungeons, then update the Legion Remix reward tracker with actual Bronze/hour from your session.</li>
+            <li>When a vendor rotates, refresh the Legion Remix reward tracker and move non-essentials to next week.</li>
+            <li>Use the Legion Remix reward tracker to compare ensemble-first versus mount-first routes.</li>
+            <li>Share a screenshot of the Legion Remix reward tracker so guildmates can sanity-check your goals.</li>
+            <li>Keep a minimal alt list inside the Legion Remix reward tracker to avoid mixing priorities.</li>
+            <li>Track paragon caches and copy totals into the Legion Remix reward tracker every Sunday night.</li>
+            <li>For collectors, tag unsolved achievements directly in the Legion Remix reward tracker.</li>
+            <li>For economy players, log Infinite Echoes conversions next to the Legion Remix reward tracker.</li>
+            <li>When you switch mains, duplicate the Legion Remix reward tracker list instead of rebuilding.</li>
+            <li>Pin the Legion Remix reward tracker next to your raid route to keep purchases aligned.</li>
+            <li>After a hotfix, audit prices in the Legion Remix reward tracker before spending your Bronze.</li>
+          </ul>
+        </section>
+ className="mb-12">
           <div className="flex flex-col gap-3 mb-6 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-bold text-white">Featured spotlights</h2>
@@ -295,6 +314,44 @@ export default function RewardsPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Add-on copy placed after main content to preserve first-screen UX */}
+        <section className="mb-12 rounded-3xl border border-emerald-700/30 bg-gray-900/60 p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Reward Tracker Playbook</h2>
+          <p className="text-sm text-gray-300 mb-3">
+            Use this section after scanning the tables above. Each tip shows a practical way to apply the Legion Remix reward tracker without interrupting your current flow.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+            <li>Open the Legion Remix reward tracker beside your raid prep and pin both tabs during Turbo Boost windows.</li>
+            <li>After purchases, revisit the Legion Remix reward tracker and clear the items you obtained to keep totals honest.</li>
+            <li>Clone a fresh Legion Remix reward tracker list for alts that only chase class mounts and pets.</li>
+            <li>Before reset, audit the Legion Remix reward tracker for leftovers and roll them into next week’s plan.</li>
+            <li>When prices change, refresh the Legion Remix reward tracker and re‑order buys by time‑to‑finish.</li>
+            <li>Compare two upgrade paths by opening two Legion Remix reward tracker tabs and toggling different filters.</li>
+          </ul>
+        </section>
+
+        <section className="mb-16 rounded-3xl border border-emerald-700/40 bg-emerald-700/10 p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Reward Tracker FAQ</h2>
+          <ul className="space-y-3 text-sm text-gray-200">
+            <li>
+              <h3 className="text-lg font-semibold text-white">What is the Legion Remix reward tracker?</h3>
+              <p>A simple planner that totals costs and surfaces categories so you can act quickly.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">How do I use the Legion Remix reward tracker each week?</h3>
+              <p>Filter to Bronze items, mark owned rewards, then copy the remaining total into the calculator.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Can the Legion Remix reward tracker support multiple characters?</h3>
+              <p>Yes—duplicate lists for each character and keep class‑specific goals separate.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Where does the Legion Remix reward tracker get its data?</h3>
+              <p>From the same reference tables that power category pages and the Bronze calculator.</p>
+            </li>
+          </ul>
         </section>
       </div>
     </div>
