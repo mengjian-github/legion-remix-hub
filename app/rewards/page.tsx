@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import {
   rewardCategories,
@@ -10,11 +11,8 @@ import {
   rewardSpotlights,
   rewardTypes
 } from '@/data/rewards';
-import type { RewardCategoryKey, RewardEntry, RewardType } from '@/data/rewards';
+import type { RewardCategoryKey } from '@/data/rewards';
 import { legionImages } from '@/data/images';
-
-const typeFilterOptions = ['all', ...rewardTypes] as const;
-type TypeFilterOption = typeof typeFilterOptions[number];
 
 const bronzeItemCount = bronzeEntries.length;
 const catalogItemCount = rewardEntries.length;
@@ -54,88 +52,9 @@ function formatNumber(value: number) {
   return value.toLocaleString('en-US');
 }
 
-function EntryMeta({ entry }: { entry: RewardEntry }) {
-  const excludedKeys = new Set([
-    entry.nameField,
-    entry.costField ?? '',
-    entry.phaseField ?? '',
-    entry.sourceField ?? '',
-    entry.requirementField ?? '',
-    entry.achievementField ?? '',
-    'Bronze',
-    'Bronze*',
-    'Cost',
-    'Value'
-  ]);
-
-  const metadataPairs = Object.entries(entry.metadata).filter(([key, value]) => {
-    if (!value || value === entry.name) return false;
-    if (excludedKeys.has(key)) return false;
-    return value.trim().length > 0;
-  });
-
-  const fields: { label: string; value: string }[] = [];
-  if (entry.achievement) fields.push({ label: 'Achievement', value: entry.achievement });
-  if (entry.requirement) fields.push({ label: 'Requirement', value: entry.requirement });
-  if (entry.source) fields.push({ label: 'Source', value: entry.source });
-  if (entry.phase) fields.push({ label: 'Phase', value: entry.phase });
-
-  metadataPairs.slice(0, 2).forEach(([label, value]) => {
-    fields.push({ label, value });
-  });
-
-  if (fields.length === 0) {
-    return null;
-  }
-
-  return (
-    <dl className="mt-2 grid gap-2 text-xs text-gray-300">
-      {fields.map(({ label, value }) => (
-        <div key={`${entry.id}-${label}`} className="flex flex-col">
-          <dt className="uppercase tracking-wide text-gray-500">{label}</dt>
-          <dd className="text-gray-200">{value}</dd>
-        </div>
-      ))}
-    </dl>
-  );
-}
-
 export default function RewardsPage() {
-  const [typeFilter, setTypeFilter] = useState<TypeFilterOption>('all');
-  const [bronzeOnly, setBronzeOnly] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const filteredEntries = useMemo(() => {
-    const base = bronzeOnly ? bronzeEntries : rewardEntries;
-    const term = searchTerm.trim().toLowerCase();
-
-    return base.filter(entry => {
-      if (typeFilter !== 'all' && entry.type !== typeFilter) {
-        return false;
-      }
-      if (!term) {
-        return true;
-      }
-      const haystack = [
-        entry.name,
-        entry.source,
-        entry.requirement,
-        entry.achievement,
-        entry.tableLabel,
-        entry.tableHeading ?? '',
-        entry.sectionTitle,
-        ...Object.values(entry.metadata)
-      ]
-        .join(' ')
-        .toLowerCase();
-      return haystack.includes(term);
-    });
-  }, [bronzeOnly, searchTerm, typeFilter]);
-
-  const maxResults = 60;
-  const displayedEntries = filteredEntries.slice(0, maxResults);
-  const truncated = filteredEntries.length > maxResults;
-  const matchedBronzeTotal = displayedEntries.reduce((sum, entry) => sum + (entry.cost?.amount ?? 0), 0);
+  // CSR-only search + catalog to keep SSR HTML lean; improves SEO control
+  const RewardTrackerCatalog = useMemo(() => dynamic(() => import('@/components/rewards/RewardTrackerCatalog'), { ssr: false }), []);
 
   return (
     <div className="min-h-screen bg-gray-950 pb-16">
@@ -303,7 +222,11 @@ export default function RewardsPage() {
           ))}
         </nav>
 
-        <section id="search" className="mb-16 rounded-3xl border border-gray-800 bg-gray-900/40 p-6">
+        <RewardTrackerCatalog />
+
+        {/* Original category index follows */}
+
+        <section id="categories" className="mb-16 rounded-3xl border border-gray-800 bg-gray-900/40 p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <h2 className="text-2xl font-semibold text-white">Search the reward catalog</h2>
