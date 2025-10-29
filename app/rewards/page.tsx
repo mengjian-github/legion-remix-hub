@@ -144,9 +144,9 @@ export default function RewardsPage() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-sm text-emerald-300 uppercase tracking-widest">Legion Remix • October 7, 2025 → January 19, 2026</p>
-              <h1 className="text-3xl font-bold text-white mt-2">Legion Remix Rewards Hub</h1>
+              <h1 className="text-3xl font-bold text-white mt-2">Legion Remix Reward Tracker</h1>
               <p className="text-sm text-gray-300 mt-2 max-w-2xl">
-                Treat this dashboard as your Legion Remix rewards tracker and Legion Remix bronze tracker in one place. Pair it
+                Use this page as your Legion Remix reward tracker and Legion Remix bronze tracker in one place. Pair the reward tracker
                 with the Legion Remix bronze calculator to forecast every mount, toy, pet, and housing purchase before you farm.
               </p>
               <p className="text-sm text-gray-300 mt-2 max-w-2xl">
@@ -237,6 +237,57 @@ export default function RewardsPage() {
             filter set into the calculator, add the estimated hours from your best farming method, and publish the results
             to your raid or community Discord. Consistency keeps everyone on the same rewards cadence through January 19.
           </p>
+        </section>
+
+        {/* Legion Remix Reward Tracker FAQ: each Q uses the exact phrase once for clarity without stuffing */}
+        <section className="mb-12 rounded-3xl border border-emerald-700/40 bg-emerald-700/10 p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Reward Tracker FAQ</h2>
+          <ul className="space-y-3 text-sm text-gray-200">
+            <li>
+              <h3 className="text-lg font-semibold text-white">What is the Legion Remix reward tracker?</h3>
+              <p>A compact dashboard that lists rewards, prices, and totals so you can plan purchases at a glance.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">How do I use the rewards tracker each reset?</h3>
+              <p>Filter to Bronze items, mark owned rewards, and copy the remaining total into the calculator.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Can the Legion Remix reward tracker handle multiple characters?</h3>
+              <p>Yes—duplicate presets per character to track class mounts and ensembles independently.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Where does the rewards tracker get data?</h3>
+              <p>From the same reference tables that power category pages and the Bronze calculator.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Does the Legion Remix reward tracker estimate time?</h3>
+              <p>It pairs totals with Bronze-per-hour methods listed in the calculator sidebar.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Is the rewards tracker better than a sheet?</h3>
+              <p>It removes manual math and stays synced with vendor hotfixes.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Can I share my Legion Remix reward tracker with friends?</h3>
+              <p>Yes—screenshot your filters and matched list or export notes to your guild doc.</p>
+            </li>
+            <li>
+              <h3 className="text-lg font-semibold text-white">Will the rewards tracker include housing decor?</h3>
+              <p>All categories are supported—use filters or jump to a specific category index below.</p>
+            </li>
+          </ul>
+        </section>
+
+        {/* Short starter templates that naturally reference the key phrase */}
+        <section className="mb-12 rounded-3xl border border-emerald-700/20 bg-gray-900/60 p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Starter Templates</h2>
+          <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">
+            <li>Build a week-one plan in the Legion Remix reward tracker that budgets for Violet Spellwing.</li>
+            <li>Clone an alt-only list in the Legion Remix reward tracker for class mounts and pets.</li>
+            <li>Track Suramar unlocks with a separate rewards tracker to avoid double spending.</li>
+            <li>Compare a cosmetics-first versus upgrades-first path using two tabs of the rewards tracker.</li>
+            <li>Archive each reset’s screenshot from the rewards tracker to measure progress.</li>
+          </ul>
         </section>
 
         <nav className="mb-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
