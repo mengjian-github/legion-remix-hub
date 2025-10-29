@@ -48,7 +48,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/calculator" className="text-gray-400 hover:text-white text-sm">
-                  Bronze Calculator
+                  Legion Remix Bronze Calculator
                 </Link>
               </li>
             </ul>

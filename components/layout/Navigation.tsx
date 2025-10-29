@@ -68,7 +68,7 @@ const navigation = [
     href: '/rewards',
     submenu: rewardsSubmenu,
   },
-  { name: 'Bronze Calculator', href: '/calculator' },
+  { name: 'Legion Remix Bronze Calculator', href: '/calculator' },
   { name: 'FAQ', href: '/faq' },
 ];
 
