@@ -15,6 +15,82 @@ export type NewsArticle = {
 
 export const newsArticles: NewsArticle[] = [
   {
+    slug: 'timeworn-keystone-druid-hotfix-oct-29',
+    title: 'Timeworn Keystone Dungeon & Druid Class Quest Hotfixes for Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-10-29',
+    image: '/images/game/timeworn-keystone-schedule.jpg',
+    imageAlt: 'Timerunners regrouping outside Timeworn Keystone portals in Legion Remix',
+    excerpt:
+      'Blizzard’s October 29 Legion Remix hotfix sweep lifts the unintended +49 keystone ceiling, patches Druid Order Hall breadcrumbs, and reins in overpowered Wrath of Azshara and Helya scaling.',
+    highlights: [
+      'Lindormi now offers Timeworn Keystones beyond +49, restoring high-end dungeon scaling for Phase 2 groups.',
+      'Druid Class Order Hall quests now display proper directions and new portals to Duskwood and Grizzly Hills for artifact steps.',
+      'Wrath of Azshara, Helya, and Remix dungeon affixes received fixes so bosses start at intended health and affixes clean up on completion.',
+    ],
+    source: {
+      label: 'Warcraft Tavern – Hotfixes (Oct 29, 2025)',
+      href: 'https://www.warcrafttavern.com/legion-remix/news/timeworn-keystone-dungeon-druid-class-quest-hotfixes-for-legion-remix/',
+    },
+  },
+  {
+    slug: 'resisting-arrest-hotfix-oct-25',
+    title: 'Resisting Arrest Quest & Hidden Artifact Appearance Items Hotfixed for Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-10-25',
+    image: '/images/news/2025-10-13-suramar-hotfix.png',
+    imageAlt: 'Timerunners confronting Suramar guards during the Resisting Arrest quest in Legion Remix',
+    excerpt:
+      'The October 25 hotfix roundup steadies Suramar’s Resisting Arrest encounter, restores hidden artifact appearance vendors, and clears pet duplication baggage left on Legion Remix accounts.',
+    highlights: [
+      'Fel energy scaling in the Resisting Arrest quest has been reduced so the Suramar Insurrection storyline is completable without wipes.',
+      'Eligible Balance Druids and Holy Priests can again purchase the Seed of Solar Fire and Rod of the Ascended hidden appearance items.',
+      'Duplicate Fledgling Warden’s Companion and Duskytooth Fel Snooter drops are resolved with a final cleanup grant on next login.',
+    ],
+    source: {
+      label: 'Warcraft Tavern – Hotfixes (Oct 25, 2025)',
+      href: 'https://www.warcrafttavern.com/legion-remix/news/resisting-arrest-quest-hidden-artifact-appearance-items-hotfixed-for-legion-remix/',
+    },
+  },
+  {
+    slug: 'warbound-currencies-preview-oct-24',
+    title: 'Order Resources & Veiled Argunite Will Be Warbound in Patch 11.2.7',
+    author: 'Luxrah',
+    publishedAt: '2025-10-24',
+    image: '/images/game/infinite-research.png',
+    imageAlt: 'Warband vault storing Legion-era currencies for Legion Remix characters',
+    excerpt:
+      'Patch 11.2.7 elevates Legion-era currencies to the Warband system, letting Timerunners bank Order Resources and Veiled Argunite now and funnel the stockpile to post-Remix mains.',
+    highlights: [
+      'Order Resources, Veiled Argunite, and Apexis Crystals become fully warbound and shareable across every character in a warband.',
+      'Legion Remix players can stockpile the currencies during the event, then move them to retail characters after transferring out.',
+      'Blizzard tucked the confirmation into a Brawler’s Guild PTR post, signaling continued modernization for legacy reward systems.',
+    ],
+    source: {
+      label: 'Warcraft Tavern – Patch 11.2.7 Preview (Oct 24, 2025)',
+      href: 'https://www.warcrafttavern.com/legion-remix/news/order-resources-veiled-argunite-will-be-warbound-in-patch-11-2-7/',
+    },
+  },
+  {
+    slug: 'infinite-knowledge-hotfix-oct-24',
+    title: 'Infinite Power Gains From Infinite Knowledge Hotfixed in Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-10-24',
+    image: '/images/news/2025-10-15-infinite-power.png',
+    imageAlt: 'Timerunners absorbing Infinite Knowledge energy alongside Infinite Power conduits',
+    excerpt:
+      'A fresh hotfix fixes Infinite Knowledge ranks siphoning off Infinite Power, doubles Valarjar Soul Fragment drops, and smooths out lethal Beacon of Chaos spawns and horse mount flight animations.',
+    highlights: [
+      'Infinite Knowledge upgrades no longer suppress Infinite Power gains, restoring standard Phase 2 progression pacing.',
+      'Valarjar Soul Fragments now drop only inside Trial of Valor with +100% gains from trash and +400% from bosses.',
+      'Beacon of Chaos summons and airborne horse animations were corrected to stop accidental kills and awkward flying.',
+    ],
+    source: {
+      label: 'Warcraft Tavern – Hotfixes (Oct 24, 2025)',
+      href: 'https://www.warcrafttavern.com/legion-remix/news/infinite-power-gains-from-infinite-knowledge-hotfixed-in-legion-remix/',
+    },
+  },
+  {
     slug: 'fragmented-mementos-hotfix-oct-21',
     title: 'New Fragmented Memento Sources: Legion Remix Hotfixes for October 21',
     author: 'Luxrah',

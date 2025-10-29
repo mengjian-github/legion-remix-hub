@@ -93,8 +93,8 @@ export default function RewardTrackerCatalog() {
     <section id="search" className="mb-16 rounded-3xl border border-gray-800 bg-gray-900/40 p-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <h2 className="text-2xl font-semibold text-white">Search the reward catalog</h2>
-          <p className="text-sm text-gray-300 mt-1">Filter by type and Bronze availability to narrow your wishlist.</p>
+          <h2 className="text-2xl font-semibold text-white">Search the Legion Remix Reward Tracker</h2>
+          <p className="text-sm text-gray-300 mt-1">Use the Legion Remix Reward Tracker filters to narrow your wishlist by type and Bronze availability.</p>
         </div>
         <label className="inline-flex items-center gap-2 text-sm text-gray-300">
           <input
@@ -112,7 +112,7 @@ export default function RewardTrackerCatalog() {
           type="search"
           value={searchTerm}
           onChange={event => setSearchTerm(event.target.value)}
-          placeholder="Search reward name, source, achievement, or faction..."
+          placeholder="Search the Legion Remix Reward Tracker by reward name, source, achievement, or faction..."
           className="flex-1 rounded-xl border border-gray-800 bg-gray-950/70 px-4 py-3 text-gray-100 placeholder-gray-500 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500/40"
         />
         <div className="flex flex-wrap gap-2">
@@ -137,7 +137,7 @@ export default function RewardTrackerCatalog() {
       <div className="mt-5 text-sm text-gray-300">
         <p>
           Showing <span className="text-white font-semibold">{displayedEntries.length}</span> of{' '}
-          <span className="text-white font-semibold">{filteredEntries.length}</span> matches — Bronze total:{' '}
+          <span className="text-white font-semibold">{filteredEntries.length}</span> matches in the Legion Remix Reward Tracker — Bronze total:{' '}
           <span className="text-yellow-400 font-semibold">{matchedBronzeTotal.toLocaleString()}</span>
         </p>
         {truncated && (
@@ -159,7 +159,6 @@ export default function RewardTrackerCatalog() {
                   {entry.cost ? (
                     <>
                       <p className="text-2xl font-bold text-yellow-400">{entry.cost.amount.toLocaleString()}</p>
-                      <p className="text-sm text-gray-400 mt-1">Bronze</p>
                       {entry.cost.currency && (
                         <p className="text-sm text-gray-400 mt-1">Currency: {entry.cost.currency}</p>
                       )}
@@ -173,7 +172,7 @@ export default function RewardTrackerCatalog() {
                 href={`/rewards/${entry.category}#${entry.tableKey}`}
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-500/50 px-4 py-1.5 text-sm text-emerald-200 hover:bg-emerald-500/10 mt-3"
               >
-                View category ↗
+                Open in Legion Remix Reward Tracker ↗
               </Link>
             </div>
           ))}

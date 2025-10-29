@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import ClientVisible from '@/components/ClientVisible';
 import {
   rewardCategories,
   rewardEntries,
@@ -59,29 +60,28 @@ export default function RewardsPage() {
   return (
     <div className="min-h-screen bg-gray-950 pb-16">
       <div className="mx-auto max-w-7xl px-4">
-        <header id="overview" className="sticky top-0 z-20 mb-10 bg-gray-950/90 backdrop-blur border-b border-gray-800 -mx-4 px-4 py-4">
+        {/* Keep header minimal so search/catalog stay in first screen */}
+        <header id="overview" className="sticky top-0 z-20 mb-6 bg-gray-950/90 backdrop-blur border-b border-gray-800 -mx-4 px-4 py-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-sm text-emerald-300 uppercase tracking-widest">Legion Remix • October 7, 2025 → January 19, 2026</p>
               <h1 className="text-3xl font-bold text-white mt-2">Legion Remix Reward Tracker</h1>
               <p className="text-sm text-gray-300 mt-2 max-w-2xl">
-                Use this page as your Legion Remix reward tracker and Legion Remix bronze tracker in one place. Pair the reward tracker
-                with the Legion Remix bronze calculator to forecast every mount, toy, pet, and housing purchase before you farm.
-              </p>
-              <p className="text-sm text-gray-300 mt-2 max-w-2xl">
-                Need a concise Legion Remix reward tracker or a printable Legion Remix rewards list? Toggle the filters below, export your matched results, and share them with guildmates before the next housing decor rotation hits Infinite Echoes.
+                The Legion Remix Reward Tracker helps you search, filter, and total Bronze instantly—no clutter, just the tracker.
               </p>
             </div>
             <Link
               href="#search"
               className="inline-flex items-center gap-2 rounded-full border border-emerald-500/60 bg-emerald-500/10 px-5 py-2 text-sm font-medium text-emerald-200 hover:bg-emerald-500/20"
+              aria-label="Jump to Legion Remix Reward Tracker search"
             >
               🔍 Quick search
             </Link>
           </div>
         </header>
 
-        <section className="mb-10 grid gap-4 lg:grid-cols-4">
+        <ClientVisible className="mb-10 block">
+        <section className="grid gap-4 lg:grid-cols-4">
           <div className="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
             <p className="text-xs uppercase tracking-wide text-gray-400">Total Bronze budget</p>
             <p className="text-4xl font-semibold text-emerald-300 mt-2">{formatNumber(totalBronzeCost)}</p>
@@ -103,8 +103,10 @@ export default function RewardsPage() {
             <p className="text-sm text-gray-400 mt-2">Includes achievements, reputation unlocks, and account-wide rewards.</p>
           </div>
         </section>
+        </ClientVisible>
 
-        <section className="mb-12 rounded-3xl border border-purple-600/30 bg-purple-600/10 p-6">
+        <ClientVisible className="mb-12 block">
+        <section className="rounded-3xl border border-purple-600/30 bg-purple-600/10 p-6">
           <h2 className="text-2xl font-semibold text-white mb-3">Phase 2 Bronze Additions (October 21, 2025)</h2>
           <p className="text-sm text-gray-200 mb-3">
             Rise of the Nightfallen unlocked new Suramar rewards. Budget Bronze now so you can scoop them up without delaying Violet Spellwing or Argus cosmetics later in the season.
@@ -135,66 +137,26 @@ export default function RewardsPage() {
             .
           </p>
         </section>
+        </ClientVisible>
 
+        
+     
+
+        {/* Keep how-to copy below the catalog to avoid pushing content off the first screen */}
         <section className="mb-12 rounded-3xl border border-emerald-600/30 bg-emerald-600/10 p-6">
-          <h2 className="text-2xl font-semibold text-white mb-3">How to Use This Legion Remix Rewards Tracker</h2>
+          <h2 className="text-2xl font-semibold text-white mb-3">How to Use the Legion Remix Reward Tracker</h2>
           <p className="text-sm text-gray-200 mb-3">
-            This grid doubles as a Legion Remix rewards tracker and Legion Remix bronze tracker. Start each reset by
-            filtering to Bronze-only entries, then mark everything you have already purchased. The totals above show you
-            how far your Legion Remix bronze calculator plans need to stretch—update them every time a new Infinite Echoes
-            vendor rotates pools into the Bazaar.
+            Start each reset by filtering to Bronze-only entries, then mark everything you already own. Copy the remaining total
+            into your calculator. The Legion Remix Reward Tracker stays synced with vendor hotfixes and helps you prioritize mounts,
+            toys, pets, ensembles, and housing decor.
           </p>
           <p className="text-sm text-gray-200 mb-3">
-            Work category by category. Mount hunters should drill into the mount tables, swap over to toys, then finish
-            with ensembles to avoid missing time-limited cosmetics. Housing enthusiasts can narrow to decor and screenshot
-            the results as a shared Legion Remix rewards tracker for their guild. When you are chasing achievements like
-            Violet Spellwing or the Sargerei ensemble, tag them inside your Legion Remix bronze tracker notes so they stay
-            front-of-mind during Turbo Boost windows.
+            Work category by category—mounts, toys, ensembles, reputations—so you never miss time-limited cosmetics. Share screenshots
+            from the Legion Remix Reward Tracker with your guild to align weekly goals.
           </p>
           <p className="text-sm text-gray-200">
-            Finally, align this dashboard with the Legion Remix bronze calculator. Paste the Bronze totals from your current
-            filter set into the calculator, add the estimated hours from your best farming method, and publish the results
-            to your raid or community Discord. Consistency keeps everyone on the same rewards cadence through January 19.
+            Pair the Legion Remix Reward Tracker with the Bronze calculator: paste totals, estimate hours, and publish the plan to Discord.
           </p>
-        </section>
-
-        {/* Legion Remix Reward Tracker FAQ: each Q uses the exact phrase once for clarity without stuffing */}
-        <section className="mb-12 rounded-3xl border border-emerald-700/40 bg-emerald-700/10 p-6">
-          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Reward Tracker FAQ</h2>
-          <ul className="space-y-3 text-sm text-gray-200">
-            <li>
-              <h3 className="text-lg font-semibold text-white">What is the rewards tracker?</h3>
-              <p>A compact dashboard that lists rewards, prices, and totals so you can plan purchases at a glance.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">How do I use the rewards tracker each reset?</h3>
-              <p>Filter to Bronze items, mark owned rewards, and copy the remaining total into the calculator.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Can the rewards tracker handle multiple characters?</h3>
-              <p>Yes—duplicate presets per character to track class mounts and ensembles independently.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Where does the rewards tracker get data?</h3>
-              <p>From the same reference tables that power category pages and the Bronze calculator.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Does the rewards tracker estimate time?</h3>
-              <p>It pairs totals with Bronze-per-hour methods listed in the calculator sidebar.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Is the rewards tracker better than a sheet?</h3>
-              <p>It removes manual math and stays synced with vendor hotfixes.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Can I share my rewards tracker with friends?</h3>
-              <p>Yes—screenshot your filters and matched list or export notes to your guild doc.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Will the rewards tracker include housing decor?</h3>
-              <p>All categories are supported—use filters or jump to a specific category index below.</p>
-            </li>
-          </ul>
         </section>
 
         {/* Short starter templates that naturally reference the key phrase */}
@@ -209,6 +171,7 @@ export default function RewardsPage() {
           </ul>
         </section>
 
+
         <nav className="mb-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {quickLinks.map(link => (
             <Link
@@ -222,12 +185,12 @@ export default function RewardsPage() {
           ))}
         </nav>
 
+      
         <RewardTrackerCatalog />
 
-        {/* Original category index follows */}
 
-
-        <section id="categories" className="mb-16">
+        <ClientVisible className="mb-16 block">
+        <section id="categories">
           <div className="flex flex-col gap-3 mb-6 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-bold text-white">Reward category index</h2>
@@ -260,8 +223,10 @@ export default function RewardsPage() {
             ))}
           </div>
         </section>
+        </ClientVisible>
 
-        <section id="spotlights" className="mb-12">
+        <ClientVisible className="mb-12 block">
+        <section id="spotlights">
           <div className="flex flex-col gap-3 mb-6 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-bold text-white">Featured spotlights</h2>
@@ -296,9 +261,11 @@ export default function RewardsPage() {
             ))}
           </div>
         </section>
+        </ClientVisible>
 
         {/* Add-on copy placed after main content to preserve first-screen UX */}
-        <section className="mb-12 rounded-3xl border border-emerald-700/30 bg-gray-900/60 p-6">
+        <ClientVisible className="mb-12 block">
+        <section className="rounded-3xl border border-emerald-700/30 bg-gray-900/60 p-6">
           <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Reward Tracker Playbook</h2>
           <p className="text-sm text-gray-300 mb-3">
             Use this section after scanning the tables above. Each tip shows a practical way to apply the rewards tracker without interrupting your current flow.
@@ -312,8 +279,10 @@ export default function RewardsPage() {
             <li>Compare two upgrade paths by opening two Legion Remix reward tracker tabs and toggling different filters.</li>
           </ul>
         </section>
+        </ClientVisible>
 
-        <section className="mb-16 rounded-3xl border border-emerald-700/40 bg-emerald-700/10 p-6">
+        <ClientVisible className="mb-16 block">
+        <section className="rounded-3xl border border-emerald-700/40 bg-emerald-700/10 p-6">
           <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Reward Tracker FAQ</h2>
           <ul className="space-y-3 text-sm text-gray-200">
             <li>
@@ -334,6 +303,7 @@ export default function RewardsPage() {
             </li>
           </ul>
         </section>
+        </ClientVisible>
       </div>
     </div>
   );
