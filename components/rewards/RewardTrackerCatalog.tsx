@@ -158,7 +158,9 @@ export default function RewardTrackerCatalog() {
                 <div className="text-right">
                   {entry.cost ? (
                     <>
-                      <p className="text-2xl font-bold text-yellow-400">{entry.cost.amount.toLocaleString()}</p>
+                      <p className="text-2xl font-bold text-yellow-400">
+                        {entry.cost.amount !== null ? entry.cost.amount.toLocaleString() : entry.cost.display}
+                      </p>
                       {entry.cost.currency && (
                         <p className="text-sm text-gray-400 mt-1">Currency: {entry.cost.currency}</p>
                       )}

@@ -31,6 +31,14 @@ export const legionImages = {
   timewornKeystone: "/images/game/timeworn-keystone-schedule.jpg",
   challianeVineyardsMap: "/images/guides/challiane-vineyards/challiane-vineyards-map.jpg",
   challianeVineyardsLocation: "/images/guides/challiane-vineyards/challiane-vineyards-location.jpg",
+  ancientManaChunk: "/images/guides/ancient-mana/ancient-mana-chunk.jpg",
+  ancientManaArcanePowerUnit: "/images/guides/ancient-mana/arcane-power-unit.jpg",
+  infiniteBazaarIsland: "/images/guides/bronze-vendors/infinite-bazaar.jpg",
+  vendorGrandmasterJakkus: "/images/guides/bronze-vendors/grandmaster-jakkus.jpg",
+  vendorHoros: "/images/guides/bronze-vendors/horos.jpg",
+  suramarAchievements: "/images/guides/suramar-campaign/suramar-achievements.jpg",
+  suramarTeleporterNetwork: "/images/guides/suramar-campaign/teleporter.jpg",
+  felscornedShriekerMount: "/images/guides/class-mounts/felscorned-shrieker.jpg",
 
   // Empowered effect screenshots
   imperiousEffect: "/images/game/imperious-effect.jpg",

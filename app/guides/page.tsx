@@ -42,6 +42,14 @@ const guides = [
     image: legionImages.wyrmtongue
   },
   {
+    id: 'ancient-mana',
+    title: 'Ancient Mana Guide',
+    description: 'Grow your Suramar currency cap to 2,000, map node routes, and prep Withered Army Training runs.',
+    icon: '🔮',
+    color: 'from-indigo-900/40 to-violet-900/40',
+    image: legionImages.ancientManaChunk ?? legionImages.ancientManaArcanePowerUnit ?? legionImages.artifactumSand
+  },
+  {
     id: 'reputation',
     title: 'Reputation Guide',
     description: "Broken Isles emissary routes, Champion's Insignia sources, and vendor highlights.",
@@ -82,6 +90,14 @@ const guides = [
     image: legionImages.challianeVineyardsLocation ?? legionImages.challianeVineyardsMap
   },
   {
+    id: 'suramar-campaign',
+    title: 'Suramar Campaign',
+    description: 'Chapter-by-chapter Good Suramaritan and Insurrection schedule with Ancient Mana checkpoints.',
+    icon: '🌙',
+    color: 'from-purple-900/40 to-blue-900/40',
+    image: legionImages.suramarAchievements ?? legionImages.suramarTeleporterNetwork ?? legionImages.referenceSplash
+  },
+  {
     id: 'lock-stock-two-smoking-goblins',
     title: 'Lock, Stock, & Goblins',
     description: 'Stormheim barrel routes, vendor timings, and fox mount planning during the micro-holiday.',
@@ -104,6 +120,22 @@ const guides = [
     icon: '👑',
     color: 'from-purple-900/40 to-rose-900/40',
     image: legionImages.rewardAppearanceKaldorei ?? legionImages.rewardVendorNightfallen
+  },
+  {
+    id: 'class-mounts',
+    title: 'Class Mounts & Requirements',
+    description: 'Felscorned unlocks, class hall checklists, and Broken Shore prep for every mount variant.',
+    icon: '🐴',
+    color: 'from-amber-900/40 to-emerald-900/40',
+    image: legionImages.felClassMounts
+  },
+  {
+    id: 'bronze-vendors',
+    title: 'Infinite Bazaar Vendors',
+    description: 'Locate every Bronze vendor, plan phase unlocks, and optimize your spending envelope.',
+    icon: '🛍️',
+    color: 'from-cyan-900/40 to-slate-900/40',
+    image: legionImages.infiniteBazaarIsland ?? legionImages.vendorGrandmasterJakkus ?? legionImages.rewardVendorHoros
   }
 ];
 
@@ -112,6 +144,7 @@ export default function GuidesPage() {
     { label: 'First steps checklist', href: '/guides/getting-started#timerunner-creation' },
     { label: 'Fast leveling routes', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Bronze farming loops', href: '/guides/bronze-farming#bronze-collection-in-action' },
+    { label: 'Ancient Mana farming', href: '/guides/ancient-mana#farming' },
     { label: 'Reputation emissary planner', href: '/reputation' },
     { label: 'Infinite Knowledge ranks', href: '/guides/infinite-knowledge#rank-breakdown' },
     { label: 'Dungeon rotation planner', href: '/guides/dungeons#keystone-roadmap' },
@@ -121,6 +154,9 @@ export default function GuidesPage() {
     { label: 'Lock, Stock quest route', href: '/guides/lock-stock-two-smoking-goblins' },
     { label: 'A Noble Event cheatsheet', href: '/guides/a-noble-event' },
     { label: "Unlock Kaldorei Vestments", href: "/guides/kaldorei-royal-vestments#requirements" },
+    { label: 'Suramar campaign tracker', href: '/guides/suramar-campaign#good-suramaritan' },
+    { label: 'Class mount checklist', href: '/guides/class-mounts#classes' },
+    { label: 'Infinite Bazaar vendors', href: '/guides/bronze-vendors#vendors' },
     { label: 'Bronze calculator', href: '/calculator' },
     { label: 'FAQ & troubleshooting', href: '/faq' }
   ];
