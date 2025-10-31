@@ -9,6 +9,7 @@ import { artifactPaths } from '@/data/artifact-paths';
 import type { ArtifactPath } from '@/data/artifact-paths';
 import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { classMountImages, legionImages } from '@/data/images';
+import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 const normalizeSpaces = (value: string) => value.replace(/\s+/g, ' ').trim();
 const buildSpecNarrative = (
@@ -21,10 +22,11 @@ const buildSpecNarrative = (
 
   const primaryStat = specGuide.statPriority[0] ?? 'core stats';
   const artifactFocus = artifactPath?.name ?? 'artifact path';
+  const focusKeyword = specGuide.seoFocusKeyword ?? `${specGuide.specName} ${classData.name}`;
 
   paragraphs.push(
     normalizeSpaces(
-      `${specGuide.specName} ${classData.name} players open Legion Remix by focusing on ${primaryStat}. Pair early gear upgrades with the class campaign so cooldowns stay aligned with the event roadmap.`,
+      `${focusKeyword} players open Legion Remix by focusing on ${primaryStat}. ${focusKeyword} gear upgrades should pair with the class campaign so cooldowns stay aligned with the event roadmap.`,
     ),
   );
 
@@ -34,7 +36,7 @@ const buildSpecNarrative = (
   if (levelingSummary) {
     paragraphs.push(
       normalizeSpaces(
-        `Leveling priorities include ${levelingSummary}. Blend daily quests, keystone pushes, and open-world loops to keep Infinite Knowledge flowing to your artifact.`,
+        `Leveling priorities for ${focusKeyword} include ${levelingSummary}. ${focusKeyword} Timerunners should blend daily quests, keystone pushes, and open-world loops to keep Infinite Knowledge flowing to the artifact.`,
       ),
     );
   }
@@ -42,7 +44,7 @@ const buildSpecNarrative = (
   if (artifactPath) {
     paragraphs.push(
       normalizeSpaces(
-        `Recommended artifact path: ${artifactPath.name}. Its signature ability, ${artifactPath.activeAbility}, focuses on ${artifactPath.focus}. ${artifactPath.description}`,
+        `Recommended ${focusKeyword} artifact path: ${artifactPath.name}. Its signature ability, ${artifactPath.activeAbility}, focuses on ${artifactPath.focus}. ${focusKeyword} players gain consistency because ${artifactPath.description}`,
       ),
     );
   }
@@ -55,7 +57,7 @@ const buildSpecNarrative = (
     if (alternates) {
       paragraphs.push(
         normalizeSpaces(
-          `Alternate artifact routes worth testing — ${alternates}. Swap based on whether you queue for keystones, raids, or open-world Bronze farming.`,
+          `Alternate ${focusKeyword} artifact routes worth testing — ${alternates}. Swap based on whether you queue for keystones, raids, or open-world Bronze farming to keep ${focusKeyword} uptime high.`,
         ),
       );
     }
@@ -64,7 +66,7 @@ const buildSpecNarrative = (
   if (specGuide.recommendedTraits.length) {
     paragraphs.push(
       normalizeSpaces(
-        `Recommended jewelry traits: ${specGuide.recommendedTraits.join(', ')}. Mix them for reliable burst and survivability during Heroic World Tier pulls.`,
+        `Recommended ${focusKeyword} jewelry traits: ${specGuide.recommendedTraits.join(', ')}. Mix them for reliable burst and survivability during Heroic World Tier pulls so ${focusKeyword} damage windows stay lethal.`,
       ),
     );
   }
@@ -73,7 +75,7 @@ const buildSpecNarrative = (
     const rotationSummary = specGuide.rotationOverview.priority.join(' ');
     paragraphs.push(
       normalizeSpaces(
-        `Rotation snapshot: ${rotationSummary}. Practice the opener on heroic dummy targets so cooldowns line up with Turbo Boost timers.`,
+        `Rotation snapshot for ${focusKeyword}: ${rotationSummary}. Practice the opener on heroic dummy targets so ${focusKeyword} cooldowns line up with Turbo Boost timers.`,
       ),
     );
   }
@@ -81,7 +83,7 @@ const buildSpecNarrative = (
   if (specGuide.bronzePriority.length) {
     paragraphs.push(
       normalizeSpaces(
-        `Bronze priorities: ${specGuide.bronzePriority.join(' ')}. Knock these out first so damage, mitigation, and cosmetic unlocks stay on schedule.`,
+        `Bronze priorities for ${focusKeyword}: ${specGuide.bronzePriority.join(' ')}. Knock these out first so ${focusKeyword} damage, mitigation, and cosmetic unlocks stay on schedule.`,
       ),
     );
   }
@@ -92,7 +94,7 @@ const buildSpecNarrative = (
   if (buildSummaries.length) {
     paragraphs.push(
       normalizeSpaces(
-        `Build notes — ${buildSummaries.join(' ')}. Swap talents to match dungeon speed runs, open-world loops, or raid burn phases.`,
+        `Build notes for ${focusKeyword} — ${buildSummaries.join(' ')}. Swap talents to match dungeon speed runs, open-world loops, or raid burn phases without dropping ${focusKeyword} shard flow.`,
       ),
     );
   }
@@ -100,14 +102,29 @@ const buildSpecNarrative = (
   if (specGuide.statPriority.length) {
     paragraphs.push(
       normalizeSpaces(
-        `Stat priority: ${specGuide.statPriority.join(', ')}. Spend Bronze and choose drops with this order in mind.`,
+        `Stat priority for ${focusKeyword}: ${specGuide.statPriority.join(', ')}. Spend Bronze and choose drops with this order in mind so ${focusKeyword} gear lines up with burst expectations.`,
       ),
     );
   }
 
+  if (specGuide.seoFocusKeyword) {
+    const keywordParagraphs = buildKeywordRichParagraphs(
+      specGuide.seoFocusKeyword,
+      specGuide.seoTopics?.length ? specGuide.seoTopics : [`${specGuide.specName} ${classData.name} planning`],
+      specGuide.seoSupportingConcepts?.length
+        ? specGuide.seoSupportingConcepts
+        : [`${artifactFocus} value`, `${primaryStat} stacking`],
+      { minWords: 640, targetDensity: 0.04, minParagraphKeywordOccurrences: 5 },
+    );
+    paragraphs.push(...keywordParagraphs);
+  }
+
+  const weeklyIntro = specGuide.seoFocusKeyword
+    ? `${specGuide.seoFocusKeyword} weekly checklist`
+    : 'Weekly checklist';
   paragraphs.push(
     normalizeSpaces(
-      `Weekly checklist: review Infinite Knowledge quests, refresh Bronze vendor priorities, and plan raid lockouts so the spec stays ready as phases rotate.`,
+      `${weeklyIntro}: review Infinite Knowledge quests, refresh Bronze vendor priorities, and plan raid lockouts so the spec stays ready as phases rotate.`,
     ),
   );
 
@@ -197,7 +214,9 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
     ...alt,
     path: artifactPaths.find(p => p.id === alt.pathId)
   }));
+  const focusKeyword = specGuide.seoFocusKeyword ?? `${specGuide.specName} ${classData.name}`;
   const narrativeParagraphs = buildSpecNarrative(specGuide, classData, artifactPath, alternatePathsData);
+  const engagementActions = specGuide.engagementActions ?? [];
   const formattedMetaDescription = formatMetaDescription(specGuide.metaDescription);
 
   return (
@@ -279,7 +298,7 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
                   </span>
                 </div>
                 <h1 className="text-4xl font-bold text-white mb-2">
-                  {specGuide.specName} {classData.name}
+                  {specGuide.specName} {classData.name} Legion Remix Guide
                 </h1>
                 <p className="text-lg text-gray-200">{specGuide.metaDescription}</p>
               </div>
@@ -290,12 +309,43 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
+            {engagementActions.length ? (
+              <div className="bg-gradient-to-br from-red-900/40 via-red-800/40 to-emerald-900/40 border border-red-700/50 rounded-lg p-6">
+                <h2 className="text-2xl font-bold text-white mb-2">
+                  {focusKeyword} priorities
+                </h2>
+                <p className="text-sm text-gray-300 mb-4">
+                  Kick off your session with focused checkpoints so every {focusKeyword} plan translates into Bronze, loot, and smooth runs. Revisit these {focusKeyword} checkpoints whenever phases rotate.
+                </p>
+                <div className="grid md:grid-cols-3 gap-4">
+                  {engagementActions.map((action, idx) => (
+                    <div key={idx} className="bg-gray-900/60 border border-gray-700 rounded-lg p-4 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-lg font-semibold text-white mb-2">{action.title}</h3>
+                        <p className="text-sm text-gray-300">{action.description}</p>
+                      </div>
+                      <Link
+                        href={action.href}
+                        className="mt-4 inline-flex items-center justify-center rounded-md bg-green-500/20 border border-green-500/40 px-3 py-2 text-sm font-semibold text-green-200 hover:bg-green-500/30"
+                      >
+                        {action.actionLabel}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
 
             {/* Best Artifact Path */}
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-white mb-4">
-                Best Artifact Path: {artifactPath?.name}
+                {specGuide.seoFocusKeyword ? `Best ${focusKeyword} Artifact Path` : 'Best Artifact Path'}: {artifactPath?.name}
               </h2>
+              {specGuide.seoFocusKeyword && (
+                <p className="text-sm text-gray-400 mb-4">
+                  Anchor your {focusKeyword} burst windows around this artifact roadmap so every Infernal cycle stays lethal.
+                </p>
+              )}
               {artifactPath && (
                 <div className="bg-gray-750 border border-gray-600 rounded-lg p-4 mb-4">
                   <div className="flex items-start justify-between mb-3">
@@ -356,7 +406,14 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
 
             {/* Stat Priority */}
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-              <h2 className="text-2xl font-bold text-white mb-4">Stat Priority</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">
+                {specGuide.seoFocusKeyword ? `${focusKeyword} Stat Priority` : 'Stat Priority'}
+              </h2>
+              {specGuide.seoFocusKeyword && (
+                <p className="text-sm text-gray-400 mb-3">
+                  Follow this spread whenever you socket upgrades so {focusKeyword} shard flow keeps Chaos Bolt at the front of every pull.
+                </p>
+              )}
               <ol className="space-y-2">
                 {specGuide.statPriority.map((stat, idx) => (
                   <li key={idx} className="flex items-center">
@@ -372,6 +429,11 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
             {/* Rotation */}
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-white mb-4">{specGuide.rotationOverview.title}</h2>
+              {specGuide.seoFocusKeyword && (
+                <p className="text-sm text-gray-400 mb-3">
+                  Drill this order until muscle memory locks in; smooth execution keeps {focusKeyword} Infernal resets and Havoc windows synced.
+                </p>
+              )}
               <ol className="space-y-3">
                 {specGuide.rotationOverview.priority.map((ability, idx) => (
                   <li key={idx} className="flex items-start">
@@ -387,6 +449,11 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
             {/* Leveling Tips */}
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Leveling Tips</h2>
+              {specGuide.seoFocusKeyword && (
+                <p className="text-sm text-gray-400 mb-3">
+                  Apply these loops whenever you hop on an alt to keep {focusKeyword} characters flush with Bronze, gear tokens, and Infinite Knowledge.
+                </p>
+              )}
               <ul className="space-y-3">
                 {specGuide.levelingTips.map((tip, idx) => (
                   <li key={idx} className="flex items-start">
@@ -400,6 +467,11 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
             {/* Bronze Priority */}
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-white mb-4">Bronze Spending Priority</h2>
+              {specGuide.seoFocusKeyword && (
+                <p className="text-sm text-gray-400 mb-3">
+                  Spend with intent so every {focusKeyword} upgrade lands before the next phase rolls out.
+                </p>
+              )}
               <ul className="space-y-2">
                 {specGuide.bronzePriority.map((priority, idx) => (
                   <li key={idx} className="text-gray-300">{priority}</li>
@@ -433,6 +505,12 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
                     <span className="text-gray-300">Role:</span>
                     <span className="font-semibold text-white">{specGuide.role}</span>
                   </div>
+                  {specGuide.seoFocusKeyword && (
+                    <div className="flex justify-between">
+                      <span className="text-gray-300">Keyword Focus:</span>
+                      <span className="font-semibold text-white">{focusKeyword}</span>
+                    </div>
+                  )}
                   {specGuide.groupTier && (
                     <div className="flex justify-between">
                       <span className="text-gray-300">Group Tier:</span>

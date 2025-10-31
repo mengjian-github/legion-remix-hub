@@ -43,6 +43,10 @@ export interface SpecGuide {
 
   // SEO
   metaDescription: string;
+  seoFocusKeyword?: string;
+  seoSecondaryKeywords?: string[];
+  seoTopics?: string[];
+  seoSupportingConcepts?: string[];
 
   // Artifact recommendations
   bestArtifactPath: string; // Path ID
@@ -81,6 +85,14 @@ export interface SpecGuide {
   groupTier?: 'S' | 'A' | 'B' | 'C';
   soloTier?: 'S' | 'A' | 'B' | 'C';
   heroicWorldTier?: boolean;
+
+  // Engagement
+  engagementActions?: Array<{
+    title: string;
+    description: string;
+    href: string;
+    actionLabel: string;
+  }>;
 }
 
 export const specGuides: SpecGuide[] = [
@@ -581,6 +593,21 @@ export const specGuides: SpecGuide[] = [
     specName: 'Destruction',
     role: 'DPS',
     metaDescription: 'Destruction Warlock Legion Remix guide updated for Patch 11.2.5 covering the best Fel artifact path, Chaos Bolt builds, stat priorities, and Bronze spending tips—the go-to Legion Remix warlock talents snapshot for turret players, with Legion Remix destruction warlock combos, destro warlock Legion Remix tips, legion remix destro warlock burst plans, legion remix destro lock shopping routes, and destro lock Legion Remix rotation callouts.',
+    seoFocusKeyword: 'Destruction Warlock Legion Remix',
+    seoSecondaryKeywords: [
+      'Destro Warlock Legion Remix'
+    ],
+    seoTopics: [
+      'Chaos Bolt rotation planning',
+      'Bronze vendor targeting',
+      'Mythic+ Infernal sequencing',
+      'Raid Havoc cooldown mapping'
+    ],
+    seoSupportingConcepts: [
+      'Chaos Bolt crit windows',
+      'Rain of Fire funnels',
+      'Heroic World Tier survivability'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -637,7 +664,27 @@ export const specGuides: SpecGuide[] = [
 
     groupTier: 'A',
     soloTier: 'B',
-    heroicWorldTier: true
+    heroicWorldTier: true,
+    engagementActions: [
+      {
+        title: 'Chaos Bolt Burst Planner',
+        description: 'Sketch a Destruction Warlock Legion Remix opener that aligns Havoc, Infernal, and potions before raid pull.',
+        href: '/guides/lock-stock-two-smoking-goblins',
+        actionLabel: 'View burst routes'
+      },
+      {
+        title: 'Bronze Budget Worksheet',
+        description: 'Project Destruction Warlock Legion Remix Bronze costs for trinkets, relics, and Fel path upgrades.',
+        href: '/calculator',
+        actionLabel: 'Open calculator'
+      },
+      {
+        title: 'Daily Farming Tracker',
+        description: 'Log Destruction Warlock Legion Remix world quests and keystones to keep Infinite Knowledge flowing.',
+        href: '/guides/bronze-farming',
+        actionLabel: 'Start tracking'
+      }
+    ]
   },
 
   // DEMON HUNTER SPECS
