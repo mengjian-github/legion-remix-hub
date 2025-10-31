@@ -136,6 +136,22 @@ const guides = [
     icon: '🛍️',
     color: 'from-cyan-900/40 to-slate-900/40',
     image: legionImages.infiniteBazaarIsland ?? legionImages.vendorGrandmasterJakkus ?? legionImages.rewardVendorHoros
+  },
+  {
+    id: 'fragmented-mementos',
+    title: 'Fragmented Mementos',
+    description: 'Map raid, rare, emissary, and keystone sources for Fragmented Mementos after the October hotfix.',
+    icon: '💠',
+    color: 'from-slate-900/40 to-indigo-900/40',
+    image: legionImages.fragmentedMementoRaid ?? legionImages.fragmentedMementoReward
+  },
+  {
+    id: 'hunter-pets',
+    title: 'Hunter Pet Finder',
+    description: 'Track Clefthoof, Felhound, Devilsaur, Hyena, and Stone Hound tames with /way coordinates.',
+    icon: '🎯',
+    color: 'from-emerald-900/40 to-slate-900/40',
+    image: legionImages.hunterPetFelhound ?? legionImages.hunterPetClefthoofStormsReach
   }
 ];
 
@@ -157,6 +173,8 @@ export default function GuidesPage() {
     { label: 'Suramar campaign tracker', href: '/guides/suramar-campaign#good-suramaritan' },
     { label: 'Class mount checklist', href: '/guides/class-mounts#classes' },
     { label: 'Infinite Bazaar vendors', href: '/guides/bronze-vendors#vendors' },
+    { label: 'Fragmented Memento farm', href: '/guides/fragmented-mementos#core-sources' },
+    { label: 'Hunter pet map', href: '/guides/hunter-pets#clefthoof' },
     { label: 'Bronze calculator', href: '/calculator' },
     { label: 'FAQ & troubleshooting', href: '/faq' }
   ];

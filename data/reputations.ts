@@ -380,6 +380,65 @@ export const reputationFactions: ReputationFaction[] = [
     hasVendor: true
   },
   {
+    slug: 'armies-of-legionfall',
+    name: 'Armies of Legionfall',
+    zone: 'Broken Shore',
+    color: 'from-emerald-900/50 to-gray-900/30',
+    summary:
+      'Legionfall rallies every class order on the Broken Shore. Reputation gains unlock class mount finales, Nether Portal utilities, and Broken Shore catch-up buffs during Phase 3.',
+    emissary: {
+      name: "Warmage Kath'leen",
+      location: 'Deliverance Point, Broken Shore',
+      coordinates: '44.4, 62.2',
+      tip: 'Glide down from the Deliverance Point flight path to reach Kath\'leen while skipping elite sentries.'
+    },
+    howToEarn: [
+      'Finish Broken Shore scenario quests and construction dailies during Phase 3 – Legionfall.',
+      'Clear Armies of Legionfall world quests and Legion assaults each day for bonus reputation and Nethershards.',
+      'Use Legionfall Champion’s Insignias from emissary caches, Broken Shore treasures, rare elites, and Infinite Research packets.'
+    ],
+    insignia: {
+      name: "Legionfall Champion's Insignia",
+      sources: [
+        'Armies of Legionfall emissary cache',
+        'Broken Shore treasure chests',
+        'Broken Shore rare elites',
+        'Cache of Infinite Power (Infinite Research daily)',
+        "Cache from the Infinite's Armory (Infinite Research special assignment)"
+      ],
+      note: 'Bound to Remix characters; deleted automatically if the character transfers off the event timeline.'
+    },
+    vendorHighlights: [
+      {
+        name: 'Legion Pocket Portal - 7,500 Nethershards (Revered)',
+        description: 'Creates a return portal to Deliverance Point for rapid Tomb of Sargeras turnarounds.'
+      },
+      {
+        name: 'Cauterizing Void Shard - 5,000 Nethershards (Honored)',
+        description: 'Group-wide 10% damage and healing buff while adventuring on the Broken Shore.'
+      },
+      {
+        name: 'Legionfall Tabard - 300 Bronze (Exalted)',
+        description: 'Classic green-and-bronze tabard that pairs with Cathedral of Eternal Night ensembles.'
+      }
+    ],
+    paragonRewards: [
+      {
+        name: 'Orphaned Felbat - Legionfall Chest',
+        description: 'Fel-green pet from paragon caches once you push reputation beyond Exalted.'
+      }
+    ],
+    questRewards: [
+      'Gold',
+      'Experience',
+      'Lesser Bronze Cache',
+      "Legionfall Champion's Insignia",
+      'Cache of Infinite Power'
+    ],
+    image: legionImages.rewardVendorLegionfall,
+    hasVendor: true
+  },
+  {
     slug: 'kirin-tor',
     name: 'Kirin Tor Emissary',
     zone: 'Dalaran',

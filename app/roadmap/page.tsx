@@ -42,23 +42,19 @@ const updatedOn = 'October 31, 2025';
 const weeklyBeats = [
   {
     title: 'Phase cadence',
-    detail:
-      'Review phase unlocks every Tuesday reset and align your Legion Remix Road Map with raid or dungeon goals so the Legion Remix Road Map timeline stays current.',
+    detail: 'Review phase unlocks every Tuesday reset and line up raid or dungeon priorities for the next fortnight.',
   },
   {
     title: 'Bronze targets',
-    detail:
-      'Bank 60,000 Bronze per week to stay ahead of Infinite Bazaar unlocks outlined in this Legion Remix Road Map and use the Legion Remix Road Map to flag priority vendors.',
+    detail: 'Bank roughly 60,000 Bronze weekly so Infinite Bazaar vendors and class mount purchases never bottleneck you.',
   },
   {
     title: 'Collection pulses',
-    detail:
-      'Run Violet Spellwing, Argus rares, and class mount chains during their highlighted Legion Remix Road Map windows while stacking the Legion Remix Road Map alerts to catch limited-time spawns.',
+    detail: 'Schedule Violet Spellwing runs, Argus rares, and class mount chapters during the weeks they unlock.',
   },
   {
     title: 'Quality-of-life',
-    detail:
-      'Refresh addons, macros, and UI exports following each hotfix so the Legion Remix Road Map remains smooth to follow and archive every Legion Remix Road Map change log for future seasons.',
+    detail: 'Refresh addons and macros after each hotfix so UI exports and Bronze calculators stay accurate.',
   },
 ];
 
@@ -66,26 +62,22 @@ const bronzeChecklist = [
   {
     name: 'Infinite Knowledge research',
     amount: '15,000 Bronze',
-    note:
-      'Complete before Week 3 so the Legion Remix Road Map keeps your alts on the same artifact power curve.',
+    note: 'Finish before Week 3 to keep every alt’s artifact tree on pace with the main.',
   },
   {
     name: 'Class mount finales',
     amount: '25,000 Bronze',
-    note:
-      'Schedule purchases for Phase 3 to sync with Legion Remix Road Map class campaign beats and travel time.',
+    note: 'Phase 3 brings Legionfall finales—budget Bronze for the mount variants you still need.',
   },
   {
     name: 'Housing decor bundles',
     amount: '18,000 Bronze',
-    note:
-      'Phase 5 bundles rotate quickly—tag them in the Legion Remix Road Map calendar so you never miss stock.',
+    note: 'Phase 5 décor rotates weekly; flag desired pieces before Infinite Echoes kicks off.',
   },
   {
     name: 'Antorus catch-up gear',
     amount: '40,000 Bronze',
-    note:
-      'Plan Week 8 and Week 10 shopping sprees so the Legion Remix Road Map equips every Timerunner equally.',
+    note: 'Plan Week 8 and Week 10 shopping sprees so every Timerunner reaches Antorus item levels together.',
   },
 ];
 
@@ -93,18 +85,63 @@ const roadmapFaq = [
   {
     question: 'Why does the Legion Remix Road Map focus on two-week checkpoints?',
     answer:
-      'Each phase runs for roughly fourteen days. Anchoring the Legion Remix Road Map to that cadence ensures you budget reps, raid clears, and Bronze in manageable bursts that match Blizzard’s unlock schedule.',
+      'Each phase lasts about fourteen days. Planning around that cadence keeps reputation pushes, raid clears, and Bronze spending manageable.',
   },
   {
     question: 'How often should I update my legion remix road map tasks?',
-    answer:
-      'Log progress after every Tuesday reset and Sunday cleanup session. That rhythm keeps your legion remix road map aligned with hotfixes, bonus events, and the newest Infinite Bazaar stock.',
+    answer: 'Log progress after the Tuesday reset and a Sunday cleanup session so hotfixes and bonus events never surprise you.',
   },
   {
     question: 'Can the Legion Remix Road Map support multiple Timerunners?',
-    answer:
-      'Yes—duplicate the Legion Remix Road Map checklist for each alt, then use the Bronze planner so every character hits artifact, gear, and cosmetic milestones together.',
+    answer: 'Yes—duplicate the checklist per alt, then mirror Bronze targets so each character finishes artifacts, gear, and cosmetics together.',
   },
+];
+
+const phaseCards = [
+  {
+    id: 'phase-1',
+    title: 'Phase 1 – Skies of Fire',
+    dates: 'October 7 – October 20, 2025',
+    image: legionImages.phase1Overview,
+    highlights: [
+      'Class campaign openers, order hall unlocks, and artifact introductions return.',
+      'Heroic World Tier, Timewarped Obelisks, and Infinite Research begin delivering Artifactum Sand.',
+      'Emerald Nightmare, Trial of Valor, and the launch Timeworn Keystone dungeons anchor gearing.'
+    ]
+  },
+  {
+    id: 'phase-2',
+    title: 'Phase 2 – Rise of the Nightfallen',
+    dates: 'October 21 – November 3, 2025',
+    image: legionImages.phase2Overview,
+    highlights: [
+      'Return to Karazhan and The Nighthold open alongside new Timeworn Keystone rotations.',
+      'Suramar campaign chapters pace Ancient Mana upgrades and the Kaldorei queen ensemble.',
+      'New rewards include arcwine toys, Withered Army Training buffs, and Infinite Knowledge ranks.'
+    ]
+  },
+  {
+    id: 'phase-3',
+    title: 'Phase 3 – Legionfall',
+    dates: 'November 4 – November 17, 2025',
+    image: legionImages.phase3Overview,
+    highlights: [
+      'Broken Shore assaults, construction missions, and Legionfall supplies unlock class mount finales.',
+      'Cathedral of Eternal Night enters the dungeon pool while Tomb of Sargeras headlines weekly raids.',
+      'Fragmented Mementos drop more often, complementing Legionfall Champion’s Insignia catch-up.'
+    ]
+  },
+  {
+    id: 'phase-4',
+    title: 'Phase 4 – Argus Eternal',
+    dates: 'November 18 – December 8, 2025',
+    image: legionImages.phase4Overview,
+    highlights: [
+      'Krokuun, Antoran Wastes, and Mac’Aree unlock with new world quests and rare trains.',
+      'Seat of the Triumvirate joins Timeworn Keystones while Antorus anchors raid progression.',
+      'Army of the Light and Argussian Reach vendors stock late-season mounts, toys, and ensembles.'
+    ]
+  }
 ];
 
 export default function RoadmapPage() {
@@ -145,20 +182,13 @@ export default function RoadmapPage() {
             Legion Remix Road Map
           </h1>
           <p className="text-lg md:text-xl text-gray-200 max-w-3xl">
-            This Legion Remix Road Map collects every phase unlock, weekly goal, and Bronze milestone
-            in one command center so Timerunners never scramble. Use the Legion Remix Road Map to
-            snapshot your plan, confirm which checklist items unlock next, and align your group on
-            priorities before the reset hits.
+            Track every Legion Remix phase, weekly priority, and Bronze milestone at a glance so Timerunners can stay ahead of unlocks without juggling multiple docs.
           </p>
           <p className="text-base md:text-lg text-gray-300 max-w-3xl mt-4">
-            If your legion remix road map felt scattered inside spreadsheets or GSC anchor links,
-            this dedicated hub gives you a clean calendar, downloadable notes, and a transparent
-            cadence for all five phases.
+            Use the timeline below to snapshot what lands on each reset, from class campaign beats to raid rotations and Infinite Bazaar stock. Each checklist pairs the latest reference notes with actionable goals.
           </p>
           <p className="text-sm md:text-base text-green-300 max-w-3xl mt-3">
-            Map your Mythic+ schedule, raid splits, and cosmetic runs on the Legion Remix Road Map
-            checklist so every teammate respects the Legion Remix Road Map priorities without
-            ping-ponging across docs.
+            Sync Mythic+ pushes, raid splits, and collection runs here, then copy the Bronze planner into your guild sheet so everyone spends with the same deadlines.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {weeklyBeats.map((beat) => (
@@ -190,16 +220,12 @@ export default function RoadmapPage() {
           <div className="relative z-10 px-6 py-10 md:px-12">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <h2 className="text-3xl font-bold text-white mb-2">Visual Legion Remix Road Map Tracker</h2>
+                <h2 className="text-3xl font-bold text-white mb-2">Visual Phase Tracker</h2>
                 <p className="text-gray-300 max-w-2xl">
-                  Follow the Legion Remix Road Map progress bar to see which phase is active and what
-                  unlocks next. Each node lights up as the Legion Remix Road Map advances so your team
-                  instantly understands where to spend time and Bronze.
+                  Watch the progress bar light up as each phase arrives. Hover over a node to double-check dates, required achievements, and when to pivot your focus.
                 </p>
                 <p className="text-sm text-gray-400 max-w-xl mt-3">
-                  Screenshot this Legion Remix Road Map visualization or embed it in your stream overlay so the
-                  Legion Remix Road Map cadence becomes second nature for viewers and teammates, and keep a spare
-                  widget running for emergent Legion Remix Road Map events.
+                  Screenshot the graphic for your guild discord or stream overlay so everyone stays aligned on unlock cadence and upcoming checklists.
                 </p>
               </div>
               <div className="text-right">
@@ -248,20 +274,35 @@ export default function RoadmapPage() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              {[
-                'Legion Remix Road Map phase view',
-                'Legion Remix Road Map Bronze flow',
-                'Legion Remix Road Map raid prep',
-                'Legion Remix Road Map collector checklist',
-                'Legion Remix Road Map time blocks',
-              ].map((label) => (
-                <span
-                  key={label}
-                  className="px-4 py-2 text-xs font-semibold uppercase tracking-wide bg-green-600/20 border border-green-500/40 text-green-200 rounded-full"
+            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              {phaseCards.map((card) => (
+                <article
+                  key={card.id}
+                  className="rounded-2xl border border-gray-800 bg-gray-900/70 overflow-hidden hover:border-green-500/50 transition-colors"
                 >
-                  {label}
-                </span>
+                  <div className="relative h-40">
+                    <Image
+                      src={card.image}
+                      alt={`${card.title} artwork`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <span className="text-xs uppercase tracking-wide text-green-300">{card.dates}</span>
+                      <h3 className="text-lg font-semibold text-white mt-1">{card.title}</h3>
+                    </div>
+                  </div>
+                  <ul className="p-5 space-y-2 text-sm text-gray-300">
+                    {card.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2">
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-green-400" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
           </div>
@@ -269,19 +310,12 @@ export default function RoadmapPage() {
 
         <div className="grid lg:grid-cols-[2fr,1fr] gap-10 items-start">
           <div id="timeline">
-            <h2 className="text-3xl font-bold text-white mb-4">Legion Remix Road Map Timeline</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">Season Timeline</h2>
             <p className="text-gray-300 mb-4">
-              Scroll through the dates below to see how the Legion Remix Road Map stacks phase
-              unlocks, raid releases, and Bronze surges. Because every milestone lives under the same
-              Legion Remix Road Map, you can prioritize alts, schedule group nights, and log vendor
-              cooldowns without juggling tabs.
-            </p>
-            <p className="text-gray-300 mb-6">
-              Bookmark this section or export it as a PDF so the Legion Remix Road Map follows you
-              into Discord planning channels and in-game group finder notes.
+              Browse the schedule to reference exactly when raids, dungeons, and vendor rotations unlock. Each card summarizes the major activities of its two-week window.
             </p>
             <p className="text-sm text-gray-400 mb-6">
-              Highlight the Legion Remix Road Map milestones inside your guild calendar and color code each Legion Remix Road Map window so roster leads know which dungeons, raids, or farms to spotlight weekly.
+              Export or bookmark this view for guild planning channels so roster leads can assign goals before the reset lands.
             </p>
 
             <div className="space-y-6">
@@ -316,10 +350,9 @@ export default function RoadmapPage() {
           <div className="space-y-6">
             <Countdown targetDate={eventDates.end} title="Legion Remix Road Map Countdown" />
             <div className="border border-green-700/40 bg-gray-900/60 rounded-xl p-6">
-              <h3 className="text-2xl font-semibold text-white mb-3">Legion Remix Road Map Snapshot</h3>
+              <h3 className="text-2xl font-semibold text-white mb-3">Planning Snapshot</h3>
               <p className="text-sm text-gray-300 mb-4">
-                Download the quick-reference sheet to mirror this Legion Remix Road Map inside your
-                guild docs and personal trackers.
+                Download the quick-reference sheet to mirror these checkpoints inside your guild docs and personal trackers.
               </p>
               <Link
                 href="#weekly-checkpoints"
@@ -328,10 +361,10 @@ export default function RoadmapPage() {
                 Open Weekly Checkpoints
               </Link>
               <p className="text-xs text-gray-500 mt-3">
-                Duplicate the Legion Remix Road Map checklist into Notion, Google Sheets, or your preferred planner, and label each tab "Legion Remix Road Map Sprint" so every reset stays aligned.
+                Duplicate the checklist into Notion, Google Sheets, or your preferred planner and tag each tab with the corresponding phase.
               </p>
               <p className="text-xs text-gray-400 mt-2">
-                Share the Legion Remix Road Map calendar link with returning players so they can skim the Legion Remix Road Map highlights before jumping back in.
+                Share the calendar link with returning players so they can skim upcoming highlights before jumping back in.
               </p>
             </div>
           </div>

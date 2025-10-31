@@ -21,6 +21,7 @@ const reputationSubmenu = [
   { name: 'The Nightfallen', href: '/reputation/the-nightfallen' },
   { name: 'The Wardens', href: '/reputation/the-wardens' },
   { name: 'Valarjar', href: '/reputation/valarjar' },
+  { name: 'Armies of Legionfall', href: '/reputation/armies-of-legionfall' },
   { name: 'Kirin Tor Emissary', href: '/reputation/kirin-tor' },
 ];
 
@@ -36,6 +37,7 @@ const navigation = [
       { name: 'Leveling Guide', href: '/guides/leveling' },
       { name: 'Bronze Farming', href: '/guides/bronze-farming' },
       { name: 'Ancient Mana', href: '/guides/ancient-mana' },
+      { name: 'Fragmented Mementos', href: '/guides/fragmented-mementos' },
       { name: 'Lock, Stock & Goblins', href: '/guides/lock-stock-two-smoking-goblins' },
       { name: 'Suramar Campaign', href: '/guides/suramar-campaign' },
       { name: 'Infinite Bazaar Vendors', href: '/guides/bronze-vendors' },
@@ -44,6 +46,7 @@ const navigation = [
       { name: 'Raid Prep', href: '/guides/raids' },
       { name: 'Infinite Knowledge', href: '/guides/infinite-knowledge' },
       { name: 'Reputation Guide', href: '/guides/reputation' },
+      { name: 'Hunter Pet Finder', href: '/guides/hunter-pets' },
     ]
   },
   {

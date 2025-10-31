@@ -78,6 +78,7 @@ export const legionImages = {
   rewardVendorArgussianReach: "/images/reference/rewards/toraan-the-revered-argussian-reach-reputation-emissary-vendor-legion-1024x576.jpg",
   rewardVendorKirinTor: "/images/reference/rewards/warmage-silva-kirin-tor-reputation-emissary-legion-1024x576.jpg",
   rewardVendorHoros: "/images/reference/rewards/horos_rare_collections_vendor_infinite_bazaar_legion_remix-1024x576.jpg",
+  rewardVendorFreddieThreads: "/images/reference/rewards/freddie-threads-infinite-bazaar-bronze-vendors-legion-remix-1024x576.jpg",
   rewardVendorHemet: "/images/reference/rewards/hemet-nesingwary-xvii-torn-invitation-legion-remix-1024x576.jpg",
   rewardVendorQuestCrystal: "/images/reference/rewards/strange_humming_crystal_horos_legion_remix-1024x576.jpg",
   rewardQuestLlothienProwler: "/images/reference/rewards/herald-gevedaun-volpin-the-elusive-llothien-prowler-quest-legion-remix-1024x576.jpg",
@@ -91,6 +92,40 @@ export const legionImages = {
   rewardWeaponFallenKings: "/images/reference/rewards/legion-remix-weapon-appearance-fallen-kings-corrupted-blades-1024x576.jpg",
   rewardWeaponScytheUnmaker: "/images/reference/rewards/legion-remix-weapon-appearance-scythe-of-the-unmaker-1024x576.jpg",
   rewardArchmageKhadgar: "/images/reference/rewards/archmage_khadgar_legion_remix-1024x576.jpg",
+
+  // Phase overview art
+  phase1Overview: "/images/reference/phases/legion-remix-phase-1-1024x519.jpg",
+  phase2Overview: "/images/reference/phases/legion-remix-phase-2.jpg",
+  phase3Overview: "/images/reference/phases/legion-remix-phase-3.jpg",
+  phase4Overview: "/images/reference/phases/legion-remix-phase-4.jpg",
+
+  // Dungeon & raid access
+  cathedralEntranceMap: "/images/guides/dungeons/cathedral-of-eternal-night-entrance-location-map-legion-remix-1024x576.jpg",
+  cathedralPortal: "/images/guides/dungeons/cathedral-of-eternal-night-dungeon-portal-legion-remix-1024x576.jpg",
+  tombOfSargerasMeetingStone: "/images/guides/raids/tomb-of-sargeras-meeting-stone-1024x576.jpg",
+
+  // Fragmented Memento farming
+  fragmentedMementoReward: "/images/guides/fragmented-memento/fragmented-memento-of-epoch-challenges-reward.jpg",
+  fragmentedMementoRaid: "/images/guides/fragmented-memento/looting-fragmented-memento-of-epoch-challenge-raids-1024x482.jpg",
+  fragmentedMementoRare: "/images/guides/fragmented-memento/rare-mob-fragmented-memento-of-epoch-challenges-legion-remix-1024x576.jpg",
+  fragmentedMementoHeroicBuff: "/images/guides/fragmented-memento/heroic-world-tier-fragmented-memento-of-epoch-challenges-loot-rare-mob-1024x481.jpg",
+  fragmentedMementoKeystoneTier2: "/images/guides/fragmented-memento/fragmented-memento-of-epoch-challenge-mythic-dungeon-farm-1024x342.jpg",
+  fragmentedMementoKeystoneTier4: "/images/guides/fragmented-memento/fragmented-memento-legion-remix-farm-mythic-dungeons-1024x313.jpg",
+  lindormiInfiniteBazaar: "/images/guides/fragmented-memento/lindormi-legion-remix-1024x576.jpg",
+
+  // Hunter order hall & pets
+  trueshotPortalToDalaran: "/images/classes/hunter/trueshot-lodge/portal-to-dalaran-trueshot-lodge-hunter-order-hall-legion-remix-1024x576.jpg",
+  trueshotMapLayout: "/images/classes/hunter/trueshot-lodge/trueshot-lodge-hunter-class-order-hall-map.jpg",
+  trueshotBartenderTomro: "/images/classes/hunter/trueshot-lodge/bartender-tomro-trueshot-lodge-hunter-class-order-hall-legion-remix-1024x576.jpg",
+  hunterPetClefthoofStormsReach: "/images/classes/hunter/pets/clefthoof-storms-reach-legion-remix-1024x576.jpg",
+  hunterPetClefthoofBilgefin: "/images/classes/hunter/pets/clefthoof-bilgefin-shore-legion-remix-1024x576.jpg",
+  hunterPetFelhound: "/images/classes/hunter/pets/felhound-legion-remix-1024x576.jpg",
+  hunterPetDevilsaur: "/images/classes/hunter/pets/young-devilsaur-legion-remix-1024x576.jpg",
+  hunterPetHyena: "/images/classes/hunter/pets/hyenas-legion-remix-1024x576.jpg",
+  hunterPetStoneGuardian: "/images/classes/hunter/pets/stone-guardians-legion-remix-1024x576.jpg",
+  hunterPetStoneGuardianLlothien: "/images/classes/hunter/pets/stone-guardian-cave-entrance-llothien-legion-remix-1024x576.jpg",
+  hunterPetStoneGuardianLeyRuins: "/images/classes/hunter/pets/stone-guardian-cave-entrance-ley-ruins-legion-remix-1024x576.jpg",
+  hunterPetStoneGuardianFarondale: "/images/classes/hunter/pets/stone-guardian-cave-entrance-farondale-legion-remix-1024x576.jpg",
 };
 
 export const officialVideos = {

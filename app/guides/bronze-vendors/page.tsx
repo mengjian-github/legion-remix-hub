@@ -119,6 +119,16 @@ const vendorDirectory: VendorDetail[] = [
     ],
   },
   {
+    name: 'Freddie Threads',
+    role: 'Discount cloak dealer',
+    highlight: 'Stocks cloak ensembles and utility cloaks that change weekly in Legion Remix.',
+    tips: [
+      'Check Freddie after visiting Pythagorus—his rack is tucked behind the raid apparel tent.',
+      'Cloaks cost 2,500–4,000 Bronze; mark favorites in the Bronze calculator before stock rotates.',
+    ],
+    image: legionImages.rewardVendorFreddieThreads,
+  },
+  {
     name: 'Arturos',
     role: 'Dungeon apparel',
     highlight: 'Offers Timeworn Keystone-inspired ensembles and weapon appearances.',

@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://legionremixhub.com/guides</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -49,14 +49,20 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://legionremixhub.com/guides/fragmented-mementos</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://legionremixhub.com/guides/dungeons</loc>
-    <lastmod>2025-10-22</lastmod>
+    <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/guides/raids</loc>
-    <lastmod>2025-10-22</lastmod>
+    <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -74,9 +80,15 @@
   </url>
   <url>
     <loc>https://legionremixhub.com/guides/bronze-vendors</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/guides/hunter-pets</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
   </url>
   <url>
     <loc>https://legionremixhub.com/calculator</loc>
@@ -146,7 +158,7 @@
   </url>
   <url>
     <loc>https://legionremixhub.com/reputation</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -183,6 +195,12 @@
   <url>
     <loc>https://legionremixhub.com/reputation/valarjar</loc>
     <lastmod>2025-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://legionremixhub.com/reputation/armies-of-legionfall</loc>
+    <lastmod>2025-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>

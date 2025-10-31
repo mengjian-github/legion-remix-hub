@@ -72,14 +72,15 @@ const affixCallouts = [
 const dungeonById = Object.fromEntries(dungeons.map((dungeon) => [dungeon.id, dungeon]));
 
 export default function DungeonsGuidePage() {
-  const quickLinks = [
-    { label: 'Phase spotlight', href: '#phase-recommendations' },
-    { label: 'Karazhan access', href: '#karazhan-access' },
-    { label: 'Keystone breakpoints', href: '#keystone-breakpoints' },
-    { label: 'Affix tips', href: '#empowered-affixes' },
-    { label: 'Bronze synergy', href: '#bronze-synergy' },
-    { label: 'Turbo Boost timing', href: '/guides/bronze-farming#time-investment-calculator' }
-  ];
+const quickLinks = [
+  { label: 'Phase spotlight', href: '#phase-recommendations' },
+  { label: 'Karazhan access', href: '#karazhan-access' },
+  { label: 'Cathedral access', href: '#cathedral-access' },
+  { label: 'Keystone breakpoints', href: '#keystone-breakpoints' },
+  { label: 'Affix tips', href: '#empowered-affixes' },
+  { label: 'Bronze synergy', href: '#bronze-synergy' },
+  { label: 'Turbo Boost timing', href: '/guides/bronze-farming#time-investment-calculator' }
+];
 
   const referenceHighlights = [
     {
@@ -201,6 +202,42 @@ export default function DungeonsGuidePage() {
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />
+            </div>
+          </section>
+
+          <section id="cathedral-access" className="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden mb-10 grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-semibold text-white">Cathedral of Eternal Night Entrance</h3>
+              <p className="text-sm text-gray-300">
+                Phase 3 adds the Cathedral of Eternal Night to the Timeworn Keystone rotation. The portal hides beside the Tomb of Sargeras staircase on the Broken Shore.
+              </p>
+              <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
+                <li>Fly to <strong>Deliverance Point</strong> and take the path north-east toward the Tomb of Sargeras cliffs.</li>
+                <li>At <code>/way 64.1 16.6</code> turn left into the fel courtyard—ignore the raid portal and continue down the stairs.</li>
+                <li>The Cathedral portal sits behind the raid meeting stone. Set your hearth or use the Legion Pocket Portal to reset runs quickly.</li>
+              </ol>
+              <p className="text-xs text-gray-400">
+                Heroic World Tier boosts Fragmented Memento drops here after the October 21 hotfix, so chain Cathedral with Tomb raid nights for Bronze and Knowledge gains.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />
+              <div className="grid h-full w-full gap-4 p-4">
+                <div className="relative overflow-hidden rounded-lg border border-gray-800">
+                  <img
+                    src={legionImages.cathedralEntranceMap}
+                    alt="Map showing Cathedral of Eternal Night entrance on the Broken Shore"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="relative overflow-hidden rounded-lg border border-gray-800">
+                  <img
+                    src={legionImages.cathedralPortal}
+                    alt="Cathedral of Eternal Night dungeon portal beside Tomb of Sargeras"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </section>
 

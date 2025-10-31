@@ -235,14 +235,14 @@ export const classLore: Record<string, ClassLore> = {
         description:
           'The Trueshot Lodge sits high in Highmountain, acting as a base camp for hunters from every faction.',
         bullets: [
-          'Gather mission table followers, rare tames, and profession vendors around the lodge’s central fire.',
-          'Unlock scouting portals to each Broken Isles zone as the class campaign advances.',
-          'Interact with the Unseen Path to coordinate strikes against Legion footholds.'
+          'Slip through the lodge’s rear portal to Dalaran for instant banking between raid or pet runs.',
+          'Visit the stable and workshop wing for Bartender Tomro’s rest buffs and Outfitter Reynolds’ hunter cosmetics.',
+          'Practice on the cliffside training range with Odan Battlebow before queueing Timeworn Keystones.'
         ],
         image: {
-          src: '/images/classes/hunter-order-hall.jpg',
-          alt: 'Trueshot Lodge entrance',
-          caption: 'Trueshot Lodge perched in Highmountain (Warcraft Tavern)'
+          src: '/images/classes/hunter/trueshot-lodge/portal-to-dalaran-trueshot-lodge-hunter-order-hall-legion-remix-1024x576.jpg',
+          alt: 'Portal to Dalaran inside Trueshot Lodge',
+          caption: 'Portal to Dalaran tucked behind the mission table in Trueshot Lodge'
         }
       },
       {

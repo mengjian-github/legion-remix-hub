@@ -98,6 +98,7 @@ export default function RaidsGuidePage() {
   const quickLinks = [
     { label: 'Phase unlock grid', href: '#raid-checklist' },
     { label: 'Nighthold entrance', href: '#nighthold-access' },
+    { label: 'Tomb entrance', href: '#tomb-access' },
     { label: 'Ensemble rewards', href: '#sargerei-ensembles' },
     { label: 'Argus cosmetics', href: '#argus-legacies' },
     { label: 'Savage challenge prep', href: '#savage-prep' },
@@ -190,6 +191,31 @@ export default function RaidsGuidePage() {
               <img
                 src="/images/guides/nighthold-sanctum-of-order.jpg"
                 alt="Sanctum of Order entrance to The Nighthold"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />
+            </div>
+          </section>
+
+          <section id="tomb-access" className="bg-gray-900/50 border border-gray-700 rounded-3xl overflow-hidden mb-10 grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-semibold text-white">Navigating to Tomb of Sargeras</h3>
+              <p className="text-sm text-gray-300">
+                Phase 3 unlocks the Tomb for November 4–17. Use this route so your raid avoids the Legionfall gauntlet and hits pull timers on schedule.
+              </p>
+              <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
+                <li>Fly into <strong>Deliverance Point</strong> and sprint across the bridge toward the central command platform.</li>
+                <li>At <code>/way 44.6 63.5</code> pick up the weekly building buffs, then glide north along the fel ravine toward the raid staircase.</li>
+                <li>Gather at the meeting stone halfway down the stairs; Mythic groups can summon alts while the rest drop into the raid portal below.</li>
+              </ol>
+              <p className="text-xs text-gray-400">
+                Set a Legion Pocket Portal near the stone for instant resets, and remember that class mount finales require a single Tomb clear once Legionfall opens on November 4, 2025.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src={legionImages.tombOfSargerasMeetingStone}
+                alt="Tomb of Sargeras meeting stone on the Broken Shore"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />

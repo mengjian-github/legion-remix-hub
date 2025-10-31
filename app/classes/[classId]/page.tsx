@@ -62,6 +62,10 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
     {
       title: 'Infinite Artifact Weapon Traits & Leveling',
       summary: 'Explains how Fel, Storm, Arcane, Nature, and Holy Light paths impact your class when spending Artifactum Sand.'
+    },
+    {
+      title: 'Trueshot Lodge Floor Guide',
+      summary: 'Highlights the Dalaran portal, bartender buffs, and training range inside the hunter order hall so you move efficiently between missions.'
     }
   ];
 
@@ -334,6 +338,12 @@ export default async function ClassPage({ params }: { params: Promise<{ classId:
                     className="block text-green-400 hover:text-green-300 text-sm"
                   >
                     → Bronze Calculator
+                  </Link>
+                  <Link
+                    href="/guides/hunter-pets"
+                    className="block text-green-400 hover:text-green-300 text-sm"
+                  >
+                    → Hunter Pet Finder
                   </Link>
                 </div>
               </div>
