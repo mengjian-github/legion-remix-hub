@@ -35,6 +35,7 @@ const navigation = [
       { name: 'Leveling Guide', href: '/guides/leveling' },
       { name: 'Bronze Farming', href: '/guides/bronze-farming' },
       { name: 'Ancient Mana', href: '/guides/ancient-mana' },
+      { name: 'Lock, Stock & Goblins', href: '/guides/lock-stock-two-smoking-goblins' },
       { name: 'Suramar Campaign', href: '/guides/suramar-campaign' },
       { name: 'Infinite Bazaar Vendors', href: '/guides/bronze-vendors' },
       { name: 'Class Mounts', href: '/guides/class-mounts' },
