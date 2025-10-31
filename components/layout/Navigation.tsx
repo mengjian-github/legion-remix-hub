@@ -26,6 +26,7 @@ const reputationSubmenu = [
 
 const navigation = [
   { name: 'Home', href: '/' },
+  { name: 'Road Map', href: '/roadmap', title: 'Legion Remix Road Map' },
   { name: 'News', href: '/news' },
   {
     name: 'Guides',
@@ -73,7 +74,7 @@ const navigation = [
     href: '/rewards',
     submenu: rewardsSubmenu,
   },
-  { name: 'Legion Remix Bronze Calculator', href: '/calculator' },
+  { name: 'Bronze Calculator', href: '/calculator', title: 'Legion Remix Bronze Calculator' },
   { name: 'FAQ', href: '/faq' },
 ];
 
@@ -97,6 +98,7 @@ export default function Navigation() {
                   <Link
                     href={item.href}
                     className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors"
+                    title={item.title ?? item.name}
                     onMouseEnter={() => item.submenu && setOpenDropdown(item.name)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
@@ -163,6 +165,7 @@ export default function Navigation() {
                 <Link
                   href={item.href}
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+                  title={item.title ?? item.name}
                 >
                   {item.name}
                 </Link>
