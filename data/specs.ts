@@ -102,6 +102,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Holy',
     role: 'Healer',
     metaDescription: 'Holy Paladin Legion Remix guide covering the best Arcane artifact path, optimal talents, stat priorities, and leveling strategies—your quick Legion Remix Holy Paladin build overview and Legion Remix paladin guide starting point.',
+    seoFocusKeyword: 'Holy Paladin Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix Holy Paladin guide',
+      'Holy Paladin Legion Remix talents',
+      'Legion Remix holy paladin build'
+    ],
+    seoTopics: [
+      'raid healing rotations',
+      'Arcane artifact route planning',
+      'Bronze vendor triage',
+      'Mythic+ sustain cooldowns'
+    ],
+    seoSupportingConcepts: [
+      'Beacon of Light swap logic',
+      'Aura Mastery coverage plans',
+      'Infusion of Light proc usage',
+      'Divine Toll opener alignment'
+    ],
 
     bestArtifactPath: 'arcane',
     alternateArtifactPaths: [
@@ -155,6 +173,26 @@ export const specGuides: SpecGuide[] = [
       mythicPlus: 'Maximum throughput healing with AoE talents for dungeon content',
       raid: 'Single-target and tank healing optimization with cooldown management'
     },
+    engagementActions: [
+      {
+        title: 'Holy Paladin Raid Planner',
+        description: 'Slot Aura Mastery, Avenging Crusader, and Blessing rotations into a Holy Paladin Legion Remix raid timeline before pull.',
+        href: '/guides/raids',
+        actionLabel: 'Build healing plan'
+      },
+      {
+        title: 'Bronze Spending Matrix',
+        description: 'Check which Legion Remix Holy Paladin trinkets, weapons, and tier slots deserve Bronze first each reset.',
+        href: '/calculator',
+        actionLabel: 'Rank upgrades'
+      },
+      {
+        title: 'Daily Sustain Tracker',
+        description: 'Log world quests, keystones, and Kirin Tor emissaries to keep Holy Paladin Legion Remix alts stocked on Infinite Knowledge.',
+        href: '/guides/bronze-farming',
+        actionLabel: 'Track runs'
+      }
+    ],
 
     groupTier: 'A',
     soloTier: 'B',
@@ -166,6 +204,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Protection',
     role: 'Tank',
     metaDescription: 'Protection Paladin Legion Remix guide detailing the best Fel artifact path, tanking talents, stat priorities, and strategies for dungeons, raids, and solo content with a Legion Remix Prot Paladin guide focus.',
+    seoFocusKeyword: 'Protection Paladin Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix Protection Paladin guide',
+      'Legion Remix prot paladin build',
+      'Protection Paladin Legion Remix talents'
+    ],
+    seoTopics: [
+      'cooldown layering routes',
+      'Fel artifact block timing',
+      'Bronze defense investments',
+      'Mythic+ threat planning'
+    ],
+    seoSupportingConcepts: [
+      'Guardian of Ancient Kings sequencing',
+      'Ardent Defender coverage calls',
+      'Consecration uptime mapping',
+      'Blessed Hammer snap threat setups'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -230,6 +286,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Retribution',
     role: 'DPS',
     metaDescription: 'Retribution Paladin Legion Remix guide outlining the best Fel artifact path, top DPS talents, stat priorities, and ways to dominate both solo and group content—use this Legion Remix Paladin guide slice to plan your burst windows, Ret Paladin Legion Remix build, and ret pala Legion Remix Bronze priorities.',
+    seoFocusKeyword: 'Retribution Paladin Legion Remix',
+    seoSecondaryKeywords: [
+      'Ret Paladin Legion Remix build',
+      'Legion Remix Retribution Paladin talents',
+      'Legion Remix ret paladin rotation'
+    ],
+    seoTopics: [
+      'burst window management',
+      'artifact Fel path routing',
+      'Bronze budgeting cadence',
+      'Heroic World Tier solo planning'
+    ],
+    seoSupportingConcepts: [
+      'Divine Resonance timing',
+      'Wake of Ashes setup sequencing',
+      'Blessing of Freedom mobility plays',
+      'Infinite Knowledge investment pacing'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -289,7 +363,27 @@ export const specGuides: SpecGuide[] = [
 
     groupTier: 'A',
     soloTier: 'S',
-    heroicWorldTier: true
+    heroicWorldTier: true,
+    engagementActions: [
+      {
+        title: 'Ret Paladin Burst Worksheet',
+        description: 'Map Avenging Wrath, Execution Sentence, and Wake of Ashes inside a Retribution Paladin Legion Remix opener before raid night.',
+        href: '/guides/raids',
+        actionLabel: 'Plan burst phases'
+      },
+      {
+        title: 'Bronze Shopping List',
+        description: 'Stack the top Ret Paladin Legion Remix item upgrades and trinkets so you never guess where the next 30,000 Bronze goes.',
+        href: '/calculator',
+        actionLabel: 'Prioritize spending'
+      },
+      {
+        title: 'Daily Route Tracker',
+        description: 'Log Legion Remix world quests and invasion rotations to keep Retribution Paladin Legion Remix alts capped on Infinite Knowledge.',
+        href: '/guides/bronze-farming',
+        actionLabel: 'Track progress'
+      }
+    ]
   },
 
   // WARRIOR SPECS
@@ -299,6 +393,24 @@ export const specGuides: SpecGuide[] = [
     role: 'DPS',
     metaDescription:
       'Arms Warrior Legion Remix guide covering Fel path burst windows, Infinite Knowledge priorities, Legion Remix arms warrior build planning, and optimal Bronze spending during The War Within 11.2.5—your WoW Legion Remix warrior build roadmap for Execute enjoyers.',
+    seoFocusKeyword: 'Arms Warrior Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix arms warrior guide',
+      'Arms Warrior Legion Remix build',
+      'Legion Remix arms warrior talents'
+    ],
+    seoTopics: [
+      'execute window alignment',
+      'Fel artifact bleed routes',
+      'Bronze upgrade sequencing',
+      'Mythic+ cleave prep'
+    ],
+    seoSupportingConcepts: [
+      'Colossus Smash timing maps',
+      'Avatar and Bladestorm pairing',
+      'Sweeping Strikes uptime planning',
+      'Ignore Pain mitigation coverage'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -354,6 +466,24 @@ export const specGuides: SpecGuide[] = [
     role: 'DPS',
     metaDescription:
       'Fury Warrior Legion Remix guide with Storm path haste stacking, Rampage uptime tips, and Phase 4 Bronze priorities.',
+    seoFocusKeyword: 'Fury Warrior Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix fury warrior guide',
+      'Fury Warrior Legion Remix build',
+      'Legion Remix fury warrior talents'
+    ],
+    seoTopics: [
+      'Enrage upkeep planning',
+      'Storm path haste routing',
+      'Bronze weapon investment order',
+      'Timeworn keystone burst prep'
+    ],
+    seoSupportingConcepts: [
+      'Recklessness sync charts',
+      'Odyn\'s Fury cleave cycles',
+      'Bloodthirst healing cadence',
+      'Raging Blow priority notes'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -409,6 +539,24 @@ export const specGuides: SpecGuide[] = [
     role: 'Tank',
     metaDescription:
       'Protection Warrior Legion Remix guide explaining Storm bulwark mitigation, Time Crisis readiness, and Bronze upgrade order in the 11.2.5 event.',
+    seoFocusKeyword: 'Protection Warrior Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix protection warrior guide',
+      'Prot Warrior Legion Remix build',
+      'Protection Warrior Legion Remix talents'
+    ],
+    seoTopics: [
+      'block uptime planning',
+      'Tempest Bulwark routing',
+      'Bronze mitigation upgrades',
+      'Mythic+ crowd control coverage'
+    ],
+    seoSupportingConcepts: [
+      'Shield Wall rotation mapping',
+      'Rallying Cry timing calls',
+      'Spell Block usage notes',
+      'Thunder Clap threat setups'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -465,6 +613,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Affliction',
     role: 'DPS',
     metaDescription: 'Affliction Warlock Legion Remix guide focusing on multi-target DoTs, the best Storm artifact path, stat priorities, and tips to excel in The War Within 11.2.5 event—an all-in-one warlock remix guide for DoT lovers, WoW Legion Remix warlock rotations, and players seeking a WoW Legion Remix warlock guide.',
+    seoFocusKeyword: 'Affliction Warlock Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix affliction warlock guide',
+      'Affliction Warlock Legion Remix build',
+      'Legion Remix affliction warlock talents'
+    ],
+    seoTopics: [
+      'multi-DoT ramp planning',
+      'Storm artifact soul routing',
+      'Bronze trinket allocation',
+      'Mythic+ shard economy'
+    ],
+    seoSupportingConcepts: [
+      'Malefic Rapture timing charts',
+      'Haunt and Darkglare window setup',
+      'Soul Rot sustain loops',
+      'Seed of Corruption spread control'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -527,8 +693,26 @@ export const specGuides: SpecGuide[] = [
   {
     classId: 'warlock',
     specName: 'Demonology',
-    role: 'DPS',
+   role: 'DPS',
     metaDescription: 'Demonology Warlock Legion Remix guide highlighting the best Fel artifact path, demonic army builds, stat priorities, and Bronze spending for Patch 11.2.5, rounding out our Legion Remix warlock build playbook—use this wow legion remix warlock guide to script every tyrant window.',
+    seoFocusKeyword: 'Demonology Warlock Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix demonology warlock guide',
+      'Demonology Warlock Legion Remix build',
+      'Legion Remix demonology warlock talents'
+    ],
+    seoTopics: [
+      'Demonic Tyrant window scripting',
+      'Fel artifact demon routing',
+      'Bronze pet upgrade planning',
+      'Mythic+ Implosion prep'
+    ],
+    seoSupportingConcepts: [
+      'Dreadstalker portal timing',
+      'Nether Portal shard budgeting',
+      'Grimoire Felguard usage notes',
+      'Implosion detonation spacing'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -693,6 +877,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Havoc',
     role: 'DPS',
     metaDescription: 'Havoc Demon Hunter Legion Remix guide covering Fel path burst windows, Infinite Power farming, and stat priorities for the 2025 Timerunning season.',
+    seoFocusKeyword: 'Havoc Demon Hunter Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix havoc demon hunter guide',
+      'Havoc Demon Hunter Legion Remix build',
+      'Legion Remix havoc talents'
+    ],
+    seoTopics: [
+      'Momentum rotation planning',
+      'Fel artifact burst routing',
+      'Bronze warglaive upgrades',
+      'Mythic+ Eye Beam scheduling'
+    ],
+    seoSupportingConcepts: [
+      'Metamorphosis timing charts',
+      'Momentum window positioning',
+      'Fury economy tracking',
+      'Chaos Brand uptime management'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -757,6 +959,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Vengeance',
     role: 'Tank',
     metaDescription: 'Vengeance Demon Hunter Legion Remix guide detailing Fel path tank builds, soul fragment management, and Bronze priorities for Timeworn keystones.',
+    seoFocusKeyword: 'Vengeance Demon Hunter Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix vengeance demon hunter guide',
+      'Vengeance Demon Hunter Legion Remix build',
+      'Legion Remix vengeance DH talents'
+    ],
+    seoTopics: [
+      'soul fragment economy',
+      'Fel artifact mitigation routing',
+      'Bronze defensive investments',
+      'Mythic+ sigil planning'
+    ],
+    seoSupportingConcepts: [
+      'Spirit Bomb uptime tracking',
+      'Fiery Brand rotation mapping',
+      'Infernal Strike pathing notes',
+      'Metamorphosis cooldown coverage'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -822,6 +1042,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Subtlety',
     role: 'DPS',
     metaDescription: 'Master Subtlety Rogue in Legion Remix with our detailed guide. Discover the best artifact paths, optimal talents, stat priorities, Legion Remix rogue build notes, and strategies to maximize your damage and stealth gameplay—perfect for any sub rogue legion remix player.',
+    seoFocusKeyword: 'Subtlety Rogue Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix subtlety rogue guide',
+      'Subtlety Rogue Legion Remix build',
+      'Legion Remix sub rogue talents'
+    ],
+    seoTopics: [
+      'Shadow Dance window planning',
+      'Fel artifact stealth routing',
+      'Bronze dagger upgrades',
+      'Mythic+ priority target deletion'
+    ],
+    seoSupportingConcepts: [
+      'Symbols of Death timing',
+      'Secret Technique burst scripts',
+      'Shadowstrike opener notes',
+      'Shuriken Tornado funnel control'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -887,6 +1125,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Assassination',
     role: 'DPS',
     metaDescription: 'Complete Assassination Rogue guide for Legion Remix. Learn optimal artifact paths, poison builds, stat priorities, and strategies for maximizing DoT damage in all content.',
+    seoFocusKeyword: 'Assassination Rogue Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix assassination rogue guide',
+      'Assassination Rogue Legion Remix build',
+      'Legion Remix assassination rogue talents'
+    ],
+    seoTopics: [
+      'poison and bleed upkeep',
+      'Fel artifact rupture routing',
+      'Bronze dagger acquisition',
+      'Mythic+ poison spread planning'
+    ],
+    seoSupportingConcepts: [
+      'Vendetta and Kingsbane timing',
+      'Garrote Silent Storm opener notes',
+      'Rupture pandemic windows',
+      'Crimson Tempest funnel strategy'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -952,6 +1208,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Outlaw',
     role: 'DPS',
     metaDescription: 'Outlaw Rogue Legion Remix guide covering the best artifact paths, Roll the Bones strategies, stat priorities, and tips for both solo and group pirate gameplay.',
+    seoFocusKeyword: 'Outlaw Rogue Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix outlaw rogue guide',
+      'Outlaw Rogue Legion Remix build',
+      'Legion Remix outlaw talents'
+    ],
+    seoTopics: [
+      'Roll the Bones buff management',
+      'Fel artifact broadsides routing',
+      'Bronze weapon upgrade path',
+      'Mythic+ Blade Flurry planning'
+    ],
+    seoSupportingConcepts: [
+      'Between the Eyes crit windows',
+      'Adrenaline Rush uptime tracking',
+      'Grappling Hook pathing notes',
+      'Blade Flurry cleave spacing'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -1018,6 +1292,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Beast Mastery',
     role: 'DPS',
     metaDescription: 'Beast Mastery Hunter Legion Remix guide detailing Storm path pet synergies, Legion Remix BM hunter stat priority, Bronze spending, and WoW Legion Remix hunter build tips.',
+    seoFocusKeyword: 'Beast Mastery Hunter Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix beast mastery hunter guide',
+      'Beast Mastery Hunter Legion Remix build',
+      'Legion Remix BM hunter talents'
+    ],
+    seoTopics: [
+      'pet command rotation planning',
+      'Storm artifact Beast Cleave routing',
+      'Bronze stable upgrades',
+      'Mythic+ ranged AoE prep'
+    ],
+    seoSupportingConcepts: [
+      'Bestial Wrath sync mapping',
+      'Frenzy stack maintenance notes',
+      'Kill Command pathing tips',
+      'Barbed Shot focus management'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -1078,6 +1370,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Marksmanship',
     role: 'DPS',
     metaDescription: 'Marksmanship Hunter Legion Remix guide featuring Arcane path volley builds, WoW Legion Remix hunter rotations, and Bronze planning for precision snipers.',
+    seoFocusKeyword: 'Marksmanship Hunter Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix marksmanship hunter guide',
+      'Marksmanship Hunter Legion Remix build',
+      'Legion Remix MM hunter talents'
+    ],
+    seoTopics: [
+      'Aimed Shot volley planning',
+      'Arcane artifact precision routing',
+      'Bronze bow upgrades',
+      'Mythic+ priority burst windows'
+    ],
+    seoSupportingConcepts: [
+      'Trueshot timing charts',
+      'Rapid Fire focus recovery notes',
+      'Precise Shots weaving tips',
+      'Volley placement cues'
+    ],
 
     bestArtifactPath: 'arcane',
     alternateArtifactPaths: [
@@ -1138,6 +1448,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Survival',
     role: 'DPS',
     metaDescription: 'Survival Hunter Legion Remix guide outlining Fel path melee burst, Legion Remix survival hunter builds, stat priorities, and Bronze purchases.',
+    seoFocusKeyword: 'Survival Hunter Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix survival hunter guide',
+      'Survival Hunter Legion Remix build',
+      'Legion Remix survival hunter talents'
+    ],
+    seoTopics: [
+      'melee spear burst planning',
+      'Fel artifact bomb routing',
+      'Bronze melee weapon upgrades',
+      'Mythic+ trap control prep'
+    ],
+    seoSupportingConcepts: [
+      'Coordinated Assault timing maps',
+      'Wildfire Bomb rotation sequencing',
+      'Spearhead cleave notes',
+      'Harpoon gap-closer planning'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -1200,6 +1528,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Arcane',
     role: 'DPS',
     metaDescription: 'Arcane Mage Legion Remix guide with Arcane path loops, Legion Remix mage stat priority, WoW Legion Remix Arcane build notes, and Bronze goals.',
+    seoFocusKeyword: 'Arcane Mage Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix arcane mage guide',
+      'Arcane Mage Legion Remix build',
+      'Legion Remix arcane mage talents'
+    ],
+    seoTopics: [
+      'Arcane Surge burn planning',
+      'Arcane artifact mana routing',
+      'Bronze tome investments',
+      'Mythic+ burst windows'
+    ],
+    seoSupportingConcepts: [
+      'Arcane Power and Rune of Power stacking',
+      'Presence of Mind burn sequencing',
+      'Arcane Orb charge planning',
+      'Evocation mana reset timing'
+    ],
 
     bestArtifactPath: 'arcane',
     alternateArtifactPaths: [
@@ -1260,6 +1606,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Fire',
     role: 'DPS',
     metaDescription: 'Fire Mage Legion Remix guide explaining Fel path combustion setups, Legion Remix mage builds, stat priority, and Bronze planning for WoW Legion Remix raids.',
+    seoFocusKeyword: 'Fire Mage Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix fire mage guide',
+      'Fire Mage Legion Remix build',
+      'Legion Remix fire mage talents'
+    ],
+    seoTopics: [
+      'Combustion window planning',
+      'Fel artifact ignite routing',
+      'Bronze crit gear priorities',
+      'Mythic+ Flamestrike setup'
+    ],
+    seoSupportingConcepts: [
+      'Fire Blast charge mapping',
+      'Phoenix Flames funnel tips',
+      'Rune of Power placement notes',
+      'Shimmer movement coverage'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -1320,6 +1684,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Frost',
     role: 'DPS',
     metaDescription: 'Frost Mage Legion Remix guide covering Storm path control, WoW Legion Remix Frost rotation, Legion Remix mage stat priority, and Bronze upgrades.',
+    seoFocusKeyword: 'Frost Mage Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix frost mage guide',
+      'Frost Mage Legion Remix build',
+      'Legion Remix frost mage talents'
+    ],
+    seoTopics: [
+      'Icy Veins uptime planning',
+      'Storm artifact freeze routing',
+      'Bronze haste investments',
+      'Mythic+ control rotations'
+    ],
+    seoSupportingConcepts: [
+      'Frozen Orb placement cues',
+      'Comet Storm timing notes',
+      'Chain Reaction proc tracking',
+      'Ice Lance shatter sequencing'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -1382,6 +1764,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Elemental',
     role: 'DPS',
     metaDescription: 'Elemental Shaman Legion Remix guide outlining Storm path lightning builds, Legion Remix elemental shaman stat priority, and Bronze planning.',
+    seoFocusKeyword: 'Elemental Shaman Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix elemental shaman guide',
+      'Elemental Shaman Legion Remix build',
+      'Legion Remix elemental shaman talents'
+    ],
+    seoTopics: [
+      'Stormkeeper burst planning',
+      'Storm artifact lightning routing',
+      'Bronze totem investments',
+      'Mythic+ Lava Burst prep'
+    ],
+    seoSupportingConcepts: [
+      'Lava Burst chain setup',
+      'Earth Shock Maelstrom budgeting',
+      'Flame Shock spread timing',
+      'Capacitor Totem control notes'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -1442,6 +1842,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Enhancement',
     role: 'DPS',
     metaDescription: 'Enhancement Shaman Legion Remix guide showcasing Fel path melee storms, Legion Remix enhancement build tips, stat priority, and Bronze upgrades.',
+    seoFocusKeyword: 'Enhancement Shaman Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix enhancement shaman guide',
+      'Enhancement Shaman Legion Remix build',
+      'Legion Remix enhancement shaman talents'
+    ],
+    seoTopics: [
+      'Stormstrike window planning',
+      'Fel artifact fury routing',
+      'Bronze weapon priorities',
+      'Mythic+ wolf pack setups'
+    ],
+    seoSupportingConcepts: [
+      'Doom Winds burst mapping',
+      'Maelstrom Weapon stack tracking',
+      'Feral Spirit uptime notes',
+      'Sundering cleave positioning'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -1502,6 +1920,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Restoration',
     role: 'Healer',
     metaDescription: 'Restoration Shaman Legion Remix guide with Holy Light path healing, Legion Remix resto shaman builds, stat priority, and Bronze spending advice.',
+    seoFocusKeyword: 'Restoration Shaman Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix resto shaman guide',
+      'Restoration Shaman Legion Remix build',
+      'Legion Remix restoration shaman talents'
+    ],
+    seoTopics: [
+      'Chain Heal throughput planning',
+      'Holy artifact tide routing',
+      'Bronze totem investments',
+      'Mythic+ cooldown coverage'
+    ],
+    seoSupportingConcepts: [
+      'Spirit Link Totem timing charts',
+      'Cloudburst Totem storage notes',
+      'Riptide Tidal Waves cadence',
+      'Healing Rain placement cues'
+    ],
 
     bestArtifactPath: 'holy',
     alternateArtifactPaths: [
@@ -1564,6 +2000,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Balance',
     role: 'DPS',
     metaDescription: 'Balance Druid Legion Remix guide detailing Storm path eclipses, Legion Remix balance druid stat priority, WoW Legion Remix boomkin build tips, and Bronze plans.',
+    seoFocusKeyword: 'Balance Druid Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix balance druid guide',
+      'Balance Druid Legion Remix build',
+      'Legion Remix boomkin talents'
+    ],
+    seoTopics: [
+      'Eclipse cycle planning',
+      'Storm artifact astral routing',
+      'Bronze idol investments',
+      'Mythic+ Starfall prep'
+    ],
+    seoSupportingConcepts: [
+      'Celestial Alignment timing charts',
+      'Fury of Elune placement notes',
+      'Starfall uptime tracking',
+      'Sunfire and Moonfire spread cadence'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -1624,6 +2078,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Feral',
     role: 'DPS',
     metaDescription: 'Feral Druid Legion Remix guide covering Fel path bleeds, Legion Remix feral druid build notes, WoW Legion Remix feral stat priority, and Bronze goals.',
+    seoFocusKeyword: 'Feral Druid Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix feral druid guide',
+      'Feral Druid Legion Remix build',
+      'Legion Remix feral druid talents'
+    ],
+    seoTopics: [
+      'bleed snapshot planning',
+      'Fel artifact Rip routing',
+      'Bronze weapon upgrades',
+      'Mythic+ Shred burst prep'
+    ],
+    seoSupportingConcepts: [
+      'Tiger\'s Fury alignment notes',
+      'Berserk window sequencing',
+      'Primal Wrath cleave coverage',
+      'Bloodtalons combo planning'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -1684,6 +2156,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Guardian',
     role: 'Tank',
     metaDescription: 'Guardian Druid Legion Remix guide describing Nature path tanking, Legion Remix guardian druid stat priority, WoW Legion Remix bear build tips, and Bronze purchases.',
+    seoFocusKeyword: 'Guardian Druid Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix guardian druid guide',
+      'Guardian Druid Legion Remix build',
+      'Legion Remix bear druid talents'
+    ],
+    seoTopics: [
+      'Ironfur stack planning',
+      'Nature artifact mitigation routing',
+      'Bronze tank upgrade order',
+      'Mythic+ rage management'
+    ],
+    seoSupportingConcepts: [
+      'Incarnation Guardian cooldown mapping',
+      'Frenzied Regeneration cadence',
+      'Thrash bleed uptime notes',
+      'Galactic Guardian proc tracking'
+    ],
 
     bestArtifactPath: 'nature',
     alternateArtifactPaths: [
@@ -1744,6 +2234,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Restoration',
     role: 'Healer',
     metaDescription: 'Restoration Druid Legion Remix guide showcasing Holy Light path healing, Legion Remix resto druid stat priority, WoW Legion Remix healer builds, and Bronze plans.',
+    seoFocusKeyword: 'Restoration Druid Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix restoration druid guide',
+      'Restoration Druid Legion Remix build',
+      'Legion Remix resto druid talents'
+    ],
+    seoTopics: [
+      'HoT layering planning',
+      'Holy artifact bloom routing',
+      'Bronze Flourish investments',
+      'Mythic+ Tranquility coverage'
+    ],
+    seoSupportingConcepts: [
+      'Lifebloom tank swap notes',
+      'Efflorescence placement cues',
+      'Swiftmend Soul of the Forest timing',
+      'Innervate cooldown planning'
+    ],
 
     bestArtifactPath: 'holy',
     alternateArtifactPaths: [
@@ -1806,6 +2314,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Brewmaster',
     role: 'Tank',
     metaDescription: 'Brewmaster Monk Legion Remix guide covering Nature path stagger tricks, Legion Remix brewmaster stat priority, WoW Legion Remix monk build notes, and Bronze plans.',
+    seoFocusKeyword: 'Brewmaster Monk Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix brewmaster monk guide',
+      'Brewmaster Monk Legion Remix build',
+      'Legion Remix brewmaster talents'
+    ],
+    seoTopics: [
+      'stagger management planning',
+      'Nature artifact brew routing',
+      'Bronze tank investments',
+      'Mythic+ Keg Smash prep'
+    ],
+    seoSupportingConcepts: [
+      'Celestial Brew timing charts',
+      'Purifying Brew usage notes',
+      'Breath of Fire uptime tracking',
+      'Ring of Peace positioning cues'
+    ],
 
     bestArtifactPath: 'nature',
     alternateArtifactPaths: [
@@ -1866,6 +2392,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Mistweaver',
     role: 'Healer',
     metaDescription: 'Mistweaver Monk Legion Remix guide showing Holy Light path vivify spam, Legion Remix monk healer priorities, stat order, and Bronze purchases.',
+    seoFocusKeyword: 'Mistweaver Monk Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix mistweaver monk guide',
+      'Mistweaver Monk Legion Remix build',
+      'Legion Remix mistweaver talents'
+    ],
+    seoTopics: [
+      'Vivify cleave planning',
+      'Holy Light artifact mist routing',
+      'Bronze healing investments',
+      'Mythic+ Revival coverage'
+    ],
+    seoSupportingConcepts: [
+      'Clouded Focus channel timing',
+      'Renewing Mist uptime notes',
+      'Revival cooldown mapping',
+      'Essence Font movement planning'
+    ],
 
     bestArtifactPath: 'holy',
     alternateArtifactPaths: [
@@ -1926,6 +2470,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Windwalker',
     role: 'DPS',
     metaDescription: 'Windwalker Monk Legion Remix guide with Fel path momentum, Legion Remix monk DPS stat priority, WoW Legion Remix windwalker build tips, and Bronze planning.',
+    seoFocusKeyword: 'Windwalker Monk Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix windwalker monk guide',
+      'Windwalker Monk Legion Remix build',
+      'Legion Remix windwalker talents'
+    ],
+    seoTopics: [
+      'Chi burst planning',
+      'Fel artifact combo routing',
+      'Bronze weapon investments',
+      'Mythic+ Spinning Crane prep'
+    ],
+    seoSupportingConcepts: [
+      'Storm, Earth, and Fire timing notes',
+      'Strike of the Windlord burst sequencing',
+      'Rising Sun Kick priority tracking',
+      'Touch of Death execution planning'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -1988,6 +2550,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Discipline',
     role: 'Healer',
     metaDescription: 'Discipline Priest Legion Remix guide describing Arcane path atonement healing, Legion Remix priest stat priority, WoW Legion Remix disc builds, and Bronze planning.',
+    seoFocusKeyword: 'Discipline Priest Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix discipline priest guide',
+      'Discipline Priest Legion Remix build',
+      'Legion Remix disc priest talents'
+    ],
+    seoTopics: [
+      'atonement ramp planning',
+      'Arcane artifact shield routing',
+      'Bronze trinket investments',
+      'Mythic+ Evangelism coverage'
+    ],
+    seoSupportingConcepts: [
+      'Schism burst timing charts',
+      'Power Word Radiance sequencing',
+      'Mindgames cooldown mapping',
+      'Power Word Barrier placement cues'
+    ],
 
     bestArtifactPath: 'arcane',
     alternateArtifactPaths: [
@@ -2048,6 +2628,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Holy',
     role: 'Healer',
     metaDescription: 'Holy Priest Legion Remix guide with Holy Light path miracles, Legion Remix holy priest builds, stat priority, and Bronze budgeting for WoW Legion Remix healers.',
+    seoFocusKeyword: 'Holy Priest Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix holy priest guide',
+      'Holy Priest Legion Remix build',
+      'Legion Remix holy priest talents'
+    ],
+    seoTopics: [
+      'Holy Word cooldown planning',
+      'Holy Light artifact miracle routing',
+      'Bronze staff upgrades',
+      'Mythic+ Prayer coverage'
+    ],
+    seoSupportingConcepts: [
+      'Holy Word Serenity timing notes',
+      'Prayer of Healing clustering tips',
+      'Apotheosis burst mapping',
+      'Spirit of Redemption positioning cues'
+    ],
 
     bestArtifactPath: 'holy',
     alternateArtifactPaths: [
@@ -2108,6 +2706,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Shadow',
     role: 'DPS',
     metaDescription: 'Shadow Priest Legion Remix guide outlining Fel path insanity loops, Legion Remix shadow priest stat priority, WoW Legion Remix shadow build tips, and Bronze priorities.',
+    seoFocusKeyword: 'Shadow Priest Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix shadow priest guide',
+      'Shadow Priest Legion Remix build',
+      'Legion Remix shadow priest talents'
+    ],
+    seoTopics: [
+      'Voidform cycle planning',
+      'Fel artifact insanity routing',
+      'Bronze haste investments',
+      'Mythic+ multi-dot prep'
+    ],
+    seoSupportingConcepts: [
+      'Void Eruption timing notes',
+      'Devouring Plague spend cadence',
+      'Shadow Crash placement cues',
+      'Mindbender cooldown planning'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
@@ -2170,6 +2786,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Blood',
     role: 'Tank',
     metaDescription: 'Blood Death Knight Legion Remix guide highlighting Nature path survivability, Legion Remix blood DK stat priority, WoW Legion Remix tank builds, and Bronze plans.',
+    seoFocusKeyword: 'Blood Death Knight Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix blood death knight guide',
+      'Blood Death Knight Legion Remix build',
+      'Legion Remix blood DK talents'
+    ],
+    seoTopics: [
+      'self-heal window planning',
+      'Nature artifact bone routing',
+      'Bronze tank investments',
+      'Mythic+ grip control prep'
+    ],
+    seoSupportingConcepts: [
+      'Death Strike timing charts',
+      'Bone Shield upkeep notes',
+      'Gorefiend\'s Grasp setup plans',
+      'Vampiric Blood cooldown mapping'
+    ],
 
     bestArtifactPath: 'nature',
     alternateArtifactPaths: [
@@ -2230,6 +2864,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Frost',
     role: 'DPS',
     metaDescription: 'Frost Death Knight Legion Remix guide describing Storm path obliterates, Legion Remix frost DK stat priority, WoW Legion Remix builds, and Bronze upgrades.',
+    seoFocusKeyword: 'Frost Death Knight Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix frost death knight guide',
+      'Frost Death Knight Legion Remix build',
+      'Legion Remix frost DK talents'
+    ],
+    seoTopics: [
+      'Pillar of Frost window planning',
+      'Storm artifact obliterate routing',
+      'Bronze rune weapon upgrades',
+      'Mythic+ cleave prep'
+    ],
+    seoSupportingConcepts: [
+      'Breath of Sindragosa management notes',
+      'Obliteration priority mapping',
+      'Rime proc handling',
+      'Frostwyrm\'s Fury timing cues'
+    ],
 
     bestArtifactPath: 'storm',
     alternateArtifactPaths: [
@@ -2290,6 +2942,24 @@ export const specGuides: SpecGuide[] = [
     specName: 'Unholy',
     role: 'DPS',
     metaDescription: 'Unholy Death Knight Legion Remix guide featuring Fel path apocalypse bursts, Legion Remix unholy DK stat priority, WoW Legion Remix build notes, and Bronze planning.',
+    seoFocusKeyword: 'Unholy Death Knight Legion Remix',
+    seoSecondaryKeywords: [
+      'Legion Remix unholy death knight guide',
+      'Unholy Death Knight Legion Remix build',
+      'Legion Remix unholy DK talents'
+    ],
+    seoTopics: [
+      'Army of the Dead planning',
+      'Fel artifact wound routing',
+      'Bronze pet investments',
+      'Mythic+ Epidemic prep'
+    ],
+    seoSupportingConcepts: [
+      'Dark Transformation timing charts',
+      'Festering Wound burst sequencing',
+      'Apocalypse window mapping',
+      'Death Coil runic dump planning'
+    ],
 
     bestArtifactPath: 'fel',
     alternateArtifactPaths: [
