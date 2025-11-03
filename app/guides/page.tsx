@@ -26,6 +26,14 @@ const guides = [
     image: legionImages.heroBanner
   },
   {
+    id: 'release-schedule',
+    title: 'Release Schedule',
+    description: 'Phase timeline, raid unlock dates, and vendor rotations to plan every reset.',
+    icon: '🗓️',
+    color: 'from-slate-900/40 to-cyan-900/40',
+    image: legionImages.phaseTimeline ?? legionImages.referenceSplash
+  },
+  {
     id: 'leveling',
     title: 'Leveling Guide',
     description: 'Fast-track to level 80 with optimized dungeon strategies, quest routes, and XP bonuses.',
@@ -158,6 +166,7 @@ const guides = [
 export default function GuidesPage() {
   const quickLinks = [
     { label: 'First steps checklist', href: '/guides/getting-started#timerunner-creation' },
+    { label: 'Release schedule timeline', href: '/guides/release-schedule#phase-timeline' },
     { label: 'Fast leveling routes', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Bronze farming loops', href: '/guides/bronze-farming#bronze-collection-in-action' },
     { label: 'Ancient Mana farming', href: '/guides/ancient-mana#farming' },
