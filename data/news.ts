@@ -15,6 +15,25 @@ export type NewsArticle = {
 
 export const newsArticles: NewsArticle[] = [
   {
+    slug: 'legion-remix-character-transfer-status',
+    title: 'Legion Remix Character Transfer Disabled: Status Tracker & Prep Plan',
+    author: 'Legion Remix Hub Team',
+    publishedAt: '2025-11-03',
+    image: '/images/news/legion-remix-character-transfer-disabled.jpg',
+    imageAlt: 'Timerunner staring at a disabled Legion Remix character transfer hourglass UI',
+    excerpt:
+      'Legion Remix character transfer remains offline after Blizzard yanked the hourglass export button to stop Infinite Power from leaking into retail raids; follow this tracker for mitigation steps and daily status pings.',
+    highlights: [
+      'Legion Remix character transfer outage timeline summarises launch bugs, October 31 removal, and the ongoing exploit investigation.',
+      'Action plan covers roster stabilization, Bronze budgeting, and communications so Legion Remix character transfer readiness stays high.',
+      'FAQ confirms end-of-event conversions remain automatic even while Legion Remix character transfer early exports are suspended.',
+    ],
+    source: {
+      label: 'Legion Remix Hub Status Tracker',
+      href: '/news/legion-remix-character-transfer',
+    },
+  },
+  {
     slug: 'timeworn-keystone-druid-hotfix-oct-29',
     title: 'Timeworn Keystone Dungeon & Druid Class Quest Hotfixes for Legion Remix',
     author: 'Luxrah',
