@@ -385,7 +385,7 @@ export const reputationFactions: ReputationFaction[] = [
     zone: 'Broken Shore',
     color: 'from-emerald-900/50 to-gray-900/30',
     summary:
-      'Legionfall rallies every class order on the Broken Shore. Reputation gains unlock class mount finales, Nether Portal utilities, and Broken Shore catch-up buffs during Phase 3.',
+      'Legion Remix Armies of Legionfall unites every class order on the Broken Shore. Strengthening the Legion Remix Armies of Legionfall frontline unlocks class mount finales, Nether Portal utilities, and Broken Shore catch-up buffs once Phase 3 kicks off.',
     emissary: {
       name: "Warmage Kath'leen",
       location: 'Deliverance Point, Broken Shore',
@@ -393,9 +393,9 @@ export const reputationFactions: ReputationFaction[] = [
       tip: 'Glide down from the Deliverance Point flight path to reach Kath\'leen while skipping elite sentries.'
     },
     howToEarn: [
-      'Finish Broken Shore scenario quests and construction dailies during Phase 3 – Legionfall.',
-      'Clear Armies of Legionfall world quests and Legion assaults each day for bonus reputation and Nethershards.',
-      'Use Legionfall Champion’s Insignias from emissary caches, Broken Shore treasures, rare elites, and Infinite Research packets.'
+      'Finish the Legion Remix Armies of Legionfall scenario chain and construction dailies during Phase 3 – Legionfall.',
+      'Clear Legion Remix Armies of Legionfall world quests and Legion assaults each day for bonus reputation, Nethershards, and Sentinax beacons.',
+      "Use Legion Remix Armies of Legionfall Champion's Insignias from emissary caches, Broken Shore treasures, rare elites, and Infinite Research packets the moment you loot them."
     ],
     insignia: {
       name: "Legionfall Champion's Insignia",
@@ -406,26 +406,30 @@ export const reputationFactions: ReputationFaction[] = [
         'Cache of Infinite Power (Infinite Research daily)',
         "Cache from the Infinite's Armory (Infinite Research special assignment)"
       ],
-      note: 'Bound to Remix characters; deleted automatically if the character transfers off the event timeline.'
+      note: "Bound to Legion Remix Armies of Legionfall characters; deleted automatically if the character transfers off the event timeline."
     },
     vendorHighlights: [
       {
         name: 'Legion Pocket Portal - 7,500 Nethershards (Revered)',
-        description: 'Creates a return portal to Deliverance Point for rapid Tomb of Sargeras turnarounds.'
+        description:
+          'Creates a return portal to Deliverance Point so Legion Remix Armies of Legionfall groups can reset Tomb of Sargeras turnarounds in seconds.'
       },
       {
         name: 'Cauterizing Void Shard - 5,000 Nethershards (Honored)',
-        description: 'Group-wide 10% damage and healing buff while adventuring on the Broken Shore.'
+        description:
+          'Group-wide 10% damage and healing buff while Legion Remix Armies of Legionfall teams are adventuring on the Broken Shore.'
       },
       {
         name: 'Legionfall Tabard - 300 Bronze (Exalted)',
-        description: 'Classic green-and-bronze tabard that pairs with Cathedral of Eternal Night ensembles.'
+        description:
+          'Classic green-and-bronze tabard that pairs with Cathedral of Eternal Night ensembles and signals your Legion Remix Armies of Legionfall allegiance.'
       }
     ],
     paragonRewards: [
       {
         name: 'Orphaned Felbat - Legionfall Chest',
-        description: 'Fel-green pet from paragon caches once you push reputation beyond Exalted.'
+        description:
+          'Fel-green pet from paragon caches once you push the Legion Remix Armies of Legionfall bar beyond Exalted.'
       }
     ],
     questRewards: [

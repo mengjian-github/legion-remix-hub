@@ -24,11 +24,17 @@ export function generateMetadata({ params }: PageProps): Metadata {
     return {};
   }
 
+  const isLegionfall = faction.slug === 'armies-of-legionfall';
+  const titleBase = isLegionfall
+    ? 'Legion Remix Armies of Legionfall Reputation Guide 2025'
+    : `${faction.name} Legion Remix Reputation Guide 2025`;
+  const descriptionBase = isLegionfall
+    ? "Legion Remix Armies of Legionfall Phase 3 blueprint covering emissary routes, construction buffs, Champion's Insignia farming, vendor rewards, and paragon cache planning."
+    : `${faction.name} reputation route for Legion Remix. Emissary location, Champion's Insignia sources, vendor highlights, paragon rewards, and emissary quest loot.`;
+
   return {
-    title: formatMetaTitle(`${faction.name} Legion Remix Reputation Guide 2025`),
-    description: formatMetaDescription(
-      `${faction.name} reputation route for Legion Remix. Emissary location, Champion's Insignia sources, vendor highlights, paragon rewards, and emissary quest loot.`,
-    ),
+    title: formatMetaTitle(titleBase),
+    description: formatMetaDescription(descriptionBase),
     alternates: {
       canonical: buildCanonicalUrl(`/reputation/${faction.slug}`)
     }
@@ -40,6 +46,7 @@ export default function ReputationFactionPage({ params }: PageProps) {
   if (!faction) {
     notFound();
   }
+  const isLegionfall = faction.slug === 'armies-of-legionfall';
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -66,6 +73,44 @@ export default function ReputationFactionPage({ params }: PageProps) {
             </div>
           </div>
         </header>
+
+        {isLegionfall ? (
+          <section className="rounded-2xl border border-emerald-900/40 bg-emerald-950/30 p-6 shadow-lg shadow-emerald-900/20">
+            <div className="space-y-4 text-sm text-emerald-100">
+              <p>
+                Legion Remix Armies of Legionfall kicks in as soon as Phase 3 opens, pulling every order hall back to the Broken
+                Shore. The Legion Remix Armies of Legionfall hub centralizes Nethershard vendors, command table missions, and
+                construction buffs so Remix characters can close the gap on late-season goals. Build a repeatable rhythm that keeps
+                Legion Remix Armies of Legionfall throughput high before raid reset.
+              </p>
+              <p>
+                Rotating world quests, Sentinax beacons, and invasions spawn within minutes of reset, so park your main at
+                Deliverance Point and cycle through Legion Remix Armies of Legionfall objectives the moment they appear. Pair the
+                Legion Remix Armies of Legionfall construction table with Mage Tower missions to refresh building buffs, then send
+                followers on Broken Shore missions for bonus Champion&apos;s Insignias.
+              </p>
+              <p>
+                Keep Nethershard stockpiles near 25,000 before raid night, then dump them into Legion Remix Armies of Legionfall
+                vendors for toys, portals, and item-level jumpstarts. Whenever the Legion Remix Armies of Legionfall emissary rotates
+                in, pop Bronze income buffs, speed-clear elites, and funnel every insignia into whichever alt still trails behind.
+              </p>
+              <ul className="list-disc space-y-2 pl-5 text-emerald-200">
+                <li>
+                  Stick to one construction project per day so the Legion Remix Armies of Legionfall war effort grants persistent
+                  Empowered buff coverage.
+                </li>
+                <li>
+                  Grab Infernal Downfall and Sentinax events when the Legion Remix Armies of Legionfall skyship broadcasts an active
+                  beacon.
+                </li>
+                <li>
+                  Use group finder to chain rare elites because Legion Remix Armies of Legionfall skull icons still drop bonus
+                  Nethershards during Remix.
+                </li>
+              </ul>
+            </div>
+          </section>
+        ) : null}
 
         <section className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
           <div className="space-y-8">
@@ -151,9 +196,9 @@ export default function ReputationFactionPage({ params }: PageProps) {
             <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5">
               <p className="text-xs uppercase tracking-wide text-gray-400 mb-3">Checklist</p>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>✅ Complete the daily emissary for a Lesser Bronze Cache and Insignia.</li>
-                <li>✅ Spend Champion&apos;s Insignias immediately to avoid losing capped reputation.</li>
-                <li>✅ Track paragon bars in your Bronze calculator before cache turn-ins.</li>
+                <li>✅ Complete the Legion Remix Armies of Legionfall emissary each day for a Lesser Bronze Cache and Insignia.</li>
+                <li>✅ Spend Legion Remix Armies of Legionfall Champion&apos;s Insignias immediately to avoid losing capped reputation.</li>
+                <li>✅ Track Legion Remix Armies of Legionfall paragon bars in your Bronze calculator before cache turn-ins.</li>
               </ul>
             </div>
 
