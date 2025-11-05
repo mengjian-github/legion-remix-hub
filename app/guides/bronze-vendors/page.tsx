@@ -412,7 +412,7 @@ export default function BronzeVendorsGuidePage() {
                 – map the Timerunner achievements tied to Grandmaster Jakkus’ stock.
               </li>
               <li>
-                <Link href="/guides/rewards" className="text-green-400 hover:text-green-300">
+                <Link href="/rewards" className="text-green-400 hover:text-green-300">
                   Rewards Compendium
                 </Link>{' '}
                 – view every Bronze cost in sortable tables before you spend.
