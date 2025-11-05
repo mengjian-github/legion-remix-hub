@@ -292,7 +292,7 @@ export default function ChallianeVineyardsPage() {
 
           <footer className="mt-12 pt-8 border-t border-gray-800 text-sm text-gray-400">
             <p>
-              Need more Azsuna coverage? Our <Link href="/guides/reputation" className="text-green-400 hover:text-green-300">Reputation Guide</Link> breaks down Court of Farondis emissary rotations, and the <Link href="/guides/bronze-farming" className="text-green-400 hover:text-green-300">Bronze Farming playbook</Link> shares optimized hourlies for Turbo Boost weekends.
+              Need more Azsuna coverage? Our <Link href="/reputation" className="text-green-400 hover:text-green-300">Reputation Guide</Link> breaks down Court of Farondis emissary rotations, and the <Link href="/guides/bronze-farming" className="text-green-400 hover:text-green-300">Bronze Farming playbook</Link> shares optimized hourlies for Turbo Boost weekends.
             </p>
           </footer>
         </article>
