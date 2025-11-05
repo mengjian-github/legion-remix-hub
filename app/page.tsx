@@ -127,7 +127,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
+      <section className="relative py-32 md:py-40 px-6 overflow-hidden min-h-[90vh] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -136,46 +136,46 @@ export default function Home() {
             fill
             sizes="100vw"
             priority
-            className="object-cover"
+            className="object-cover scale-105"
           />
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-gray-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-gray-950"></div>
         </div>
 
-        {/* Decorative fel glow effects */}
-        <div className="absolute inset-0 z-0 opacity-30">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-emerald-600 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-700 rounded-full blur-3xl"></div>
+        {/* Decorative fel glow effects - Enhanced */}
+        <div className="absolute inset-0 z-0 opacity-40">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-green-500 rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[140px] animate-pulse-slower"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-700 rounded-full blur-[160px] animate-pulse-slowest"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <div className="inline-block mb-4 px-4 py-2 bg-green-500/20 border border-green-500/50 rounded-full">
-              <span className="text-green-400 font-semibold">⚡ EVENT NOW LIVE</span>
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-8 px-6 py-3 bg-green-500/30 border-2 border-green-500/70 rounded-full backdrop-blur-sm">
+              <span className="text-green-300 font-bold text-lg tracking-wider">⚡ EVENT NOW LIVE</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
-              <span className="text-gradient-fel">Legion Remix Guide</span>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-8 tracking-tight leading-none">
+              <span className="text-gradient-fel drop-shadow-2xl">Legion Remix</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-3 font-medium">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-6 font-bold max-w-5xl mx-auto leading-relaxed">
               Plan your Timerunner from day one with this Legion Remix Guide—covering leveling routes, Bronze priorities, and class picks specifically tuned for the 2025 Legion Remix season.
             </p>
-            <p className="text-base md:text-lg text-gray-300 mb-3 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed">
               Treat this Legion Remix site as your always-on command center: the Legion Remix website roadmap tracks every phase drop, links to Bronze tools, and highlights the week&apos;s hotfixes so you spend less time scraping forums and more time farming.
             </p>
-            <p className="text-lg text-green-400 font-semibold mb-6">
+            <p className="text-xl md:text-2xl text-green-300 font-bold mb-12 drop-shadow-lg">
               🔥 Event Window: October 7, 2025 - January 19, 2026 • 15 weeks of Skies of Fire rewards
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="flex flex-wrap justify-center gap-6 mb-12">
               <Link
                 href="/guides/getting-started"
-                className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-all fel-glow hover:fel-glow-strong"
+                className="px-10 py-5 text-lg bg-green-600 hover:bg-green-500 text-white font-black rounded-xl transition-all fel-glow-strong hover:scale-105 transform shadow-2xl"
               >
                 Start Your Legion Remix Guide →
               </Link>
               <Link
                 href="/calculator"
-                className="px-8 py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg transition-all bronze-glow"
+                className="px-10 py-5 text-lg bg-amber-600 hover:bg-amber-500 text-white font-black rounded-xl transition-all bronze-glow-strong hover:scale-105 transform shadow-2xl"
               >
                 💰 Bronze Calculator
               </Link>
@@ -186,31 +186,31 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <Countdown targetDate={eventDates.end} title="⏰ Event Ends In" />
           </div>
-          <div className="mt-12 bg-gray-900/40 border border-gray-700 rounded-lg p-6" id="legion-remix-guide-checklist">
-            <h3 className="text-2xl font-semibold text-white mb-4">Top Starter Picks</h3>
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-300">
-              <div>
-                <p className="text-green-400 font-semibold mb-2">Solo Progression</p>
-                <ul className="space-y-1">
-                  <li>Havoc Demon Hunter — mobility plus self-heal spikes keep Heroic mobs manageable.</li>
-                  <li>Beast Mastery Hunter — tank pets handle threat while you stay mobile and safe.</li>
-                  <li>Blood Death Knight — enormous self-sustain for Argus elites and campaign bosses.</li>
+          <div className="mt-16 bg-gray-900/60 border-2 border-gray-700/50 rounded-2xl p-10 backdrop-blur-md shadow-2xl" id="legion-remix-guide-checklist">
+            <h3 className="text-4xl font-bold text-white mb-8 text-center">Top Starter Picks</h3>
+            <div className="grid md:grid-cols-3 gap-10 text-base text-gray-300">
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-green-500/30">
+                <p className="text-green-400 font-bold mb-4 text-xl">Solo Progression</p>
+                <ul className="space-y-3">
+                  <li className="leading-relaxed">Havoc Demon Hunter — mobility plus self-heal spikes keep Heroic mobs manageable.</li>
+                  <li className="leading-relaxed">Beast Mastery Hunter — tank pets handle threat while you stay mobile and safe.</li>
+                  <li className="leading-relaxed">Blood Death Knight — enormous self-sustain for Argus elites and campaign bosses.</li>
                 </ul>
               </div>
-              <div>
-                <p className="text-amber-300 font-semibold mb-2">Group Backbone</p>
-                <ul className="space-y-1">
-                  <li>Vengeance Demon Hunter — fast pulls, sigil control, and forgiving mitigation.</li>
-                  <li>Restoration Shaman — Totemic and Farseer hero talents cover every healing profile.</li>
-                  <li>Retribution Paladin — frequent burst cooldowns and Blessings for coordinated teams.</li>
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-amber-500/30">
+                <p className="text-amber-300 font-bold mb-4 text-xl">Group Backbone</p>
+                <ul className="space-y-3">
+                  <li className="leading-relaxed">Vengeance Demon Hunter — fast pulls, sigil control, and forgiving mitigation.</li>
+                  <li className="leading-relaxed">Restoration Shaman — Totemic and Farseer hero talents cover every healing profile.</li>
+                  <li className="leading-relaxed">Retribution Paladin — frequent burst cooldowns and Blessings for coordinated teams.</li>
                 </ul>
               </div>
-              <div>
-                <p className="text-blue-300 font-semibold mb-2">Heroic World Tier Ready</p>
-                <ul className="space-y-1">
-                  <li>Windwalker Monk — high mobility cleave to delete empowered packs before they stack.</li>
-                  <li>Balance Druid — ranged AoE with self-healing HoTs for the toughest pacing checks.</li>
-                  <li>Protection Paladin — instant queues and reliable cooldowns while farming Bronze.</li>
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-blue-500/30">
+                <p className="text-blue-300 font-bold mb-4 text-xl">Heroic World Tier Ready</p>
+                <ul className="space-y-3">
+                  <li className="leading-relaxed">Windwalker Monk — high mobility cleave to delete empowered packs before they stack.</li>
+                  <li className="leading-relaxed">Balance Druid — ranged AoE with self-healing HoTs for the toughest pacing checks.</li>
+                  <li className="leading-relaxed">Protection Paladin — instant queues and reliable cooldowns while farming Bronze.</li>
                 </ul>
               </div>
             </div>
