@@ -130,10 +130,13 @@ export default function Home() {
       <section className="relative py-20 px-4 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={legionImages.heroBanner}
             alt="Legion Remix: Skies of Fire"
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover"
           />
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-gray-950"></div>
@@ -276,11 +279,15 @@ export default function Home() {
         <section className="py-12 px-4 bg-gray-900/50 relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-            <img
-              src={legionImages.artifactWeapon}
-              alt="Artifact Weapon"
-              className="w-full h-full object-cover object-left"
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={legionImages.artifactWeapon}
+                alt="Artifact Weapon"
+                fill
+                sizes="50vw"
+                className="object-cover object-left"
+              />
+            </div>
           </div>
 
           <div className="max-w-7xl mx-auto relative z-10">
@@ -325,10 +332,12 @@ export default function Home() {
             {/* Infinite Artifact Weapons */}
             <div className="bg-gray-800 border border-green-700/30 rounded-lg overflow-hidden card-hover">
               <div className="relative h-64">
-                <img
+                <Image
                   src={legionImages.artifactTraitTree}
                   alt="Infinite Artifact Weapon Trait Tree"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent"></div>
               </div>
@@ -359,10 +368,12 @@ export default function Home() {
             {/* Heroic World Tier */}
             <div className="bg-gray-800 border border-orange-700/30 rounded-lg overflow-hidden card-hover">
               <div className="relative h-64">
-                <img
+                <Image
                   src={legionImages.imperiousEffect}
                   alt="Heroic World Tier"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent"></div>
               </div>
@@ -427,10 +438,12 @@ export default function Home() {
             {/* Timewarped Obelisks */}
             <div className="bg-gray-800 border border-purple-700/30 rounded-lg overflow-hidden card-hover">
               <div className="relative h-64">
-                <img
+                <Image
                   src={legionImages.timeWarpedObelisk}
                   alt="Timewarped Obelisk"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent"></div>
               </div>
@@ -476,11 +489,15 @@ export default function Home() {
 
           {/* Timeline Image */}
           <div className="mb-12 relative rounded-2xl overflow-hidden border border-green-700/40 shadow-2xl shadow-green-900/50">
-            <img
-              src={legionImages.phaseTimeline}
-              alt="Legion Remix phase timeline"
-              className="w-full h-auto"
-            />
+            <div className="relative w-full h-auto" style={{ aspectRatio: '16 / 9' }}>
+              <Image
+                src={legionImages.phaseTimeline}
+                alt="Legion Remix phase timeline"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
           </div>
 

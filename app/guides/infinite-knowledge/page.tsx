@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
@@ -127,7 +128,7 @@ export default function InfiniteKnowledgeGuidePage() {
           </div>
 
           <div className="bg-gray-900/40 border border-green-700/40 rounded-lg overflow-hidden mb-8">
-            <img src={legionImages.infiniteResearch ?? legionImages.infiniteResearchQuests ?? legionImages.heroBanner} alt="Infinite Knowledge roadmap" className="w-full h-auto" />
+            <Image src={legionImages.infiniteResearch ?? legionImages.infiniteResearchQuests ?? legionImages.heroBanner} alt="Infinite Knowledge roadmap" width={1280} height={720} className="w-full h-auto" />
             <div className="p-6">
               <h2 id="infinite-knowledge-legion-remix" className="text-2xl font-semibold text-white mb-2">Highlights</h2>
               <ul className="list-disc list-inside space-y-2 text-sm text-gray-300">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { farmingMethods, getBestBronzeDungeons } from '@/data/dungeons';
 import { totalBronzeCost, rewardSpotlights } from '@/data/rewards';
 import { legionImages } from '@/data/images';
@@ -326,7 +327,9 @@ export default function BronzeFarmingPage() {
               .filter((spotlight) => spotlight.id !== 'housing-decor')
               .map((spotlight) => (
                 <div key={spotlight.id} className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden">
-                  <img src={spotlight.image} alt={spotlight.title} className="w-full h-44 object-cover" />
+                  <div className="relative w-full h-44">
+                    <Image src={spotlight.image} alt={spotlight.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  </div>
                   <div className="p-5 space-y-3">
                     <div>
                       <h3 className="text-xl font-semibold text-white mb-1">{spotlight.title}</h3>

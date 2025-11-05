@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
 import { rewardSpotlights } from '@/data/rewards';
@@ -251,7 +252,7 @@ export default function RaidsGuidePage() {
 
           {ensembleSpotlight && (
             <div id="sargerei-ensembles" className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden mb-10">
-              <img src={ensembleSpotlight.image} alt={ensembleSpotlight.title} className="w-full h-auto" />
+              <Image src={ensembleSpotlight.image} alt={ensembleSpotlight.title} width={1280} height={720} className="w-full h-auto" />
               <div className="p-6">
                 <h2 className="text-3xl font-bold text-white mb-3">{ensembleSpotlight.title}</h2>
                 <p className="text-sm text-gray-300 mb-4">{ensembleSpotlight.subtitle}</p>
@@ -269,7 +270,7 @@ export default function RaidsGuidePage() {
 
           {argusSpotlight && (
             <div id="argus-legacies" className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden mb-10">
-              <img src={argusSpotlight.image} alt={argusSpotlight.title} className="w-full h-auto" />
+              <Image src={argusSpotlight.image} alt={argusSpotlight.title} width={1280} height={720} className="w-full h-auto" />
               <div className="p-6">
                 <h2 className="text-3xl font-bold text-white mb-3">{argusSpotlight.title}</h2>
                 <p className="text-sm text-gray-300 mb-4">{argusSpotlight.subtitle}</p>

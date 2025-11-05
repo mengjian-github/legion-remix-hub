@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import ClientVisible from '@/components/ClientVisible';
 import {
   rewardCategories,
@@ -240,7 +241,7 @@ export default function RewardsPage() {
                 className="bg-gradient-to-br from-gray-900/80 via-gray-900/40 to-gray-900/80 border border-gray-800 rounded-2xl overflow-hidden"
               >
                 <div className="relative h-52">
-                  <img src={spotlight.image} alt={spotlight.title} className="h-full w-full object-cover" />
+                  <Image src={spotlight.image} alt={spotlight.title} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <p className="text-xs uppercase tracking-widest text-emerald-300">Spotlight</p>

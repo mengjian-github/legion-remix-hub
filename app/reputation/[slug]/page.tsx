@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { reputationFactions } from '@/data/reputations';
 import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
@@ -188,8 +189,8 @@ export default function ReputationFactionPage({ params }: PageProps) {
           </div>
 
           <aside className="space-y-6">
-            <div className="relative overflow-hidden rounded-2xl border border-gray-800">
-              <img src={faction.image} alt={`${faction.name} emissary`} className="h-60 w-full object-cover" />
+            <div className="relative overflow-hidden rounded-2xl border border-gray-800 h-60">
+              <Image src={faction.image} alt={`${faction.name} emissary`} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
             </div>
 
