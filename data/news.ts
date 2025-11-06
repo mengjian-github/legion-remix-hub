@@ -15,6 +15,25 @@ export type NewsArticle = {
 
 export const newsArticles: NewsArticle[] = [
   {
+    slug: 'phase-3-legion-remix-now-live',
+    title: 'New Content & Rewards Now Available in Phase 3 of Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-11-04',
+    image: '/images/news/2025-11-04-legionfall-phase-3.jpg',
+    imageAlt: 'Timerunners rally with Khadgar at the Cathedral of Eternal Night entrance on the Broken Shore',
+    excerpt:
+      'Legion Remix Phase 3 opens the Broken Shore, Legion Assaults, and the Tomb of Sargeras raid while stockpiling new Bronze vendor toys, pets, and Felscorned weapon transmogs.',
+    highlights: [
+      'Broken Shore storyline, Legionfall building projects, Legion Assault world events, Cathedral of Eternal Night, and Tomb of Sargeras all unlock in Phase 3.',
+      'Class campaigns now award the original Legion class mounts alongside Bronze vendor additions like Pilfered Sweeper, Ageless Bronze Drake, and Felscorned Shalamayne.',
+      'Six new Infinite Knowledge achievements—Breaching the Tomb, Defending the Broken Isles I & II, Heroic Cathedral clear, Tomb of Sargeras, and Broken Shore world bosses—raise Season ranks further.',
+    ],
+    source: {
+      label: 'Warcraft Tavern – Phase 3 Update (Nov 4, 2025)',
+      href: 'https://www.warcrafttavern.com/legion-remix/news/new-content-rewards-now-available-in-phase-3-of-legion-remix/',
+    },
+  },
+  {
     slug: 'legion-remix-character-transfer-status',
     title: 'Legion Remix Character Transfer Disabled: Status Tracker & Prep Plan',
     author: 'Legion Remix Hub Team',

@@ -126,6 +126,11 @@ export const legionImages = {
   hunterPetStoneGuardianLlothien: "/images/classes/hunter/pets/stone-guardian-cave-entrance-llothien-legion-remix-1024x576.jpg",
   hunterPetStoneGuardianLeyRuins: "/images/classes/hunter/pets/stone-guardian-cave-entrance-ley-ruins-legion-remix-1024x576.jpg",
   hunterPetStoneGuardianFarondale: "/images/classes/hunter/pets/stone-guardian-cave-entrance-farondale-legion-remix-1024x576.jpg",
+
+  // Phase 3: Legionfall additions
+  legionAssaultsBrokenIslesMap: "/images/guides/legion-assaults/legion-assault-broken-isles-map.jpg",
+  legionfallCampaignKhadgar: "/images/guides/broken-shore/legionfall-campaign-krasus-khadgar.jpg",
+  sargereiCommandersRegalia: "/images/guides/sargerei-commanders/sargerei-commanders-felscorned-regalia.jpg",
 };
 
 export const officialVideos = {

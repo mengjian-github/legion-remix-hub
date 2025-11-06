@@ -34,6 +34,22 @@ const guides = [
     image: legionImages.phaseTimeline ?? legionImages.referenceSplash
   },
   {
+    id: 'legion-assaults',
+    title: 'Legion Assaults',
+    description: 'Track assault spawn timers, quest stages, and Infinite Knowledge rewards across the Broken Isles.',
+    icon: '⚔️',
+    color: 'from-emerald-900/40 to-teal-900/40',
+    image: legionImages.legionAssaultsBrokenIslesMap ?? legionImages.referenceSplash
+  },
+  {
+    id: 'broken-shore-legionfall',
+    title: 'Broken Shore Legionfall',
+    description: 'Daily cadence, building rotations, and Sentinax farming tips to finish Breaching the Tomb fast.',
+    icon: '🏛️',
+    color: 'from-slate-900/40 to-emerald-900/40',
+    image: legionImages.legionfallCampaignKhadgar ?? legionImages.referenceSplash
+  },
+  {
     id: 'leveling',
     title: 'Leveling Guide',
     description: 'Fast-track to level 80 with optimized dungeon strategies, quest routes, and XP bonuses.',
@@ -130,6 +146,14 @@ const guides = [
     image: legionImages.rewardAppearanceKaldorei ?? legionImages.rewardVendorNightfallen
   },
   {
+    id: 'sargerei-commanders-regalia',
+    title: 'Sargerei Commander’s Regalia',
+    description: 'Unlock every fel-tinted ensemble by clearing Remix campaign, Heroic WQs, Mythic raids, and keystones.',
+    icon: '🛡️',
+    color: 'from-fuchsia-900/40 to-emerald-900/40',
+    image: legionImages.sargereiCommandersRegalia ?? legionImages.referenceSplash
+  },
+  {
     id: 'class-mounts',
     title: 'Class Mounts & Requirements',
     description: 'Felscorned unlocks, class hall checklists, and Broken Shore prep for every mount variant.',
@@ -169,6 +193,8 @@ export default function GuidesPage() {
     { label: 'Release schedule timeline', href: '/guides/release-schedule#phase-timeline' },
     { label: 'Fast leveling routes', href: '/guides/leveling#fastest-way-to-level-legion-remix' },
     { label: 'Bronze farming loops', href: '/guides/bronze-farming#bronze-collection-in-action' },
+    { label: 'Legion Assault schedule', href: '/guides/legion-assaults#schedule' },
+    { label: 'Breaching the Tomb plan', href: '/guides/broken-shore-legionfall#weekly' },
     { label: 'Ancient Mana farming', href: '/guides/ancient-mana#farming' },
     { label: 'Reputation emissary planner', href: '/reputation' },
     { label: 'Infinite Knowledge ranks', href: '/guides/infinite-knowledge#rank-breakdown' },
@@ -181,6 +207,7 @@ export default function GuidesPage() {
     { label: "Unlock Kaldorei Vestments", href: "/guides/kaldorei-royal-vestments#requirements" },
     { label: 'Suramar campaign tracker', href: '/guides/suramar-campaign#good-suramaritan' },
     { label: 'Class mount checklist', href: '/guides/class-mounts#classes' },
+    { label: 'Sargerei ensembles', href: '/guides/sargerei-commanders-regalia#overview' },
     { label: 'Infinite Bazaar vendors', href: '/guides/bronze-vendors#vendors' },
     { label: 'Fragmented Memento farm', href: '/guides/fragmented-mementos#core-sources' },
     { label: 'Hunter pet map', href: '/guides/hunter-pets#clefthoof' },
