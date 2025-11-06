@@ -2,18 +2,18 @@
 
 export const legionImages = {
   // Hero Banners
-  heroBanner: "/images/game/hero-banner.png",
+  heroBanner: "/images/game/hero-banner.avif",
   wowheadHeader: "/images/game/wowhead-header.jpg",
 
   // Infographics
-  phaseTimeline: "/images/game/phase-timeline.png",
+  phaseTimeline: "/images/game/phase-timeline.avif",
   infiniteResearch: "/images/game/infinite-research.png",
   phaseSchedule: "/images/game/phase-schedule.png",
 
   // In-game screenshots - Blizzard official
-  druidOrderHall: "/images/game/druid-order-hall.png",
+  druidOrderHall: "/images/game/druid-order-hall.avif",
   eternus: "/images/game/eternus.png",
-  artifactWeapon: "/images/game/artifact-weapon.png",
+  artifactWeapon: "/images/game/artifact-weapon.avif",
   heroicWorldTier: "/images/game/heroic-world-tier.png",
   timewarped: "/images/game/timewarped.png",
   housingDecor: "/images/game/housing-decor.png",
@@ -21,12 +21,12 @@ export const legionImages = {
   referenceSplash: "/images/reference/legion-remix-splash.jpg",
 
   // In-game screenshots - Wowhead
-  wyrmtongue: "/images/game/wyrmtongue.png",
-  artifactTraitTree: "/images/game/artifact-trait-tree.png",
+  wyrmtongue: "/images/game/wyrmtongue.avif",
+  artifactTraitTree: "/images/game/artifact-trait-tree.avif",
   artifactumSand: "/images/game/artifactum-sand.jpg",
   epochMemento: "/images/game/epoch-memento.jpg",
   infiniteResearchQuests: "/images/game/infinite-research-quests.png",
-  timeWarpedObelisk: "/images/game/timewarped-obelisk.png",
+  timeWarpedObelisk: "/images/game/timewarped-obelisk.avif",
   eternusScreenshot: "/images/game/eternus-screenshot.png",
   timewornKeystone: "/images/game/timeworn-keystone-schedule.jpg",
   challianeVineyardsMap: "/images/guides/challiane-vineyards/challiane-vineyards-map.jpg",
@@ -53,8 +53,8 @@ export const legionImages = {
   corruptedShalamayne: "/images/game/corrupted-shalamayne.jpg",
   housingDecorItems: "/images/game/housing-decor-items.jpg",
   firstSatyrSpaulders: "/images/game/first-satyr-spaulders.jpg",
-  scytheOfUnmaker: "/images/game/scythe-of-unmaker.png",
-  sargereiCommander: "/images/game/sargerei-commander.jpg",
+  scytheOfUnmaker: "/images/game/scythe-of-unmaker.avif",
+  sargereiCommander: "/images/game/sargerei-commander.avif",
   felshatterIllusion: "/images/game/felshatter-illusion.jpg",
   turboBoostSpells: "/images/game/turbo-boost-ui.jpg",
   turboBoostBuffs: "/images/game/turbo-boost-buffs.jpg",
@@ -135,12 +135,12 @@ export const officialVideos = {
 };
 
 export const classMountImages: Record<string, string> = {
-  'death-knight': "/images/game/class-mount-death-knight.jpg",
+  'death-knight': "/images/game/class-mount-death-knight.avif",
   'demon-hunter': "/images/game/class-mount-demon-hunter.jpg",
   druid: "/images/game/class-mount-druid.jpg",
   hunter: "/images/game/class-mount-hunter.jpg",
   mage: "/images/game/class-mount-mage.jpg",
-  monk: "/images/game/class-mount-monk.jpg",
+  monk: "/images/game/class-mount-monk.avif",
   paladin: "/images/game/class-mount-paladin.jpg",
   priest: "/images/game/class-mount-priest.jpg",
   rogue: "/images/game/class-mount-rogue.jpg",

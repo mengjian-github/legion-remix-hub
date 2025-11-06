@@ -65,7 +65,7 @@ export const classLore: Record<string, ClassLore> = {
           'Reach level 80 or spend 20,000 Bronze at Grandmaster Jakkus for the Felscorned Vilebrood Vanquisher.'
         ],
         image: {
-          src: '/images/game/class-mount-death-knight.jpg',
+          src: '/images/game/class-mount-death-knight.avif',
           alt: 'Death Knight class mount color variants',
           caption: 'Deathlord’s Vilebrood Vanquisher and fel-touched recolor'
         }
@@ -381,7 +381,7 @@ export const classLore: Record<string, ClassLore> = {
           'Title rewards include Grandmaster [Name] after binding the order together.'
         ],
         image: {
-          src: '/images/game/class-mount-monk.jpg',
+          src: '/images/game/class-mount-monk.avif',
           alt: 'Monk Ban-Lu class mount',
           caption: 'Ban-Lu carries monks across the Broken Isles'
         }
