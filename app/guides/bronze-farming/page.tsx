@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { farmingMethods, getBestBronzeDungeons } from '@/data/dungeons';
 import { totalBronzeCost, rewardSpotlights } from '@/data/rewards';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 const pageTitle = formatMetaTitle('Legion Remix Bronze Farming Blueprint 2025');
 const pageDescription = formatMetaDescription(
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/guides/bronze-farming'),
   },
+  openGraph: buildOpenGraphMetadata('/guides/bronze-farming', pageTitle, pageDescription),
+  twitter: buildTwitterMetadata(pageTitle, pageDescription),
 };
 
 export default function BronzeFarmingPage() {

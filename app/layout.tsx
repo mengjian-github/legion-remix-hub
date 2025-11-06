@@ -5,7 +5,7 @@ import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { createWebSiteSchema, JsonLd } from "@/lib/schema";
-import { formatMetaDescription, formatMetaTitle } from "@/lib/seo";
+import { buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,27 +53,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    type: "website",
     locale: "en_US",
-    url: "https://legionremixhub.com",
-    title: rootTitle,
-    description: rootDescription,
-    siteName: "Legion Remix Hub",
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Legion Remix Guide - Complete Hub"
-      }
-    ],
+    ...buildOpenGraphMetadata('/', rootTitle, rootDescription, 'website'),
   },
-  twitter: {
-    card: "summary_large_image",
-    title: rootTitle,
-    description: rootDescription,
-    images: ["/images/og-image.png"],
-  },
+  twitter: buildTwitterMetadata(rootTitle, rootDescription),
   robots: {
     index: true,
     follow: true,

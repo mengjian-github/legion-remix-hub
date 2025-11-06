@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 const pageTitle = formatMetaTitle('Challiane Vineyards Legion Remix Questline Guide 2025');
@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/guides/challiane-vineyards'),
   },
+  openGraph: buildOpenGraphMetadata('/guides/challiane-vineyards', pageTitle, pageDescription),
+  twitter: buildTwitterMetadata(pageTitle, pageDescription),
   other: {
     'article:published_time': '2025-10-18',
     'article:modified_time': new Date().toISOString(),

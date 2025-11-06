@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { dungeons, farmingMethods } from '@/data/dungeons';
 import { remixPhases } from '@/data/timeline';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 const pageTitle = formatMetaTitle('Legion Remix Dungeon Roadmap & Keystone Planner');
 const pageDescription = formatMetaDescription(
@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/guides/dungeons'),
   },
+  openGraph: buildOpenGraphMetadata('/guides/dungeons', pageTitle, pageDescription),
+  twitter: buildTwitterMetadata(pageTitle, pageDescription),
 };
 
 const phaseRecommendations: Record<string, string[]> = {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 const publishedDate = '2025-10-29';
@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/guides/bronze-vendors'),
   },
+  openGraph: buildOpenGraphMetadata('/guides/bronze-vendors', pageTitle, pageDescription),
+  twitter: buildTwitterMetadata(pageTitle, pageDescription),
   other: {
     'article:published_time': publishedDate,
     'article:modified_time': new Date().toISOString(),

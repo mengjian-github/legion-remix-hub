@@ -5,7 +5,7 @@ import Countdown from '@/components/ui/Countdown';
 import { eventDates, remixPhases, getCurrentPhase } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 const homeTitle = formatMetaTitle('Legion Remix 2025 Guide Hub for Timerunners');
 const homeDescription = formatMetaDescription(
@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/'),
   },
+  openGraph: buildOpenGraphMetadata('/', homeTitle, homeDescription),
+  twitter: buildTwitterMetadata(homeTitle, homeDescription),
 };
 
 export default function Home() {

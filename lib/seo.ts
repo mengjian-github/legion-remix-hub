@@ -19,6 +19,44 @@ export const buildCanonicalUrl = (path: string = "/"): string => {
 
 export const siteUrl = `${sanitizedSiteUrl}/`;
 
+const DEFAULT_OG_IMAGE_URL = "/images/og-image.png";
+
+const DEFAULT_OG_IMAGE = {
+  url: DEFAULT_OG_IMAGE_URL,
+  width: 1200,
+  height: 630,
+  alt: "Legion Remix Guide - Complete Hub",
+};
+
+export const buildOpenGraphMetadata = (
+  path: string,
+  title: string,
+  description: string,
+  type: "article" | "website" = "website",
+) => ({
+  type,
+  url: buildCanonicalUrl(path),
+  title,
+  description,
+  siteName: "Legion Remix Hub",
+  images: [DEFAULT_OG_IMAGE],
+});
+
+export const buildTwitterMetadata = (
+  title: string,
+  description: string,
+): {
+  card: "summary_large_image";
+  title: string;
+  description: string;
+  images: string[];
+} => ({
+  card: "summary_large_image",
+  title,
+  description,
+  images: [DEFAULT_OG_IMAGE_URL],
+});
+
 export const formatMetaDescription = (
   input: string,
   min: number = 140,

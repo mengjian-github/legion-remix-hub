@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { newsArticles } from '@/data/news';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 const newsTitle = formatMetaTitle('Legion Remix News & Hotfix Tracker 2025');
 const newsDescription = formatMetaDescription(
@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/news'),
   },
+  openGraph: buildOpenGraphMetadata('/news', newsTitle, newsDescription),
+  twitter: buildTwitterMetadata(newsTitle, newsDescription),
 };
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {

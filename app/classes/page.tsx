@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { classLoreList } from '@/data/classLore';
 
 const pageTitle = formatMetaTitle('Legion Remix Class Comparison & Builds 2025');
@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/classes'),
   },
+  openGraph: buildOpenGraphMetadata('/classes', pageTitle, pageDescription),
+  twitter: buildTwitterMetadata(pageTitle, pageDescription),
 };
 
 export default function ClassesPage() {

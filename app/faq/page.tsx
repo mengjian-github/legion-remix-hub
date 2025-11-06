@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createFAQSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 const pageTitle = formatMetaTitle('Legion Remix FAQ - Frequently Asked Questions');
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/faq'),
   },
+  openGraph: buildOpenGraphMetadata('/faq', pageTitle, pageDescription),
+  twitter: buildTwitterMetadata(pageTitle, pageDescription),
 };
 
 const faqs = [

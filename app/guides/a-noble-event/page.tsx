@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 const pageTitle = formatMetaTitle('A Noble Event Legion Remix Micro-Holiday Guide');
@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/guides/a-noble-event'),
   },
+  openGraph: buildOpenGraphMetadata('/guides/a-noble-event', pageTitle, pageDescription),
+  twitter: buildTwitterMetadata(pageTitle, pageDescription),
   other: {
     'article:published_time': '2025-10-18',
     'article:modified_time': new Date().toISOString(),

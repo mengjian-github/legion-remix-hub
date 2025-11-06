@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 const layoutTitle = formatMetaTitle('Legion Remix Bronze Calculator & Planner 2025');
 const layoutDescription = formatMetaDescription(
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/calculator'),
   },
+  openGraph: buildOpenGraphMetadata('/calculator', layoutTitle, layoutDescription),
+  twitter: buildTwitterMetadata(layoutTitle, layoutDescription),
 };
 
 export default function CalculatorLayout({ children }: { children: React.ReactNode }) {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 const layoutTitle = formatMetaTitle('Legion Remix Rewards & Bronze Tracker 2025');
 const layoutDescription = formatMetaDescription(
@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: buildCanonicalUrl('/rewards'),
   },
+  openGraph: buildOpenGraphMetadata('/rewards', layoutTitle, layoutDescription),
+  twitter: buildTwitterMetadata(layoutTitle, layoutDescription),
 };
 
 export default function RewardsLayout({ children }: { children: React.ReactNode }) {

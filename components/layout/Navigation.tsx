@@ -45,7 +45,7 @@ const navigation = [
       { name: 'Dungeon Roadmap', href: '/guides/dungeons' },
       { name: 'Raid Prep', href: '/guides/raids' },
       { name: 'Infinite Knowledge', href: '/guides/infinite-knowledge' },
-      { name: 'Reputation Guide', href: '/guides/reputation' },
+      { name: 'Reputation Guide', href: '/reputation' },
       { name: 'Hunter Pet Finder', href: '/guides/hunter-pets' },
     ]
   },
