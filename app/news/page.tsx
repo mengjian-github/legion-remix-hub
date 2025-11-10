@@ -88,6 +88,32 @@ export default function NewsPage() {
         </section>
       )}
 
+      <section className="mx-auto mt-12 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-green-600/40 bg-gray-900/70 p-8 shadow-2xl shadow-green-900/40 lg:flex lg:items-center lg:gap-10">
+          <div className="flex-1 space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-green-300/80">Phase 3 Briefing</p>
+            <h2 className="text-3xl font-bold text-white">Phase 3 – Legionfall is Live</h2>
+            <p className="text-sm text-gray-300">
+              Broken Shore construction timers, Legion Assault rotations, Tomb of Sargeras goals, and Bronze shopping priorities are consolidated in our internal launch report so raid leads and collectors can plan the final two-week sprint.
+            </p>
+            <p className="text-xs text-gray-400">
+              Share it with your team before November 17, 2025 so everyone finishes Breaching the Tomb, Infinite Knowledge ranks, and class mount finales before Argus prep begins.
+            </p>
+          </div>
+          <div className="mt-6 flex flex-col gap-3 lg:mt-0">
+            <Link
+              href="/news/phase-3-legion-remix-now-live"
+              className="inline-flex items-center justify-center rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-500"
+            >
+              Read the Phase 3 launch report
+            </Link>
+            <p className="text-xs text-gray-500">
+              Includes Infinite Knowledge checklist, Legionfall timeline, and Bronze vendor highlights.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] bg-gray-900/50 border border-gray-800 rounded-3xl p-8">
           <div>

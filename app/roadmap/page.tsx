@@ -97,7 +97,22 @@ const roadmapFaq = [
   },
 ];
 
-const phaseCards = [
+type PhaseCardCta = {
+  label: string;
+  description: string;
+  href: string;
+};
+
+type PhaseCard = {
+  id: string;
+  title: string;
+  dates: string;
+  image: string;
+  highlights: string[];
+  cta?: PhaseCardCta;
+};
+
+const phaseCards: PhaseCard[] = [
   {
     id: 'phase-1',
     title: 'Phase 1 – Skies of Fire',
@@ -129,7 +144,12 @@ const phaseCards = [
       'Broken Shore assaults, construction missions, and Legionfall supplies unlock class mount finales.',
       'Cathedral of Eternal Night enters the dungeon pool while Tomb of Sargeras headlines weekly raids.',
       'Fragmented Mementos drop more often, complementing Legionfall Champion’s Insignia catch-up.'
-    ]
+    ],
+    cta: {
+      label: 'Open the Legionfall launch briefing',
+      description: 'Review Broken Shore unlock order, Legion Assault cadence, and Bronze priorities before Argus prep begins.',
+      href: '/news/phase-3-legion-remix-now-live'
+    }
   },
   {
     id: 'phase-4',
@@ -302,6 +322,29 @@ export default function RoadmapPage() {
                       </li>
                     ))}
                   </ul>
+                  {card.cta && (
+                    <div className="border-t border-gray-800 bg-gray-950/60 px-5 py-4 space-y-3">
+                      <p className="text-xs text-gray-400">{card.cta.description}</p>
+                      <Link
+                        href={card.cta.href}
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-green-300 hover:text-green-200"
+                      >
+                        {card.cta.label}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-3.5 w-3.5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M12.293 3.293a1 1 0 011.414 0l4 4a1 1 0 01-.293 1.707l-1 1a1 1 0 01-1.414-1.414l.293-.293H9a1 1 0 110-2h6.586l-.293-.293a1 1 0 010-1.414l1-1zM4 5a1 1 0 011-1h4a1 1 0 010 2H6v10h8v-3a1 1 0 112 0v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </Link>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
