@@ -9,6 +9,7 @@ import { artifactPaths } from '@/data/artifact-paths';
 import type { ArtifactPath } from '@/data/artifact-paths';
 import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { classMountImages, legionImages } from '@/data/images';
+import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 import { buildKeywordRichParagraphs } from '@/lib/seo-content';
 
 const normalizeSpaces = (value: string) => value.replace(/\s+/g, ' ').trim();
@@ -161,40 +162,54 @@ export async function generateMetadata(
     };
   }
 
-  const title = formatMetaTitle(`${specGuide.specName} ${classData.name} Legion Remix Guide Tips`);
-  const description = formatMetaDescription(specGuide.metaDescription);
+  const canonicalPath = `/classes/${classId}/${specId}`;
+  const title = formatMetaTitle(
+    specGuide.serpTitle ?? `${specGuide.specName} ${classData.name} Legion Remix Guide Tips`
+  );
+  const descriptionSource = specGuide.serpDescription ?? specGuide.metaDescription;
+  const description = formatMetaDescription(descriptionSource);
+  const keywords = Array.from(new Set([
+    `${specGuide.specName} ${classData.name}`,
+    `${classData.name} ${specGuide.specName} legion remix`,
+    `${specGuide.specName} ${classData.name} guide`,
+    'legion remix guide',
+    'artifact path',
+    'best talents',
+    'stat priority',
+    'leveling guide',
+    'wow legion remix 2025',
+    ...(specGuide.seoSecondaryKeywords ?? []),
+    ...(specGuide.seoFocusKeyword ? [specGuide.seoFocusKeyword] : []),
+  ]));
+  const ogImage = classMountImages[classId] ?? legionImages.felClassMounts;
 
   return {
     title,
     description,
-    keywords: [
-      `${specGuide.specName} ${classData.name}`,
-      `${classData.name} ${specGuide.specName} legion remix`,
-      `${specGuide.specName} ${classData.name} guide`,
-      'legion remix guide',
-      'artifact path',
-      'best talents',
-      'stat priority',
-      'leveling guide',
-      'wow legion remix 2025'
-    ].join(', '),
+    keywords,
     alternates: {
-      canonical: buildCanonicalUrl(`/classes/${classId}/${specId}`),
+      canonical: buildCanonicalUrl(canonicalPath),
     },
     openGraph: {
       title,
       description,
-      url: buildCanonicalUrl(`/classes/${classId}/${specId}`),
+      url: buildCanonicalUrl(canonicalPath),
       siteName: 'Legion Remix Hub',
       type: 'article',
       images: [
         {
-          url: classMountImages[classId] ?? legionImages.felClassMounts,
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: `${specGuide.specName} ${classData.name} Legion Remix Guide`,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -217,36 +232,29 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
   const focusKeyword = specGuide.seoFocusKeyword ?? `${specGuide.specName} ${classData.name}`;
   const narrativeParagraphs = buildSpecNarrative(specGuide, classData, artifactPath, alternatePathsData);
   const engagementActions = specGuide.engagementActions ?? [];
-  const formattedMetaDescription = formatMetaDescription(specGuide.metaDescription);
+  const pageUrl = buildCanonicalUrl(`/classes/${classId}/${specId}`);
+  const heroDescription = specGuide.serpDescription ?? specGuide.metaDescription;
+  const articleSchema = createArticleSchema({
+    headline: `${specGuide.specName} ${classData.name} Legion Remix Guide`,
+    description: heroDescription,
+    url: pageUrl,
+    imageUrl: classMountImages[classId] ?? legionImages.felClassMounts,
+    datePublished: '2025-10-07',
+    dateModified: new Date().toISOString(),
+  });
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Classes', path: '/classes' },
+    { name: classData.name, path: `/classes/${classId}` },
+    { name: specGuide.specName, path: `/classes/${classId}/${specId}` },
+  ]);
+  const faqSchema = specGuide.faq?.length ? createFAQSchema(specGuide.faq) : null;
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
-      {/* Schema.org JSON-LD */}
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                  '@context': 'https://schema.org',
-                  '@type': 'Article',
-                  headline: `${specGuide.specName} ${classData.name} Legion Remix Guide`,
-                  description: formattedMetaDescription,
-                  author: {
-                    '@type': 'Organization',
-                    name: 'Legion Remix Hub',
-                  },
-            publisher: {
-              '@type': 'Organization',
-              name: 'Legion Remix Hub',
-              logo: {
-                '@type': 'ImageObject',
-                url: 'https://legionremixhub.com/images/logo.png',
-              },
-            },
-            datePublished: '2025-10-07',
-            dateModified: new Date().toISOString().split('T')[0],
-          }),
-        }}
-      />
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      {faqSchema && <JsonLd data={faqSchema} />}
 
       <div className="max-w-6xl mx-auto">
         {/* Breadcrumb Navigation */}
@@ -300,7 +308,7 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
                 <h1 className="text-4xl font-bold text-white mb-2">
                   {specGuide.specName} {classData.name} Legion Remix Guide
                 </h1>
-                <p className="text-lg text-gray-200">{specGuide.metaDescription}</p>
+                <p className="text-lg text-gray-200">{heroDescription}</p>
               </div>
             </div>
           </div>
@@ -490,6 +498,22 @@ export default async function SpecPage({ params }: { params: Promise<{ classId: 
                 ))}
               </div>
             </div>
+
+            {specGuide.faq?.length ? (
+              <div className="bg-gray-800 border border-gray-700 rounded-lg p-6" id="faq">
+                <h2 className="text-2xl font-bold text-white mb-4">
+                  {specGuide.specName} Legion Remix FAQ
+                </h2>
+                <div className="space-y-4 text-gray-300">
+                  {specGuide.faq.map((item) => (
+                    <div key={item.question}>
+                      <h3 className="text-lg font-semibold text-white mb-1">{item.question}</h3>
+                      <p className="text-sm leading-6">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
 
           </div>
 

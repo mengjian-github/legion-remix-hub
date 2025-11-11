@@ -4,8 +4,30 @@ import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { bronzeEntries } from '@/data/rewards';
 import { farmingMethods } from '@/data/dungeons';
+import { createFAQSchema, JsonLd } from '@/lib/schema';
 
 const calculatorTypes = ['all', ...Array.from(new Set(bronzeEntries.map(entry => entry.type)))] as string[];
+
+type CalculatorFaqEntry = { question: string; answer: string };
+
+const calculatorFaq: CalculatorFaqEntry[] = [
+  {
+    question: 'How do I use the Legion Remix bronze calculator to build a wishlist?',
+    answer: 'Toggle any reward in the list, watch the totals update in the sidebar, and keep the tab open so you can compare bronze costs before buying in Legion Remix.'
+  },
+  {
+    question: 'Does the calculator estimate how long Legion Remix farms will take?',
+    answer: 'Yes—the sidebar converts your bronze total into hours for three top-tier farming routes, so you know exactly how many keystones or scenarios you need.'
+  },
+  {
+    question: 'Can I share my Legion Remix bronze calculator totals with friends?',
+    answer: 'Take a screenshot or export the visible list—guilds often post the totals in Discord so everyone follows the same upgrade order on reset night.'
+  },
+  {
+    question: 'What presets come with this Legion Remix bronze calculator?',
+    answer: 'Category filters cover mounts, transmogs, toys, class sets, and utility bundles, and there is a “calculator10” preset for quickly budgeting ten priority items.'
+  }
+];
 
 export default function CalculatorPage() {
   const [selectedRewards, setSelectedRewards] = useState<Set<string>>(new Set());
@@ -34,6 +56,7 @@ export default function CalculatorPage() {
     const hours = totalBronze / bestMethod.bronzePerHour;
     return hours;
   }, [totalBronze]);
+  const faqSchema = useMemo(() => createFAQSchema(calculatorFaq), []);
 
   const referenceHighlights = [
     {
@@ -54,6 +77,7 @@ export default function CalculatorPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
+      <JsonLd data={faqSchema} />
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">Legion Remix Bronze Calculator</h1>
@@ -288,50 +312,15 @@ export default function CalculatorPage() {
           </p>
         </div>
 
-        {/* FAQ block intentionally concise; each question uses the exact key phrase once to stay natural */}
-        <div className="mt-16 bg-gray-900/60 border border-green-700/40 rounded-lg p-6">
+        <div className="mt-16 bg-gray-900/60 border border-green-700/40 rounded-lg p-6" id="faq">
           <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Bronze Calculator FAQ</h2>
           <ul className="space-y-3 text-sm text-gray-300">
-            <li>
-              <h3 className="text-lg font-semibold text-white">What is the Legion Remix bronze calculator?</h3>
-              <p>The tool that totals Bronze costs and farm hours for any wishlist of rewards during the event.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">How do I use the Legion Remix bronze calculator for weekly planning?</h3>
-              <p>Filter rewards, add them to your list, and compare hours from your preferred farming method.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Can the Legion Remix bronze calculator handle multiple characters?</h3>
-              <p>Yes—duplicate presets per character and adjust for class mounts or priority transmogs.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Where does the Legion Remix bronze calculator get prices?</h3>
-              <p>From the rewards compendium maintained alongside the site’s reference data.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Does the Legion Remix bronze calculator estimate time to finish?</h3>
-              <p>It shows hours for multiple methods—dungeons, scenarios, and world content—based on your wishlist.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Is the Legion Remix bronze calculator better than a spreadsheet?</h3>
-              <p>It removes manual formulas and keeps totals synced with current Bronze prices.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Can I share the Legion Remix bronze calculator plan with friends?</h3>
-              <p>Yes—screenshot the sidebar summary or export notes to your guild doc.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Does the Legion Remix bronze calculator include housing decor?</h3>
-              <p>All reward types are supported; use filters to narrow by category or phase.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Will the Legion Remix bronze calculator stay updated?</h3>
-              <p>We track hotfixes and vendor changes and refresh prices as needed.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Where do I send feedback for the Legion Remix bronze calculator?</h3>
-              <p>Open an issue on the project repo or message us—feature requests are welcome.</p>
-            </li>
+            {calculatorFaq.map((item) => (
+              <li key={item.question}>
+                <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                <p>{item.answer}</p>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -382,6 +371,7 @@ export default function CalculatorPage() {
             Export your totals to guild spreadsheets or screenshot the summary so everyone knows the Bronze target before the next reset.
           </p>
         </div>
+
       </div>
     </div>
   );

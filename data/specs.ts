@@ -43,10 +43,13 @@ export interface SpecGuide {
 
   // SEO
   metaDescription: string;
+  serpTitle?: string;
+  serpDescription?: string;
   seoFocusKeyword?: string;
   seoSecondaryKeywords?: string[];
   seoTopics?: string[];
   seoSupportingConcepts?: string[];
+  faq?: Array<{ question: string; answer: string }>;
 
   // Artifact recommendations
   bestArtifactPath: string; // Path ID
@@ -102,6 +105,8 @@ export const specGuides: SpecGuide[] = [
     specName: 'Holy',
     role: 'Healer',
     metaDescription: 'Holy Paladin Legion Remix guide covering the best Arcane artifact path, optimal talents, stat priorities, and leveling strategies—your quick Legion Remix Holy Paladin build overview and Legion Remix paladin guide starting point.',
+    serpTitle: 'Holy Paladin Legion Remix Healer Guide — Cooldown Planner & Bronze Checklist',
+    serpDescription: 'Holy Paladin Legion Remix healer blueprint with cooldown planner tips, Arcane vs Fel artifact comparisons, and a Bronze shopping checklist built for WoW Legion Remix Holy Paladin mains.',
     seoFocusKeyword: 'Holy Paladin Legion Remix',
     seoSecondaryKeywords: [
       'Legion Remix Holy Paladin guide',
@@ -119,6 +124,20 @@ export const specGuides: SpecGuide[] = [
       'Aura Mastery coverage plans',
       'Infusion of Light proc usage',
       'Divine Toll opener alignment'
+    ],
+    faq: [
+      {
+        question: 'What artifact path is best for Holy Paladin Legion Remix?',
+        answer: 'Arcane path wins for raw throughput while Fel offers aggressive damage-weaving—swap based on whether your group needs healing stability or extra DPS.'
+      },
+      {
+        question: 'How should Holy Paladins spend Bronze in Legion Remix?',
+        answer: 'Upgrade the Silver Hand artifact, grab mastery-heavy jewelry, then buy Infinite Mender trinkets and a high item level shield before touching cosmetics.'
+      },
+      {
+        question: 'Which cooldown rotation stabilizes Turbo Boost dungeons?',
+        answer: 'Stagger Aura Mastery, Avenging Crusader, and Tyr’s Deliverance every minute while Beacon swaps anchor the tank during Turbo Boost spikes.'
+      }
     ],
 
     bestArtifactPath: 'arcane',
@@ -286,6 +305,8 @@ export const specGuides: SpecGuide[] = [
     specName: 'Retribution',
     role: 'DPS',
     metaDescription: 'Retribution Paladin Legion Remix guide outlining the best Fel artifact path, top DPS talents, stat priorities, and ways to dominate both solo and group content—use this Legion Remix Paladin guide slice to plan your burst windows, Ret Paladin Legion Remix build, and ret pala Legion Remix Bronze priorities.',
+    serpTitle: 'Retribution Paladin Legion Remix Build — Burst Worksheet & Bronze Plan',
+    serpDescription: 'Retribution Paladin Legion Remix hub with a burst opener worksheet, three Mythic+/raid loadouts, Turbo Boost prep, and Bronze shopping order for WoW Legion Remix Retribution Paladin mains.',
     seoFocusKeyword: 'Retribution Paladin Legion Remix',
     seoSecondaryKeywords: [
       'Ret Paladin Legion Remix build',
@@ -303,6 +324,24 @@ export const specGuides: SpecGuide[] = [
       'Wake of Ashes setup sequencing',
       'Blessing of Freedom mobility plays',
       'Infinite Knowledge investment pacing'
+    ],
+    faq: [
+      {
+        question: 'What is the best Legion Remix Retribution Paladin build for raids?',
+        answer: 'Run Fel artifact path with Execution Sentence, Empyrean Power, and Final Reckoning talents; stack Strength and Mastery to keep Wake of Ashes + Avenging Wrath windows lethal.'
+      },
+      {
+        question: 'How should Retribution Paladins spend Bronze in Legion Remix?',
+        answer: 'Upgrade the Ashbringer artifact first, grab 2 trinkets with Strength procs, then chase tier pieces and the Felscorched Charger before cosmetics.'
+      },
+      {
+        question: 'Can Ret Paladin farm Heroic World Tier solo?',
+        answer: 'Yes—pair Divine Shield, Shield of Vengeance, and Word of Glory with Burst/Speed threads to keep Heroic World Tier Bronze loops safe.'
+      },
+      {
+        question: 'Which Threads or gems spike Legion Remix Ret Paladin DPS?',
+        answer: 'Prioritize Furious Strikes, Searing Light, and Hasty Hearth threads, then add gemmed Strength nodes from Infinite Mastery for consistent crit chains.'
+      }
     ],
 
     bestArtifactPath: 'fel',

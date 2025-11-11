@@ -1,18 +1,79 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
-import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
+import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
-const pageTitle = formatMetaTitle('Challiane Vineyards Legion Remix Questline Guide 2025');
+const pageTitle = formatMetaTitle('Challiane Vineyards Legion Remix Route Map & Bronze Plan 2025');
 const pageDescription = formatMetaDescription(
-  'Finish the Challiane Vineyards Legion Remix questline fast—this Challiane Vineyards Legion Remix guide covers optimized routing, Sojourner of Azsuna credit, Infinite Knowledge prep, and Timerunner tips.'
+  'Stuck on the Challiane Vineyards Legion Remix quest? Follow a reset-ready route map, Bronze-per-hour cheat sheet, and bug fixes that guarantee Sojourner of Azsuna credit without wasting a timer.'
 );
+
+type FaqEntry = {
+  question: string;
+  answer: string;
+  answerRich: ReactNode;
+};
+
+const faqEntries: FaqEntry[] = [
+  {
+    question: 'Why is Cellarman Voodani missing in Challiane Vineyards Legion Remix?',
+    answer: 'Finish “Behind Legion Lines,” unlock Azsuna World Quests, and toggle Heroic World Tier off then on again to refresh the phase so Cellarman Voodani reappears for the Challiane Vineyards Legion Remix turn-in.',
+    answerRich: (
+      <p>
+        Confirm you have completed the “Behind Legion Lines” introduction and unlocked World Quests on Azsuna. If you swapped to Heroic World Tier mid-quest, phase-layering can hide Voodani—toggle the tier back to Normal, interact, then re-enable Heroic World Tier before engaging enemies so the <strong>Challiane Vineyards Legion Remix</strong> turn-in appears.
+      </p>
+    )
+  },
+  {
+    question: 'Does Challiane Vineyards Legion Remix count toward Turbo Boost quests?',
+    answer: 'Yes. During Turbo Boost weekends the vineyard behaves like a world quest, feeding the “Complete 20 world quests” objective and granting bonus Bronze when you turn it in.',
+    answerRich: (
+      <p>
+        Yes. The Remix backend flags the combat encounter as a world quest equivalent. During bonus weekends (next one runs October 25–27, 2025) the kill credit contributes to the weekly “Complete 20 world quests” objective and awards bonus Bronze on turn-in, making the <strong>Challiane Vineyards Legion Remix</strong> route one of the best filler quests in the rotation.
+      </p>
+    )
+  },
+  {
+    question: 'Can I finish Challiane Vineyards Legion Remix before clearing the campaign?',
+    answer: 'Absolutely—grab the quest after “Aiding Nar’thalas” and before the Suramar intro to avoid phasing conflicts later in the Legion campaign.',
+    answerRich: (
+      <p>
+        Absolutely. The quest unlocks right after “Aiding Nar’thalas” and before you escort Prince Farondis through Leythos. Doing it early prevents phasing conflicts once you trigger the Suramar intro on the main campaign and keeps your <strong>Challiane Vineyards Legion Remix</strong> completions ahead of emissary rotations.
+      </p>
+    )
+  },
+  {
+    question: 'How many times should I repeat the vineyard?',
+    answer: 'Run it daily on mains and twice on alts during Turbo Boost weekends—Bronze piles up fast thanks to Farondis emissary overlap.',
+    answerRich: (
+      <p>
+        Run the <strong>Challiane Vineyards Legion Remix</strong> route daily on mains and twice on alts during Turbo Boost windows. The Bronze yield stacks with Farondis world quests, so repeating “Challiane Vineyards Legion Remix” three to four times a week keeps your Legendary threads funded without grinding dungeons.
+      </p>
+    )
+  },
+  {
+    question: 'What gear loadout works best for Challiane Vineyards Legion Remix?',
+    answer: 'Stack Burst and Speed threads, activate Infinite Mastery before the pull, and carry Epoch Memento for instant Bronze per minute gains.',
+    answerRich: (
+      <p>
+        Prioritize Burst and Speed threads, then layer on the Infinite Mastery buff before entering the <strong>Challiane Vineyards Legion Remix</strong> zone. The stat spikes shorten each “Challiane Vineyards Legion Remix” pull and elevate your Bronze per minute when combined with Epoch Memento.
+      </p>
+    )
+  },
+];
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
+  keywords: [
+    'Challiane Vineyards Legion Remix',
+    'Legion Remix route map',
+    'Sojourner of Azsuna guide',
+    'Timerunner Bronze farming',
+  ],
   alternates: {
     canonical: buildCanonicalUrl('/guides/challiane-vineyards'),
   },
@@ -50,11 +111,15 @@ export default function ChallianeVineyardsPage() {
     { name: 'Guides', path: '/guides' },
     { name: 'Challiane Vineyards', path: '/guides/challiane-vineyards' },
   ]);
+  const faqSchema = createFAQSchema(
+    faqEntries.map(({ question, answer }) => ({ question, answer }))
+  );
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <div className="max-w-4xl mx-auto">
         <Link
@@ -249,36 +314,12 @@ export default function ChallianeVineyardsPage() {
           <section id="faq">
             <h2 className="text-3xl font-bold text-white mb-4">FAQ &amp; Troubleshooting</h2>
             <div className="space-y-6 text-gray-300">
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-2">Why is Cellarman Voodani missing in Challiane Vineyards Legion Remix?</h3>
-                <p>
-                  Confirm you have completed the “Behind Legion Lines” introduction and unlocked World Quests on Azsuna. If you swapped to Heroic World Tier mid-quest, phase-layering can hide Voodani—toggle the tier back to Normal, interact, then re-enable Heroic World Tier before engaging enemies so the <strong>Challiane Vineyards Legion Remix</strong> turn-in appears.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-2">Does Challiane Vineyards Legion Remix count toward Turbo Boost quests?</h3>
-                <p>
-                  Yes. The Remix backend flags the combat encounter as a world quest equivalent. During bonus weekends (next one runs October 25–27, 2025) the kill credit contributes to the weekly “Complete 20 world quests” objective and awards bonus Bronze on turn-in, making the <strong>Challiane Vineyards Legion Remix</strong> route one of the best filler quests in the rotation.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-2">Can I finish Challiane Vineyards Legion Remix before clearing the campaign?</h3>
-                <p>
-                  Absolutely. The quest unlocks right after “Aiding Nar’thalas” and before you escort Prince Farondis through Leythos. Doing it early prevents phasing conflicts once you trigger the Suramar intro on the main campaign and keeps your <strong>Challiane Vineyards Legion Remix</strong> completions ahead of emissary rotations.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-2">How many times should I repeat the vineyard?</h3>
-                <p>
-                  Run the <strong>Challiane Vineyards Legion Remix</strong> route daily on mains and twice on alts during Turbo Boost windows. The Bronze yield stacks with Farondis world quests, so repeating “Challiane Vineyards Legion Remix” three to four times a week keeps your Legendary threads funded without grinding dungeons.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-2">What gear loadout works best for Challiane Vineyards Legion Remix?</h3>
-                <p>
-                  Prioritize Burst and Speed threads, then layer on the Infinite Mastery buff before entering the <strong>Challiane Vineyards Legion Remix</strong> zone. The stat spikes shorten each “Challiane Vineyards Legion Remix” pull and elevate your Bronze per minute when combined with Epoch Memento.
-                </p>
-              </div>
+              {faqEntries.map((faq) => (
+                <div key={faq.question}>
+                  <h3 className="text-xl font-semibold text-white mb-2">{faq.question}</h3>
+                  {faq.answerRich}
+                </div>
+              ))}
             </div>
           </section>
 
