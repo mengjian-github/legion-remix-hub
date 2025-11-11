@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 const SITE_URL = "https://legionremixhub.com";
 
 const sanitizedSiteUrl = SITE_URL.replace(/\/+$/, "");
@@ -55,6 +57,28 @@ export const buildTwitterMetadata = (
   title,
   description,
   images: [DEFAULT_OG_IMAGE_URL],
+});
+
+type PageMetadataConfig = {
+  path: string;
+  title: string;
+  description: string;
+  type?: "article" | "website";
+};
+
+export const buildPageMetadata = ({
+  path,
+  title,
+  description,
+  type = "article",
+}: PageMetadataConfig): Metadata => ({
+  title,
+  description,
+  alternates: {
+    canonical: buildCanonicalUrl(path),
+  },
+  openGraph: buildOpenGraphMetadata(path, title, description, type),
+  twitter: buildTwitterMetadata(title, description),
 });
 
 export const formatMetaDescription = (

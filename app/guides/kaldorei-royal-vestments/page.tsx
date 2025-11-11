@@ -2,20 +2,17 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
+const canonicalPath = '/guides/kaldorei-royal-vestments';
 const pageTitle = formatMetaTitle('Kaldorei Queen’s Royal Vestments Legion Remix Guide');
 const pageDescription = formatMetaDescription(
   'Unlock the Kaldorei Queen’s Royal Vestments in Legion Remix by completing two Suramar achievements. Follow campaign, exploration, and group activity checklists plus Nightfallen reputation tips.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides/kaldorei-royal-vestments'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
   other: {
     'article:published_time': '2025-10-22',
     'article:modified_time': new Date().toISOString(),
@@ -329,4 +326,3 @@ export default function KaldoreiRoyalVestmentsPage() {
     </div>
   );
 }
-

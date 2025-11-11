@@ -2,19 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { dungeons, farmingMethods, getBestXPDungeons } from '@/data/dungeons';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
+const canonicalPath = '/guides/leveling';
 const pageTitle = formatMetaTitle('Legion Remix Leveling Blueprint to Reach 80');
 const pageDescription = formatMetaDescription(
   'Power level to 80 in Legion Remix with dungeon routes, Heroic World Tier tips, quest stacking plans, and Bronze farming priorities tailored to Timerunners.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides/leveling'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
 };
 
 export default function LevelingGuidePage() {

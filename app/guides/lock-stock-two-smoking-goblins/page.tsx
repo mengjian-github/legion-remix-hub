@@ -2,20 +2,17 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
+const canonicalPath = '/guides/lock-stock-two-smoking-goblins';
 const pageTitle = formatMetaTitle('Lock, Stock, and Two Smoking Goblins Legion Remix Guide');
 const pageDescription = formatMetaDescription(
   'Earn the Gullible title from Lock, Stock, and Two Smoking Goblins in Legion Remix with Gazrix Gearlock prerequisites, fight strategy for Rax and Snaggle, Bronze planning, and troubleshooting tips.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides/lock-stock-two-smoking-goblins'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
   other: {
     'article:published_time': '2025-10-18',
     'article:modified_time': new Date().toISOString(),

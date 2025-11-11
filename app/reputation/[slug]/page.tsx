@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { reputationFactions } from '@/data/reputations';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 type PageProps = {
   params: {
@@ -33,12 +33,12 @@ export function generateMetadata({ params }: PageProps): Metadata {
     ? "Legion Remix Armies of Legionfall Phase 3 blueprint covering emissary routes, construction buffs, Champion's Insignia farming, vendor rewards, and paragon cache planning."
     : `${faction.name} reputation route for Legion Remix. Emissary location, Champion's Insignia sources, vendor highlights, paragon rewards, and emissary quest loot.`;
 
+  const canonicalPath = `/reputation/${faction.slug}`;
+  const title = formatMetaTitle(titleBase);
+  const description = formatMetaDescription(descriptionBase);
+
   return {
-    title: formatMetaTitle(titleBase),
-    description: formatMetaDescription(descriptionBase),
-    alternates: {
-      canonical: buildCanonicalUrl(`/reputation/${faction.slug}`)
-    }
+    ...buildPageMetadata({ path: canonicalPath, title, description }),
   };
 }
 

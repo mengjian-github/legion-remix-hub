@@ -1,19 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { reputationFactions } from '@/data/reputations';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
+const canonicalPath = '/reputation';
 const pageTitle = formatMetaTitle('Legion Remix Reputation Hub Planner 2025');
 const pageDescription = formatMetaDescription(
   "Overview of Legion Remix reputation routes for the Broken Isles. Compare emissary locations, Champion's Insignia sources, vendor highlights, and paragon rewards across Court of Farondis, Dreamweavers, Highmountain Tribe, Nightfallen, Wardens, Valarjar, and the Kirin Tor."
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/reputation')
-  }
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription, type: 'website' }),
 };
 
 export default function ReputationOverviewPage() {

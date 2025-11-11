@@ -3,20 +3,17 @@ import Link from 'next/link';
 import { remixPhases } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
+const canonicalPath = '/guides/getting-started';
 const pageTitle = formatMetaTitle('Legion Remix Getting Started Playbook 2025');
 const pageDescription = formatMetaDescription(
   'Learn Legion Remix basics with a getting started guide covering account prep, Timerunner creation, phase timeline, Heroic World Tier setup, and Bronze planning.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides/getting-started'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
   other: {
     'article:published_time': '2025-10-07',
     'article:modified_time': new Date().toISOString(),

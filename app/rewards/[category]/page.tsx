@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 import {
   getRewardCategory,
@@ -85,13 +85,10 @@ export function generateMetadata({ params }: { params: { category: string } }): 
 
   const title = formatMetaTitle(`${section.title} – Legion Remix Rewards & Bronze Tracker 2025`);
   const description = formatMetaDescription(section.subtitle || 'Browse Legion Remix rewards by category with Bronze costs and unlock notes.');
+  const canonicalPath = `/rewards/${section.key}`;
 
   return {
-    title,
-    description,
-    alternates: {
-      canonical: buildCanonicalUrl(`/rewards/${section.key}`),
-    },
+    ...buildPageMetadata({ path: canonicalPath, title, description, type: 'website' }),
   };
 }
 

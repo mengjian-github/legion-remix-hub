@@ -2,22 +2,19 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 const publishedDate = '2025-10-29';
 
+const canonicalPath = '/guides/suramar-campaign';
 const pageTitle = formatMetaTitle('Suramar Quest Campaign Guide – Legion Remix 2025');
 const pageDescription = formatMetaDescription(
   'Complete the Suramar storyline in Legion Remix with chapter summaries, Ancient Mana checkpoints, Insurrection unlock requirements, and teleporter routing tips.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides/suramar-campaign'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
   other: {
     'article:published_time': publishedDate,
     'article:modified_time': new Date().toISOString(),
@@ -410,4 +407,3 @@ export default function SuramarCampaignGuidePage() {
     </div>
   );
 }
-

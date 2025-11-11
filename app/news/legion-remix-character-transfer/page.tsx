@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { JsonLd, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '@/lib/schema';
 
 const canonicalPath = '/news/legion-remix-character-transfer';
@@ -13,11 +13,7 @@ const pageTitle = formatMetaTitle(rawTitle);
 const pageDescription = formatMetaDescription(`${rawDescription} Legion Remix character transfer alerts refresh daily with contingency advice.`);
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl(canonicalPath),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
   other: {
     'article:published_time': '2025-11-03',
     'article:modified_time': new Date().toISOString(),

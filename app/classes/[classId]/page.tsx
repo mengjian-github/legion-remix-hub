@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { classes } from '@/data/classes';
 import { legionImages, classMountImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { getClassSpecs } from '@/data/specs';
 import { getClassLore } from '@/data/classLore';
 
@@ -28,15 +28,13 @@ export async function generateMetadata(
     };
   }
 
+  const canonicalPath = `/classes/${classId}`;
   const title = formatMetaTitle(`${classData.name} Legion Remix Class Playbook 2025`);
+  const description = formatMetaDescription(
+    `Plan Legion Remix ${classData.name} gameplay with spec roles, artifact paths, Fel mount perks, gearing priorities, and quick links into builds made for 2025 Timerunners.`,
+  );
   return {
-    title,
-    description: formatMetaDescription(
-      `Plan Legion Remix ${classData.name} gameplay with spec roles, artifact paths, Fel mount perks, gearing priorities, and quick links into builds made for 2025 Timerunners.`,
-    ),
-    alternates: {
-      canonical: buildCanonicalUrl(`/classes/${classId}`),
-    },
+    ...buildPageMetadata({ path: canonicalPath, title, description, type: 'website' }),
   };
 }
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildCanonicalUrl, buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
 const publishedDate = '2025-10-31';
@@ -19,17 +19,14 @@ type HunterPetSpot = {
   gallery?: { src: string; alt: string }[];
 };
 
+const canonicalPath = '/guides/hunter-pets';
 const pageTitle = formatMetaTitle('New Hunter Pet Locations – Legion Remix 2025');
 const pageDescription = formatMetaDescription(
   'Tame remix-exclusive Clefthoof, Felhound, Devilsaur, Hyena, and Stone Hound pets with precise /way coordinates and travel tips for Legion Remix hunters.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides/hunter-pets'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
   other: {
     'article:published_time': publishedDate,
     'article:modified_time': new Date().toISOString(),

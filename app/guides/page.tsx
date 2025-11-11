@@ -1,19 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
+const canonicalPath = '/guides';
 const pageTitle = formatMetaTitle('Legion Remix Guides Hub & Strategy Vault 2025');
 const pageDescription = formatMetaDescription(
   'Browse Legion Remix leveling, Bronze farming, dungeon, and raid guides with quick links, recommended routes, and weekly priorities to steer Timerunner planning.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription, type: 'website' }),
 };
 
 type GuideCard = {

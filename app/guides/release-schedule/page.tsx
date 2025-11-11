@@ -3,20 +3,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { legionImages } from '@/data/images';
 import { remixPhases, eventDates } from '@/data/timeline';
-import { buildCanonicalUrl, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
+const canonicalPath = '/guides/release-schedule';
 const pageTitle = formatMetaTitle('Legion Remix Release Schedule & Phase Timeline 2025');
 const pageDescription = formatMetaDescription(
   'Track the Legion Remix release schedule with phase dates, raid unlocks, vendor rotations, and weekly priorities so every Timerunner is ready for each content drop.'
 );
 
 export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: {
-    canonical: buildCanonicalUrl('/guides/release-schedule'),
-  },
+  ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription }),
   other: {
     'article:published_time': '2025-11-03',
     'article:modified_time': new Date().toISOString(),
