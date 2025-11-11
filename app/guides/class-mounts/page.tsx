@@ -5,11 +5,11 @@ import { classMountImages, legionImages } from '@/data/images';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
-const publishedDate = '2025-10-29';
+const publishedDate = '2025-11-11';
 
 const pageTitle = formatMetaTitle('Class Mounts & Requirements – Legion Remix 2025');
 const pageDescription = formatMetaDescription(
-  'Unlock every Legion class mount in Legion Remix, learn how Felscorned variants work, and plan Broken Shore and class hall steps before Phase 3.'
+  'Unlock every Legion class mount in Legion Remix with hotfix-ready Hunter and Rogue walkthroughs plus Felscorned planning tips.'
 );
 
 export const metadata: Metadata = {
@@ -32,6 +32,8 @@ const quickLinks = [
   { label: 'Felscorned mount unlocks', href: '#felscorned' },
   { label: 'Legacy mount requirements', href: '#legacy' },
   { label: 'Class-by-class breakdown', href: '#classes' },
+  { label: 'Hunter walkthrough', href: '#hunter-walkthrough' },
+  { label: 'Rogue walkthrough', href: '#rogue-walkthrough' },
   { label: 'Bronze planning', href: '#bronze' },
   { label: 'FAQ', href: '#faq' },
 ];
@@ -112,10 +114,14 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "Huntmaster’s Dire Wolfhawk", note: 'Awarded for completing the Beast Mastery challenge.' },
     ],
     checklist: [
-      'Finish the Hunter order hall storyline and recruit all champions before November 4, 2025.',
-      'Complete “Champions of Legionfall” then pick up “Bloodbringer’s Missive” to unlock the mount scenario.',
-      'Kill the demon beast within Trueshot Lodge’s portal and follow the emissary quests for the additional color variants.',
+      'Clear “Armies of Legionfall” and “Assault on Broken Shore”, then return to Trueshot Lodge with “Champions of Legionfall” in hand.',
+      'From Shandris Feathermoon, complete “Devastating Effects” and “Soothing Wounds” by gathering Manaroot with the Forage button around Teloth’aran (52.2, 48.8).',
+      'Defeat Torturer Relyn for his control orb, free Nighthuntress Syrenne, and finish “Felbound Beasts”, “Ready to Strike”, “Unnatural Consequences”, and “Salvation” near Broken Valley.',
+      'Turn in “Secured Surroundings” at Deliverance Point to recruit Syrenne, then finish Breaching the Tomb so Nimi Brightcastle unlocks “A Golden Ticket”.',
+      'Read the Golden Letter back at the lodge, run the Night of the Wilds scenario, and buy Dire/Fierce Wolfhawks plus Tome of the Hybrid Beast from Pan the Kind Hand.',
     ],
+    callout:
+      "Toggle Track Beasts and grab the Hunter's Feast/Wildbrew buffs before Night of the Wilds so the pawprint, feather, egg, and disturbed dirt clues spawn properly in Stage 1.",
   },
   {
     id: 'mage',
@@ -191,12 +197,14 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "Shadowblade’s Baneful & Lethal Omen", note: 'Unlocked by completing the Assassination and Subtlety follow-up quests.' },
     ],
     checklist: [
-      'Finish the Hall of Shadows campaign, including the Dread Admiral scenarios.',
-      'Complete “Champions of Legionfall” and accept “A Spy in Our Midst”.',
-      'Infiltrate the Shadowguard teleport hub and loot the raven to receive the Murderous Omen.',
+      'Finish the Hall of Shadows campaign, clear “Armies of Legionfall”/“Assault on Broken Shore”, then grab “Champions of Legionfall” and “The Pirate’s Bay” from Lord Jorach.',
+      'Meet Tess Greymane or Lilian Voss in Dead Man’s Bay (57.6, 63.6), loot the Fel-Infused Gunpowder Cache from Master Gunner Prix (59.2, 78.1), plant False Orders at 61.0/68.3 & 59.4/72.6, and burn 8 Blacksail Booty for Tethys.',
+      'Turn in “Fit For a Pirate” to adopt Crackers, then follow “Jorach’s Calling” and “A Bit of Espionage” back to Aalgen Point ahead of the Broken Shore infiltration.',
+      'Complete “Rise Up” and “This Time, Leave a Trail” by rappelling into the cave, planting four Felfire Explosives, lighting the fuse via the nearby fire pool, and stealthing past elites.',
+      'After Breaching the Tomb, pick up “Dread Infiltrators” from Apothecary Keever—thanks to the Nov 9 hotfix, “Hiding In Plain Sight” now auto-completes when you speak to Lilian in the Hall of Shadows to receive the Murderous Omen and unlock Zan Shivsproket’s other tints.',
     ],
     callout:
-      'Equip the mount before traveling through Dalaran—the built-in stealth pairs nicely with pocket picking for Bronze caches.',
+      'Kaivax’s November 9 hotfix skips Moratari’s exposition so Remix Rogues never need to leave the Broken Isles; just follow the prompts in the Hall of Shadows to finish the finale.',
   },
   {
     id: 'shaman',
@@ -250,6 +258,113 @@ const classMountGuides: ClassMountGuide[] = [
   },
 ];
 
+const hunterQuestFlow = [
+  {
+    title: 'Champions of Legionfall kickoff',
+    description:
+      'Pick up “Champions of Legionfall” from Maiev at Deliverance Point immediately after “Armies of Legionfall” and the skippable “Assault on Broken Shore”, then return to Trueshot Lodge to continue the hunt.',
+  },
+  {
+    title: 'Devastating Effects & Soothing Wounds',
+    description:
+      'Shandris Feathermoon waits outside the lodge; ride to Suramar’s Crimson Thicket (roughly 52.2, 48.8), use the Forage extra action button on purple ley lines to gather ten Manaroot, and heal the sick manasaber D’Bynn.',
+  },
+  {
+    title: 'The Nighthuntress Beckons',
+    description:
+      'Mount D’Bynn to reach Nighthuntress Syrenne, slay Torturer Relyn for his control orb, and cleanse every Felbound Beast (Crimson Silkwings and Heartwood Does) while dismantling the Nightborne cages.',
+  },
+  {
+    title: 'Ready to Strike & Salvation',
+    description:
+      'Meet Syrenne in Broken Valley south of Vengeance Point; she grants “Unnatural Consequences” to defeat Nighthuntress Lexera inside Shadow Fracture while “Salvation” has you salve Fel-Infected Bloodbeaks, Mountain Prowlers, and Rockfang Howlers.',
+  },
+  {
+    title: 'Secured Surroundings & Champion recruitment',
+    description:
+      'Return to Deliverance Point for “Secured Surroundings” so Syrenne becomes a mission table champion immediately—granting access to the extra Order Hall troops you need for late Legionfall missions.',
+  },
+  {
+    title: 'A Golden Ticket prep',
+    description:
+      'With Breaching the Tomb complete, accept “A Golden Ticket” from Nimi Brightcastle, read the Golden Letter on the table inside Trueshot Lodge, and prepare for the Night of the Wilds scenario.',
+  },
+];
+
+const hunterScenarioStages = [
+  {
+    title: 'Stage 1 – The Hunt Begins',
+    description:
+      "Click the Hunter's Feast and Wildbrew buffs, enable Track Beasts, then follow pawprints (Ketlingr), feathers (Habrok), cracked eggshells (Garos), and disturbed dirt (Hyrtir) to bring down all four spirits.",
+  },
+  {
+    title: 'Stage 2 – Night of Claw and Talon',
+    description:
+      'Hunt the airborne Vetholnir as it swoops around the arena and delve into the cave to corner Fereki; both spirits fold quickly under cooldowns in Remix scaling.',
+  },
+  {
+    title: 'Stage 3 – Haukenulfnir',
+    description:
+      'Burn down the wolfhawk Haukenulfnir near the cave entrance while dodging swirlies—any spec can face-tank the hits with Remix secondary stats.',
+  },
+  {
+    title: 'Finale – Revel the Night Away',
+    description:
+      'Talk to Odyn to exit, turn in at the Empty Saddle for Huntmaster’s Loyal Wolfhawk, then visit Pan the Kind Hand outside the lodge to purchase the Dire and Fierce Wolfhawks plus the Tome of the Hybrid Beast.',
+  },
+];
+
+const rogueQuestFlow = [
+  {
+    title: 'Champions of Legionfall & The Pirate’s Bay',
+    description:
+      'Maiev auto-completes “Champions of Legionfall”; report to Lord Jorach Ravenholdt in the Hall of Shadows for “The Pirate’s Bay”, then meet Tess Greymane (Alliance) or Lilian Voss (Horde) with Fleet Admiral Tethys at Dead Man’s Bay (57.6, 63.6) in Azsuna.',
+  },
+  {
+    title: 'What’s the Cache? & False Orders',
+    description:
+      'Steal the Fel-Infused Gunpowder Cache from Master Gunner Prix at 59.2, 78.1 while planting False Orders at 61.0, 68.3 and 59.4, 72.6; Sap, Distract, and Between the Eyes keep the pirate camp under control.',
+  },
+  {
+    title: 'Loot and Plunder',
+    description:
+      'Burn eight piles of Blacksail Booty for Tethys along the shoreline, then enjoy the instant “Fit For a Pirate” reward—Crackers becomes a battle pet the moment you click the talking parrot.',
+  },
+  {
+    title: 'Jorach’s Calling & A Bit of Espionage',
+    description:
+      'Fly back to the Hall of Shadows, brief Lord Jorach, then speak with Aludane Whitecloud at Krasus’ Landing to port straight to Aalgen Point where Tess/Lilian, Tethys, and Jorach prepare the next strike.',
+  },
+  {
+    title: 'Rise Up & This Time, Leave a Trail',
+    description:
+      'Climb the ridge to slay eight demons alongside your faction rep, rappel into the cave to collect the gunpowder, plant four Felfire Explosives, and ignite the trail by diving into the nearby fire pool.',
+  },
+  {
+    title: 'Champion Tess/Lilian',
+    description:
+      'Back in the Hall of Shadows, Tess Greymane or Lilian Voss joins your roster as a champion—make sure to slot them before triggering the final Legionfall missions.',
+  },
+];
+
+const rogueFinaleFlow = [
+  {
+    title: 'Dread Infiltrators',
+    description:
+      'After Breaching the Tomb unlocks, Apothecary Keever at Deliverance Point sends you straight back to the Hall of Shadows to hunt Legion spies.',
+  },
+  {
+    title: 'Hiding In Plain Sight (hotfixed)',
+    description:
+      'Because Remix characters can’t leave the Broken Isles, Moratari now skips Lilian’s elaborate plan—the November 9 Kaivax hotfix autocompletes the quest the moment you speak with Lilian in the Den of Thieves.',
+  },
+  {
+    title: 'Rewards & vendors',
+    description:
+      'Turning in the finale grants Shadowblade’s Murderous Omen and unlocks Zan Shivsproket’s vendor table so you can buy the Baneful, Crimson, and Lethal Omens immediately.',
+  },
+];
+
 const faqEntries = [
   {
     question: 'When do legacy class mount quests unlock during Legion Remix?',
@@ -298,13 +413,18 @@ export default function ClassMountsGuidePage() {
           <header className="mb-8">
             <h1 className="text-4xl font-bold text-white mb-2">Class Mounts &amp; Requirements</h1>
             <p className="text-sm text-gray-400">
-              Published October 29, 2025 • Updated{' '}
+              Published {new Date(publishedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} • Updated{' '}
               {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} • 12 min read
             </p>
             <p>
               Legion Remix 2025 introduces fel-tinted mounts for every class and reopens the original Legion class mount questlines
               in Phase 3 – Legionfall (November 4 – November 17, 2025). Use this tracker to prepare class hall campaigns, Broken
               Shore quests, and Bronze budgets so you can claim every color variant before the event ends on January 19, 2026.
+            </p>
+            <p>
+              Kaivax’s November 9 hotfix sweep removed the last remaining blockers—hidden artifact appearances populate again, rogue infiltration quests
+              auto-complete, and class mount scenarios for Death Knights through Warriors now fire correctly. The new Hunter and Rogue walkthrough
+              sections below tie those fixes directly into your Legionfall planning.
             </p>
           </header>
 
@@ -418,6 +538,148 @@ export default function ClassMountsGuidePage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+
+          <section id="hunter-walkthrough" className="mb-12">
+            <div className="rounded-3xl border border-emerald-800/40 bg-gray-900/60 p-6 lg:p-10 grid gap-8 lg:grid-cols-[2fr,1fr]">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">Suramar + Broken Shore Route</p>
+                  <h3 className="text-3xl font-bold text-white mt-2">Hunter Night of the Wilds Walkthrough</h3>
+                  <p className="text-sm text-gray-300 mt-3">
+                    The November 9 class-mount hotfix re-enabled every Hunter milestone, so the Remix chain now mirrors retail Legion. Follow the steps
+                    below alongside our{' '}
+                    <Link href="/guides/broken-shore-legionfall" className="text-green-400 hover:text-green-300">
+                      Legionfall prep guide
+                    </Link>{' '}
+                    to keep Trueshot Lodge missions, Suramar errands, and the Night of the Wilds finale in sync.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-white mb-3">Quest Flow</h4>
+                  <ol className="list-decimal list-inside space-y-3 text-sm">
+                    {hunterQuestFlow.map((step) => (
+                      <li key={step.title}>
+                        <p className="font-semibold text-gray-100">{step.title}</p>
+                        <p>{step.description}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-white mb-3">Night of the Wilds Scenario</h4>
+                  <ol className="list-decimal list-inside space-y-3 text-sm">
+                    {hunterScenarioStages.map((stage) => (
+                      <li key={stage.title}>
+                        <p className="font-semibold text-gray-100">{stage.title}</p>
+                        <p>{stage.description}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <p className="text-xs text-gray-400">
+                  Need <em>Breaching the Tomb</em>? Finish the Broken Shore questline once per account, then grab “A Golden Ticket” from Nimi Brightcastle
+                  at Deliverance Point to launch the scenario on every Hunter alt.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <figure className="rounded-2xl border border-emerald-700/40 bg-black/40 overflow-hidden">
+                  <Image
+                    src="/images/guides/class-mounts/hunter/maiev-shadowsong-broken-shore.jpg"
+                    alt="Maiev Shadowsong handing Hunters the Champions of Legionfall quest at Deliverance Point"
+                    width={1024}
+                    height={576}
+                    className="w-full object-cover"
+                  />
+                  <figcaption className="px-4 py-3 text-xs text-gray-300">
+                    Maiev’s “Champions of Legionfall” turn-in is instant—skip the assault scenario, click through the dialogue, and hearth to Trueshot Lodge.
+                  </figcaption>
+                </figure>
+                <figure className="rounded-2xl border border-emerald-700/40 bg-black/40 overflow-hidden">
+                  <Image
+                    src="/images/guides/class-mounts/hunter/night-of-the-wilds-wolfhawk.jpg"
+                    alt="Huntmaster’s Loyal, Dire, and Fierce Wolfhawks lined up after completing Night of the Wilds"
+                    width={1024}
+                    height={576}
+                    className="w-full object-cover"
+                  />
+                  <figcaption className="px-4 py-3 text-xs text-gray-300">
+                    Turn in at the Empty Saddle for the Loyal Wolfhawk, then buy the Dire and Fierce variants plus the Tome of the Hybrid Beast from Pan.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <section id="rogue-walkthrough" className="mb-12">
+            <div className="rounded-3xl border border-amber-500/30 bg-gray-900/60 p-6 lg:p-10 grid gap-8 lg:grid-cols-[2fr,1fr]">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Dead Man’s Bay Ops Plan</p>
+                  <h3 className="text-3xl font-bold text-white mt-2">Rogue Shadowblade Walkthrough</h3>
+                  <p className="text-sm text-gray-300 mt-3">
+                    Rogues felt the brunt of the Remix travel restrictions, but Kaivax’s November 9 fix now auto-completes “Hiding In Plain Sight.”
+                    Knock out the pirate errands in Azsuna, rappel through the Broken Shore cave, and finish the Hall of Shadows finale without leaving
+                    the Broken Isles.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-white mb-3">Quest Flow</h4>
+                  <ol className="list-decimal list-inside space-y-3 text-sm">
+                    {rogueQuestFlow.map((step) => (
+                      <li key={step.title}>
+                        <p className="font-semibold text-gray-100">{step.title}</p>
+                        <p>{step.description}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-white mb-3">Finale & Rewards</h4>
+                  <ol className="list-decimal list-inside space-y-3 text-sm">
+                    {rogueFinaleFlow.map((step) => (
+                      <li key={step.title}>
+                        <p className="font-semibold text-gray-100">{step.title}</p>
+                        <p>{step.description}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <p className="text-xs text-gray-400">
+                  Remember to talk to{' '}
+                  <Link href="/guides/bronze-vendors" className="text-green-400 hover:text-green-300">
+                    Grandmaster Jakkus
+                  </Link>{' '}
+                  after earning Timerunner: Rogue so alts can buy the fel-tinted Portent mount for 20,000 Bronze.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <figure className="rounded-2xl border border-amber-500/40 bg-black/40 overflow-hidden">
+                  <Image
+                    src="/images/guides/class-mounts/rogue/dead-mans-bay-briefing.jpg"
+                    alt="Tess Greymane, Lilian Voss, and Fleet Admiral Tethys planning the Pirate’s Bay assault in Azsuna"
+                    width={1024}
+                    height={576}
+                    className="w-full object-cover"
+                  />
+                  <figcaption className="px-4 py-3 text-xs text-gray-300">
+                    Dead Man’s Bay (57.6, 63.6) hosts Tess/Lilian and Tethys—bring stealth food or drums to blitz the pirate camp chores.
+                  </figcaption>
+                </figure>
+                <figure className="rounded-2xl border border-amber-500/40 bg-black/40 overflow-hidden">
+                  <Image
+                    src="/images/guides/class-mounts/rogue/shadowblades-murderous-omen.jpg"
+                    alt="Shadowblade’s Murderous, Baneful, Crimson, and Lethal Omen mounts on display in Dalaran"
+                    width={1024}
+                    height={576}
+                    className="w-full object-cover"
+                  />
+                  <figcaption className="px-4 py-3 text-xs text-gray-300">
+                    Finish “Hiding In Plain Sight”, loot Shadowblade’s Murderous Omen, then buy the Baneful, Crimson, and Lethal recolors from Zan Shivsproket.
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </section>
 

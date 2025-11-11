@@ -15,6 +15,25 @@ export type NewsArticle = {
 
 export const newsArticles: NewsArticle[] = [
   {
+    slug: 'class-mount-quests-hotfixed',
+    title: 'Class Mount Quest Hotfix Restores Legion Remix Mount Unlocks',
+    author: 'Luxrah',
+    publishedAt: '2025-11-09',
+    image: '/images/news/2025-11-09-class-mount-quests-hotfix.jpg',
+    imageAlt: 'Timerunners meeting Kaivax at Deliverance Point after the class mount hotfix',
+    excerpt:
+      'Blizzard’s November 9 hotfix sweep unblocks every Legion Remix class mount chain, ensuring Death Knights through Warriors can finish their scenarios while hidden appearances, rogue infiltration quests, and class hall NPCs behave again.',
+    highlights: [
+      'Fixed progression blockers for Death Knight, Mage, Paladin, Shaman, Warlock, and Warrior class mount quests, and restored Shadowy Reins of the Accursed Wrathsteed drops.',
+      'Moratari now fast-forwards Lilian Voss’s plan so “Hiding In Plain Sight” autocompletes, letting Rogues finish their Legionfall finale entirely within Remix.',
+      'Hidden artifact appearances populate the UI again while side quests like “Gathering Information,” “A Found Momento,” “Professionally Good Looking,” and “Smelly’s Luckydo” are all completable.',
+    ],
+    source: {
+      label: 'Warcraft Tavern – Class Mount Quests Hotfixed (Nov 9, 2025)',
+      href: 'https://www.warcrafttavern.com/legion-remix/news/class-mount-quests-hotfixed-for-legion-remix/',
+    },
+  },
+  {
     slug: 'phase-3-legion-remix-now-live',
     title: 'New Content & Rewards Now Available in Phase 3 of Legion Remix',
     author: 'Luxrah',
