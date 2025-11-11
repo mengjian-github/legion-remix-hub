@@ -16,9 +16,20 @@ export const metadata: Metadata = {
   },
 };
 
-const guides = [
+type GuideCard = {
+  id: string;
+  href: string;
+  title: string;
+  description: string;
+  icon: string;
+  color: string;
+  image: string;
+};
+
+const guides: GuideCard[] = [
   {
     id: 'getting-started',
+    href: '/guides/getting-started',
     title: 'Getting Started',
     description: 'New to Legion Remix? Learn the basics, event timeline, and how to create your Timerunner.',
     icon: '🚀',
@@ -27,6 +38,7 @@ const guides = [
   },
   {
     id: 'release-schedule',
+    href: '/guides/release-schedule',
     title: 'Release Schedule',
     description: 'Phase timeline, raid unlock dates, and vendor rotations to plan every reset.',
     icon: '🗓️',
@@ -35,6 +47,7 @@ const guides = [
   },
   {
     id: 'legion-assaults',
+    href: '/guides/legion-assaults',
     title: 'Legion Assaults',
     description: 'Track assault spawn timers, quest stages, and Infinite Knowledge rewards across the Broken Isles.',
     icon: '⚔️',
@@ -43,6 +56,7 @@ const guides = [
   },
   {
     id: 'broken-shore-legionfall',
+    href: '/guides/broken-shore-legionfall',
     title: 'Broken Shore Legionfall',
     description: 'Daily cadence, building rotations, and Sentinax farming tips to finish Breaching the Tomb fast.',
     icon: '🏛️',
@@ -51,6 +65,7 @@ const guides = [
   },
   {
     id: 'leveling',
+    href: '/guides/leveling',
     title: 'Leveling Guide',
     description: 'Fast-track to level 80 with optimized dungeon strategies, quest routes, and XP bonuses.',
     icon: '📈',
@@ -59,6 +74,7 @@ const guides = [
   },
   {
     id: 'bronze-farming',
+    href: '/guides/bronze-farming',
     title: 'Bronze Farming',
     description: 'Maximize your Bronze per hour with proven farming methods and efficiency tips.',
     icon: '💰',
@@ -67,6 +83,7 @@ const guides = [
   },
   {
     id: 'ancient-mana',
+    href: '/guides/ancient-mana',
     title: 'Ancient Mana Guide',
     description: 'Grow your Suramar currency cap to 2,000, map node routes, and prep Withered Army Training runs.',
     icon: '🔮',
@@ -75,6 +92,7 @@ const guides = [
   },
   {
     id: 'reputation',
+    href: '/reputation',
     title: 'Reputation Guide',
     description: "Broken Isles emissary routes, Champion's Insignia sources, and vendor highlights.",
     icon: '🏅',
@@ -83,6 +101,7 @@ const guides = [
   },
   {
     id: 'infinite-knowledge',
+    href: '/guides/infinite-knowledge',
     title: 'Infinite Knowledge',
     description: 'All rank sources, phase achievements, and overflow Bronze conversion strategies.',
     icon: '♾️',
@@ -91,6 +110,7 @@ const guides = [
   },
   {
     id: 'dungeons',
+    href: '/guides/dungeons',
     title: 'Dungeon Roadmap',
     description: 'Timeworn Keystone breakpoints, best-of-phase recommendations, and affix prep.',
     icon: '🏰',
@@ -99,6 +119,7 @@ const guides = [
   },
   {
     id: 'raids',
+    href: '/guides/raids',
     title: 'Raid Progression',
     description: 'Phase-by-phase unlocks, loot highlights, and Violet Spellwing planning.',
     icon: '🔥',
@@ -107,6 +128,7 @@ const guides = [
   },
   {
     id: 'challiane-vineyards',
+    href: '/guides/challiane-vineyards',
     title: 'Challiane Vineyards',
     description: 'Sojourner of Azsuna walkthrough with Turbo Boost routing and Infinite Knowledge planning.',
     icon: '🍇',
@@ -115,6 +137,7 @@ const guides = [
   },
   {
     id: 'suramar-campaign',
+    href: '/guides/suramar-campaign',
     title: 'Suramar Campaign',
     description: 'Chapter-by-chapter Good Suramaritan and Insurrection schedule with Ancient Mana checkpoints.',
     icon: '🌙',
@@ -123,6 +146,7 @@ const guides = [
   },
   {
     id: 'lock-stock-two-smoking-goblins',
+    href: '/guides/lock-stock-two-smoking-goblins',
     title: 'Lock, Stock, & Goblins',
     description: 'Stormheim barrel routes, vendor timings, and fox mount planning during the micro-holiday.',
     icon: '🦊',
@@ -131,6 +155,7 @@ const guides = [
   },
   {
     id: 'a-noble-event',
+    href: '/guides/a-noble-event',
     title: 'A Noble Event',
     description: 'Dalaran vendor checklist, Torn Invitation farming, and Bronze budgets for the gala weekend.',
     icon: '🎉',
@@ -139,6 +164,7 @@ const guides = [
   },
   {
     id: 'kaldorei-royal-vestments',
+    href: '/guides/kaldorei-royal-vestments',
     title: 'Kaldorei Queen’s Vestments',
     description: 'Suramar achievement roadmap for unlocking Azshara’s ensemble and banking Infinite Knowledge.',
     icon: '👑',
@@ -147,6 +173,7 @@ const guides = [
   },
   {
     id: 'sargerei-commanders-regalia',
+    href: '/guides/sargerei-commanders-regalia',
     title: 'Sargerei Commander’s Regalia',
     description: 'Unlock every fel-tinted ensemble by clearing Remix campaign, Heroic WQs, Mythic raids, and keystones.',
     icon: '🛡️',
@@ -155,6 +182,7 @@ const guides = [
   },
   {
     id: 'class-mounts',
+    href: '/guides/class-mounts',
     title: 'Class Mounts & Requirements',
     description: 'Felscorned unlocks, class hall checklists, and Broken Shore prep for every mount variant.',
     icon: '🐴',
@@ -163,6 +191,7 @@ const guides = [
   },
   {
     id: 'bronze-vendors',
+    href: '/guides/bronze-vendors',
     title: 'Infinite Bazaar Vendors',
     description: 'Locate every Bronze vendor, plan phase unlocks, and optimize your spending envelope.',
     icon: '🛍️',
@@ -171,6 +200,7 @@ const guides = [
   },
   {
     id: 'fragmented-mementos',
+    href: '/guides/fragmented-mementos',
     title: 'Fragmented Mementos',
     description: 'Map raid, rare, emissary, and keystone sources for Fragmented Mementos after the October hotfix.',
     icon: '💠',
@@ -179,6 +209,7 @@ const guides = [
   },
   {
     id: 'hunter-pets',
+    href: '/guides/hunter-pets',
     title: 'Hunter Pet Finder',
     description: 'Track Clefthoof, Felhound, Devilsaur, Hyena, and Stone Hound tames with /way coordinates.',
     icon: '🎯',
@@ -299,7 +330,7 @@ export default function GuidesPage() {
           {guides.map((guide) => (
             <Link
               key={guide.id}
-              href={`/guides/${guide.id}`}
+              href={guide.href}
               className="bg-gray-800 border border-gray-700 hover:border-green-500 rounded-lg overflow-hidden transition-all group hover:shadow-lg hover:shadow-green-500/20"
             >
               {/* Guide Image */}
