@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-gray-900 border-t border-gray-800">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
+          <div>
             <h3 className="text-xl font-bold text-green-400 mb-4">Legion Remix Hub</h3>
             <p className="text-gray-400 text-sm">
               Your complete guide to World of Warcraft: Legion Remix. Find class guides,
@@ -88,6 +88,21 @@ export default function Footer() {
                 >
                   Official WoW Site
                 </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Recommended Sites</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="https://stunt-simulator.com/" className="text-gray-400 hover:text-white text-sm">Stunt Simulator 2</a>
+              </li>
+              <li>
+                <a href="https://poe327.net/" className="text-gray-400 hover:text-white text-sm">POE 3.27</a>
+              </li>
+              <li>
+                <a href="https://cowboysafari.online/" className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
               </li>
             </ul>
           </div>
