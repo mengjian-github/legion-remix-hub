@@ -84,9 +84,10 @@ const buildingTable = [
 ];
 
 const sentinaxTips = [
-  'Farm at Felfire Pass (55, 51). Chain open green and blue beacons for constant portal spawns.',
-  'Use the Command Center’s “Command Center Reinforcements” buff to double token drops.',
-  'Group finder listings such as “Sentinax farm” help stack 40+ players and finish in under five minutes.',
+  "Make sure you're under the ship and have The Shadow of the Sentinax buff; the first Broken Sentinax Beacon unlocks all other beacon drops.",
+  'Farm at Felfire Pass (55, 51) on Heroic World Tier and join a premade “Sentinax” group so portals stay capped.',
+  'Command Center Reinforcements doubles beacon drops—pair it with Beacon of Carnage/Domination for nonstop demons.',
+  'Only uncommon (green) beacons drop in Remix; rotate Firestorm (imps), Torment (painmaidens), and Warbeasts (spiders) to finish Mark of the Sentinax quickly.'
 ];
 
 const rewardList = [

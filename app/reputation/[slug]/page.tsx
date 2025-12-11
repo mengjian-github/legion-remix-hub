@@ -48,6 +48,11 @@ export default function ReputationFactionPage({ params }: PageProps) {
     notFound();
   }
   const isLegionfall = faction.slug === 'armies-of-legionfall';
+  const checklist = faction.checklist ?? [
+    `Complete the ${faction.name} emissary whenever it appears for a Lesser Bronze Cache and an insignia.`,
+    `Spend ${faction.insignia.name} right away to avoid wasting reputation once you're Exalted.`,
+    'Track paragon bars in the Bronze calculator before you open caches.'
+  ];
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
@@ -197,9 +202,9 @@ export default function ReputationFactionPage({ params }: PageProps) {
             <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5">
               <p className="text-xs uppercase tracking-wide text-gray-400 mb-3">Checklist</p>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>✅ Complete the Legion Remix Armies of Legionfall emissary each day for a Lesser Bronze Cache and Insignia.</li>
-                <li>✅ Spend Legion Remix Armies of Legionfall Champion&apos;s Insignias immediately to avoid losing capped reputation.</li>
-                <li>✅ Track Legion Remix Armies of Legionfall paragon bars in your Bronze calculator before cache turn-ins.</li>
+                {checklist.map(item => (
+                  <li key={item}>✅ {item}</li>
+                ))}
               </ul>
             </div>
 

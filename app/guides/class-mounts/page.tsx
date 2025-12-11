@@ -60,9 +60,10 @@ const classMountGuides: ClassMountGuide[] = [
       { name: 'Crimson, Icebound, and Unholy tints', note: 'Earned by completing the Blood, Frost, and Unholy follow-up quests.' },
     ],
     checklist: [
-      'Finish the Death Knight class hall campaign before Phase 3 – Legionfall begins on November 4, 2025.',
-      'Complete “Champions of Legionfall” on the Broken Shore, then accept “The Lost Glacier” from Highlord Darion Mograine.',
-      'Defeat Lord Thorval in Icecrown Citadel to claim the base mount; repeat with each spec quest for recolors.',
+      'Finish the Death Knight class hall campaign before Phase 3 opens so Darion offers “Champions of Legionfall”.',
+      'Run the Broken Shore chain through “Making Preparations”, “Severing the Sveldrek”, and “Harnessing Power”, then return to Acherus.',
+      'Complete “The Peak of Bones”, follow Thorim to light the Bonemother, and start “The Lost Glacier” scenario.',
+      'Defeat Lord Thorval on the glacier to earn the Vilebrood Vanquisher, then repeat the spec epilogues for recolors.',
     ],
     callout:
       'Drag your three Horsemen champions to item level 880+—the mission table quest that precedes “The Lost Glacier” requires high success chance even in Remix tuning.',
@@ -133,9 +134,10 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "Archmage’s Prismatic Disc", note: 'Changes color to fire, frost, or arcane based on spec.' },
     ],
     checklist: [
-      'Complete the Hall of the Guardian campaign culminating in “Fate of the Tideskorn”.',
-      'After finishing “Champions of Legionfall”, accept “Legionfall Supplies” leading to the “Seat of the Triumvirate” scenario.',
-      'Defeat Riftworld Devourer and claim the prismatic disc; revisit Vargoth for specialization recolor quests.',
+      'Turn in “Champions of Legionfall”, then grab “An Urgent Situation” from Aethas inside the Hall of the Guardian.',
+      'Complete “The Vault of the Tirisgarde” by looting the five Ancient Artifacts tucked around the order hall.',
+      'Help Arcanist Ryanna through the Suramar fieldwork chain (Backup Plan → Nyell’s Workshop → Keep it Secret) and rally Antonidas’ discs.',
+      'Finish “Arming Dalaran”, defeat Lady Remor’za, and return to Kalec for the prismatic disc before picking up spec recolor quests.',
     ],
   },
   {
@@ -148,9 +150,10 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "Ban-Lu, Grandmaster’s Companion", note: 'Classic Legion mount; additional bridles change its color.' },
     ],
     checklist: [
-      'Finish the Peak of Serenity campaign to recruit all Shado-Pan followers.',
-      'Complete “Champions of Legionfall”, then accept “The Legend of Ban-Lu”.',
-      'Escort Ban-Lu across Pandaria in the solo scenario and defeat the Sha ambush at Jade Forest to unlock the mount.',
+      'Turn in “Champions of Legionfall” and accept “A Brewing Situation” from Brewmaster Blanche in the Temple of Five Dawns.',
+      'Travel with Tak-Tak to Stormstout Brewery for “Panic at the Brewery”, grabbing fel ingredients and tossing barrels along the way.',
+      'Follow Ban-Lu through the Jade Forest trail (Smell’s Luckydo, Shadow of Ban-Lu, River to Ban-Lu, Lilies for Ryuli) to calm the mount.',
+      'Finish “The Trial of Ban-Lu” to earn Grandmaster’s Companion; extra bridles stay available after the scenario.',
     ],
     callout:
       'The Remix version keeps Ban-Lu’s passenger seat—ideal for chauffeuring guildmates between Timeworn Keystone runs.',
@@ -166,9 +169,10 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "Valorous, Vigilant, and Vengeful Charger bridles", note: 'Sold by Crusader Lord Dalfors once the base quest is complete.' },
     ],
     checklist: [
-      'Finish the Order of the Silver Hand campaign and recruit the Silver Hand champions.',
-      'After “Champions of Legionfall”, grab “Stirring in the Shadows” → “Defending Broken Isles”.',
-      'Complete the Sanctum of Light scenario, then buy recolor bridles from Crusader Lord Dalfors.',
+      'Complete the Silver Hand campaign and turn in “Champions of Legionfall” on the Broken Shore.',
+      'Work through “Judgment Awaits”, “Ancestors and Enemies”, and “Darkbinder Dilemma” to gather Moonfang relics for Delas and Arator.',
+      'Finish the Hammer of Dalaran prep quests (“Leather to Legendary”, “Stirring in the Shadows”) before entering the Sanctum scenario.',
+      'Defeat Nerus Moonfang inside the scenario to claim the Highlord’s Golden Charger, then buy Valorous/Vigilant/Vengeful bridles from Crusader Lord Dalfors.',
     ],
   },
   {
@@ -181,9 +185,10 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "High Priest’s Lightsworn Seeker", note: 'Base reward from the Netherlight Temple scenario.' },
     ],
     checklist: [
-      'Complete the priest class hall campaign and empower the Naaru at Netherlight Temple.',
-      'Finish “Champions of Legionfall”, then accept “The Blessing of the Naaru” questline.',
-      'Defeat Balnazzar during the mount scenario to receive the Lightsworn Seeker.',
+      'Finish the priest class hall campaign and turn in “Champions of Legionfall”, then talk to Alonsus for “A Curious Contagion”.',
+      'Head to Highmountain to meet Aelthalyste, dispel Soothoof Hillstriders (“Mischievous Sprites”), shackle corpses, and gather Fel Contagion samples.',
+      'Return to the Broken Shore to administer the cure (“Administering Aid”, “Countering the Contagion”, “Sterile Surroundings”).',
+      'Complete “The Speaker Awaits” and the Sunken Vault finale to earn the Lightsworn Seeker.',
     ],
   },
   {
@@ -216,9 +221,10 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "Farseer’s Raging Tempest", note: 'Color changes with your active specialization.' },
     ],
     checklist: [
-      'Complete the Earthen Ring campaign leading into the Maelstrom finale.',
-      'Finish “Champions of Legionfall”, then accept “Algalon’s Request” → “The Storm’s Fury”.',
-      'Survive the Eye of Azshara scenario, dispelling storm totems to unlock the Tempest.',
+      'Turn in “Champions of Legionfall” and accept “A ‘Humble’ Request” from Advisor Sevel in the Heart of Azeroth.',
+      'Portal to Thousand Needles for Magatha Grimtotem’s chain (“Power of Thousands”, “Crone’s Wrath”, “Breaking Chains”, “Snakes and Stones”).',
+      'Disrupt the Legion with “Demonic Disruption”, collect Elemental Cores, and ride the wind in “Carried On the Wind”.',
+      'Finish “Gathering of the Storms” to summon the Raging Tempest elemental mount.',
     ],
   },
   {
@@ -233,9 +239,10 @@ const classMountGuides: ClassMountGuide[] = [
       { name: "Netherlord’s Brimstone Wrathsteed", note: 'Sold by Calydus in Dreadscar Rift for 10,000 Order Resources.' },
     ],
     checklist: [
-      'Finish the warlock class hall campaign and recruit the Council of the Black Harvest members.',
-      'Complete “Champions of Legionfall”, then accept “The Wrathsteed of Xoroth”.',
-      'Defeat Lord Hel’nurath inside the Broken Shore scenario to claim the chaotic wrathsteed; return for the Accursed drop and Brimstone purchase.',
+      'Finish the warlock class hall campaign and turn in “Champions of Legionfall” to unlock Shinfel’s “Answers Unknown”.',
+      'Meet Jubeka in Azsuna, then clear Felfire Cavern during “Cult Culling” and “Stealing the Source of Power”.',
+      'Follow Kanrethad through “Informing the Council”, “The Fate of Kanrethad”, and “Crystal Containment” on the Broken Shore.',
+      'Run “The Dreadlord’s Calling”/“The Wrathsteed of Xoroth” to defeat Lord Hel’nurath for the Chaotic Wrathsteed, then farm Accursed and buy Brimstone tints.',
     ],
     callout:
       'Consider banking 10,000 Order Resources—they convert to 500 Bronze at the end of the event, but you need the resource stockpile to buy the Brimstone tint first.',

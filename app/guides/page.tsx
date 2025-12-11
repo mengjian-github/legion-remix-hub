@@ -43,6 +43,15 @@ const guides: GuideCard[] = [
     image: legionImages.phaseTimeline ?? legionImages.referenceSplash
   },
   {
+    id: 'argus-campaign',
+    href: '/guides/argus-campaign',
+    title: 'Argus Campaign & Access',
+    description: 'Beacon routing, Invasion Points, and fast paths to Antorus and the Seat of the Triumvirate.',
+    icon: '🌌',
+    color: 'from-teal-900/40 to-indigo-900/40',
+    image: legionImages.argusNavigationMap ?? legionImages.phase4ArgusHero
+  },
+  {
     id: 'legion-assaults',
     href: '/guides/legion-assaults',
     title: 'Legion Assaults',

@@ -78,6 +78,7 @@ const quickLinks = [
   { label: 'Phase spotlight', href: '#phase-recommendations' },
   { label: 'Karazhan access', href: '#karazhan-access' },
   { label: 'Cathedral access', href: '#cathedral-access' },
+  { label: 'Seat access', href: '#seat-access' },
   { label: 'Keystone breakpoints', href: '#keystone-breakpoints' },
   { label: 'Affix tips', href: '#empowered-affixes' },
   { label: 'Bronze synergy', href: '#bronze-synergy' },
@@ -240,6 +241,32 @@ const quickLinks = [
                   />
                 </div>
               </div>
+            </div>
+          </section>
+
+          <section id="seat-access" className="bg-gray-900/50 border border-gray-700 rounded-xl overflow-hidden mb-10 grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-semibold text-white">Seat of the Triumvirate Entrance</h3>
+              <p className="text-sm text-gray-300">
+                Phase 4 adds Seat of the Triumvirate to the Argus dungeon roster. Use the Vindicaar to bypass the Mac'Aree cliffs.
+              </p>
+              <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
+                <li>From Dalaran, click the Lightforged Beacon at Krasus' Landing to board the Vindicaar.</li>
+                <li>Set the navigation console to <strong>Shadowguard Incursion</strong> (Mac'Aree) and beam down.</li>
+                <li>Ride east toward the river and the Conservatory; the dungeon portal sits on the platform facing the water.</li>
+                <li>Meeting stone is beside the portal—perfect for summoning Mythic+ groups without pathing the whole zone.</li>
+              </ol>
+              <p className="text-xs text-gray-400">
+                Need more Argus context? The <Link href="/guides/argus-campaign" className="text-green-300 underline">Argus Campaign guide</Link> covers beacon routing and Invasion Points while you queue.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src={legionImages.argusSeatEntrance}
+                alt="Seat of the Triumvirate dungeon portal in Mac'Aree"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />
             </div>
           </section>
 

@@ -97,6 +97,7 @@ export default function RaidsGuidePage() {
     { label: 'Phase unlock grid', href: '#raid-checklist' },
     { label: 'Nighthold entrance', href: '#nighthold-access' },
     { label: 'Tomb entrance', href: '#tomb-access' },
+    { label: 'Antorus entrance', href: '#antorus-access' },
     { label: 'Ensemble rewards', href: '#sargerei-ensembles' },
     { label: 'Argus cosmetics', href: '#argus-legacies' },
     { label: 'Savage challenge prep', href: '#savage-prep' },
@@ -214,6 +215,32 @@ export default function RaidsGuidePage() {
               <img
                 src={legionImages.tombOfSargerasMeetingStone}
                 alt="Tomb of Sargeras meeting stone on the Broken Shore"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />
+            </div>
+          </section>
+
+          <section id="antorus-access" className="bg-gray-900/50 border border-gray-700 rounded-3xl overflow-hidden mb-10 grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-semibold text-white">Getting to Antorus, the Burning Throne</h3>
+              <p className="text-sm text-gray-300">
+                Antorus unlocks November 18 with Phase 4. Skip the Argus maze by using this direct route from Dalaran.
+              </p>
+              <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
+                <li>Click the <strong>Lightforged Beacon</strong> at Krasus' Landing in Dalaran to board the Vindicaar.</li>
+                <li>Use the navigation console to set destination to <strong>Light's Purchase</strong> in the Antoran Wastes.</li>
+                <li>Take the Light's Purchase beacon down, ride southwest past the stasis core, and follow the ridge toward the giant fel gateway.</li>
+                <li>Meet your group at the meeting stone outside the raid portal; summon alts here before pulling Garothi.</li>
+              </ol>
+              <p className="text-xs text-gray-400">
+                Want the full Argus walkthrough? The new <Link href="/guides/argus-campaign" className="text-green-300 underline">Argus Campaign guide</Link> covers beacons, Invasion Points, and weekly quests that feed Antorus prep.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src={legionImages.argusAntorusEntrance}
+                alt="Antorus raid entrance in the Antoran Wastes"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-l" />

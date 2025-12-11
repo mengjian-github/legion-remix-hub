@@ -131,6 +131,19 @@ export const legionImages = {
   legionAssaultsBrokenIslesMap: "/images/guides/legion-assaults/legion-assault-broken-isles-map.jpg",
   legionfallCampaignKhadgar: "/images/guides/broken-shore/legionfall-campaign-krasus-khadgar.jpg",
   sargereiCommandersRegalia: "/images/guides/sargerei-commanders/sargerei-commanders-felscorned-regalia.jpg",
+
+  // Phase 4 & Phase 5 spotlights
+  phase4ArgusHero: "/images/news/2025-11-18-phase-4-argus.jpg",
+  phase5InfiniteEchoes: "/images/news/2025-12-09-phase-5-infinite-echoes.png",
+  housingDecorBanner: "/images/news/2025-12-02-housing-decor.png",
+
+  // Argus navigation & access
+  argusNavigationMap: "/images/guides/argus/argus-navigation.jpg",
+  argusLightforgedBeacon: "/images/guides/argus/lightforged-beacon-dalaran.jpg",
+  argusVindicaarConsole: "/images/guides/argus/vindicaar-navigation.jpg",
+  argusInvasionMap: "/images/guides/argus/invasion-point-map.jpg",
+  argusAntorusEntrance: "/images/guides/argus/antorus-entrance.jpg",
+  argusSeatEntrance: "/images/guides/argus/seat-triumvirate-entrance.jpg",
 };
 
 export const officialVideos = {

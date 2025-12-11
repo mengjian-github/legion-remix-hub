@@ -29,6 +29,7 @@ export interface ReputationFaction {
   questRewards: string[];
   image: string;
   hasVendor: boolean;
+  checklist?: string[];
 }
 
 export const reputationFactions: ReputationFaction[] = [
@@ -393,7 +394,7 @@ export const reputationFactions: ReputationFaction[] = [
       tip: 'Glide down from the Deliverance Point flight path to reach Kath\'leen while skipping elite sentries.'
     },
     howToEarn: [
-      'Finish the Legion Remix Armies of Legionfall scenario chain and construction dailies during Phase 3 – Legionfall.',
+      'Finish the Legion Remix Armies of Legionfall scenario chain and construction dailies during Phase 3 - Legionfall.',
       'Clear Legion Remix Armies of Legionfall world quests and Legion assaults each day for bonus reputation, Nethershards, and Sentinax beacons.',
       "Use Legion Remix Armies of Legionfall Champion's Insignias from emissary caches, Broken Shore treasures, rare elites, and Infinite Research packets the moment you loot them."
     ],
@@ -441,6 +442,138 @@ export const reputationFactions: ReputationFaction[] = [
     ],
     image: legionImages.rewardVendorLegionfall,
     hasVendor: true
+  },
+  {
+    slug: 'army-of-the-light',
+    name: 'Army of the Light',
+    zone: 'Argus - Krokuun & Antoran Wastes',
+    color: 'from-amber-900/40 to-yellow-900/30',
+    summary:
+      'The Lightforged Draenei crusade across Argus with teleporter beacons, warframes, and elekk mounts that reward steady reputation farming during Phase 4.',
+    emissary: {
+      name: 'Vindicator Jaelaana',
+      location: 'The Vindicaar (upper deck near the mission table)',
+      tip: "Use the Lightforged Beacon at Krasus' Landing to board the Vindicaar, then swap the navigation console to Light's Purchase before checking in with Jaelaana."
+    },
+    howToEarn: [
+      'Complete Argus story chapters and clear Antoran Wastes/Krokuun world quests tagged for the Army of the Light.',
+      'Grab the weekly quests "Fuel of a Doomed World" and "Invasion Onslaught" on the Vindicaar - both grant Army of the Light reputation and Fragmented Mementos.',
+      "Pop Army of the Light Champion's Insignias from emissary caches, Argus treasures, rare elites, and Infinite Research caches while chaining Invasion Points."
+    ],
+    insignia: {
+      name: "Army of the Light Champion's Insignia",
+      sources: [
+        'Army of the Light emissary cache',
+        'Argus treasure chests',
+        'Argus rare elites',
+        'Cache of Infinite Power (Infinite Research daily)',
+        "Cache from the Infinite's Armory (Infinite Research special assignment)"
+      ],
+      note: 'Warbound inside Legion Remix but not mailable; removed automatically if the character transfers off the event timeline.'
+    },
+    vendorHighlights: [
+      {
+        name: 'Lightforged Warframe - 500,000 Bronze (Exalted)',
+        description: 'Two-seat mech that trivializes Argus rares and looks incredible in raid screenshots.'
+      },
+      {
+        name: 'Army of the Light Tabard - 300 Bronze (Exalted)',
+        description: 'Gold-and-white tabard that pairs with Lightforged ensembles and Violet Spellwing cloaks.'
+      },
+      {
+        name: 'Sunglow - 5 Bronze (Neutral)',
+        description: 'Pocket brew to combine with Great Feast buffs before an Antorus push.'
+      }
+    ],
+    paragonRewards: [
+      {
+        name: 'Holy Lightsphere',
+        description: 'Toy from the Gleaming Footlocker paragon cache.'
+      },
+      {
+        name: 'Avenging, Blessed, and Glorious Felcrusher',
+        description: 'Three elekk mounts that can drop from the Gleaming Footlocker; track which one you still need in the Bronze calculator.'
+      }
+    ],
+    questRewards: [
+      'Gold',
+      'Experience',
+      'Lesser Bronze Cache',
+      "Army of the Light Champion's Insignia",
+      'Fragmented Memento of Epoch Challenges x20',
+      'Cache of Infinite Power'
+    ],
+    image: legionImages.rewardVendorArmyOfTheLight,
+    hasVendor: true,
+    checklist: [
+      'Turn in the Army of the Light emissary on the Vindicaar whenever it appears to secure an Insignia and Fragmented Mementos.',
+      'Complete Fuel of a Doomed World and Invasion Onslaught weekly while queueing for Invasion Points for double reputation bumps.',
+      "Park a character at Light's Purchase beacon so Antorus entrances and Army of the Light rares stay two clicks away."
+    ]
+  },
+  {
+    slug: 'argussian-reach',
+    name: 'Argussian Reach',
+    zone: "Argus - Mac'Aree",
+    color: 'from-purple-900/40 to-indigo-900/30',
+    summary:
+      "The Krokul survivors of Argus trade marsuul pets, ruinstrider talbuks, and travel tools once you keep their Mac'Aree world quests and Invasion Points humming.",
+    emissary: {
+      name: 'Toraan the Revered',
+      location: "The Vindicaar (Mac'Aree deck beside the navigation console)",
+      tip: "Swap the Vindicaar to Mac'Aree via the navigation console, then speak to Toraan on the bridge before starting your world quest loop."
+    },
+    howToEarn: [
+      "Complete Argus campaign chapters and Mac'Aree world quests tagged for the Argussian Reach.",
+      'Run Invasion Points between world quest circuits; each clear grants Argussian Reach rep and Pristine Argunite.',
+      "Use Argussian Reach Champion's Insignias from emissary turn-ins, Argus chests, rare elites, and Infinite Research caches."
+    ],
+    insignia: {
+      name: "Argussian Reach Champion's Insignia",
+      sources: [
+        'Argussian Reach emissary cache',
+        'Argus treasure chests',
+        'Argus rare elites',
+        'Cache of Infinite Power (Infinite Research daily)',
+        "Cache from the Infinite's Armory (Infinite Research special assignment)"
+      ],
+      note: 'Warbound inside Legion Remix but not mailable; deleted automatically if the character leaves the Remix timeline.'
+    },
+    vendorHighlights: [
+      {
+        name: 'Krokul Flute - 500 Bronze (Revered)',
+        description: 'Summons a personal Argus flight master for 10 minutes so you can chain beacons without walking.'
+      },
+      {
+        name: 'Orphaned Marsuul - 500 Bronze (Honored)',
+        description: "Adopt a marsuul companion that matches Mac'Aree's purple aesthetic."
+      },
+      {
+        name: 'Ruinstrider mounts - 10,000 Bronze each (Exalted)',
+        description: 'Six recolors (Sable, Russet, Amethyst, Beryl, Umber, Cerulean) to complete your Argus talbuk lineup.'
+      }
+    ],
+    paragonRewards: [
+      {
+        name: 'Cube of Discovery',
+        description: 'Utility toy from the Brittle Krokul Chest paragon cache.'
+      }
+    ],
+    questRewards: [
+      'Gold',
+      'Experience',
+      'Lesser Bronze Cache',
+      "Argussian Reach Champion's Insignia",
+      'Fragmented Memento of Epoch Challenges x20',
+      'Cache of Infinite Power'
+    ],
+    image: legionImages.rewardVendorArgussianReach,
+    hasVendor: true,
+    checklist: [
+      "Clear Mac'Aree world quests daily, then spend stored Insignias so you do not waste reputation past Exalted.",
+      "Loot Argus treasure chests and rare elites while The Shadow of the Sentinax buff is up for extra Insignias.",
+      "Pair weekly Fuel of a Doomed World with Invasion Onslaught to fill the bar before you chase Ruinstrider purchases."
+    ]
   },
   {
     slug: 'kirin-tor',

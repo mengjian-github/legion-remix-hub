@@ -15,6 +15,120 @@ export type NewsArticle = {
 
 export const newsArticles: NewsArticle[] = [
   {
+    slug: 'phase-5-infinite-echoes-live',
+    title: 'Phase 5 Is Now Live for Legion Remix: Infinite Echoes',
+    author: 'Luxrah',
+    publishedAt: '2025-12-09',
+    image: '/images/news/2025-12-09-phase-5-infinite-echoes.png',
+    imageAlt: 'Infinite Echoes banner with fel hourglass',
+    excerpt:
+      'Infinite Echoes arrives with Moratari catch-up quests, Flawless Threads of Time upgrades to item level 779, roaming Lost Legion Infernals, six-world-boss rotations, and a stacking Timerrunner’s Mayhem XP buff.',
+    highlights: [
+      'Flawless Threads of Time drop from bosses and scrapping gear; trade them to Erus for Fragmented Mementos to push to ilvl 779.',
+      'Six world bosses spawn every 18 hours while Lost Legion Infernals patrol each zone, showering Bronze and Threads.',
+      'Timerunner’s Mayhem buff from Infinite Research assignments accelerates alt leveling for the final weeks.',
+    ],
+    source: {
+      label: 'Read the Infinite Echoes breakdown',
+      href: '/news/phase-5-infinite-echoes-live',
+    },
+  },
+  {
+    slug: 'housing-decor-legion-remix',
+    title: 'Housing Decor Is Now Available in Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-12-02',
+    image: '/images/news/2025-12-02-housing-decor.png',
+    imageAlt: 'Legion-themed housing decor display',
+    excerpt:
+      'Domelius and Horos now stock Legion housing decor: earn the first copy free from achievements, then spend Bronze on extra fel altars, chains, cages, and the Illusion: Nightmare and Chronos weapon glows.',
+    highlights: [
+      'Achievement unlocks award one free copy; extras cost 5k–30k Bronze depending on the piece.',
+      'Key decor: Altar of the Corrupted Flames, Corruption Pit, Fel Fountain, Legion’s Holo-Communicator, Vrykul Lord’s Throne.',
+      'Illusion: Nightmare (100k Bronze) and Illusion: Chronos (80k Bronze) are now sold by Horos.',
+    ],
+    source: {
+      label: 'Housing decor guide',
+      href: '/news/housing-decor-legion-remix',
+    },
+  },
+  {
+    slug: 'fragmented-mementos-new-sources',
+    title: 'More Ways to Get Fragmented Mementos Coming to Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-12-02',
+    image: '/images/guides/fragmented-memento/fragmented-memento-of-epoch-challenges-reward.jpg',
+    imageAlt: 'Timerunners holding Fragmented Memento cache',
+    excerpt:
+      'Patch 11.2.7 adds Fragmented Mementos to Doomguard Challengers from Timewarped Obelisks, lets Erus scrap Motes of a Broken Time into 50 daily Mementos, and spawns cross-timeline world bosses.',
+    highlights: [
+      'Heroic World Tier Doomguard Challengers now drop Fragmented Mementos of Epoch Challenges.',
+      'Erus converts Motes of a Broken Time into Fragmented Mementos (up to 50 per day, in stacks of 25).',
+      'World bosses from “other timelines” begin appearing, previewing Phase 5’s chaos.',
+    ],
+    source: {
+      label: 'Fragmented Memento routing',
+      href: '/news/fragmented-mementos-new-sources',
+    },
+  },
+  {
+    slug: 'phase-4-legion-remix-now-live',
+    title: 'New Content & Rewards for Phase 4 of Legion Remix, Now Live',
+    author: 'Luxrah',
+    publishedAt: '2025-11-18',
+    image: '/images/news/2025-11-18-phase-4-argus.jpg',
+    imageAlt: 'The Burning Throne looming over Argus',
+    excerpt:
+      'Argus Eternal opens all three Argus zones, Seat of the Triumvirate, and Antorus, the Burning Throne, alongside new Army of the Light and Argussian Reach rewards, the Violet Spellwing, and Felscorned weapon appearances.',
+    highlights: [
+      'Argus zones, Invasion Points, and the Seat of the Triumvirate dungeon are live with new Infinite Knowledge sources.',
+      'Antorus raid is open on all difficulties; Violet Spellwing mount and Felscorned Scythe appearances return.',
+      '[Name] of the Infinite Chaos title from Heroic Legion Remix Raids plus a full Bronze vendor refresh of mana rays, talbuks, toys, and pets.',
+    ],
+    source: {
+      label: 'Phase 4 Argus Eternal guide',
+      href: '/news/phase-4-legion-remix-now-live',
+    },
+  },
+  {
+    slug: 'moratari-quest-skip-fixes',
+    title: 'Moratari Quest Skip Fixes in Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-11-26',
+    image: '/images/reference/phases/legion-remix-phase-4.jpg',
+    imageAlt: 'Fel-cracked skies above Argus',
+    excerpt:
+      'November 26 hotfixes expand Moratari’s fast-forward to cover Ruins of Oronaar and additional Argus steps, restore Pristine Argunite, and unblock Insurrection and Broken Shore scenarios.',
+    highlights: [
+      'Moratari skips more Argus quests, reducing alt time-to-endgame.',
+      'Pristine Argunite and loot from Mythic boss Shatug are obtainable again.',
+      'Insurrection, Battle for Broken Shore, and Gatekeeper review quests no longer soft-lock progress.',
+    ],
+    source: {
+      label: 'Moratari skip checklist',
+      href: '/news/moratari-quest-skip-fixes',
+    },
+  },
+  {
+    slug: 'hidden-artifact-appearances-hotfixed',
+    title: 'Hidden Artifact Appearances Hotfixed in Legion Remix',
+    author: 'Luxrah',
+    publishedAt: '2025-11-15',
+    image: '/images/game/artifact-weapon.avif',
+    imageAlt: 'Remixed artifact weapons radiating fel light',
+    excerpt:
+      'Order hall advancements are back, Horos sells key hidden appearance items, and class-specific triggers like Ritual of Doom and Putricide’s trap door now work after the November 15 hotfix.',
+    highlights: [
+      'Twisting Nether, Evergreen, Teleportation Nexus, and Brewhouse advancements restored for DH/Druid/Mage/Monk.',
+      'Horos sells Shard of Darkness, Tome of Otherworldly Venoms, and Designs of the Grand Architect to speed hidden unlocks.',
+      'Unholy DK trap door, Arcane Mage whispers, and Broken Shore achievement rewards are all functional again.',
+    ],
+    source: {
+      label: 'Hidden appearance guide',
+      href: '/news/hidden-artifact-appearances-hotfixed',
+    },
+  },
+  {
     slug: 'class-mount-quests-hotfixed',
     title: 'Class Mount Quest Hotfix Restores Legion Remix Mount Unlocks',
     author: 'Luxrah',

@@ -49,6 +49,9 @@ export default function ReputationOverviewPage() {
             faction below, then dive into dedicated pages for exact emissary positions, Champion&apos;s Insignia routing,
             vendor checklists, and paragon rewards.
           </p>
+          <p className="mt-2 max-w-3xl text-sm text-gray-400">
+            Phase 4 adds Army of the Light and Argussian Reach on the Vindicaar—those Argus reputations sit alongside the Broken Isles staples in the grid below.
+          </p>
           <div className="mt-6 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 p-6">
             <h2 className="text-lg font-semibold text-emerald-200 mb-3">Reputation keywords you keep searching</h2>
             <ul className="space-y-3 text-sm text-gray-200">
@@ -74,8 +77,7 @@ export default function ReputationOverviewPage() {
             <p className="text-xs uppercase tracking-wide text-emerald-200">Vendors Stocked</p>
             <p className="mt-2 text-2xl font-semibold text-white">{factionsWithVendors} Factions</p>
             <p className="mt-2 text-sm text-gray-300">
-              Bronze, toys, pets, and tabards line nine emissary shops. Each quick reference card links to its dedicated
-              vendor page.
+              Bronze, toys, pets, and tabards now span the Broken Isles plus Argus. Each card below links to vendor and paragon details.
             </p>
           </div>
           <div className="rounded-2xl border border-gray-800 bg-gray-900/60 p-6">
