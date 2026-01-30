@@ -117,6 +117,13 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "tu1who57jx");
           `}
         </Script>
+        {/* Plausible (self-hosted) */}
+        <script async src="https://plausible.shipsolo.io/js/pa-N9L7cq0WG-P6pS5LSyCB-.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}}; plausible.init()`
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-gray-100`}
