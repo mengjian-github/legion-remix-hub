@@ -96,6 +96,9 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Recommended Sites</h4>
             <ul className="space-y-2">
               <li>
+                <a href="https://getchargen.com/" className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
+              </li>
+              <li>
                 <a href="https://stunt-simulator.com/" className="text-gray-400 hover:text-white text-sm">Stunt Simulator 2</a>
               </li>
               <li>
@@ -103,6 +106,9 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://cowboysafari.online/" className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
+              </li>
+              <li>
+                <a href="https://getchargen.com/" className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
               </li>
             </ul>
           </div>
