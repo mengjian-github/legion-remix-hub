@@ -1,6 +1,9 @@
+"use client";
+
 import Link from 'next/link';
 import MobileNav from './MobileNav';
 import { navigationItems } from './navigationData';
+import { trackEvent } from '@/lib/analytics';
 
 export default function Navigation() {
   return (
@@ -27,6 +30,7 @@ function DesktopNav() {
         <div key={item.name} className="group relative">
           <Link
             href={item.href}
+            onClick={() => trackEvent("navigation_click", { page: "global_nav", destination: item.href, label: item.name })}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors"
             title={item.title ?? item.name}
           >
@@ -49,6 +53,7 @@ function DesktopNav() {
                   <Link
                     key={subItem.name}
                     href={subItem.href}
+                    onClick={() => trackEvent("navigation_click", { page: "global_nav", destination: subItem.href, label: subItem.name })}
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
                   >
                     {subItem.name}

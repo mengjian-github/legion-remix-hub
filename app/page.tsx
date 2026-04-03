@@ -171,12 +171,18 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <Link
                 href="/guides/getting-started"
+                data-track-event="guide_start_click"
+                data-track-prop-page="home"
+                data-track-prop-location="hero_primary"
                 className="px-10 py-5 text-lg bg-green-600 hover:bg-green-500 text-white font-black rounded-xl transition-all fel-glow-strong hover:scale-105 transform shadow-2xl"
               >
                 Start Your Legion Remix Guide →
               </Link>
               <Link
                 href="/calculator"
+                data-track-event="tool_entry_click"
+                data-track-prop-page="home"
+                data-track-prop-location="hero_bronze_calculator"
                 className="px-10 py-5 text-lg bg-amber-600 hover:bg-amber-500 text-white font-black rounded-xl transition-all bronze-glow-strong hover:scale-105 transform shadow-2xl"
               >
                 💰 Bronze Calculator
@@ -259,6 +265,10 @@ export default function Home() {
               <Link
                 key={item.query}
                 href={item.href}
+                data-track-event="guide_navigation_click"
+                data-track-prop-page="home"
+                data-track-prop-location="trending_searches"
+                data-track-prop-destination={item.href}
                 className="rounded-2xl border border-gray-800 bg-gray-900/60 p-6 transition hover:border-green-500/60 hover:bg-gray-900"
               >
                 <p className="text-xs uppercase tracking-[0.3em] text-green-400/80">Hot Keyword</p>
@@ -654,6 +664,9 @@ export default function Home() {
 
             <Link
               href="/calculator"
+              data-track-event="tool_entry_click"
+              data-track-prop-page="home"
+              data-track-prop-location="resource_bronze_calculator"
               className="bg-gradient-to-br from-amber-900/40 to-orange-900/40 hover:from-amber-800/50 hover:to-orange-800/50 border border-amber-700/50 rounded-lg p-6 transition-all hover:border-amber-500 group card-hover bronze-glow"
             >
               <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">🧮</div>

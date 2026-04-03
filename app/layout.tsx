@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
+import AnalyticsBinder from "@/components/analytics/AnalyticsBinder";
 import { createWebSiteSchema, JsonLd } from "@/lib/schema";
 import { buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from "@/lib/seo";
 
@@ -128,6 +129,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-gray-100`}
       >
+        <AnalyticsBinder />
         <Navigation />
         <main>{children}</main>
         <Footer />

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from 'next/link';
+import { trackEvent } from '@/lib/analytics';
 
 export default function Footer() {
   return (
@@ -64,6 +67,7 @@ export default function Footer() {
                   href="https://www.wowhead.com/guide/legion-remix-rewards-mounts-transmog"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "wowhead_guide" })}
                   className="text-gray-400 hover:text-white text-sm"
                 >
                   Wowhead Guide
@@ -74,6 +78,7 @@ export default function Footer() {
                   href="https://www.icy-veins.com/wow/legion-remix-guide"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "icy_veins_guide" })}
                   className="text-gray-400 hover:text-white text-sm"
                 >
                   Icy Veins
@@ -84,6 +89,7 @@ export default function Footer() {
                   href="https://worldofwarcraft.blizzard.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "official_wow_site" })}
                   className="text-gray-400 hover:text-white text-sm"
                 >
                   Official WoW Site
@@ -96,19 +102,19 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Recommended Sites</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://getchargen.com/" className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
+                <a href="https://getchargen.com/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "getchargen" })} className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
               </li>
               <li>
-                <a href="https://stunt-simulator.com/" className="text-gray-400 hover:text-white text-sm">Stunt Simulator 2</a>
+                <a href="https://stunt-simulator.com/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "stunt_simulator" })} className="text-gray-400 hover:text-white text-sm">Stunt Simulator 2</a>
               </li>
               <li>
-                <a href="https://poe327.net/" className="text-gray-400 hover:text-white text-sm">POE 3.27</a>
+                <a href="https://poe327.net/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "poe327" })} className="text-gray-400 hover:text-white text-sm">POE 3.27</a>
               </li>
               <li>
-                <a href="https://cowboysafari.online/" className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
+                <a href="https://cowboysafari.online/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "cowboy_safari" })} className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
               </li>
               <li>
-                <a href="https://getchargen.com/" className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
+                <a href="https://getchargen.com/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "getchargen_duplicate" })} className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
               </li>
             </ul>
           </div>
