@@ -8,7 +8,7 @@ import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schem
 const publishedDate = '2025-10-29';
 
 const canonicalPath = '/guides/suramar-campaign';
-const pageTitle = formatMetaTitle('Suramar Quest Campaign Guide – Legion Remix 2025');
+const pageTitle = formatMetaTitle('Suramar Questline Length + Completion Guide – Legion Remix 2025');
 const pageDescription = formatMetaDescription(
   'Complete the Suramar storyline in Legion Remix with chapter summaries, Ancient Mana checkpoints, Insurrection unlock requirements, and teleporter routing tips.'
 );

@@ -26,9 +26,13 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 
   const isLegionfall = faction.slug === 'armies-of-legionfall';
-  const titleBase = isLegionfall
-    ? 'Legion Remix Armies of Legionfall Reputation Guide 2025'
-    : `${faction.name} Legion Remix Reputation Guide 2025`;
+  const titleBase = faction.slug === 'court-of-farondis'
+    ? 'Court of Farondis Rep Guide — Fastest Route (Legion Remix 2025)'
+    : faction.slug === 'kirin-tor'
+      ? 'Kirin Tor Rep Guide — Emissary & World Quest Routes'
+      : isLegionfall
+        ? 'Legion Remix Armies of Legionfall Reputation Guide 2025'
+        : `${faction.name} Legion Remix Reputation Guide 2025`;
   const descriptionBase = isLegionfall
     ? "Legion Remix Armies of Legionfall Phase 3 blueprint covering emissary routes, construction buffs, Champion's Insignia farming, vendor rewards, and paragon cache planning."
     : `${faction.name} reputation route for Legion Remix. Emissary location, Champion's Insignia sources, vendor highlights, paragon rewards, and emissary quest loot.`;
