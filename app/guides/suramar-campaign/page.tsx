@@ -245,7 +245,7 @@ export default function SuramarCampaignGuidePage() {
 
         <article className="prose prose-invert prose-lg max-w-none">
           <header className="mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2">Suramar Quest Campaign Guide</h1>
+            <h1 className="text-4xl font-bold text-white mb-2">Suramar Questline Length + Completion Guide</h1>
             <p className="text-sm text-gray-400">
               Published October 29, 2025 • Updated{' '}
               {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} • 10 min read
@@ -255,6 +255,11 @@ export default function SuramarCampaignGuidePage() {
               awards the Kaldorei Queen’s Royal Vestments ensemble. Use this reference to schedule chapters around Ancient
               Mana farming, teleporter unlocks, and Bronze spending from October 21, 2025 through the event finale on January
               19, 2026.
+            </p>
+            <p>
+              If you searched <strong>how long is the Suramar questline</strong>, expect the main quest chain to take roughly
+              6-10 focused hours in Legion Remix depending on your teleporter unlocks, Ancient Mana routing, and whether you
+              batch dungeon or raid story steps with friends.
             </p>
           </header>
 
@@ -386,6 +391,17 @@ export default function SuramarCampaignGuidePage() {
                     Bronze Calculator
                   </Link>{' '}
                   so Bronze refunds from Infinite Knowledge overflow are earmarked.
+                </li>
+                <li>
+                  Pair Suramar progression with the{' '}
+                  <Link href="/reputation/court-of-farondis" className="text-green-400 hover:text-green-300">
+                    Court of Farondis rep guide
+                  </Link>{' '}
+                  and{' '}
+                  <Link href="/reputation/kirin-tor" className="text-green-400 hover:text-green-300">
+                    Kirin Tor rep guide
+                  </Link>{' '}
+                  if you are chaining emissaries while Phase 2 is live.
                 </li>
               </ul>
             </div>

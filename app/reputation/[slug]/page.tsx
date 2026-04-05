@@ -52,6 +52,8 @@ export default function ReputationFactionPage({ params }: PageProps) {
     notFound();
   }
   const isLegionfall = faction.slug === 'armies-of-legionfall';
+  const isFarondis = faction.slug === 'court-of-farondis';
+  const isKirinTor = faction.slug === 'kirin-tor';
   const checklist = faction.checklist ?? [
     `Complete the ${faction.name} emissary whenever it appears for a Lesser Bronze Cache and an insignia.`,
     `Spend ${faction.insignia.name} right away to avoid wasting reputation once you're Exalted.`,
@@ -71,8 +73,20 @@ export default function ReputationFactionPage({ params }: PageProps) {
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-xs uppercase tracking-widest text-emerald-300">{faction.zone}</p>
-              <h1 className="mt-1 text-4xl font-bold text-white">{faction.name} Reputation Guide</h1>
-              <p className="mt-3 max-w-2xl text-sm text-gray-300">{faction.summary}</p>
+              <h1 className="mt-1 text-4xl font-bold text-white">
+                {isFarondis
+                  ? 'Court of Farondis Rep Guide — Fastest Route'
+                  : isKirinTor
+                    ? 'Kirin Tor Rep Guide — Emissary & World Quest Routes'
+                    : `${faction.name} Reputation Guide`}
+              </h1>
+              <p className="mt-3 max-w-2xl text-sm text-gray-300">
+                {isFarondis
+                  ? 'Fastest Court of Farondis reputation route in Legion Remix: emissary timing, Azsuna world quest loops, insignia sources, and paragon planning.'
+                  : isKirinTor
+                    ? 'Kirin Tor reputation route for Legion Remix with emissary timing, rotating world quest routing, insignia sources, and paragon planning.'
+                    : faction.summary}
+              </p>
             </div>
             <div className="rounded-2xl border border-gray-800 bg-gray-900/60 p-5 text-sm text-gray-300">
               <p className="text-xs uppercase tracking-wide text-emerald-200">Event Window</p>
@@ -214,6 +228,14 @@ export default function ReputationFactionPage({ params }: PageProps) {
 
             <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5 space-y-3">
               <p className="text-xs uppercase tracking-wide text-gray-400">More Tools</p>
+              {(isFarondis || isKirinTor) ? (
+                <Link
+                  href="/guides/suramar-campaign"
+                  className="block rounded-lg border border-gray-800 bg-gray-900/60 px-4 py-3 text-sm text-gray-300 hover:border-emerald-500 hover:text-emerald-200 transition-colors"
+                >
+                  Suramar questline length + completion guide
+                </Link>
+              ) : null}
               <Link
                 href="/rewards#category-reputation"
                 className="block rounded-lg border border-gray-800 bg-gray-900/60 px-4 py-3 text-sm text-gray-300 hover:border-emerald-500 hover:text-emerald-200 transition-colors"
