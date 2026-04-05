@@ -69,15 +69,16 @@ function findTopBronze(entries: RewardEntry[], limit = 5) {
 }
 
 interface CategoryPageProps {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }
 
 export function generateStaticParams() {
   return rewardCategoryKeys.map(category => ({ category }));
 }
 
-export function generateMetadata({ params }: { params: { category: string } }): Metadata {
-  const categoryKey = params.category as RewardCategoryKey;
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
+  const { category } = await params;
+  const categoryKey = category as RewardCategoryKey;
   const section = getRewardCategory(categoryKey);
   if (!section) {
     return {};
@@ -92,8 +93,9 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   };
 }
 
-export default function RewardCategoryPage({ params }: CategoryPageProps) {
-  const categoryKey = params.category as RewardCategoryKey;
+export default async function RewardCategoryPage({ params }: CategoryPageProps) {
+  const { category } = await params;
+  const categoryKey = category as RewardCategoryKey;
   if (!rewardCategoryKeys.includes(categoryKey)) {
     notFound();
   }
