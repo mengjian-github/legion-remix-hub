@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "images:optimize": "tsx scripts/optimize-images.ts"
+    "images:optimize": "tsx scripts/optimize-images.ts",
+    "build:pages": "next build",
+    "deploy:pages": "wrangler pages deployment create out --project-name legion-remix-hub --branch main --commit-dirty=true"
   },
   "dependencies": {
     "next": "15.5.9",

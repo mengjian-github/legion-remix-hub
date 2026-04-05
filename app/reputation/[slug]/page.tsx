@@ -6,9 +6,9 @@ import { reputationFactions } from '@/data/reputations';
 import { buildCanonicalUrl, buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 function getFaction(slug: string) {
@@ -19,8 +19,9 @@ export function generateStaticParams() {
   return reputationFactions.map(faction => ({ slug: faction.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const faction = getFaction(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const faction = getFaction(slug);
   if (!faction) {
     return {};
   }
@@ -46,8 +47,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function ReputationFactionPage({ params }: PageProps) {
-  const faction = getFaction(params.slug);
+export default async function ReputationFactionPage({ params }: PageProps) {
+  const { slug } = await params;
+  const faction = getFaction(slug);
   if (!faction) {
     notFound();
   }

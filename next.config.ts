@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
-// Enable modern image formats so Next.js serves smaller AVIF/WebP when supported.
+// Enable static export for Cloudflare Pages direct uploads.
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
+    unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
