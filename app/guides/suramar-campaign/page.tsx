@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
+import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
-import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
+import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const publishedDate = '2025-10-29';
 
@@ -232,11 +233,13 @@ export default function SuramarCampaignGuidePage() {
     { name: 'Guides', path: '/guides' },
     { name: 'Suramar Campaign', path: '/guides/suramar-campaign' },
   ]);
+  const faqSchema = createFAQSchema(faqEntries);
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <div className="max-w-5xl mx-auto text-gray-300">
         <Link href="/guides" className="text-green-400 hover:text-green-300 mb-4 inline-block">
@@ -261,6 +264,17 @@ export default function SuramarCampaignGuidePage() {
               6-10 focused hours in Legion Remix depending on your teleporter unlocks, Ancient Mana routing, and whether you
               batch dungeon or raid story steps with friends.
             </p>
+            <AnswerFirstBlock
+              answer="The Suramar questline is a 6-10 hour Legion Remix campaign path for most focused players: finish Good Suramaritan chapters, keep Ancient Mana above feeding costs, unlock Shal’Aran teleporters early, then clear Insurrection once Phase 2 is open. It is the route to Nightfallen reputation, Nighthold access, and Kaldorei Queen reward planning."
+              checkedAt="June 6, 2026"
+              sourceBasis="Good Suramaritan chapter list, Insurrection roadmap, Ancient Mana requirements, and Remix phase schedule."
+              officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
+              internalLinks={[
+                { label: 'Ancient Mana guide', href: '/guides/ancient-mana' },
+                { label: 'Court of Farondis route', href: '/reputation/court-of-farondis' },
+                { label: 'Bronze calculator', href: '/calculator' },
+              ]}
+            />
           </header>
 
           <div className="bg-gray-900/40 border border-gray-800 rounded-xl p-6 mb-10">

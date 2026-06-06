@@ -5,12 +5,31 @@ import Countdown from '@/components/ui/Countdown';
 import { eventDates, remixPhases, getCurrentPhase } from '@/data/timeline';
 import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
+import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { createBreadcrumbSchema, createFAQSchema, createWebSiteSchema, JsonLd } from '@/lib/schema';
 
 const homeTitle = formatMetaTitle('Legion Remix 2025 Guide Hub for Timerunners');
 const homeDescription = formatMetaDescription(
   'Plan Legion Remix 2025 with a home base covering phase roadmap, leveling routes, Bronze farming loops, class builds, rewards tracking, and daily prep lists.'
 );
+
+const checkedAt = 'June 6, 2026';
+
+const homeFaqs = [
+  {
+    question: 'What is Legion Remix Hub?',
+    answer: 'Legion Remix Hub is an independent command center for Legion Remix 2025 planning, covering phase status, starter routes, Bronze budgeting, class picks, reputation routes, and reward tracking.',
+  },
+  {
+    question: 'Where should I start in Legion Remix?',
+    answer: 'Start with the getting-started guide, then use the Bronze calculator and class pages to pick tonight’s route before moving into Suramar campaign or reputation grinds.',
+  },
+  {
+    question: 'Is Legion Remix Hub an official Blizzard site?',
+    answer: 'No. Legion Remix Hub is an independent player resource. It links to official Blizzard World of Warcraft references when source context is needed.',
+  },
+];
 
 export const metadata: Metadata = {
   title: homeTitle,
@@ -24,6 +43,25 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const currentPhase = getCurrentPhase();
+  const websiteSchema = createWebSiteSchema();
+  const breadcrumbSchema = createBreadcrumbSchema([{ name: 'Home', path: '/' }]);
+  const faqSchema = createFAQSchema(homeFaqs);
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Legion Remix Hub guide collection',
+    url: 'https://legionremixhub.com/',
+    description: homeDescription,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Bronze Calculator', url: 'https://legionremixhub.com/calculator' },
+        { '@type': 'ListItem', position: 2, name: 'Ancient Mana Guide', url: 'https://legionremixhub.com/guides/ancient-mana' },
+        { '@type': 'ListItem', position: 3, name: 'Court of Farondis Reputation Guide', url: 'https://legionremixhub.com/reputation/court-of-farondis' },
+        { '@type': 'ListItem', position: 4, name: 'Suramar Campaign Guide', url: 'https://legionremixhub.com/guides/suramar-campaign' },
+      ],
+    },
+  };
   const eventStatus = currentPhase ? 'Event now live' : 'Event ended';
   const eventStatusTone = currentPhase ? 'text-green-300 border-green-400/60 bg-green-500/15' : 'text-amber-200 border-amber-400/60 bg-amber-500/15';
   const phaseLabel = currentPhase ? currentPhase.name : 'Phase 5 complete: Infinite Echoes archive mode';
@@ -161,6 +199,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-950">
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={collectionSchema} />
       {/* Hero Section */}
       <section className="relative px-4 py-8 sm:px-6 md:py-12 overflow-hidden min-h-[calc(100vh-5rem)] flex items-center">
         <div className="absolute inset-0 z-0">
@@ -187,11 +229,11 @@ export default function Home() {
                 {eventStatus}
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tight leading-[0.95]">
-                Legion Remix
+                Legion Remix Hub
                 <span className="block text-gradient-fel">Mission Control</span>
               </h1>
               <p className="mt-5 max-w-2xl text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
-                Open one command center for today&apos;s phase status, fastest tasks, Bronze planning, class picks, and reward prices.
+                Legion Remix Hub gives Timerunners one command center for today&apos;s phase status, fastest tasks, Bronze planning, class picks, and reward prices.
               </p>
 
               <div className="mt-5 rounded-2xl border border-green-500/30 bg-gray-900/80 p-4 shadow-2xl backdrop-blur">
@@ -263,6 +305,22 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-950 px-4 pb-4">
+        <div className="mx-auto max-w-7xl">
+          <AnswerFirstBlock
+            answer="Legion Remix Hub is the fastest starting point when you need one route for today: check the active phase, pick a starter task, budget Bronze rewards, then jump into class, Suramar, or reputation guides without opening a spreadsheet. Use it as a player checklist, not an official Blizzard database."
+            checkedAt={checkedAt}
+            sourceBasis="Homepage guide inventory, phase roadmap, Bronze reward tables, and Blizzard event references."
+            officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
+            internalLinks={[
+              { label: 'Bronze calculator', href: '/calculator' },
+              { label: 'Suramar campaign', href: '/guides/suramar-campaign' },
+              { label: 'Court of Farondis route', href: '/reputation/court-of-farondis' },
+            ]}
+          />
         </div>
       </section>
           <div className="mt-16 bg-gray-900/60 border-2 border-gray-700/50 rounded-2xl p-10 backdrop-blur-md shadow-2xl" id="legion-remix-guide-checklist">

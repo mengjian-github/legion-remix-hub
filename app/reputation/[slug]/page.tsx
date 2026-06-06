@@ -3,7 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { reputationFactions } from '@/data/reputations';
+import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { buildCanonicalUrl, buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 type PageProps = {
   params: Promise<{
@@ -13,6 +15,19 @@ type PageProps = {
 
 function getFaction(slug: string) {
   return reputationFactions.find(faction => faction.slug === slug);
+}
+
+function buildReputationFaq(factionName: string) {
+  return [
+    {
+      question: `What is the fastest ${factionName} reputation route in Legion Remix?`,
+      answer: `Prioritize the emissary when it rotates in, clear the faction's local world quests, spend Champion's Insignias before wasting reputation, and track paragon caches before buying rewards.`,
+    },
+    {
+      question: `Is this ${factionName} guide official?`,
+      answer: 'No. Legion Remix Hub is an independent player guide and should be cross-checked with in-game vendor stock and official World of Warcraft updates after hotfixes.',
+    },
+  ];
 }
 
 export function generateStaticParams() {
@@ -61,9 +76,17 @@ export default async function ReputationFactionPage({ params }: PageProps) {
     `Spend ${faction.insignia.name} right away to avoid wasting reputation once you're Exalted.`,
     'Track paragon bars in the Bronze calculator before you open caches.'
   ];
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Reputation', path: '/reputation' },
+    { name: faction.name, path: `/reputation/${faction.slug}` },
+  ]);
+  const faqSchema = createFAQSchema(buildReputationFaq(faction.name));
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
       <div className="mx-auto flex max-w-6xl flex-col gap-12 text-gray-100">
         <header className="space-y-4">
           <Link
@@ -89,6 +112,19 @@ export default async function ReputationFactionPage({ params }: PageProps) {
                     ? 'Kirin Tor reputation route for Legion Remix with emissary timing, rotating world quest routing, insignia sources, and paragon planning.'
                     : faction.summary}
               </p>
+              {isFarondis ? (
+                <AnswerFirstBlock
+                  answer="The fastest Court of Farondis route is to stack Azsuna world quests with every Farondis emissary window, spend Champion's Insignias before reputation overflows, and save paragon cache opens until you have checked reward priorities. Treat vendor stock and cache rewards as in-game source of truth after hotfixes."
+                  checkedAt="June 6, 2026"
+                  sourceBasis="Azsuna reputation route data, emissary checklist, Champion's Insignia sources, and reward-table references."
+                  officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
+                  internalLinks={[
+                    { label: 'Bronze calculator', href: '/calculator' },
+                    { label: 'Reward tables', href: '/rewards#category-reputation' },
+                    { label: 'Suramar campaign', href: '/guides/suramar-campaign' },
+                  ]}
+                />
+              ) : null}
             </div>
             <div className="rounded-2xl border border-gray-800 bg-gray-900/60 p-5 text-sm text-gray-300">
               <p className="text-xs uppercase tracking-wide text-emerald-200">Event Window</p>

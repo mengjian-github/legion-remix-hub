@@ -3,9 +3,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import dynamic from 'next/dynamic';
+import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { bronzeEntries } from '@/data/rewards';
 import { farmingMethods } from '@/data/dungeons';
-import { createFAQSchema, JsonLd } from '@/lib/schema';
+import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const calculatorTypes = ['all', ...Array.from(new Set(bronzeEntries.map(entry => entry.type)))] as string[];
 
@@ -93,6 +94,10 @@ export default function CalculatorPage() {
     return hours;
   }, [totalBronze]);
   const faqSchema = useMemo(() => createFAQSchema(calculatorFaq), []);
+  const breadcrumbSchema = useMemo(() => createBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Calculator', path: '/calculator' },
+  ]), []);
 
   useEffect(() => {
     trackEvent('wishlist_total_changed', {
@@ -122,6 +127,7 @@ export default function CalculatorPage() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-gray-950 py-6 sm:py-12 px-4">
       <JsonLd data={faqSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <div className="max-w-7xl mx-auto">
         <div className="mb-4">
           <p className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-amber-300">Bronze tool first</p>
@@ -130,6 +136,18 @@ export default function CalculatorPage() {
             Search 313 rewards, tap categories, and build a wishlist before you read the full planning notes.
           </p>
         </div>
+
+        <AnswerFirstBlock
+          answer="Use the Legion Remix Bronze Calculator when you need a direct Bronze budget: search a reward, select it, then read total Bronze and estimated farm time before buying from vendors. The list is based on the site reward compendium and should be checked against in-game vendor stock after hotfixes."
+          checkedAt="June 6, 2026"
+          sourceBasis="Legion Remix Hub reward tables, farming method estimates, and in-game vendor planning notes."
+          officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
+          internalLinks={[
+            { label: 'Reward tables', href: '/rewards' },
+            { label: 'Bronze farming guide', href: '/guides/bronze-farming' },
+            { label: 'Suramar campaign', href: '/guides/suramar-campaign' },
+          ]}
+        />
 
         <div className="lg:hidden sticky top-2 z-20 mb-4 rounded-2xl border border-green-700/50 bg-gray-950/95 p-3 shadow-2xl backdrop-blur">
           <div className="grid grid-cols-3 gap-2 text-center">

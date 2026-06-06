@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { legionImages } from '@/data/images';
+import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
-import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
+import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const publishedDate = '2025-10-29';
 
@@ -172,10 +173,13 @@ export default function AncientManaGuidePage() {
     { name: 'Ancient Mana', path: '/guides/ancient-mana' },
   ]);
 
+  const faqSchema = createFAQSchema(faqs);
+
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <div className="max-w-4xl mx-auto text-gray-300">
         <Link href="/guides" className="text-green-400 hover:text-green-300 mb-4 inline-block">
@@ -196,6 +200,17 @@ export default function AncientManaGuidePage() {
               efficient farming loop so your Timerunners never run dry once Phase 2 – Rise of the Nightfallen launches on
               October 21, 2025.
             </p>
+            <AnswerFirstBlock
+              answer="Ancient Mana is the Suramar currency you should keep stocked before every Nightfallen campaign push: farm city nodes and treasures, raise capacity toward 2,000, then spend it on NPC feedings, telemancy beacons, and Withered Army Training instead of capping out. Fresh alts should finish capacity quests before long farm loops."
+              checkedAt="June 6, 2026"
+              sourceBasis="Suramar campaign checkpoints, Ancient Mana capacity quests, node route notes, and Legion Remix timing assumptions."
+              officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
+              internalLinks={[
+                { label: 'Suramar campaign route', href: '/guides/suramar-campaign' },
+                { label: 'Bronze calculator', href: '/calculator' },
+                { label: 'Court of Farondis reputation', href: '/reputation/court-of-farondis' },
+              ]}
+            />
           </header>
 
           <div className="bg-gray-900/40 border border-gray-800 rounded-xl p-6 mb-10">
