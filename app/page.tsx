@@ -7,7 +7,7 @@ import { classes } from '@/data/classes';
 import { legionImages } from '@/data/images';
 import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
-import { createBreadcrumbSchema, createFAQSchema, createWebSiteSchema, JsonLd } from '@/lib/schema';
+import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const homeTitle = formatMetaTitle('Legion Remix 2025 Guide Hub for Timerunners');
 const homeDescription = formatMetaDescription(
@@ -43,7 +43,6 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const currentPhase = getCurrentPhase();
-  const websiteSchema = createWebSiteSchema();
   const breadcrumbSchema = createBreadcrumbSchema([{ name: 'Home', path: '/' }]);
   const faqSchema = createFAQSchema(homeFaqs);
   const collectionSchema = {
@@ -199,7 +198,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-950">
-      <JsonLd data={websiteSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={collectionSchema} />
