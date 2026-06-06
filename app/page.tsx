@@ -24,6 +24,39 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const currentPhase = getCurrentPhase();
+  const eventStatus = currentPhase ? 'Event now live' : 'Event ended';
+  const eventStatusTone = currentPhase ? 'text-green-300 border-green-400/60 bg-green-500/15' : 'text-amber-200 border-amber-400/60 bg-amber-500/15';
+  const phaseLabel = currentPhase ? currentPhase.name : 'Phase 5 complete: Infinite Echoes archive mode';
+  const quickTasks = [
+    {
+      title: 'Start the weekly route',
+      detail: 'Use the getting-started checklist before you queue.',
+      href: '/guides/getting-started',
+      event: 'quick_task_click',
+      task: 'weekly_route',
+    },
+    {
+      title: 'Farm Bronze faster',
+      detail: 'Compare dungeon, scenario, and rare loops.',
+      href: '/guides/bronze-farming',
+      event: 'quick_task_click',
+      task: 'bronze_farming',
+    },
+    {
+      title: "Pick tonight's class",
+      detail: 'Jump into spec guides tuned for Timerunners.',
+      href: '/classes',
+      event: 'quick_task_click',
+      task: 'class_picker',
+    },
+    {
+      title: 'Check reward prices',
+      detail: 'Browse the Infinite Bazaar compendium.',
+      href: '/rewards',
+      event: 'quick_task_click',
+      task: 'reward_prices',
+    },
+  ];
 
   const mainGuideDirectory = [
     { label: 'Legion Remix Guide for Infinite Knowledge farming', href: '/guides/infinite-knowledge' },
@@ -129,71 +162,109 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
       {/* Hero Section */}
-      <section className="relative py-32 md:py-40 px-6 overflow-hidden min-h-[90vh] flex items-center">
-        {/* Background Image */}
+      <section className="relative px-4 py-8 sm:px-6 md:py-12 overflow-hidden min-h-[calc(100vh-5rem)] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
             src={legionImages.heroBanner}
-            alt="Legion Remix: Skies of Fire"
+            alt="Legion Remix command center background"
             fill
             sizes="100vw"
             priority
             className="object-cover scale-105"
           />
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-gray-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-gray-950/80 to-gray-950"></div>
         </div>
 
-        {/* Decorative fel glow effects - Enhanced */}
-        <div className="absolute inset-0 z-0 opacity-40">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-green-500 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[140px] animate-pulse-slower"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-700 rounded-full blur-[160px] animate-pulse-slowest"></div>
+        <div className="absolute inset-0 z-0 opacity-30">
+          <div className="absolute -top-16 left-6 h-64 w-64 rounded-full bg-green-500 blur-[100px]"></div>
+          <div className="absolute bottom-12 right-0 h-72 w-72 rounded-full bg-amber-500 blur-[120px]"></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-8 px-6 py-3 bg-green-500/30 border-2 border-green-500/70 rounded-full backdrop-blur-sm">
-              <span className="text-green-300 font-bold text-lg tracking-wider">⚡ EVENT NOW LIVE</span>
-            </div>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-8 tracking-tight leading-none">
-              <span className="text-gradient-fel drop-shadow-2xl">Legion Remix</span>
-            </h1>
-            <p className="text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-6 font-bold max-w-5xl mx-auto leading-relaxed">
-              Plan your Timerunner from day one with this Legion Remix Guide—covering leveling routes, Bronze priorities, and class picks specifically tuned for the 2025 Legion Remix season.
-            </p>
-            <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed">
-              Treat this Legion Remix site as your always-on command center: the Legion Remix website roadmap tracks every phase drop, links to Bronze tools, and highlights the week&apos;s hotfixes so you spend less time scraping forums and more time farming.
-            </p>
-            <p className="text-xl md:text-2xl text-green-300 font-bold mb-12 drop-shadow-lg">
-              🔥 Event Window: October 7, 2025 - January 19, 2026 • 15 weeks of Skies of Fire rewards
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-12">
-              <Link
-                href="/guides/getting-started"
-                data-track-event="guide_start_click"
-                data-track-prop-page="home"
-                data-track-prop-location="hero_primary"
-                className="px-10 py-5 text-lg bg-green-600 hover:bg-green-500 text-white font-black rounded-xl transition-all fel-glow-strong hover:scale-105 transform shadow-2xl"
-              >
-                Start Your Legion Remix Guide →
-              </Link>
-              <Link
-                href="/calculator"
-                data-track-event="tool_entry_click"
-                data-track-prop-page="home"
-                data-track-prop-location="hero_bronze_calculator"
-                className="px-10 py-5 text-lg bg-amber-600 hover:bg-amber-500 text-white font-black rounded-xl transition-all bronze-glow-strong hover:scale-105 transform shadow-2xl"
-              >
-                💰 Bronze Calculator
-              </Link>
-            </div>
-          </div>
+          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div className={`mb-4 inline-flex items-center rounded-full border px-4 py-2 text-xs font-black uppercase tracking-[0.18em] ${eventStatusTone}`}>
+                {eventStatus}
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tight leading-[0.95]">
+                Legion Remix
+                <span className="block text-gradient-fel">Mission Control</span>
+              </h1>
+              <p className="mt-5 max-w-2xl text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
+                Open one command center for today&apos;s phase status, fastest tasks, Bronze planning, class picks, and reward prices.
+              </p>
 
-          {/* Countdown */}
-          <div className="max-w-3xl mx-auto">
-            <Countdown targetDate={eventDates.end} title="⏰ Event Ends In" />
+              <div className="mt-5 rounded-2xl border border-green-500/30 bg-gray-900/80 p-4 shadow-2xl backdrop-blur">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-gray-400">Current Phase / Event Status</p>
+                <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-xl font-black text-white">{phaseLabel}</p>
+                    <p className="mt-1 text-sm text-gray-300">Event window: Oct 7, 2025 – Jan 19, 2026. Use archive mode to finish guides, rewards, and calculator planning.</p>
+                  </div>
+                  <Link
+                    href="/calculator"
+                    data-track-event="calculator_cta_click"
+                    data-track-prop-page="home"
+                    data-track-prop-location="status_card"
+                    className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl bg-amber-500 px-5 py-3 text-sm font-black text-gray-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400"
+                  >
+                    Bronze Calculator →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-gray-700/70 bg-gray-950/75 p-4 shadow-2xl backdrop-blur md:p-6">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-green-300">Top 4 quick tasks</p>
+                  <h2 className="mt-1 text-2xl font-black text-white">What do you need next?</h2>
+                </div>
+                <span className="hidden rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-200 sm:inline">313 rewards tracked</span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {quickTasks.map((task, index) => (
+                  <Link
+                    key={task.title}
+                    href={task.href}
+                    data-track-event={task.event}
+                    data-track-prop-page="home"
+                    data-track-prop-location="hero_quick_tasks"
+                    data-track-prop-task={task.task}
+                    className="group rounded-2xl border border-gray-700 bg-gray-900/90 p-4 transition hover:border-green-400/70 hover:bg-green-950/30"
+                  >
+                    <span className="text-xs font-black text-green-300">0{index + 1}</span>
+                    <h3 className="mt-2 text-base font-black text-white group-hover:text-green-200">{task.title}</h3>
+                    <p className="mt-1 text-sm text-gray-400">{task.detail}</p>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <Link
+                  href="/guides/getting-started"
+                  data-track-event="guide_start_click"
+                  data-track-prop-page="home"
+                  data-track-prop-location="hero_primary"
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl bg-green-600 px-5 py-3 text-sm font-black text-white transition hover:bg-green-500"
+                >
+                  Start guide →
+                </Link>
+                <Link
+                  href="/calculator"
+                  data-track-event="calculator_cta_click"
+                  data-track-prop-page="home"
+                  data-track-prop-location="hero_primary"
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-amber-400/60 bg-amber-500/15 px-5 py-3 text-sm font-black text-amber-100 transition hover:bg-amber-500/25"
+                >
+                  💰 Bronze Calculator
+                </Link>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
           <div className="mt-16 bg-gray-900/60 border-2 border-gray-700/50 rounded-2xl p-10 backdrop-blur-md shadow-2xl" id="legion-remix-guide-checklist">
             <h3 className="text-4xl font-bold text-white mb-8 text-center">Top Starter Picks</h3>
             <div className="grid md:grid-cols-3 gap-10 text-base text-gray-300">
@@ -245,8 +316,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
       {/* Trending Searches */}
       <section className="bg-gray-950 border-y border-gray-800">

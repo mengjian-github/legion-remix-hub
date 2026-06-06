@@ -50,7 +50,7 @@ export default function RewardsList({ selectedRewards, toggleReward, filter, sea
   return (
     <>
       {/* Rewards List */}
-      <div className="space-y-3">
+      <div className="min-w-0 space-y-3">
         {paginatedRewards.map((reward) => {
           // Keep details concise to avoid repeating generic terms like "ensemble" too often
           const detailParts = [reward.source, reward.requirement, reward.achievement].filter(Boolean) as string[];
@@ -58,27 +58,28 @@ export default function RewardsList({ selectedRewards, toggleReward, filter, sea
           return (
             <div
               key={reward.id}
-              className={`bg-gray-800 border rounded-lg p-4 cursor-pointer transition-all ${
+              className={`min-w-0 bg-gray-800 border rounded-lg p-3 sm:p-4 cursor-pointer transition-all ${
                 selectedRewards.has(reward.id)
                   ? 'border-green-500 bg-green-900/20'
                   : 'border-gray-700 hover:border-gray-600'
               }`}
               onClick={() => toggleReward(reward.id)}
             >
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-start space-x-4">
+              <div className="min-w-0 flex items-start justify-between gap-3">
+                <div className="flex min-w-0 items-start space-x-3">
                   <input
                     type="checkbox"
                     checked={selectedRewards.has(reward.id)}
+                    onClick={(event) => event.stopPropagation()}
                     onChange={() => toggleReward(reward.id)}
                     className="mt-1 w-5 h-5 rounded text-green-600 focus:ring-green-500"
                   />
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">{reward.name}</h3>
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-lg font-semibold text-white">{reward.name}</h3>
                     {detailParts.length > 0 && (
                       <p className="text-sm text-gray-400 mt-1">{detailParts.slice(0, 2).join(' • ')}</p>
                     )}
-                    <div className="flex gap-2 flex-wrap mt-2">
+                    <div className="flex gap-2 flex-wrap mt-2 break-words">
                       <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">{reward.type}</span>
                       <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">{reward.sectionTitle}</span>
                       {reward.phase && (
@@ -87,8 +88,8 @@ export default function RewardsList({ selectedRewards, toggleReward, filter, sea
                     </div>
                   </div>
                 </div>
-                <div className="text-right min-w-[120px]">
-                  <div className="text-2xl font-bold text-yellow-500">
+                <div className="text-right min-w-[82px] sm:min-w-[120px]">
+                  <div className="text-xl sm:text-2xl font-bold text-yellow-500">
                     {reward.cost?.amount ? reward.cost.amount.toLocaleString() : '—'}
                   </div>
                   <div className="text-xs text-gray-400">Bronze</div>

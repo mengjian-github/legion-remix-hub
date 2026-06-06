@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 import dynamic from 'next/dynamic';
 import { bronzeEntries } from '@/data/rewards';
 import { farmingMethods } from '@/data/dungeons';
@@ -34,13 +35,48 @@ export default function CalculatorPage() {
   const [filter, setFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const toggleReward = (rewardId: string) => {
+    const reward = bronzeEntries.find(item => item.id === rewardId);
     const newSelected = new Set(selectedRewards);
+    const action = newSelected.has(rewardId) ? 'remove' : 'add';
     if (newSelected.has(rewardId)) {
       newSelected.delete(rewardId);
     } else {
       newSelected.add(rewardId);
     }
     setSelectedRewards(newSelected);
+    trackEvent('reward_select', {
+      reward_id: rewardId,
+      reward_name: reward?.name ?? rewardId,
+      reward_type: reward?.type ?? 'unknown',
+      action,
+      selected_count: newSelected.size,
+    });
+  };
+
+  const handleSearchChange = (value: string) => {
+    setSearchTerm(value);
+    if (value.trim().length >= 2) {
+      trackEvent('calculator_search', { query: value.trim().slice(0, 80), result_scope: filter });
+    }
+  };
+
+  const handleShareClick = async () => {
+    const shareText = `Legion Remix wishlist: ${selectedRewards.size} rewards, ${totalBronze.toLocaleString()} Bronze, ${estimatedTime.toFixed(1)}h at top farm speed.`;
+    trackEvent('export/share_click', {
+      page: 'calculator',
+      selected_count: selectedRewards.size,
+      total_bronze: totalBronze,
+    });
+
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'Legion Remix Bronze Calculator', text: shareText, url: window.location.href });
+      } else {
+        await navigator.clipboard.writeText(shareText);
+      }
+    } catch {
+      // User cancelled native share or clipboard was unavailable; analytics has already recorded intent.
+    }
   };
 
   const totalBronze = useMemo(() => {
@@ -57,6 +93,14 @@ export default function CalculatorPage() {
     return hours;
   }, [totalBronze]);
   const faqSchema = useMemo(() => createFAQSchema(calculatorFaq), []);
+
+  useEffect(() => {
+    trackEvent('wishlist_total_changed', {
+      selected_count: selectedRewards.size,
+      total_bronze: totalBronze,
+      estimated_hours: Number(estimatedTime.toFixed(2)),
+    });
+  }, [selectedRewards.size, totalBronze, estimatedTime]);
 
   const referenceHighlights = [
     {
@@ -76,87 +120,58 @@ export default function CalculatorPage() {
   const RewardsList = dynamic(() => import('@/components/calculator/RewardsList'), { ssr: false });
 
   return (
-    <div className="min-h-screen bg-gray-950 py-12 px-4">
+    <div className="min-h-screen overflow-x-hidden bg-gray-950 py-6 sm:py-12 px-4">
       <JsonLd data={faqSchema} />
       <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4">Legion Remix Bronze Calculator</h1>
-          <p className="text-gray-400">
-            Use the Legion Remix bronze calculator to select the rewards you want from the Infinite Bazaar and see how much Bronze the run will cost. Prices mirror the rewards compendium while the farming blueprint feeds the hourly estimates, so this Legion Remix calculator stays grounded in real event data.
+        <div className="mb-4">
+          <p className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-amber-300">Bronze tool first</p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Legion Remix Bronze Calculator</h1>
+          <p className="text-sm sm:text-base text-gray-300 max-w-3xl">
+            Search 313 rewards, tap categories, and build a wishlist before you read the full planning notes.
           </p>
-          <p className="text-gray-400 mt-3">
-            This Legion Remix calculator also speaks directly to anyone searching for a Legion Remix rewards tracker or shareable planner. Toggle categories, export totals, and keep guildmates aligned on every Bronze purchase before the next Turbo Boost reset.
-          </p>
-          <div className="mt-4 bg-gray-900/60 border border-green-700/40 rounded-xl p-5">
-            <h2 className="text-lg font-semibold text-emerald-200 mb-2">Bronze Calculator Highlights</h2>
-            <ul className="list-disc list-inside text-sm text-gray-200 space-y-2">
-              <li>
-                Plan smarter farm routes by keeping the Legion Remix bronze calculator open while you compare trinkets, transmogs, and class mount wishlists.
-              </li>
-              <li>
-                Replace clunky spreadsheets—this Bronze budget planner pairs costs with farming hours so you always know which grind finishes first.
-              </li>
-              <li>
-                Share snapshots with friends; the streamlined Legion Remix calculator view keeps everyone working toward the same Bronze goals.
-              </li>
-            </ul>
-          </div>
-          <p className="text-sm text-gray-400 mt-3">
-            Quick note: some players search for “Legion Remix calculator 10” or “calculator10” — this is the same bronze calculator. Use the presets below to budget ten priority rewards quickly.
-          </p>
-          <div className="mt-4 rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-5">
-            <h2 className="text-lg font-semibold text-emerald-200 mb-2">Why the Legion Remix bronze calculator matters</h2>
-            <p className="text-sm text-gray-200">
-              Search spikes for “Legion Remix bronze calculator”, “Legion Remix bronze tracker”, and “Legion Remix rewards tracker”
-              underline how often Timerunners need a single dashboard. Keep this tab open while you route keystones, price
-              out Violet Spellwing, or double-check Infinite Echoes housing decor so every Bronze investment stays deliberate.
-            </p>
+        </div>
+
+        <div className="lg:hidden sticky top-2 z-20 mb-4 rounded-2xl border border-green-700/50 bg-gray-950/95 p-3 shadow-2xl backdrop-blur">
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <div>
+              <div className="text-[11px] uppercase tracking-wide text-gray-400">Items</div>
+              <div className="text-lg font-black text-white">{selectedRewards.size}</div>
+            </div>
+            <div>
+              <div className="text-[11px] uppercase tracking-wide text-gray-400">Total Bronze</div>
+              <div className="text-lg font-black text-yellow-400">{totalBronze.toLocaleString()}</div>
+            </div>
+            <div>
+              <div className="text-[11px] uppercase tracking-wide text-gray-400">Farm Time</div>
+              <div className="text-lg font-black text-green-300">{totalBronze > 0 ? `${estimatedTime.toFixed(1)}h` : '0h'}</div>
+            </div>
           </div>
         </div>
 
-        <div className="mb-8 grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 bg-gray-800 border border-gray-700 rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-white mb-3">How to Use the Calculator</h2>
-            <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
-              <li>Filter or search for the cosmetics you want, then tick the checkbox to add them to your Legion Remix bronze calculator wishlist.</li>
-              <li>Keep the panel on the right open while you experiment—watch how the Legion Remix calculator updates Bronze totals alongside farm hours.</li>
-              <li>Share your plan by screenshotting the calculator summary or keeping the tab open as you run dungeons.</li>
-            </ol>
-          </div>
-          <div className="bg-gray-800 border border-amber-700/50 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-amber-300 mb-3">Preset Ideas</h3>
-            <p className="text-sm text-gray-300 mb-3">
-              Drop these sets straight into the Legion Remix bronze calculator and adjust totals for your roster.
-            </p>
-            <ul className="text-sm text-gray-300 space-y-2">
-              <li>Grab every class mount for an alt army.</li>
-              <li>Plan zone achievements with the Illusion and pet rewards.</li>
-              <li>Track big-ticket weapons like Violet Spellwing and Corrupted Shalamayne.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid min-w-0 lg:grid-cols-3 gap-5 lg:gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="min-w-0 lg:col-span-2 space-y-3 sm:space-y-6">
             {/* Filters */}
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
-              <div className="flex flex-col md:flex-row gap-4">
+            <div className="min-w-0 bg-gray-800 border border-gray-700 rounded-lg p-3 sm:p-6">
+              <div className="flex flex-col gap-3">
                 <div className="flex-1">
                   <input
                     type="text"
                     placeholder="Search rewards..."
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) => handleSearchChange(e.target.value)}
                     className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-green-500"
                   />
                 </div>
-                <div className="flex gap-2 flex-wrap">
+                <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
                   {calculatorTypes.map((type) => (
                     <button
                       key={type}
-                      onClick={() => setFilter(type)}
-                      className={`px-4 py-2 rounded-md font-medium transition-colors ${
+                      onClick={() => {
+                        setFilter(type);
+                        trackEvent('calculator_filter_click', { filter: type });
+                      }}
+                      className={`min-h-10 shrink-0 px-4 py-2 rounded-md font-medium transition-colors ${
                         filter === type
                           ? 'bg-green-600 text-white'
                           : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
@@ -224,6 +239,12 @@ export default function CalculatorPage() {
                       >
                         Clear All
                       </button>
+                      <button
+                        onClick={handleShareClick}
+                        className="w-full mt-2 px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-md font-medium transition-colors"
+                      >
+                        Copy / Share Summary
+                      </button>
                     </>
                   )}
                 </div>
@@ -240,6 +261,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const mountIds = bronzeEntries.filter(r => r.type === 'mount').map(r => r.id);
                       setSelectedRewards(new Set(mountIds));
+                      trackEvent('wishlist_total_changed', { preset: 'all_mounts', selected_count: mountIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -249,6 +271,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const petIds = bronzeEntries.filter(r => r.type === 'pet').map(r => r.id);
                       setSelectedRewards(new Set(petIds));
+                      trackEvent('wishlist_total_changed', { preset: 'all_pets', selected_count: petIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -258,6 +281,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const housingIds = bronzeEntries.filter(r => r.category === 'housing').map(r => r.id);
                       setSelectedRewards(new Set(housingIds));
+                      trackEvent('wishlist_total_changed', { preset: 'housing_decor', selected_count: housingIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -267,6 +291,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const allIds = bronzeEntries.map(r => r.id);
                       setSelectedRewards(new Set(allIds));
+                      trackEvent('wishlist_total_changed', { preset: 'everything', selected_count: allIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -275,6 +300,28 @@ export default function CalculatorPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-12 grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 bg-gray-900/60 border border-green-700/40 rounded-lg p-5 sm:p-6">
+            <h2 className="text-xl font-semibold text-emerald-200 mb-2">Bronze Calculator Highlights</h2>
+            <p className="text-sm text-gray-300 mb-3">
+              Use the Legion Remix bronze calculator to select the rewards you want from the Infinite Bazaar and see how much Bronze the run will cost. Prices mirror the rewards compendium while the farming blueprint feeds hourly estimates.
+            </p>
+            <ul className="list-disc list-inside text-sm text-gray-300 space-y-2">
+              <li>Plan smarter farm routes while comparing trinkets, transmogs, mounts, toys, and class-set wishlists.</li>
+              <li>Replace spreadsheets with a Bronze budget planner that pairs costs with farming hours.</li>
+              <li>Players searching for “Legion Remix calculator 10” or “calculator10” can use presets to budget priority rewards quickly.</li>
+            </ul>
+          </div>
+          <div className="bg-gray-900/60 border border-amber-700/40 rounded-lg p-5 sm:p-6">
+            <h2 className="text-xl font-semibold text-amber-200 mb-2">How to use it</h2>
+            <ol className="list-decimal list-inside text-sm text-gray-300 space-y-2">
+              <li>Search rewards or tap a category.</li>
+              <li>Select items to update total Bronze and farm time.</li>
+              <li>Copy/share the summary for your guild plan.</li>
+            </ol>
           </div>
         </div>
 

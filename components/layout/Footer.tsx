@@ -124,7 +124,7 @@ export default function Footer() {
           <p className="text-center text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Legion Remix Hub. World of Warcraft and Blizzard Entertainment
             are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.
-            This site is fan-made and not affiliated with Blizzard Entertainment.
+            This community tool is fan-made and not affiliated with, endorsed by, or sponsored by Blizzard Entertainment.
           </p>
         </div>
       </div>
