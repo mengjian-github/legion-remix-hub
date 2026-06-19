@@ -111,7 +111,7 @@ export default function Footer() {
                 <a href="https://poe327.net/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "poe327" })} className="text-gray-400 hover:text-white text-sm">POE 3.27</a>
               </li>
               <li>
-                <a href="https://cowboysafari.online/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "cowboy_safari" })} className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
+                <a href="https://cowboysafari.online/?utm_source=legionremixhub.com&utm_medium=internal_crosslink&utm_campaign=network_crosslink&utm_content=footer" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "cowboy_safari" })} className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
               </li>
               <li>
                 <a href="https://getchargen.com/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "getchargen_duplicate" })} className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
