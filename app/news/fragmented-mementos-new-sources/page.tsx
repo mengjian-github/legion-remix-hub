@@ -153,7 +153,7 @@ export default function FragmentedMementoPage() {
               ))}
             </ul>
               <p className="text-xs text-gray-400">
-                For upgrade math, see the <Link href="/guides/fragmented-memento" className="text-emerald-300 hover:text-emerald-200">Fragmented Memento guide</Link>.
+                For upgrade math, see the <Link href="/guides/fragmented-mementos" className="text-emerald-300 hover:text-emerald-200">Fragmented Memento guide</Link>.
               </p>
           </div>
         </section>

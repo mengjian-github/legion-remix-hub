@@ -541,10 +541,12 @@ export default function Home() {
             {/* Infinite Research */}
             <div className="bg-gray-800 border border-blue-700/30 rounded-lg overflow-hidden card-hover">
               <div className="relative h-64">
-                <img
+                <Image
                   src={legionImages.infiniteResearchQuests}
                   alt="Infinite Research Quests"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent"></div>
               </div>

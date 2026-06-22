@@ -14,7 +14,7 @@ export const legionImages = {
   druidOrderHall: "/images/game/druid-order-hall.avif",
   eternus: "/images/game/eternus.png",
   artifactWeapon: "/images/game/artifact-weapon.avif",
-  heroicWorldTier: "/images/game/heroic-world-tier.png",
+  heroicWorldTier: "/images/game/heroic-world-tier.webp",
   timewarped: "/images/game/timewarped.png",
   housingDecor: "/images/game/housing-decor.png",
   contentUpdate: "/images/game/content-update.png",

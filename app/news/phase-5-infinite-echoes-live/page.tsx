@@ -226,8 +226,8 @@ export default function Phase5InfiniteEchoesPage() {
               From now until January 19, 2026 there is one loop left—cycle Threads, world bosses, and Infinite Research to backfill every missed reward fast.
             </p>
             <div className="mt-4 space-y-2 text-sm text-gray-200">
-              <p>• <Link href="/guides/fragmented-memento" className="text-emerald-300 hover:text-emerald-200">Fragmented Memento guide</Link>: prioritize weapons/trinkets, then rings/cloak, then everything else.</p>
-              <p>• <Link href="/guides/infinite-research" className="text-emerald-300 hover:text-emerald-200">Infinite Research guide</Link>: fastest way to stack the Mayhem XP buff each session.</p>
+              <p>• <Link href="/guides/fragmented-mementos" className="text-emerald-300 hover:text-emerald-200">Fragmented Memento guide</Link>: prioritize weapons/trinkets, then rings/cloak, then everything else.</p>
+              <p>• <Link href="/guides/infinite-knowledge" className="text-emerald-300 hover:text-emerald-200">Infinite Knowledge guide</Link>: fastest way to stack the Mayhem XP buff each session.</p>
             </div>
           </div>
         </section>

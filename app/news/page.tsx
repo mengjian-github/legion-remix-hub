@@ -165,7 +165,11 @@ export default function NewsPage() {
                   <span className="text-gray-600">•</span>
                   <span>{article.author}</span>
                 </div>
-                <h2 className="text-2xl font-semibold text-white">{article.title}</h2>
+                <h2 className="text-2xl font-semibold text-white">
+                  <Link href={`/news/${article.slug}`} className="hover:text-green-300 transition">
+                    {article.title}
+                  </Link>
+                </h2>
                 <p className="text-sm leading-relaxed text-gray-300">{article.excerpt}</p>
                 <ul className="space-y-3 text-sm leading-relaxed text-gray-100">
                   {article.highlights.map((point) => (

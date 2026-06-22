@@ -323,7 +323,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Eye of Greed & Druid Scornwing Form: Legion Remix Hotfixes for October 20',
     author: 'Luxrah',
     publishedAt: '2025-10-21',
-    image: '/images/game/heroic-world-tier.png',
+    image: '/images/game/heroic-world-tier.webp',
     imageAlt: 'Timerunners activating Heroic World Tier after hotfixes',
     excerpt:
       'Hotfixes freed the Eye of Greed, updated Feldruid’s Scornwing Idol behavior, prevented double affixes, and patched quest blockers ahead of Phase 2.',
@@ -342,7 +342,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Keystone Hero Teleports Can Be Earned Again in Legion Remix – Hotfixes for October 16',
     author: 'Luxrah',
     publishedAt: '2025-10-16',
-    image: '/images/news/2025-10-16-keystone-teleports.png',
+    image: '/images/news/2025-10-16-keystone-teleports.webp',
     imageAlt: 'Timerunners preparing to access Legion dungeon teleports',
     excerpt:
       'Blizzard’s October 16 hotfix restores Keystone Hero dungeon teleports for Timerunners, adds a large XP bonus to the first random dungeon each day, and resolves several Remix quest blockers.',
@@ -380,7 +380,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Buffs Coming for DPS & Healers With Phase 2 of Legion Remix',
     author: 'Luxrah',
     publishedAt: '2025-10-15',
-    image: '/images/news/2025-10-15-tank-meta.png',
+    image: '/images/news/2025-10-15-tank-meta.webp',
     imageAlt: 'Phased Legion Remix roadmap highlighting upcoming Suramar content',
     excerpt:
       'With tanks dominating Phase 1 Mythic+ ladders, Blizzard confirmed that healers and DPS will get extra help when Phase 2 begins on October 21 alongside new Suramar story chapters, a dungeon, and a raid.',
@@ -399,7 +399,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Buffs for DPS, Healers & Underperforming Artifact Traits in Legion Remix',
     author: 'Luxrah',
     publishedAt: '2025-10-15',
-    image: '/images/news/2025-10-16-artifact-traits.png',
+    image: '/images/news/2025-10-16-artifact-traits.webp',
     imageAlt: 'Artifact weapon interface showcasing empowered Legion Remix traits',
     excerpt:
       'Blizzard pushed an extra round of buffs ahead of Phase 2, giving DPS and healers 20% more power from every artifact trait and upgrading several niche nodes so more weapon paths feel viable.',
@@ -418,7 +418,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'New Hunter Pets in the Broken Isles: Legion Remix Hotfixes for October 14',
     author: 'Luxrah',
     publishedAt: '2025-10-14',
-    image: '/images/news/2025-10-14-hunter-pets.png',
+    image: '/images/news/2025-10-14-hunter-pets.webp',
     imageAlt: 'Legion Remix hunters tracking new Broken Isles beasts',
     excerpt:
       'The October 14 hotfix wave adds more tamable beasts for hunters, tweaks arcane tools for mages, revises the Imperious affix cadence, and sweetens gathering nodes with extra mementos.',
