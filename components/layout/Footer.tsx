@@ -120,6 +120,41 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="mt-10 rounded-2xl border border-gray-800 bg-gray-950/60 p-5">
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">Legion Remix deep links</h4>
+          <p className="mt-2 text-xs text-gray-500">
+            Extra internal routes for long-tail searches, archive lookups, news explainers, and one-click troubleshooting.
+          </p>
+          <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              { label: 'Road Map', href: '/roadmap' },
+              { label: 'Release Schedule', href: '/guides/release-schedule' },
+              { label: 'Legion Assaults', href: '/guides/legion-assaults' },
+              { label: 'Sargerei Regalia', href: '/guides/sargerei-commanders-regalia' },
+              { label: 'Suramar Time', href: '/how-long-is-the-suramar-questline' },
+              { label: 'Class Mount Hotfix', href: '/news/class-mount-quests-hotfixed' },
+              { label: 'Phase 5 Live', href: '/news/phase-5-infinite-echoes-live' },
+              { label: 'Housing Decor', href: '/news/housing-decor-legion-remix' },
+              { label: 'Fragmented Mementos', href: '/news/fragmented-mementos-new-sources' },
+              { label: 'Moratari Skip Fix', href: '/news/moratari-quest-skip-fixes' },
+              { label: 'Hidden Artifact Hotfix', href: '/news/hidden-artifact-appearances-hotfixed' },
+              { label: 'Character Transfer', href: '/news/legion-remix-character-transfer' },
+              { label: 'Phase 4 Live', href: '/news/phase-4-legion-remix-now-live' },
+              { label: 'Privacy', href: '/privacy' },
+              { label: 'Terms', href: '/terms' },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-lg border border-gray-800 bg-gray-900/70 px-3 py-2 text-gray-400 transition hover:border-green-600/60 hover:text-white"
+                onClick={() => trackEvent('footer_deep_link_click', { page: 'global_footer', destination: link.href })}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-8 pt-8 border-t border-gray-800">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
             <Link href="/privacy" className="text-gray-400 hover:text-white text-sm" onClick={() => trackEvent("footer_click", { page: "global_footer", destination: "privacy" })}>

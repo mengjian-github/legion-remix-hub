@@ -142,17 +142,25 @@ export default function CalculatorPage() {
           </p>
         </div>
 
-        <AnswerFirstBlock
-          answer="Use the Legion Remix Bronze Calculator when you need a direct Bronze budget: search a reward, select it, then read total Bronze and estimated farm time before buying from vendors. The list is based on the site reward compendium and should be checked against in-game vendor stock after hotfixes."
-          checkedAt="June 6, 2026"
-          sourceBasis="Legion Remix Hub reward tables, farming method estimates, and in-game vendor planning notes."
-          officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
-          internalLinks={[
-            { label: 'Reward tables', href: '/rewards' },
-            { label: 'Bronze farming guide', href: '/guides/bronze-farming' },
-            { label: 'Suramar campaign', href: '/guides/suramar-campaign' },
-          ]}
-        />
+        <div className="mb-4 grid gap-2 text-xs text-gray-300 sm:grid-cols-3">
+          <div className="rounded-xl border border-emerald-700/40 bg-emerald-950/30 p-3">
+            <span className="block font-black uppercase tracking-[0.14em] text-emerald-300">Reward data checked</span>
+            <span className="mt-1 block text-white">June 6, 2026</span>
+          </div>
+          <a
+            href="https://worldofwarcraft.blizzard.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl border border-blue-700/40 bg-blue-950/30 p-3 transition hover:border-blue-400/70"
+          >
+            <span className="block font-black uppercase tracking-[0.14em] text-blue-300">Official reference</span>
+            <span className="mt-1 block text-white">Cross-check vendor stock in game after hotfixes →</span>
+          </a>
+          <div className="rounded-xl border border-amber-700/40 bg-amber-950/30 p-3">
+            <span className="block font-black uppercase tracking-[0.14em] text-amber-300">Hotfix disclaimer</span>
+            <span className="mt-1 block text-white">Archive mode keeps planning useful; live prices can shift.</span>
+          </div>
+        </div>
 
         <div className="lg:hidden sticky top-2 z-20 mb-4 rounded-2xl border border-green-700/50 bg-gray-950/95 p-3 shadow-2xl backdrop-blur">
           <div className="grid grid-cols-3 gap-2 text-center">
@@ -327,6 +335,19 @@ export default function CalculatorPage() {
         </div>
 
         <div className="mt-12 grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-3">
+            <AnswerFirstBlock
+              answer="Use the Legion Remix Bronze Calculator when you need a direct Bronze budget: search a reward, select it, then read total Bronze and estimated farm time before buying from vendors. The list is based on the site reward compendium and should be checked against in-game vendor stock after hotfixes."
+              checkedAt="June 6, 2026"
+              sourceBasis="Legion Remix Hub reward tables, farming method estimates, and in-game vendor planning notes."
+              officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
+              internalLinks={[
+                { label: 'Reward tables', href: '/rewards' },
+                { label: 'Bronze farming guide', href: '/guides/bronze-farming' },
+                { label: 'Suramar campaign', href: '/guides/suramar-campaign' },
+              ]}
+            />
+          </div>
           <div className="lg:col-span-2 bg-gray-900/60 border border-green-700/40 rounded-lg p-5 sm:p-6">
             <h2 className="text-xl font-semibold text-emerald-200 mb-2">Bronze Calculator Highlights</h2>
             <p className="text-sm text-gray-300 mb-3">

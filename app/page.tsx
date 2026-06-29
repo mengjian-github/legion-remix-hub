@@ -61,37 +61,44 @@ export default function Home() {
       ],
     },
   };
-  const eventStatus = currentPhase ? 'Event now live' : 'Event ended';
+  const eventStatus = currentPhase ? 'Event now live' : 'Archive mode: still useful';
   const eventStatusTone = currentPhase ? 'text-green-300 border-green-400/60 bg-green-500/15' : 'text-amber-200 border-amber-400/60 bg-amber-500/15';
   const phaseLabel = currentPhase ? currentPhase.name : 'Phase 5 complete: Infinite Echoes archive mode';
   const quickTasks = [
     {
-      title: 'Start the weekly route',
-      detail: 'Use the getting-started checklist before you queue.',
-      href: '/guides/getting-started',
+      title: 'Bronze calculator',
+      detail: 'Search rewards, select targets, and read total Bronze plus farm time.',
+      href: '/calculator',
       event: 'quick_task_click',
-      task: 'weekly_route',
+      task: 'bronze_calculator',
     },
     {
-      title: 'Farm Bronze faster',
-      detail: 'Compare dungeon, scenario, and rare loops.',
-      href: '/guides/bronze-farming',
-      event: 'quick_task_click',
-      task: 'bronze_farming',
-    },
-    {
-      title: "Pick tonight's class",
-      detail: 'Jump into spec guides tuned for Timerunners.',
-      href: '/classes',
-      event: 'quick_task_click',
-      task: 'class_picker',
-    },
-    {
-      title: 'Check reward prices',
-      detail: 'Browse the Infinite Bazaar compendium.',
+      title: 'Rewards tracker',
+      detail: 'Filter mounts, transmogs, toys, pets, and housing rewards.',
       href: '/rewards',
       event: 'quick_task_click',
-      task: 'reward_prices',
+      task: 'rewards_tracker',
+    },
+    {
+      title: 'Class guide',
+      detail: 'Pick a spec before Heroic World Tier or alt leveling.',
+      href: '/classes',
+      event: 'quick_task_click',
+      task: 'class_guide',
+    },
+    {
+      title: 'Heroic World Tier',
+      detail: 'Check safer routes, specs, and mitigation before toggling hard mode.',
+      href: '/guides/leveling#heroic-world-tier',
+      event: 'quick_task_click',
+      task: 'heroic_world_tier',
+    },
+    {
+      title: 'Lag fixes',
+      detail: 'Triage Suramar, Argus, and crowded Bronze farms fast.',
+      href: '#legion-remix-lag',
+      event: 'quick_task_click',
+      task: 'lag_fixes',
     },
   ];
 
@@ -239,7 +246,7 @@ export default function Home() {
                 <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-xl font-black text-white">{phaseLabel}</p>
-                    <p className="mt-1 text-sm text-gray-300">Event window: Oct 7, 2025 – Jan 19, 2026. Use archive mode to finish guides, rewards, and calculator planning.</p>
+                    <p className="mt-1 text-sm text-gray-300">Event window: Oct 7, 2025 – Jan 19, 2026. Archive mode keeps the calculator, reward tables, class picks, and troubleshooting links usable for late checks, screenshots, and future timewalking comparisons.</p>
                   </div>
                   <Link
                     href="/calculator"
@@ -257,7 +264,7 @@ export default function Home() {
             <div className="rounded-3xl border border-gray-700/70 bg-gray-950/75 p-4 shadow-2xl backdrop-blur md:p-6">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-green-300">Top 4 quick tasks</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-green-300">Top 5 player tasks</p>
                   <h2 className="mt-1 text-2xl font-black text-white">What do you need next?</h2>
                 </div>
                 <span className="hidden rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-200 sm:inline">313 rewards tracked</span>
@@ -272,7 +279,7 @@ export default function Home() {
                     data-track-prop-page="home"
                     data-track-prop-location="hero_quick_tasks"
                     data-track-prop-task={task.task}
-                    className="group rounded-2xl border border-gray-700 bg-gray-900/90 p-4 transition hover:border-green-400/70 hover:bg-green-950/30"
+                    className={`group rounded-2xl border border-gray-700 bg-gray-900/90 p-4 transition hover:border-green-400/70 hover:bg-green-950/30 ${index === 0 ? 'sm:col-span-2' : ''}`}
                   >
                     <span className="text-xs font-black text-green-300">0{index + 1}</span>
                     <h3 className="mt-2 text-base font-black text-white group-hover:text-green-200">{task.title}</h3>

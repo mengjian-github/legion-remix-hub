@@ -7,17 +7,17 @@ export const legionImages = {
 
   // Infographics
   phaseTimeline: "/images/game/phase-timeline.avif",
-  infiniteResearch: "/images/game/infinite-research.png",
-  phaseSchedule: "/images/game/phase-schedule.png",
+  infiniteResearch: "/images/game/infinite-research.avif",
+  phaseSchedule: "/images/game/phase-schedule.avif",
 
   // In-game screenshots - Blizzard official
   druidOrderHall: "/images/game/druid-order-hall.avif",
-  eternus: "/images/game/eternus.png",
+  eternus: "/images/game/eternus.avif",
   artifactWeapon: "/images/game/artifact-weapon.avif",
   heroicWorldTier: "/images/game/heroic-world-tier.webp",
-  timewarped: "/images/game/timewarped.png",
-  housingDecor: "/images/game/housing-decor.png",
-  contentUpdate: "/images/game/content-update.png",
+  timewarped: "/images/game/timewarped.avif",
+  housingDecor: "/images/game/housing-decor.avif",
+  contentUpdate: "/images/game/content-update.avif",
   referenceSplash: "/images/reference/legion-remix-splash.jpg",
 
   // In-game screenshots - Wowhead
@@ -27,7 +27,7 @@ export const legionImages = {
   epochMemento: "/images/game/epoch-memento.jpg",
   infiniteResearchQuests: "/images/game/infinite-research-quests.png",
   timeWarpedObelisk: "/images/game/timewarped-obelisk.avif",
-  eternusScreenshot: "/images/game/eternus-screenshot.png",
+  eternusScreenshot: "/images/game/eternus-screenshot.avif",
   timewornKeystone: "/images/game/timeworn-keystone-schedule.jpg",
   challianeVineyardsMap: "/images/guides/challiane-vineyards/challiane-vineyards-map.jpg",
   challianeVineyardsLocation: "/images/guides/challiane-vineyards/challiane-vineyards-location.jpg",
@@ -134,8 +134,8 @@ export const legionImages = {
 
   // Phase 4 & Phase 5 spotlights
   phase4ArgusHero: "/images/news/2025-11-18-phase-4-argus.jpg",
-  phase5InfiniteEchoes: "/images/news/2025-12-09-phase-5-infinite-echoes.png",
-  housingDecorBanner: "/images/news/2025-12-02-housing-decor.png",
+  phase5InfiniteEchoes: "/images/news/2025-12-09-phase-5-infinite-echoes.avif",
+  housingDecorBanner: "/images/news/2025-12-02-housing-decor.avif",
 
   // Argus navigation & access
   argusNavigationMap: "/images/guides/argus/argus-navigation.jpg",

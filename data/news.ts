@@ -19,7 +19,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Phase 5 Is Now Live for Legion Remix: Infinite Echoes',
     author: 'Luxrah',
     publishedAt: '2025-12-09',
-    image: '/images/news/2025-12-09-phase-5-infinite-echoes.png',
+    image: '/images/news/2025-12-09-phase-5-infinite-echoes.avif',
     imageAlt: 'Infinite Echoes banner with fel hourglass',
     excerpt:
       'Infinite Echoes arrives with Moratari catch-up quests, Flawless Threads of Time upgrades to item level 779, roaming Lost Legion Infernals, six-world-boss rotations, and a stacking Timerrunner’s Mayhem XP buff.',
@@ -38,7 +38,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Housing Decor Is Now Available in Legion Remix',
     author: 'Luxrah',
     publishedAt: '2025-12-02',
-    image: '/images/news/2025-12-02-housing-decor.png',
+    image: '/images/news/2025-12-02-housing-decor.avif',
     imageAlt: 'Legion-themed housing decor display',
     excerpt:
       'Domelius and Horos now stock Legion housing decor: earn the first copy free from achievements, then spend Bronze on extra fel altars, chains, cages, and the Illusion: Nightmare and Chronos weapon glows.',
@@ -228,7 +228,7 @@ export const newsArticles: NewsArticle[] = [
     title: 'Order Resources & Veiled Argunite Will Be Warbound in Patch 11.2.7',
     author: 'Luxrah',
     publishedAt: '2025-10-24',
-    image: '/images/game/infinite-research.png',
+    image: '/images/game/infinite-research.avif',
     imageAlt: 'Warband vault storing Legion-era currencies for Legion Remix characters',
     excerpt:
       'Patch 11.2.7 elevates Legion-era currencies to the Warband system, letting Timerunners bank Order Resources and Veiled Argunite now and funnel the stockpile to post-Remix mains.',
