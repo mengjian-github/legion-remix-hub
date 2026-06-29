@@ -121,6 +121,15 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-800">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+            <Link href="/privacy" className="text-gray-400 hover:text-white text-sm" onClick={() => trackEvent("footer_click", { page: "global_footer", destination: "privacy" })}>
+              Privacy Policy
+            </Link>
+            <span className="hidden sm:inline text-gray-600">|</span>
+            <Link href="/terms" className="text-gray-400 hover:text-white text-sm" onClick={() => trackEvent("footer_click", { page: "global_footer", destination: "terms" })}>
+              Terms of Use
+            </Link>
+          </div>
           <p className="text-center text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Legion Remix Hub. World of Warcraft and Blizzard Entertainment
             are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.

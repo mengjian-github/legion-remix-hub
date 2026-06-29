@@ -45,7 +45,7 @@ export default function CalculatorPage() {
       newSelected.add(rewardId);
     }
     setSelectedRewards(newSelected);
-    trackEvent('reward_select', {
+    trackEvent('calculator_select', {
       reward_id: rewardId,
       reward_name: reward?.name ?? rewardId,
       reward_type: reward?.type ?? 'unknown',
@@ -63,7 +63,7 @@ export default function CalculatorPage() {
 
   const handleShareClick = async () => {
     const shareText = `Legion Remix wishlist: ${selectedRewards.size} rewards, ${totalBronze.toLocaleString()} Bronze, ${estimatedTime.toFixed(1)}h at top farm speed.`;
-    trackEvent('export/share_click', {
+    trackEvent('calculator_copy_or_share', {
       page: 'calculator',
       selected_count: selectedRewards.size,
       total_bronze: totalBronze,
@@ -78,6 +78,11 @@ export default function CalculatorPage() {
     } catch {
       // User cancelled native share or clipboard was unavailable; analytics has already recorded intent.
     }
+  };
+
+  const handleClearAll = () => {
+    trackEvent('wishlist_total_changed', { action: 'clear_all', previous_count: selectedRewards.size, previous_bronze: totalBronze });
+    setSelectedRewards(new Set());
   };
 
   const totalBronze = useMemo(() => {
@@ -252,7 +257,7 @@ export default function CalculatorPage() {
                       </div>
 
                       <button
-                        onClick={() => setSelectedRewards(new Set())}
+                        onClick={handleClearAll}
                         className="w-full mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md font-medium transition-colors"
                       >
                         Clear All

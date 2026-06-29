@@ -63,14 +63,16 @@ export default function RewardsList({ selectedRewards, toggleReward, filter, sea
                   ? 'border-green-500 bg-green-900/20'
                   : 'border-gray-700 hover:border-gray-600'
               }`}
-              onClick={() => toggleReward(reward.id)}
+              onClick={(e) => {
+                if (e.target instanceof HTMLElement && e.target.closest('input[type="checkbox"]')) return;
+                toggleReward(reward.id);
+              }}
             >
               <div className="min-w-0 flex items-start justify-between gap-3">
                 <div className="flex min-w-0 items-start space-x-3">
                   <input
                     type="checkbox"
                     checked={selectedRewards.has(reward.id)}
-                    onClick={(event) => event.stopPropagation()}
                     onChange={() => toggleReward(reward.id)}
                     className="mt-1 w-5 h-5 rounded text-green-600 focus:ring-green-500"
                   />
