@@ -35,6 +35,41 @@ export default function CalculatorPage() {
   const [selectedRewards, setSelectedRewards] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
+
+  const presetPacks = useMemo(() => [
+    {
+      id: 'class-mount-sprint',
+      title: 'Class mount sprint',
+      description: 'Budget the 20,000 Bronze class-mount unlocks first.',
+      rewardIds: bronzeEntries.filter((reward) => reward.name.toLowerCase().includes('felscorned')).slice(0, 12).map((reward) => reward.id),
+    },
+    {
+      id: 'housing-decor-weekend',
+      title: 'Housing decor weekend',
+      description: 'Queue housing rewards and large decor purchases for a focused farm block.',
+      rewardIds: bronzeEntries.filter((reward) => reward.category === 'housing').slice(0, 18).map((reward) => reward.id),
+    },
+    {
+      id: 'mounts-first-10',
+      title: 'First 10 mounts',
+      description: 'Start with ten mount purchases so the calculator has a useful total immediately.',
+      rewardIds: bronzeEntries.filter((reward) => reward.type === 'mount').slice(0, 10).map((reward) => reward.id),
+    },
+  ], []);
+
+  const applyPresetPack = (preset: typeof presetPacks[number]) => {
+    const selectedIds = new Set(preset.rewardIds);
+    setSelectedRewards(selectedIds);
+    trackEvent('calculator_preset_apply', {
+      preset_id: preset.id,
+      selected_count: preset.rewardIds.length,
+      total_bronze: preset.rewardIds.reduce((sum, id) => {
+        const reward = bronzeEntries.find((item) => item.id === id);
+        return sum + (reward?.cost?.amount ?? 0);
+      }, 0),
+    });
+  };
+
   const toggleReward = (rewardId: string) => {
     const reward = bronzeEntries.find(item => item.id === rewardId);
     const newSelected = new Set(selectedRewards);
@@ -161,6 +196,30 @@ export default function CalculatorPage() {
             <span className="mt-1 block text-white">Archive mode keeps planning useful; live prices can shift.</span>
           </div>
         </div>
+
+        <section className="mb-5 rounded-2xl border border-amber-700/40 bg-amber-950/20 p-4 sm:p-5">
+          <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-amber-300">Preset packs</p>
+              <h2 className="mt-1 text-xl font-bold text-white">Start with a real Bronze plan</h2>
+            </div>
+            <p className="text-xs text-gray-400">Each preset replaces the current wishlist and fires calculator_preset_apply.</p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-3">
+            {presetPacks.map((preset) => (
+              <button
+                key={preset.id}
+                type="button"
+                onClick={() => applyPresetPack(preset)}
+                className="min-h-24 rounded-xl border border-gray-700 bg-gray-900/70 p-4 text-left transition hover:border-amber-400/70 hover:bg-amber-950/30"
+              >
+                <span className="block text-sm font-bold text-white">{preset.title}</span>
+                <span className="mt-1 block text-xs text-gray-300">{preset.description}</span>
+                <span className="mt-2 block text-xs font-semibold text-amber-200">Apply {preset.rewardIds.length} items →</span>
+              </button>
+            ))}
+          </div>
+        </section>
 
         <div className="lg:hidden sticky top-2 z-20 mb-4 rounded-2xl border border-green-700/50 bg-gray-950/95 p-3 shadow-2xl backdrop-blur">
           <div className="grid grid-cols-3 gap-2 text-center">

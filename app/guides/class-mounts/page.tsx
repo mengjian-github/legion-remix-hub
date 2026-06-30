@@ -9,7 +9,7 @@ const publishedDate = '2025-11-11';
 
 const pageTitle = formatMetaTitle('Class Mounts & Requirements – Legion Remix 2025');
 const pageDescription = formatMetaDescription(
-  'Unlock every Legion class mount in Legion Remix with hotfix-ready Hunter and Rogue walkthroughs plus Felscorned planning tips.'
+  'Unlock every Legion class mount in Legion Remix with class-by-class Felscorned rewards, legacy quest requirements, Hunter and Rogue walkthroughs, and Bronze planning notes.'
 );
 
 export const metadata: Metadata = {
@@ -265,6 +265,14 @@ const classMountGuides: ClassMountGuide[] = [
   },
 ];
 
+const classMountAnswerRows = classMountGuides.map((classGuide) => ({
+  id: classGuide.id,
+  className: classGuide.name,
+  remixMount: classGuide.remixMount,
+  fastRequirement: classGuide.remixUnlock,
+  legacyRequirement: classGuide.legacyMounts[0]?.note ?? 'Complete the original Legion class mount questline after Champions of Legionfall.',
+}));
+
 const hunterQuestFlow = [
   {
     title: 'Champions of Legionfall kickoff',
@@ -434,6 +442,53 @@ export default function ClassMountsGuidePage() {
               sections below tie those fixes directly into your Legionfall planning.
             </p>
           </header>
+
+          <section id="answer-table" className="mb-10 rounded-2xl border border-emerald-700/50 bg-emerald-950/20 p-5 not-prose">
+            <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">Answer first</p>
+                <h2 className="mt-1 text-2xl font-bold text-white">Which class mount should I unlock first?</h2>
+              </div>
+              <p className="text-xs text-gray-400">Checked June 6, 2026 • verify in game after hotfixes.</p>
+            </div>
+            <p className="mb-4 text-sm text-gray-300">
+              Pick your active class, confirm the level-80 or Timerunner unlock, then use the legacy note when you want the original Legion appearance too.
+              Hunter and Rogue have expanded walkthroughs below because their Remix quest flow changed most after hotfixes.
+            </p>
+            <div className="overflow-x-auto rounded-xl border border-gray-800">
+              <table className="min-w-[760px] w-full text-left text-sm">
+                <thead className="bg-gray-900/80 text-xs uppercase tracking-wide text-gray-400">
+                  <tr>
+                    <th className="px-4 py-3">Class</th>
+                    <th className="px-4 py-3">Felscorned Remix mount</th>
+                    <th className="px-4 py-3">Fast unlock</th>
+                    <th className="px-4 py-3">Legacy mount note</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-800 bg-gray-950/50 text-gray-200">
+                  {classMountAnswerRows.map((row) => (
+                    <tr key={row.id}>
+                      <td className="px-4 py-3 font-semibold text-white">{row.className}</td>
+                      <td className="px-4 py-3">{row.remixMount}</td>
+                      <td className="px-4 py-3">{row.fastRequirement}</td>
+                      <td className="px-4 py-3">{row.legacyRequirement}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <Link href="#hunter-walkthrough" className="rounded-full border border-emerald-500/60 px-4 py-2 text-emerald-200 hover:bg-emerald-500/10">
+                Hunter route
+              </Link>
+              <Link href="#rogue-walkthrough" className="rounded-full border border-amber-500/60 px-4 py-2 text-amber-100 hover:bg-amber-500/10">
+                Rogue route
+              </Link>
+              <Link href="/calculator" className="rounded-full border border-yellow-500/60 px-4 py-2 text-yellow-100 hover:bg-yellow-500/10">
+                Budget 20,000 Bronze
+              </Link>
+            </div>
+          </section>
 
           <div className="bg-gray-900/40 border border-gray-800 rounded-xl p-6 mb-10">
             <h2 className="text-xl font-semibold text-white mb-4">Quick Links</h2>

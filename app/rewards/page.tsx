@@ -81,6 +81,8 @@ export default function RewardsPage() {
           </div>
         </header>
 
+        <RewardTrackerCatalog />
+
         <ClientVisible className="mb-10 block">
         <section className="grid gap-4 lg:grid-cols-4">
           <div className="rounded-2xl border border-gray-800 bg-gray-900/50 p-5">
@@ -185,10 +187,6 @@ export default function RewardsPage() {
             </Link>
           ))}
         </nav>
-
-      
-        <RewardTrackerCatalog />
-
 
         <ClientVisible className="mb-16 block">
         <section id="categories">

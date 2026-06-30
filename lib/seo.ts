@@ -134,16 +134,7 @@ export const formatMetaDescription = (
       }
     }
 
-    if (candidate.length < min) {
-      candidate = clampWithTrailingPeriod(candidate);
-      while (candidate.length < min) {
-        const remaining = Math.min(min - candidate.length, 3);
-        candidate += ".".repeat(remaining);
-      }
-      if (candidate.length > max) {
-        candidate = candidate.slice(0, max);
-      }
-    }
+    candidate = clampWithTrailingPeriod(candidate);
   }
 
   if (candidate.length > max) {

@@ -61,14 +61,6 @@ export interface WebSiteSchema {
   name: string;
   url: string;
   description: string;
-  potentialAction: {
-    '@type': 'SearchAction';
-    target: {
-      '@type': 'EntryPoint';
-      urlTemplate: string;
-    };
-    'query-input': string;
-  };
 }
 
 export function createArticleSchema(params: {
@@ -148,14 +140,6 @@ export function createWebSiteSchema(): WebSiteSchema {
     name: 'Legion Remix Hub',
     url: 'https://legionremixhub.com',
     description: 'Complete Legion Remix Guide for World of Warcraft 2025 - Master Leveling, Bronze Farming & Class Selection',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://legionremixhub.com/search?q={search_term_string}',
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
