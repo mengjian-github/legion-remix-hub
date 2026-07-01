@@ -222,6 +222,13 @@ export default function CalculatorPage() {
         </section>
 
         <div className="lg:hidden sticky top-2 z-20 mb-4 rounded-2xl border border-green-700/50 bg-gray-950/95 p-3 shadow-2xl backdrop-blur">
+          <a
+            href="#calculator-search"
+            onClick={() => trackEvent('calculator_jump_to_search', { surface: 'mobile_sticky' })}
+            className="mb-3 flex min-h-11 items-center justify-center rounded-xl border border-emerald-500/60 bg-emerald-500/10 px-3 text-sm font-bold text-emerald-100"
+          >
+            Search rewards in this calculator ↓
+          </a>
           <div className="grid grid-cols-3 gap-2 text-center">
             <div>
               <div className="text-[11px] uppercase tracking-wide text-gray-400">Items</div>
@@ -242,7 +249,7 @@ export default function CalculatorPage() {
           {/* Main Content */}
           <div className="min-w-0 lg:col-span-2 space-y-3 sm:space-y-6">
             {/* Filters */}
-            <div className="min-w-0 bg-gray-800 border border-gray-700 rounded-lg p-3 sm:p-6">
+            <div id="calculator-search" className="min-w-0 bg-gray-800 border border-gray-700 rounded-lg p-3 sm:p-6 scroll-mt-24">
               <div className="flex flex-col gap-3">
                 <div className="flex-1">
                   <input
@@ -351,7 +358,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const mountIds = bronzeEntries.filter(r => r.type === 'mount').map(r => r.id);
                       setSelectedRewards(new Set(mountIds));
-                      trackEvent('wishlist_total_changed', { preset: 'all_mounts', selected_count: mountIds.length });
+                      trackEvent('calculator_preset_apply', { preset_id: 'all_mounts', selected_count: mountIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -361,7 +368,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const petIds = bronzeEntries.filter(r => r.type === 'pet').map(r => r.id);
                       setSelectedRewards(new Set(petIds));
-                      trackEvent('wishlist_total_changed', { preset: 'all_pets', selected_count: petIds.length });
+                      trackEvent('calculator_preset_apply', { preset_id: 'all_pets', selected_count: petIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -371,7 +378,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const housingIds = bronzeEntries.filter(r => r.category === 'housing').map(r => r.id);
                       setSelectedRewards(new Set(housingIds));
-                      trackEvent('wishlist_total_changed', { preset: 'housing_decor', selected_count: housingIds.length });
+                      trackEvent('calculator_preset_apply', { preset_id: 'housing_decor', selected_count: housingIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -381,7 +388,7 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const allIds = bronzeEntries.map(r => r.id);
                       setSelectedRewards(new Set(allIds));
-                      trackEvent('wishlist_total_changed', { preset: 'everything', selected_count: allIds.length });
+                      trackEvent('calculator_preset_apply', { preset_id: 'everything', selected_count: allIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
+import { trackEvent } from '@/lib/analytics';
 import {
   rewardEntries,
   bronzeEntries,
@@ -100,7 +101,10 @@ export default function RewardTrackerCatalog() {
           <input
             type="checkbox"
             checked={bronzeOnly}
-            onChange={event => setBronzeOnly(event.target.checked)}
+            onChange={event => {
+              setBronzeOnly(event.target.checked);
+              trackEvent('reward_tracker_filter_click', { filter: 'bronze_only', enabled: event.target.checked ? 'true' : 'false' });
+            }}
             className="h-4 w-4 rounded border-gray-600 bg-gray-800 text-emerald-500 focus:ring-emerald-400"
           />
           Show Bronze-purchasable items only
@@ -111,7 +115,12 @@ export default function RewardTrackerCatalog() {
         <input
           type="search"
           value={searchTerm}
-          onChange={event => setSearchTerm(event.target.value)}
+          onChange={event => {
+            setSearchTerm(event.target.value);
+            if (event.target.value.trim().length >= 2) {
+              trackEvent('reward_tracker_search', { query: event.target.value.trim().slice(0, 80), result_scope: typeFilter });
+            }
+          }}
           placeholder="Search the Legion Remix Reward Tracker by reward name, source, achievement, or faction..."
           className="flex-1 rounded-xl border border-gray-800 bg-gray-950/70 px-4 py-3 text-gray-100 placeholder-gray-500 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500/40"
         />
@@ -120,7 +129,10 @@ export default function RewardTrackerCatalog() {
             <button
               key={option}
               type="button"
-              onClick={() => setTypeFilter(option)}
+              onClick={() => {
+                setTypeFilter(option);
+                trackEvent('reward_tracker_filter_click', { filter: 'type', value: option });
+              }}
               className={[
                 'rounded-full px-3 py-1.5 text-sm border transition',
                 option === typeFilter

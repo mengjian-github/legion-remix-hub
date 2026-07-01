@@ -15,6 +15,7 @@ import {
 } from '@/data/rewards';
 import type { RewardCategoryKey } from '@/data/rewards';
 import { legionImages } from '@/data/images';
+import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const bronzeItemCount = bronzeEntries.length;
 const catalogItemCount = rewardEntries.length;
@@ -23,6 +24,8 @@ const averageBronze = Math.round(totalBronzeCost / Math.max(1, bronzeItemCount))
 const quickLinks = [
   { label: 'Overview', href: '#overview', icon: '🧭' },
   { label: 'Search', href: '#search', icon: '🔍' },
+  { label: 'Budget Plan', href: '#bronze-budgeting', icon: '🧮' },
+  { label: 'Priorities', href: '#prioritization', icon: '🎯' },
   { label: 'Highlights', href: '#spotlights', icon: '✨' },
   { label: 'Kaldorei Vestments', href: '/guides/kaldorei-royal-vestments#requirements', icon: '👑' },
   ...rewardCategories.map(section => ({
@@ -30,6 +33,53 @@ const quickLinks = [
     href: `/rewards/${section.key}`,
     icon: '📚'
   }))
+];
+
+const rewardFaq = [
+  {
+    question: 'What should I buy first in the Legion Remix rewards tracker?',
+    answer: 'Prioritize class mounts and limited-time cosmetics first, then high-cost toys, pets, transmog ensembles, and housing decor after your weekly Bronze income is known.',
+  },
+  {
+    question: 'How should I budget Bronze across mounts, transmog, pets, and housing?',
+    answer: 'Use the tracker to isolate one category at a time, copy the subtotal into the Bronze calculator, and keep a reserve for hotfixed vendor additions before spending on optional decor.',
+  },
+  {
+    question: 'Are Legion Remix reward prices final?',
+    answer: 'No. Legion Remix Hub is a fan-made planning tool, so you should verify prices in game after Blizzard hotfixes before buying expensive rewards.',
+  },
+  {
+    question: 'Why are some rewards listed without Bronze costs?',
+    answer: 'Some rewards come from achievements, reputation, quests, or unlock chains instead of vendors. The tracker keeps them visible so completion plans do not miss non-vendor items.',
+  },
+];
+
+const rewardsHowToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to use the Legion Remix Reward Tracker',
+  description: 'Plan Legion Remix rewards by searching, filtering, budgeting Bronze, and prioritizing purchases before vendor visits.',
+  step: [
+    { '@type': 'HowToStep', name: 'Search rewards', text: 'Search by reward name, source, achievement, faction, or category.' },
+    { '@type': 'HowToStep', name: 'Filter by category', text: 'Choose mounts, transmogs, pets, toys, reputation, class sets, housing, or Bronze-only items.' },
+    { '@type': 'HowToStep', name: 'Budget Bronze', text: 'Copy category totals into the Bronze calculator and compare farm hours before buying.' },
+    { '@type': 'HowToStep', name: 'Verify in game', text: 'Check current vendor stock and hotfix notes before spending large Bronze amounts.' },
+  ],
+};
+
+const priorityCards = [
+  {
+    title: '1. Lock must-haves',
+    body: 'Mark class mounts, Violet Spellwing, class ensembles, and any event-limited cosmetics before browsing optional rewards.',
+  },
+  {
+    title: '2. Compare farm hours',
+    body: 'Send category totals to the Bronze calculator so every mount, pet, and transmog bundle has an hour estimate.',
+  },
+  {
+    title: '3. Verify after hotfixes',
+    body: 'Check vendor stock in game after Blizzard hotfixes, then update screenshots or guild notes before reset night.',
+  },
 ];
 
 interface CategoryStats {
@@ -57,9 +107,17 @@ function formatNumber(value: number) {
 export default function RewardsPage() {
   // CSR-only search + catalog to keep SSR HTML lean; improves SEO control
   const RewardTrackerCatalog = useMemo(() => dynamic(() => import('@/components/rewards/RewardTrackerCatalog'), { ssr: false }), []);
+  const faqSchema = useMemo(() => createFAQSchema(rewardFaq), []);
+  const breadcrumbSchema = useMemo(() => createBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Rewards', path: '/rewards' },
+  ]), []);
 
   return (
     <div className="min-h-screen bg-gray-950 pb-16">
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={rewardsHowToSchema} />
       <div className="mx-auto max-w-7xl px-4">
         {/* Keep header minimal so search/catalog stay in first screen */}
         <header id="overview" className="sticky top-0 z-20 mb-6 bg-gray-950/90 backdrop-blur border-b border-gray-800 -mx-4 px-4 py-4">
@@ -82,6 +140,44 @@ export default function RewardsPage() {
         </header>
 
         <RewardTrackerCatalog />
+
+        <section id="bronze-budgeting" className="mb-10 scroll-mt-24 rounded-3xl border border-amber-700/40 bg-amber-950/20 p-6">
+          <div className="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-amber-300">Bronze budgeting</p>
+              <h2 className="mt-2 text-2xl font-bold text-white">Plan rewards by category before you spend Bronze</h2>
+              <p className="mt-3 text-sm leading-relaxed text-gray-200">
+                The reward tracker is most useful when you turn the catalog into a buying order. Start with class mounts and limited-time
+                cosmetics, then move to transmog ensembles, pets, toys, reputation rewards, and housing decor after you know the week&apos;s
+                real Bronze income. Category totals below help you avoid draining your bank on low-priority items before a vendor rotation.
+              </p>
+            </div>
+            <div className="grid gap-3 text-sm sm:grid-cols-2">
+              <div className="rounded-2xl border border-gray-800 bg-gray-950/60 p-4">
+                <span className="block text-xs uppercase tracking-wide text-gray-400">Mount-first reserve</span>
+                <strong className="mt-1 block text-xl text-yellow-300">20,000 Bronze chunks</strong>
+                <span className="mt-1 block text-gray-300">Keep one reserve per class alt before spending on decor.</span>
+              </div>
+              <div className="rounded-2xl border border-gray-800 bg-gray-950/60 p-4">
+                <span className="block text-xs uppercase tracking-wide text-gray-400">High-cost watchlist</span>
+                <strong className="mt-1 block text-xl text-yellow-300">100,000+ Bronze</strong>
+                <span className="mt-1 block text-gray-300">Flag toys and headline cosmetics before impulse buying.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="prioritization" className="mb-10 scroll-mt-24 rounded-3xl border border-emerald-700/40 bg-gray-900/60 p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Reward prioritization checklist</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            {priorityCards.map((card) => (
+              <div key={card.title} className="rounded-2xl border border-gray-800 bg-gray-950/60 p-4">
+                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-2 text-sm text-gray-300">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <ClientVisible className="mb-10 block">
         <section className="grid gap-4 lg:grid-cols-4">
@@ -284,25 +380,24 @@ export default function RewardsPage() {
         <section className="rounded-3xl border border-emerald-700/40 bg-emerald-700/10 p-6">
           <h2 className="text-2xl font-bold text-white mb-4">Legion Remix Reward Tracker FAQ</h2>
           <ul className="space-y-3 text-sm text-gray-200">
-            <li>
-              <h3 className="text-lg font-semibold text-white">What is the rewards tracker?</h3>
-              <p>A simple planner that totals costs and surfaces categories so you can act quickly.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">How do I use the rewards tracker each week?</h3>
-              <p>Filter to Bronze items, mark owned rewards, then copy the remaining total into the calculator.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Can the rewards tracker support multiple characters?</h3>
-              <p>Yes—duplicate lists for each character and keep class‑specific goals separate.</p>
-            </li>
-            <li>
-              <h3 className="text-lg font-semibold text-white">Where does the rewards tracker get its data?</h3>
-              <p>From the same reference tables that power category pages and the Bronze calculator.</p>
-            </li>
+            {rewardFaq.map((item) => (
+              <li key={item.question}>
+                <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                <p>{item.answer}</p>
+              </li>
+            ))}
           </ul>
         </section>
         </ClientVisible>
+
+        <section className="rounded-3xl border border-amber-700/40 bg-amber-950/20 p-6 text-sm text-amber-100">
+          <h2 className="text-xl font-semibold text-white mb-2">Fan-made rewards data disclaimer</h2>
+          <p>
+            Legion Remix Hub is an independent, fan-made reward tracker. World of Warcraft and Blizzard Entertainment trademarks belong
+            to Blizzard Entertainment, Inc.; this site is not affiliated with, endorsed by, or sponsored by Blizzard. Reward prices,
+            phases, and vendor availability should be verified in game after hotfixes.
+          </p>
+        </section>
       </div>
     </div>
   );

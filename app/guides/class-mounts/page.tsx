@@ -273,6 +273,27 @@ const classMountAnswerRows = classMountGuides.map((classGuide) => ({
   legacyRequirement: classGuide.legacyMounts[0]?.note ?? 'Complete the original Legion class mount questline after Champions of Legionfall.',
 }));
 
+const mobileActionDecisions = [
+  {
+    title: 'Buy vs level first',
+    body: 'Level your active main to 80 for the free Felscorned mount. Buy the 20,000 Bronze vendor copy only after the Timerunner class achievement is complete.',
+    href: '#answer-table',
+    event: 'buy_vs_level',
+  },
+  {
+    title: '20,000 Bronze budget',
+    body: 'Every alt class purchase starts at 20,000 Bronze; use the calculator before farming so mounts do not crowd out pets, ensembles, or housing decor.',
+    href: '/calculator',
+    event: 'bronze_budget',
+  },
+  {
+    title: 'Hunter / Rogue route',
+    body: 'Start Hunter and Rogue next. Their hotfixed routes have the most quest-specific blockers and now have expanded step-by-step walkthroughs below.',
+    href: '#hunter-walkthrough',
+    event: 'hunter_rogue_route',
+  },
+];
+
 const hunterQuestFlow = [
   {
     title: 'Champions of Legionfall kickoff',
@@ -455,6 +476,21 @@ export default function ClassMountsGuidePage() {
               Pick your active class, confirm the level-80 or Timerunner unlock, then use the legacy note when you want the original Legion appearance too.
               Hunter and Rogue have expanded walkthroughs below because their Remix quest flow changed most after hotfixes.
             </p>
+            <div className="mb-4 grid gap-3 md:grid-cols-3">
+              {mobileActionDecisions.map((decision) => (
+                <Link
+                  key={decision.event}
+                  href={decision.href}
+                  data-track-event="guide_answer_action_click"
+                  data-track-prop-page="class_mounts"
+                  data-track-prop-action={decision.event}
+                  className="rounded-xl border border-emerald-700/50 bg-gray-950/70 p-4 text-left transition hover:border-emerald-400/80 hover:bg-emerald-950/30"
+                >
+                  <span className="block text-sm font-bold text-white">{decision.title}</span>
+                  <span className="mt-1 block text-xs leading-relaxed text-gray-300">{decision.body}</span>
+                </Link>
+              ))}
+            </div>
             <div className="overflow-x-auto rounded-xl border border-gray-800">
               <table className="min-w-[760px] w-full text-left text-sm">
                 <thead className="bg-gray-900/80 text-xs uppercase tracking-wide text-gray-400">
@@ -766,6 +802,15 @@ export default function ClassMountsGuidePage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-12 rounded-xl border border-amber-700/40 bg-amber-950/20 p-5 text-sm text-amber-100">
+            <h2 className="text-xl font-semibold text-white mb-2">Fan-made guide disclaimer</h2>
+            <p>
+              Legion Remix Hub is an independent, fan-made planning guide. World of Warcraft and Blizzard Entertainment trademarks belong
+              to Blizzard Entertainment, Inc.; this page is not affiliated with, endorsed by, or sponsored by Blizzard. Always verify
+              vendor prices and quest availability in game after hotfixes.
+            </p>
           </section>
 
           <section className="rounded-xl border border-gray-800 bg-gray-900/60 p-6">

@@ -127,6 +127,13 @@ export default function Footer() {
           </p>
           <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2 lg:grid-cols-5">
             {[
+              { label: 'Class Mounts', href: '/guides/class-mounts' },
+              { label: 'Marksmanship Hunter', href: '/classes/hunter/marksmanship' },
+              { label: 'Discipline Priest', href: '/classes/priest/discipline' },
+              { label: 'Guardian Druid', href: '/classes/druid/guardian' },
+              { label: 'Raids Guide', href: '/guides/raids' },
+              { label: 'Bronze Calculator', href: '/calculator' },
+              { label: 'Rewards Tracker', href: '/rewards' },
               { label: 'Road Map', href: '/roadmap' },
               { label: 'Release Schedule', href: '/guides/release-schedule' },
               { label: 'Legion Assaults', href: '/guides/legion-assaults' },
