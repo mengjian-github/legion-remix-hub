@@ -59,8 +59,19 @@ export interface WebSiteSchema {
   '@context': 'https://schema.org';
   '@type': 'WebSite';
   name: string;
+  alternateName: string[];
   url: string;
   description: string;
+  publisher: {
+    '@type': 'Organization';
+    name: string;
+    url: string;
+  };
+  hasPart: Array<{
+    '@type': 'WebPage';
+    name: string;
+    url: string;
+  }>;
 }
 
 export function createArticleSchema(params: {
@@ -138,8 +149,21 @@ export function createWebSiteSchema(): WebSiteSchema {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Legion Remix Hub',
+    alternateName: ['Legion Remix Hub guide', 'Legion Remix bronze calculator', 'Legion Remix rewards tracker'],
     url: 'https://legionremixhub.com',
     description: 'Complete Legion Remix Guide for World of Warcraft 2025 - Master Leveling, Bronze Farming & Class Selection',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Legion Remix Hub',
+      url: 'https://legionremixhub.com',
+    },
+    hasPart: [
+      { '@type': 'WebPage', name: 'Legion Remix Bronze Calculator', url: 'https://legionremixhub.com/calculator' },
+      { '@type': 'WebPage', name: 'Legion Remix Rewards Tracker', url: 'https://legionremixhub.com/rewards' },
+      { '@type': 'WebPage', name: 'Legion Remix Class Mounts Guide', url: 'https://legionremixhub.com/guides/class-mounts' },
+      { '@type': 'WebPage', name: 'Suramar Campaign Guide', url: 'https://legionremixhub.com/guides/suramar-campaign' },
+      { '@type': 'WebPage', name: 'Ancient Mana Guide', url: 'https://legionremixhub.com/guides/ancient-mana' },
+    ],
   };
 }
 

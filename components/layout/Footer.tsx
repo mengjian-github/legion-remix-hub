@@ -102,19 +102,16 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Recommended Sites</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://getchargen.com/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "getchargen" })} className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
+                <a href="https://getchargen.com/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "getchargen" })} className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
               </li>
               <li>
-                <a href="https://stunt-simulator.com/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "stunt_simulator" })} className="text-gray-400 hover:text-white text-sm">Stunt Simulator 2</a>
+                <a href="https://stunt-simulator.com/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "stunt_simulator" })} className="text-gray-400 hover:text-white text-sm">Stunt Simulator 2</a>
               </li>
               <li>
-                <a href="https://poe327.net/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "poe327" })} className="text-gray-400 hover:text-white text-sm">POE 3.27</a>
+                <a href="https://poe327.net/" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "poe327" })} className="text-gray-400 hover:text-white text-sm">POE 3.27</a>
               </li>
               <li>
-                <a href="https://cowboysafari.online/?utm_source=legionremixhub.com&utm_medium=internal_crosslink&utm_campaign=network_crosslink&utm_content=footer" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "cowboy_safari" })} className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
-              </li>
-              <li>
-                <a href="https://getchargen.com/" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "getchargen_duplicate" })} className="text-gray-400 hover:text-white text-sm">AI Character Generator</a>
+                <a href="https://cowboysafari.online/?utm_source=legionremixhub.com&utm_medium=internal_crosslink&utm_campaign=network_crosslink&utm_content=footer" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("outbound_click", { page: "global_footer", destination: "cowboy_safari" })} className="text-gray-400 hover:text-white text-sm">Cowboy Safari</a>
               </li>
             </ul>
           </div>

@@ -9,9 +9,9 @@ import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
-const homeTitle = formatMetaTitle('Legion Remix 2025 Guide Hub for Timerunners');
+const homeTitle = formatMetaTitle('Legion Remix Hub - WoW Timerunner Guide & Tools');
 const homeDescription = formatMetaDescription(
-  'Plan Legion Remix 2025 with a home base covering phase roadmap, leveling routes, Bronze farming loops, class builds, rewards tracking, and daily prep lists.'
+  'Legion Remix Hub helps WoW Timerunners plan phases, leveling routes, Bronze farming loops, class builds, reward tracking, and daily prep lists.'
 );
 
 const checkedAt = 'June 6, 2026';
@@ -317,7 +317,7 @@ export default function Home() {
       <section className="bg-gray-950 px-4 pb-4">
         <div className="mx-auto max-w-7xl">
           <AnswerFirstBlock
-            answer="Legion Remix Hub is the fastest starting point when you need one route for today: check the active phase, pick a starter task, budget Bronze rewards, then jump into class, Suramar, or reputation guides without opening a spreadsheet. Use it as a player checklist, not an official Blizzard database."
+            answer="Legion Remix Hub is the fastest starting point when you need one route for today: check the active phase, pick a starter task, budget Bronze rewards, then jump into class, Suramar, Ancient Mana, or reputation guides without opening a spreadsheet. Use it as a player checklist, not an official Blizzard database."
             checkedAt={checkedAt}
             sourceBasis="Homepage guide inventory, phase roadmap, Bronze reward tables, and Blizzard event references."
             officialLinks={[{ label: 'World of Warcraft', href: 'https://worldofwarcraft.blizzard.com/', external: true }]}
@@ -327,6 +327,17 @@ export default function Home() {
               { label: 'Court of Farondis route', href: '/reputation/court-of-farondis' },
             ]}
           />
+        </div>
+      </section>
+      <section className="bg-gray-950 px-4 pb-4">
+        <div className="mx-auto grid max-w-7xl gap-3 rounded-2xl border border-emerald-700/40 bg-emerald-950/20 p-4 text-sm text-gray-300 md:grid-cols-4">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-300">Exact query</p>
+            <h2 className="mt-1 text-lg font-black text-white">Legion Remix Hub</h2>
+          </div>
+          <p><strong className="text-white">Best first click:</strong> use the Bronze calculator when you already know the reward you want.</p>
+          <p><strong className="text-white">Best guide path:</strong> start with Suramar campaign, Ancient Mana, or class mounts for GSC-proven long-tail questions.</p>
+          <p><strong className="text-white">Trust note:</strong> independent fan-made tool; hotfix-sensitive values should be checked in game.</p>
         </div>
       </section>
           <div className="mt-16 bg-gray-900/60 border-2 border-gray-700/50 rounded-2xl p-10 backdrop-blur-md shadow-2xl" id="legion-remix-guide-checklist">

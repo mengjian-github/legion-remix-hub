@@ -90,6 +90,26 @@ export default function RewardTrackerCatalog() {
   const truncated = filteredEntries.length > maxResults;
   const matchedBronzeTotal = displayedEntries.reduce((sum, entry) => sum + (entry.cost?.amount ?? 0), 0);
 
+  const countRewardResults = (nextType: TypeFilterOption, nextBronzeOnly: boolean, nextSearchTerm: string) => {
+    const base = nextBronzeOnly ? bronzeEntries : rewardEntries;
+    const term = nextSearchTerm.trim().toLowerCase();
+    return base.filter(entry => {
+      if (nextType !== 'all' && entry.type !== nextType) return false;
+      if (!term) return true;
+      const haystack = [
+        entry.name,
+        entry.source,
+        entry.requirement,
+        entry.achievement,
+        entry.tableLabel,
+        entry.tableHeading ?? '',
+        entry.sectionTitle,
+        ...Object.values(entry.metadata)
+      ].join(' ').toLowerCase();
+      return haystack.includes(term);
+    }).length;
+  };
+
   return (
     <section id="search" className="mb-16 rounded-3xl border border-gray-800 bg-gray-900/40 p-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -102,8 +122,12 @@ export default function RewardTrackerCatalog() {
             type="checkbox"
             checked={bronzeOnly}
             onChange={event => {
-              setBronzeOnly(event.target.checked);
+              const nextBronzeOnly = event.target.checked;
+              setBronzeOnly(nextBronzeOnly);
+              const resultCount = countRewardResults(typeFilter, nextBronzeOnly, searchTerm);
+              trackEvent('tool_start', { tool: 'reward_tracker', action: 'filter', filter: 'bronze_only' });
               trackEvent('reward_tracker_filter_click', { filter: 'bronze_only', enabled: event.target.checked ? 'true' : 'false' });
+              trackEvent('tool_result', { tool: 'reward_tracker', action: 'filter_results', filter: 'bronze_only', result_count: resultCount });
             }}
             className="h-4 w-4 rounded border-gray-600 bg-gray-800 text-emerald-500 focus:ring-emerald-400"
           />
@@ -116,9 +140,14 @@ export default function RewardTrackerCatalog() {
           type="search"
           value={searchTerm}
           onChange={event => {
-            setSearchTerm(event.target.value);
-            if (event.target.value.trim().length >= 2) {
-              trackEvent('reward_tracker_search', { query: event.target.value.trim().slice(0, 80), result_scope: typeFilter });
+            const nextSearchTerm = event.target.value;
+            setSearchTerm(nextSearchTerm);
+            if (nextSearchTerm.trim().length >= 2) {
+              const query = nextSearchTerm.trim().slice(0, 80);
+              const resultCount = countRewardResults(typeFilter, bronzeOnly, query);
+              trackEvent('tool_start', { tool: 'reward_tracker', action: 'search', query });
+              trackEvent('reward_tracker_search', { query, result_scope: typeFilter, result_count: resultCount });
+              trackEvent('tool_result', { tool: 'reward_tracker', action: 'search_results', query, result_count: resultCount });
             }
           }}
           placeholder="Search the Legion Remix Reward Tracker by reward name, source, achievement, or faction..."
@@ -131,7 +160,10 @@ export default function RewardTrackerCatalog() {
               type="button"
               onClick={() => {
                 setTypeFilter(option);
+                const resultCount = countRewardResults(option, bronzeOnly, searchTerm);
+                trackEvent('tool_start', { tool: 'reward_tracker', action: 'filter', filter: 'type', value: option });
                 trackEvent('reward_tracker_filter_click', { filter: 'type', value: option });
+                trackEvent('tool_result', { tool: 'reward_tracker', action: 'filter_results', filter: 'type', value: option, result_count: resultCount });
               }}
               className={[
                 'rounded-full px-3 py-1.5 text-sm border transition',

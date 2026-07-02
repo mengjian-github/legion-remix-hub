@@ -59,14 +59,23 @@ export default function CalculatorPage() {
 
   const applyPresetPack = (preset: typeof presetPacks[number]) => {
     const selectedIds = new Set(preset.rewardIds);
+    const presetBronze = preset.rewardIds.reduce((sum, id) => {
+      const reward = bronzeEntries.find((item) => item.id === id);
+      return sum + (reward?.cost?.amount ?? 0);
+    }, 0);
     setSelectedRewards(selectedIds);
+    trackEvent('tool_start', { tool: 'bronze_calculator', action: 'preset_apply', preset_id: preset.id });
     trackEvent('calculator_preset_apply', {
       preset_id: preset.id,
       selected_count: preset.rewardIds.length,
-      total_bronze: preset.rewardIds.reduce((sum, id) => {
-        const reward = bronzeEntries.find((item) => item.id === id);
-        return sum + (reward?.cost?.amount ?? 0);
-      }, 0),
+      total_bronze: presetBronze,
+    });
+    trackEvent('tool_result', {
+      tool: 'bronze_calculator',
+      action: 'preset_apply',
+      preset_id: preset.id,
+      selected_count: preset.rewardIds.length,
+      total_bronze: presetBronze,
     });
   };
 
@@ -80,6 +89,11 @@ export default function CalculatorPage() {
       newSelected.add(rewardId);
     }
     setSelectedRewards(newSelected);
+    const nextTotalBronze = Array.from(newSelected).reduce((sum, id) => {
+      const item = bronzeEntries.find((entry) => entry.id === id);
+      return sum + (item?.cost?.amount ?? 0);
+    }, 0);
+    trackEvent('tool_start', { tool: 'bronze_calculator', action: 'reward_toggle', reward_type: reward?.type ?? 'unknown' });
     trackEvent('calculator_select', {
       reward_id: rewardId,
       reward_name: reward?.name ?? rewardId,
@@ -87,12 +101,27 @@ export default function CalculatorPage() {
       action,
       selected_count: newSelected.size,
     });
+    trackEvent('tool_result', {
+      tool: 'bronze_calculator',
+      action: 'wishlist_updated',
+      selected_count: newSelected.size,
+      total_bronze: nextTotalBronze,
+    });
   };
 
   const handleSearchChange = (value: string) => {
     setSearchTerm(value);
     if (value.trim().length >= 2) {
-      trackEvent('calculator_search', { query: value.trim().slice(0, 80), result_scope: filter });
+      const query = value.trim().slice(0, 80);
+      const resultCount = bronzeEntries.filter((reward) => {
+        const matchesType = filter === 'all' || reward.type === filter;
+        if (!matchesType) return false;
+        const haystack = [reward.name, reward.sectionTitle, reward.source, reward.requirement, reward.achievement, ...Object.values(reward.metadata)].join(' ').toLowerCase();
+        return haystack.includes(query.toLowerCase());
+      }).length;
+      trackEvent('tool_start', { tool: 'bronze_calculator', action: 'search', query });
+      trackEvent('calculator_search', { query, result_scope: filter, result_count: resultCount });
+      trackEvent('tool_result', { tool: 'bronze_calculator', action: 'search_results', query, result_count: resultCount });
     }
   };
 
@@ -358,7 +387,9 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const mountIds = bronzeEntries.filter(r => r.type === 'mount').map(r => r.id);
                       setSelectedRewards(new Set(mountIds));
+                      trackEvent('tool_start', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'all_mounts' });
                       trackEvent('calculator_preset_apply', { preset_id: 'all_mounts', selected_count: mountIds.length });
+                      trackEvent('tool_result', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'all_mounts', selected_count: mountIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -368,7 +399,9 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const petIds = bronzeEntries.filter(r => r.type === 'pet').map(r => r.id);
                       setSelectedRewards(new Set(petIds));
+                      trackEvent('tool_start', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'all_pets' });
                       trackEvent('calculator_preset_apply', { preset_id: 'all_pets', selected_count: petIds.length });
+                      trackEvent('tool_result', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'all_pets', selected_count: petIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -378,7 +411,9 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const housingIds = bronzeEntries.filter(r => r.category === 'housing').map(r => r.id);
                       setSelectedRewards(new Set(housingIds));
+                      trackEvent('tool_start', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'housing_decor' });
                       trackEvent('calculator_preset_apply', { preset_id: 'housing_decor', selected_count: housingIds.length });
+                      trackEvent('tool_result', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'housing_decor', selected_count: housingIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
@@ -388,7 +423,9 @@ export default function CalculatorPage() {
                     onClick={() => {
                       const allIds = bronzeEntries.map(r => r.id);
                       setSelectedRewards(new Set(allIds));
+                      trackEvent('tool_start', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'everything' });
                       trackEvent('calculator_preset_apply', { preset_id: 'everything', selected_count: allIds.length });
+                      trackEvent('tool_result', { tool: 'bronze_calculator', action: 'quick_select', preset_id: 'everything', selected_count: allIds.length });
                     }}
                     className="w-full px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md text-sm transition-colors"
                   >
