@@ -216,6 +216,22 @@ export default function RewardTrackerCatalog() {
               </div>
               <Link
                 href={`/rewards/${entry.category}#${entry.tableKey}`}
+                onClick={() => {
+                  trackEvent('reward_select', {
+                    reward_id: entry.id,
+                    reward_name: entry.name,
+                    reward_type: entry.type,
+                    reward_category: entry.category,
+                    bronze_cost: entry.cost?.amount ?? 0,
+                    source: 'reward_tracker_catalog',
+                  });
+                  trackEvent('tool_result', {
+                    tool: 'reward_tracker',
+                    action: 'reward_detail_open',
+                    reward_type: entry.type,
+                    reward_category: entry.category,
+                  });
+                }}
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-500/50 px-4 py-1.5 text-sm text-emerald-200 hover:bg-emerald-500/10 mt-3"
               >
                 Open in Legion Remix Reward Tracker ↗

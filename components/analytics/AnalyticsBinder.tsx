@@ -21,12 +21,36 @@ export default function AnalyticsBinder() {
         props[normalizedKey] = /^\d+$/.test(value) ? Number(value) : value;
       }
 
+      const task = typeof props.task === "string" ? props.task : "";
+      const destination = typeof props.destination === "string" ? props.destination : "";
+      const inferredTool = inferToolFromClick(eventName, task, destination);
+      if (inferredTool) {
+        trackEvent("tool_start", {
+          ...props,
+          tool: inferredTool,
+          action: "entry_click",
+          source_event: eventName,
+        });
+      }
+
       trackEvent(eventName, props);
     };
 
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
   }, []);
+
+  return null;
+}
+
+function inferToolFromClick(eventName: string, task: string, destination: string) {
+  if (eventName === "calculator_cta_click" || task === "bronze_calculator" || destination === "/calculator") {
+    return "bronze_calculator";
+  }
+
+  if (task === "rewards_tracker" || destination.startsWith("/rewards")) {
+    return "reward_tracker";
+  }
 
   return null;
 }

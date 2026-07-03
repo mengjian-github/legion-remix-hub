@@ -86,12 +86,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const websiteSchema = createWebSiteSchema();
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Legion Remix Hub',
+    alternateName: ['Legion Remix Hub', 'LegionRemixHub', 'Legion Remix guide hub'],
+    url: 'https://legionremixhub.com',
+    logo: 'https://legionremixhub.com/icon.svg',
+    description: 'Independent Legion Remix Hub for World of Warcraft Timerunning guides, Bronze calculator planning, class picks, reward tracking, and hotfix-sensitive checklists.',
+    knowsAbout: [
+      'Legion Remix Hub',
+      'World of Warcraft Legion Remix',
+      'Legion Remix Bronze calculator',
+      'Legion Remix reward tracker',
+      'Legion Remix class mounts',
+      'Suramar campaign guide',
+      'Ancient Mana farming',
+    ],
+  };
 
   return (
     <html lang="en">
       <head>
         <meta name="google-adsense-account" content="ca-pub-1081201777589554" />
         <JsonLd data={websiteSchema} />
+        <JsonLd data={organizationSchema} />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1CTHKQNSKD"
           strategy="lazyOnload"

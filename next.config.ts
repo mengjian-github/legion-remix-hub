@@ -7,15 +7,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
-  async redirects() {
-    return [
-      {
-        source: "/guides/reputation",
-        destination: "/reputation",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
