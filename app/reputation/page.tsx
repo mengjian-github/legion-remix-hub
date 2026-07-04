@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { reputationFactions } from '@/data/reputations';
 import { buildPageMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
+import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const canonicalPath = '/reputation';
 const pageTitle = formatMetaTitle('Legion Remix Reputation Hub Planner 2025');
@@ -13,7 +14,27 @@ export const metadata: Metadata = {
   ...buildPageMetadata({ path: canonicalPath, title: pageTitle, description: pageDescription, type: 'website' }),
 };
 
+const reputationFaq = [
+  {
+    question: 'What is the fastest Legion Remix reputation route?',
+    answer: 'Start with the active emissary, clear that faction’s world quests, spend Champion’s Insignias before overflow, then open paragon caches only after checking reward priorities.',
+  },
+  {
+    question: 'Which reputations matter first for Legion Remix rewards?',
+    answer: 'Prioritize Nightfallen for Suramar overlap, Armies of Legionfall for class mounts and Broken Shore, then Argussian Reach and Army of the Light once Argus routes unlock.',
+  },
+  {
+    question: 'Should I track reputation rewards in the rewards tracker?',
+    answer: 'Yes. Use each faction card to open the detailed route, then send vendor and paragon reward goals to the rewards tracker and Bronze calculator before buying cosmetics.',
+  },
+];
+
 export default function ReputationOverviewPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Reputation', path: '/reputation' },
+  ]);
+  const faqSchema = createFAQSchema(reputationFaq);
   const factionsWithVendors = reputationFactions.filter(faction => faction.hasVendor).length;
   const paragonRewardCount = reputationFactions.reduce(
     (total, faction) => total + (faction.paragonRewards?.length ?? 0),
@@ -36,6 +57,8 @@ export default function ReputationOverviewPage() {
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
       <div className="max-w-7xl mx-auto text-gray-100">
         <header className="mb-12">
           <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-300">
@@ -61,6 +84,17 @@ export default function ReputationOverviewPage() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm">
+            <Link href="/reputation/the-nightfallen" data-track-event="reputation_action_click" data-track-prop-page="reputation_hub" data-track-prop-action="nightfallen_route" className="rounded-full bg-emerald-500 px-4 py-2 font-bold text-gray-950 hover:bg-emerald-400">
+              Start with Nightfallen →
+            </Link>
+            <Link href="/rewards#category-reputation" data-track-event="reputation_action_click" data-track-prop-page="reputation_hub" data-track-prop-action="reward_tables" className="rounded-full border border-emerald-500/60 px-4 py-2 text-emerald-100 hover:bg-emerald-500/10">
+              Check reputation rewards
+            </Link>
+            <Link href="/calculator" data-track-event="reputation_action_click" data-track-prop-page="reputation_hub" data-track-prop-action="bronze_budget" className="rounded-full border border-amber-500/60 px-4 py-2 text-amber-100 hover:bg-amber-500/10">
+              Budget Bronze
+            </Link>
           </div>
         </header>
 
@@ -177,6 +211,18 @@ export default function ReputationOverviewPage() {
               </div>
             </article>
           ))}
+        </section>
+
+        <section className="mt-12 rounded-3xl border border-emerald-700/40 bg-gray-900/60 p-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Legion Remix reputation FAQ</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            {reputationFaq.map((item) => (
+              <div key={item.question} className="rounded-2xl border border-gray-800 bg-gray-950/60 p-4">
+                <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                <p className="mt-2 text-sm text-gray-300">{item.answer}</p>
+              </div>
+            ))}
+          </div>
         </section>
       </div>
     </div>

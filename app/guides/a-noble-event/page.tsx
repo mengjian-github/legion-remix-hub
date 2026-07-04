@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { legionImages } from '@/data/images';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
-import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
+import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const pageTitle = formatMetaTitle('A Noble Event Legion Remix Micro-Holiday Guide');
 const pageDescription = formatMetaDescription(
@@ -44,6 +44,21 @@ const shoppingList = [
   { item: 'Torn Invitation (repeat)', cost: 0, note: 'Drops from Withered Army Training and Suramar world quests—buy spares from Horos if RNG hates you.' },
 ];
 
+const faqEntries = [
+  {
+    question: 'When does A Noble Event happen in Legion Remix?',
+    answer: 'A Noble Event repeats every other weekend from Friday reset through Monday morning. Check the schedule table before planning a Dalaran shopping run.',
+  },
+  {
+    question: 'What should I do first during A Noble Event?',
+    answer: 'Open the shopping list, reserve 14,000 Bronze for priority purchases, then pair the vendor visit with Lock, Stock, and Two Smoking Goblins for extra Bronze and Infinite Knowledge.',
+  },
+  {
+    question: 'How do I budget A Noble Event rewards?',
+    answer: 'Add the Llothien Prowler, toys, fireworks, and decor to the Bronze calculator, then verify vendor stock in game after hotfixes before spending.',
+  },
+];
+
 export default function ANobleEventGuide() {
   const articleSchema = createArticleSchema({
     headline: 'A Noble Event Legion Remix Micro-Holiday Guide',
@@ -59,11 +74,13 @@ export default function ANobleEventGuide() {
     { name: 'Guides', path: '/guides' },
     { name: 'A Noble Event', path: '/guides/a-noble-event' },
   ]);
+  const faqSchema = createFAQSchema(faqEntries);
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <div className="max-w-5xl mx-auto text-gray-200">
         <Link href="/guides" className="text-green-400 hover:text-green-300 mb-4 inline-block">
@@ -112,6 +129,25 @@ export default function ANobleEventGuide() {
             </div>
           </div>
         </header>
+
+        <section className="mb-10 rounded-2xl border border-amber-500/50 bg-amber-500/10 p-5">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-amber-200">Fast answer</p>
+          <h2 className="mt-2 text-2xl font-bold text-white">A Noble Event plan in one lap</h2>
+          <p className="mt-3 text-sm leading-relaxed text-gray-200">
+            Start at Horos in Dalaran, reserve 14,000 Bronze for the shopping list, finish Lock, Stock, and Two Smoking Goblins while the gala is active, then log every purchase in the rewards tracker before you leave the city.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm">
+            <Link href="/calculator" data-track-event="guide_answer_action_click" data-track-prop-page="a_noble_event" data-track-prop-action="budget_bronze" className="rounded-full bg-amber-400 px-4 py-2 font-bold text-gray-950 hover:bg-amber-300">
+              Budget the 14,000 Bronze →
+            </Link>
+            <Link href="/rewards" data-track-event="guide_answer_action_click" data-track-prop-page="a_noble_event" data-track-prop-action="open_rewards_tracker" className="rounded-full border border-emerald-500/60 px-4 py-2 text-emerald-100 hover:bg-emerald-500/10">
+              Open rewards tracker
+            </Link>
+            <Link href="/guides/lock-stock-two-smoking-goblins" data-track-event="guide_answer_action_click" data-track-prop-page="a_noble_event" data-track-prop-action="pair_lock_stock" className="rounded-full border border-gray-600 px-4 py-2 text-gray-100 hover:bg-gray-800">
+              Pair goblin quest
+            </Link>
+          </div>
+        </section>
 
         <section className="mb-10" id="vendor-rotation">
           <h2 className="text-2xl font-bold text-white mb-4">Vendor Rotation &amp; Location</h2>
@@ -241,6 +277,18 @@ export default function ANobleEventGuide() {
           <p className="mt-4 text-sm text-gray-300">
             For persistent issues, keep an eye on the <Link href="/news" className="text-green-400 hover:text-green-300">Legion Remix news tracker</Link>; Blizzard has been rolling out micro-holiday hotfixes daily since launch.
           </p>
+        </section>
+
+        <section className="mb-10 rounded-2xl border border-emerald-700/40 bg-gray-900/60 p-5">
+          <h2 className="text-2xl font-bold text-white mb-4">A Noble Event FAQ</h2>
+          <div className="space-y-4 text-sm text-gray-300">
+            {faqEntries.map((entry) => (
+              <div key={entry.question}>
+                <h3 className="text-lg font-semibold text-white">{entry.question}</h3>
+                <p className="mt-1">{entry.answer}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <footer className="text-sm text-gray-400">

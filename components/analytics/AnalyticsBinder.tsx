@@ -22,7 +22,8 @@ export default function AnalyticsBinder() {
       }
 
       const task = typeof props.task === "string" ? props.task : "";
-      const destination = typeof props.destination === "string" ? props.destination : "";
+      const href = el instanceof HTMLAnchorElement ? el.getAttribute("href") ?? "" : "";
+      const destination = typeof props.destination === "string" && props.destination.length > 0 ? props.destination : href;
       const inferredTool = inferToolFromClick(eventName, task, destination);
       if (inferredTool) {
         trackEvent("tool_start", {
@@ -44,11 +45,12 @@ export default function AnalyticsBinder() {
 }
 
 function inferToolFromClick(eventName: string, task: string, destination: string) {
-  if (eventName === "calculator_cta_click" || task === "bronze_calculator" || destination === "/calculator") {
+  const normalizedDestination = destination.split("?")[0].split("#")[0];
+  if (eventName === "calculator_cta_click" || task === "bronze_calculator" || normalizedDestination === "/calculator") {
     return "bronze_calculator";
   }
 
-  if (task === "rewards_tracker" || destination.startsWith("/rewards")) {
+  if (task === "rewards_tracker" || normalizedDestination === "/rewards" || normalizedDestination.startsWith("/rewards/")) {
     return "reward_tracker";
   }
 
