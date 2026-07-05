@@ -7,9 +7,9 @@ import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schem
 
 const publishedDate = '2025-11-11';
 
-const pageTitle = formatMetaTitle('Class Mounts & Requirements – Legion Remix 2025');
+const pageTitle = formatMetaTitle('Legion Remix Class Mounts Guide & Requirements');
 const pageDescription = formatMetaDescription(
-  'Unlock every Legion class mount in Legion Remix with class-by-class Felscorned rewards, legacy quest requirements, Hunter and Rogue walkthroughs, and Bronze planning notes.'
+  'Legion Remix class mounts guide: unlock every Felscorned mount with class-by-class requirements, Hunter and Rogue steps, legacy quest notes, and Bronze planning.'
 );
 
 export const metadata: Metadata = {

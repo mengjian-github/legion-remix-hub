@@ -8,9 +8,9 @@ import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } 
 
 const publishedDate = '2025-10-29';
 
-const pageTitle = formatMetaTitle('Ancient Mana Farming & Capacity Guide – Legion Remix 2025');
+const pageTitle = formatMetaTitle('Ancient Mana Farm Legion Remix Route & Capacity Guide');
 const pageDescription = formatMetaDescription(
-  'Track every Ancient Mana use in Legion Remix, unlock the 2,000 cap through quests and treasures, and plan efficient farming routes through Suramar City and Tel’anor.'
+  'Ancient Mana farm Legion Remix guide: raise the 2,000 cap, collect Suramar treasures, plan city and Tel’anor routes, and avoid campaign stalls.'
 );
 
 export const metadata: Metadata = {

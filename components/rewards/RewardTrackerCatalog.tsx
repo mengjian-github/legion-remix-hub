@@ -90,6 +90,67 @@ export default function RewardTrackerCatalog() {
   const truncated = filteredEntries.length > maxResults;
   const matchedBronzeTotal = displayedEntries.reduce((sum, entry) => sum + (entry.cost?.amount ?? 0), 0);
 
+  const handleCopyMatchedTotal = async () => {
+    const summary = `Legion Remix Reward Tracker: ${displayedEntries.length}/${filteredEntries.length} visible matches, ${matchedBronzeTotal.toLocaleString()} Bronze shown. Filter=${typeFilter}; Bronze only=${bronzeOnly ? 'yes' : 'no'}; Search=${searchTerm.trim() || 'none'}.`;
+    trackEvent('reward_tracker_copy_total', {
+      result_scope: typeFilter,
+      bronze_only: bronzeOnly ? 'true' : 'false',
+      search_active: searchTerm.trim() ? 'true' : 'false',
+      visible_count: displayedEntries.length,
+      result_count: filteredEntries.length,
+      total_bronze: matchedBronzeTotal,
+    });
+
+    try {
+      await navigator.clipboard.writeText(summary);
+      trackEvent('tool_result', {
+        tool: 'reward_tracker',
+        action: 'copy_total_success',
+        visible_count: displayedEntries.length,
+        total_bronze: matchedBronzeTotal,
+      });
+    } catch {
+      trackEvent('tool_result', {
+        tool: 'reward_tracker',
+        action: 'copy_total_failed',
+        visible_count: displayedEntries.length,
+        total_bronze: matchedBronzeTotal,
+      });
+    }
+  };
+
+  const handleShareFilteredList = async () => {
+    const topItems = displayedEntries.slice(0, 8).map((entry) => entry.name).join(', ');
+    const shareText = `Legion Remix reward list: ${displayedEntries.length} visible items, ${matchedBronzeTotal.toLocaleString()} Bronze shown. Top picks: ${topItems || 'none'}.`;
+    trackEvent('reward_tracker_share_list', {
+      result_scope: typeFilter,
+      bronze_only: bronzeOnly ? 'true' : 'false',
+      visible_count: displayedEntries.length,
+      total_bronze: matchedBronzeTotal,
+    });
+
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'Legion Remix Reward Tracker', text: shareText, url: window.location.href });
+      } else {
+        await navigator.clipboard.writeText(shareText);
+      }
+      trackEvent('tool_result', {
+        tool: 'reward_tracker',
+        action: 'share_list_success',
+        visible_count: displayedEntries.length,
+        total_bronze: matchedBronzeTotal,
+      });
+    } catch {
+      trackEvent('tool_result', {
+        tool: 'reward_tracker',
+        action: 'share_list_cancelled_or_failed',
+        visible_count: displayedEntries.length,
+        total_bronze: matchedBronzeTotal,
+      });
+    }
+  };
+
   const countRewardResults = (nextType: TypeFilterOption, nextBronzeOnly: boolean, nextSearchTerm: string) => {
     const base = nextBronzeOnly ? bronzeEntries : rewardEntries;
     const term = nextSearchTerm.trim().toLowerCase();
@@ -178,15 +239,33 @@ export default function RewardTrackerCatalog() {
         </div>
       </div>
 
-      <div className="mt-5 text-sm text-gray-300">
-        <p>
-          Showing <span className="text-white font-semibold">{displayedEntries.length}</span> of{' '}
-          <span className="text-white font-semibold">{filteredEntries.length}</span> matches in the Legion Remix Reward Tracker — Bronze total:{' '}
-          <span className="text-yellow-400 font-semibold">{matchedBronzeTotal.toLocaleString()}</span>
-        </p>
-        {truncated && (
-          <p className="text-xs text-gray-400">Results truncated to {maxResults}. Refine your filters to see more.</p>
-        )}
+      <div className="mt-5 flex flex-col gap-3 text-sm text-gray-300 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p>
+            Showing <span className="text-white font-semibold">{displayedEntries.length}</span> of{' '}
+            <span className="text-white font-semibold">{filteredEntries.length}</span> matches in the Legion Remix Reward Tracker — Bronze total:{' '}
+            <span className="text-yellow-400 font-semibold">{matchedBronzeTotal.toLocaleString()}</span>
+          </p>
+          {truncated && (
+            <p className="text-xs text-gray-400">Results truncated to {maxResults}. Refine your filters to see more.</p>
+          )}
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            onClick={handleCopyMatchedTotal}
+            className="min-h-10 rounded-xl border border-amber-500/60 px-3 py-2 text-xs font-bold text-amber-100 transition hover:bg-amber-500/10"
+          >
+            Copy total
+          </button>
+          <button
+            type="button"
+            onClick={handleShareFilteredList}
+            className="min-h-10 rounded-xl border border-emerald-500/60 px-3 py-2 text-xs font-bold text-emerald-100 transition hover:bg-emerald-500/10"
+          >
+            Share list
+          </button>
+        </div>
       </div>
 
       <div className="mt-6">
