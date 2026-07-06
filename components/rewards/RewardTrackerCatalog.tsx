@@ -265,6 +265,18 @@ export default function RewardTrackerCatalog() {
           >
             Share list
           </button>
+          <Link
+            href="/calculator?preset=class-mount-sprint&utm_source=rewards_tracker&utm_medium=search_panel&utm_campaign=legionremixhub_cro"
+            onClick={() => trackEvent('reward_tracker_to_calculator_click', {
+              result_scope: typeFilter,
+              bronze_only: bronzeOnly ? 'true' : 'false',
+              visible_count: displayedEntries.length,
+              total_bronze: matchedBronzeTotal,
+            })}
+            className="col-span-2 min-h-10 rounded-xl border border-yellow-500/60 px-3 py-2 text-center text-xs font-bold text-yellow-100 transition hover:bg-yellow-500/10"
+          >
+            Open Bronze calculator preset →
+          </Link>
         </div>
       </div>
 

@@ -35,6 +35,7 @@ export default function CalculatorPage() {
   const [selectedRewards, setSelectedRewards] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [appliedUrlPreset, setAppliedUrlPreset] = useState(false);
 
   const presetPacks = useMemo(() => [
     {
@@ -78,6 +79,27 @@ export default function CalculatorPage() {
       total_bronze: presetBronze,
     });
   };
+
+  useEffect(() => {
+    if (appliedUrlPreset || typeof window === 'undefined') return;
+
+    const urlPreset = new URLSearchParams(window.location.search).get('preset');
+    if (!urlPreset) {
+      setAppliedUrlPreset(true);
+      return;
+    }
+
+    const preset = presetPacks.find((item) => item.id === urlPreset);
+    if (preset) {
+      applyPresetPack(preset);
+      trackEvent('calculator_url_preset_apply', {
+        preset_id: preset.id,
+        source: 'url_query',
+        selected_count: preset.rewardIds.length,
+      });
+    }
+    setAppliedUrlPreset(true);
+  }, [appliedUrlPreset, presetPacks]);
 
   const toggleReward = (rewardId: string) => {
     const reward = bronzeEntries.find(item => item.id === rewardId);
@@ -202,7 +224,7 @@ export default function CalculatorPage() {
           <p className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-amber-300">Bronze tool first</p>
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Legion Remix Bronze Calculator</h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl">
-            Search 313 rewards, tap categories, and build a wishlist before you read the full planning notes.
+            Search 313 rewards, tap categories, or open a guide preset to build a Bronze wishlist before you read the full planning notes.
           </p>
         </div>
 

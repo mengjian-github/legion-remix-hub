@@ -8,9 +8,9 @@ import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } 
 
 const publishedDate = '2025-10-29';
 
-const pageTitle = formatMetaTitle('Ancient Mana Farm Legion Remix Route & Capacity Guide');
+const pageTitle = formatMetaTitle('Ancient Mana Farm: 2,000 Cap & Suramar Routes');
 const pageDescription = formatMetaDescription(
-  'Ancient Mana farm Legion Remix guide: raise the 2,000 cap, collect Suramar treasures, plan city and Tel’anor routes, and avoid campaign stalls.'
+  'Ancient Mana farm guide for Legion Remix: raise the 2,000 cap, collect Suramar treasures, run city and Tel’anor routes, and avoid Nightfallen campaign stalls.'
 );
 
 export const metadata: Metadata = {
@@ -363,6 +363,21 @@ export default function AncientManaGuidePage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-yellow-600/50 bg-yellow-950/20 p-6 text-sm">
+              <h3 className="text-xl font-semibold text-white mb-3">Convert the route into a Bronze plan</h3>
+              <p className="mb-4">
+                Ancient Mana loops often overlap with Bronze and Infinite Knowledge farming. After you pick a Suramar route, open the calculator preset and compare whether class mounts, reward tracker items, or Nightfallen cosmetics should get the next farm block.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/calculator?preset=class-mount-sprint&utm_source=ancient_mana&utm_medium=farming_cta&utm_campaign=legionremixhub_cro" className="rounded-full border border-yellow-500/60 px-4 py-2 font-semibold text-yellow-100 hover:bg-yellow-500/10">
+                  Open Bronze calculator preset
+                </Link>
+                <Link href="/rewards?utm_source=ancient_mana&utm_medium=farming_cta&utm_campaign=legionremixhub_cro" className="rounded-full border border-emerald-500/60 px-4 py-2 font-semibold text-emerald-100 hover:bg-emerald-500/10">
+                  Compare reward priorities
+                </Link>
+              </div>
             </div>
           </section>
 

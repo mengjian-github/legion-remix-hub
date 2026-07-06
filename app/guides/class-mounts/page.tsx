@@ -3,13 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { classMountImages, legionImages } from '@/data/images';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
-import { createArticleSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
+import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const publishedDate = '2025-11-11';
 
-const pageTitle = formatMetaTitle('Legion Remix Class Mounts Guide & Requirements');
+const pageTitle = formatMetaTitle('Legion Remix Class Mounts: Felscorned Unlocks');
 const pageDescription = formatMetaDescription(
-  'Legion Remix class mounts guide: unlock every Felscorned mount with class-by-class requirements, Hunter and Rogue steps, legacy quest notes, and Bronze planning.'
+  'Unlock every Legion Remix class mount: Felscorned level-80 rewards, 20,000 Bronze vendor planning, Hunter and Rogue hotfix routes, and legacy quest requirements.'
 );
 
 export const metadata: Metadata = {
@@ -283,7 +283,7 @@ const mobileActionDecisions = [
   {
     title: '20,000 Bronze budget',
     body: 'Every alt class purchase starts at 20,000 Bronze; use the calculator before farming so mounts do not crowd out pets, ensembles, or housing decor.',
-    href: '/calculator',
+    href: '/calculator?preset=class-mount-sprint&utm_source=class_mounts&utm_medium=internal_cta&utm_campaign=legionremixhub_cro',
     event: 'bronze_budget',
   },
   {
@@ -434,11 +434,13 @@ export default function ClassMountsGuidePage() {
     { name: 'Guides', path: '/guides' },
     { name: 'Class Mounts', path: '/guides/class-mounts' },
   ]);
+  const faqSchema = createFAQSchema(faqEntries);
 
   return (
     <div className="min-h-screen bg-gray-950 py-12 px-4">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <div className="max-w-5xl mx-auto text-gray-300">
         <Link href="/guides" className="text-green-400 hover:text-green-300 mb-4 inline-block">
@@ -520,7 +522,7 @@ export default function ClassMountsGuidePage() {
               <Link href="#rogue-walkthrough" className="rounded-full border border-amber-500/60 px-4 py-2 text-amber-100 hover:bg-amber-500/10">
                 Rogue route
               </Link>
-              <Link href="/calculator" className="rounded-full border border-yellow-500/60 px-4 py-2 text-yellow-100 hover:bg-yellow-500/10">
+              <Link href="/calculator?preset=class-mount-sprint&utm_source=class_mounts&utm_medium=answer_table&utm_campaign=legionremixhub_cro" className="rounded-full border border-yellow-500/60 px-4 py-2 text-yellow-100 hover:bg-yellow-500/10">
                 Budget 20,000 Bronze
               </Link>
             </div>
@@ -785,7 +787,7 @@ export default function ClassMountsGuidePage() {
             <h2 className="text-3xl font-bold text-white mb-4">Bronze Planning</h2>
             <p className="text-sm">
               Budget at least 260,000 Bronze if you want every Felscorned mount on day one of each class. Use the{' '}
-              <Link href="/calculator" className="text-green-400 hover:text-green-300">
+              <Link href="/calculator?preset=class-mount-sprint&utm_source=class_mounts&utm_medium=bronze_section&utm_campaign=legionremixhub_cro" className="text-green-400 hover:text-green-300">
                 Bronze Calculator
               </Link>{' '}
               to clone lists per character, and remember to check Grandmaster Jakkus after each Timerunner achievement unlock.
