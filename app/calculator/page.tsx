@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import dynamic from 'next/dynamic';
 import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
+import NextStepCta from '@/components/seo/NextStepCta';
 import { bronzeEntries } from '@/data/rewards';
 import { farmingMethods } from '@/data/dungeons';
 import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
@@ -227,6 +228,26 @@ export default function CalculatorPage() {
             Search 313 rewards, tap categories, or open a guide preset to build a Bronze wishlist before you read the full planning notes.
           </p>
         </div>
+
+        <NextStepCta
+          page="calculator"
+          title="Keep planning after the total updates"
+          description="Calculator users have the clearest product intent. Route them to reward priorities or class mounts so the session does not end after one wishlist total."
+          links={[
+            {
+              label: 'Compare reward priorities',
+              href: '/rewards?utm_source=calculator&utm_medium=next_step&utm_campaign=legionremixhub_cro#bronze-budgeting',
+              reason: 'Use category totals after seeing farm time.',
+              eventAction: 'rewards_priorities',
+            },
+            {
+              label: 'Class mount guide',
+              href: '/guides/class-mounts?utm_source=calculator&utm_medium=next_step&utm_campaign=legionremixhub_cro#answer-table',
+              reason: 'Check the 20,000 Bronze mount unlock before buying.',
+              eventAction: 'class_mounts',
+            },
+          ]}
+        />
 
         <div className="mb-4 grid gap-2 text-xs text-gray-300 sm:grid-cols-3">
           <div className="rounded-xl border border-emerald-700/40 bg-emerald-950/30 p-3">

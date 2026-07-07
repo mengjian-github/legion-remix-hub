@@ -4,12 +4,13 @@ import Link from 'next/link';
 import { classMountImages, legionImages } from '@/data/images';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
+import NextStepCta from '@/components/seo/NextStepCta';
 
 const publishedDate = '2025-11-11';
 
-const pageTitle = formatMetaTitle('Legion Remix Class Mounts: Felscorned Unlocks');
+const pageTitle = formatMetaTitle('All Class Mounts in Legion Remix: 20,000 Bronze Guide');
 const pageDescription = formatMetaDescription(
-  'Unlock every Legion Remix class mount: Felscorned level-80 rewards, 20,000 Bronze vendor planning, Hunter and Rogue hotfix routes, and legacy quest requirements.'
+  'See all Legion Remix class mounts, the 20,000 Bronze unlock path, Hunter and Rogue hotfix steps, legacy quests, and the calculator preset for mount budgeting.'
 );
 
 export const metadata: Metadata = {
@@ -527,6 +528,26 @@ export default function ClassMountsGuidePage() {
               </Link>
             </div>
           </section>
+
+          <NextStepCta
+            page="class_mounts"
+            title="Budget the mount sprint before leaving this guide"
+            description="The most useful second page for all class mounts queries is the Bronze calculator preset. It turns the 20,000 Bronze class-mount decision into a concrete wishlist and gives analytics a clear guide-to-tool depth signal."
+            links={[
+              {
+                label: 'Open class mount preset',
+                href: '/calculator?preset=class-mount-sprint&utm_source=class_mounts&utm_medium=next_step&utm_campaign=legionremixhub_cro',
+                reason: 'Applies Felscorned mount items and records calculator_url_preset_apply.',
+                eventAction: 'calculator_class_mount_preset',
+              },
+              {
+                label: 'Compare reward priorities',
+                href: '/rewards?utm_source=class_mounts&utm_medium=next_step&utm_campaign=legionremixhub_cro#bronze-budgeting',
+                reason: 'Moves mount readers into category budgeting instead of bouncing after the table.',
+                eventAction: 'rewards_budgeting',
+              },
+            ]}
+          />
 
           <div className="bg-gray-900/40 border border-gray-800 rounded-xl p-6 mb-10">
             <h2 className="text-xl font-semibold text-white mb-4">Quick Links</h2>

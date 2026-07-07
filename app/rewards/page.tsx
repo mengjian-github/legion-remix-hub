@@ -5,7 +5,7 @@ import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
 
 const pageTitle = formatMetaTitle('Legion Remix Reward Tracker - Bronze Costs & Cosmetics');
 const pageDescription = formatMetaDescription(
-  'Search the Legion Remix Reward Tracker for mounts, transmogs, pets, toys, housing rewards, Bronze costs, vendor sources, and priority buy lists.'
+  'Search Legion Remix rewards by mount, transmog, pet, toy, housing, Bronze cost, vendor source, and priority order, then jump into the calculator.'
 );
 
 export const metadata: Metadata = {

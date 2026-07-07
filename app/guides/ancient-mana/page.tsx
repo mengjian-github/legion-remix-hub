@@ -5,12 +5,13 @@ import { legionImages } from '@/data/images';
 import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createArticleSchema, createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
+import NextStepCta from '@/components/seo/NextStepCta';
 
 const publishedDate = '2025-10-29';
 
-const pageTitle = formatMetaTitle('Ancient Mana Farm: 2,000 Cap & Suramar Routes');
+const pageTitle = formatMetaTitle('Ancient Mana Farm: Cap, Routes & Remix Checklist');
 const pageDescription = formatMetaDescription(
-  'Ancient Mana farm guide for Legion Remix: raise the 2,000 cap, collect Suramar treasures, run city and Tel’anor routes, and avoid Nightfallen campaign stalls.'
+  'Farm Ancient Mana in Legion Remix with the 2,000 cap path, Suramar route choices, treasure checklist, campaign sinks, and Bronze calculator next steps.'
 );
 
 export const metadata: Metadata = {
@@ -212,6 +213,26 @@ export default function AncientManaGuidePage() {
               ]}
             />
           </header>
+
+          <NextStepCta
+            page="ancient_mana"
+            title="Turn the Suramar farm into a Bronze plan"
+            description="Ancient Mana readers are already planning a session. Send them to the calculator or Suramar campaign next so the visit becomes a second-page task instead of a single-page answer."
+            links={[
+              {
+                label: 'Estimate farm time',
+                href: '/calculator?utm_source=ancient_mana&utm_medium=next_step&utm_campaign=legionremixhub_cro',
+                reason: 'Build a Bronze wishlist after choosing the Ancient Mana route.',
+                eventAction: 'calculator_farm_time',
+              },
+              {
+                label: 'Open Suramar campaign',
+                href: '/guides/suramar-campaign?utm_source=ancient_mana&utm_medium=next_step&utm_campaign=legionremixhub_cro',
+                reason: 'Continue from currency prep into the Nightfallen quest sequence.',
+                eventAction: 'suramar_campaign',
+              },
+            ]}
+          />
 
           <div className="bg-gray-900/40 border border-gray-800 rounded-xl p-6 mb-10">
             <h2 className="text-xl font-semibold text-white mb-4">Quick Links</h2>

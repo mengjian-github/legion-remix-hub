@@ -41,6 +41,30 @@ export default function AnalyticsBinder() {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
+  useEffect(() => {
+    const fired = new Set<number>();
+    const milestones = [25, 50, 75, 90];
+
+    const handleScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+
+      const depth = Math.round((window.scrollY / scrollable) * 100);
+      const nextMilestone = milestones.find((milestone) => depth >= milestone && !fired.has(milestone));
+      if (!nextMilestone) return;
+
+      fired.add(nextMilestone);
+      trackEvent("page_scroll_depth", {
+        depth_percent: nextMilestone,
+        page: window.location.pathname,
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return null;
 }
 

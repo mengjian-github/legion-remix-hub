@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import ClientVisible from '@/components/ClientVisible';
+import NextStepCta from '@/components/seo/NextStepCta';
 import {
   rewardCategories,
   rewardEntries,
@@ -130,6 +131,26 @@ export default function RewardsClient() {
             </Link>
           </div>
         </header>
+
+        <NextStepCta
+          page="rewards"
+          title="Convert reward browsing into a Bronze budget"
+          description="The tracker should not be a dead-end catalog. These next steps push visitors toward calculator usage, class mounts, and measurable second-page sessions."
+          links={[
+            {
+              label: 'Open Bronze calculator',
+              href: '/calculator?utm_source=rewards&utm_medium=next_step&utm_campaign=legionremixhub_cro',
+              reason: 'Move selected rewards into a time estimate and wishlist flow.',
+              eventAction: 'calculator_budget',
+            },
+            {
+              label: 'Plan class mounts first',
+              href: '/guides/class-mounts?utm_source=rewards&utm_medium=next_step&utm_campaign=legionremixhub_cro#answer-table',
+              reason: 'Use the highest-intent mount guide before optional cosmetics.',
+              eventAction: 'class_mounts',
+            },
+          ]}
+        />
 
         <RewardTrackerCatalog />
 
