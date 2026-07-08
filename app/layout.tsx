@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import AnalyticsBinder from "@/components/analytics/AnalyticsBinder";
+import MobileStickyIntentCta from "@/components/seo/MobileStickyIntentCta";
 import { createWebSiteSchema, JsonLd } from "@/lib/schema";
 import { buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from "@/lib/seo";
 
@@ -152,6 +153,7 @@ export default function RootLayout({
         <AnalyticsBinder />
         <Navigation />
         <main>{children}</main>
+        <MobileStickyIntentCta />
         <Footer />
       </body>
     </html>

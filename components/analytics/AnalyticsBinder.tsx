@@ -24,6 +24,7 @@ export default function AnalyticsBinder() {
       const task = typeof props.task === "string" ? props.task : "";
       const href = el instanceof HTMLAnchorElement ? el.getAttribute("href") ?? "" : "";
       const destination = typeof props.destination === "string" && props.destination.length > 0 ? props.destination : href;
+      Object.assign(props, readCampaignProps(destination));
       const inferredTool = inferToolFromClick(eventName, task, destination);
       if (inferredTool) {
         trackEvent("tool_start", {
@@ -65,7 +66,36 @@ export default function AnalyticsBinder() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const milestones = [15, 45, 90];
+    const timers = milestones.map((seconds) => window.setTimeout(() => {
+      trackEvent("time_on_page", {
+        page: window.location.pathname,
+        seconds,
+      });
+    }, seconds * 1000));
+
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
+  }, []);
+
   return null;
+}
+
+function readCampaignProps(destination: string) {
+  const campaignProps: Record<string, string> = {};
+  if (!destination.includes("?")) return campaignProps;
+
+  try {
+    const url = new URL(destination, window.location.origin);
+    ["utm_source", "utm_medium", "utm_campaign", "preset"].forEach((key) => {
+      const value = url.searchParams.get(key);
+      if (value) campaignProps[key] = value;
+    });
+  } catch {
+    // Ignore malformed internal fragments; click tracking should never block navigation.
+  }
+
+  return campaignProps;
 }
 
 function inferToolFromClick(eventName: string, task: string, destination: string) {

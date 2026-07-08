@@ -31,7 +31,7 @@ export default function NextStepCta({
           <p className="mt-3 text-sm leading-relaxed text-gray-200">{description}</p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
-          {links.map((link) => (
+          {links.map((link, index) => (
             <Link
               key={link.href}
               href={link.href}
@@ -39,6 +39,7 @@ export default function NextStepCta({
               data-track-prop-page={page}
               data-track-prop-action={link.eventAction}
               data-track-prop-destination={link.href}
+              data-track-prop-position={index + 1}
               className="group rounded-2xl border border-gray-700 bg-gray-950/70 p-4 transition hover:border-emerald-400/70 hover:bg-emerald-950/30"
             >
               <span className="text-sm font-black text-white group-hover:text-emerald-100">{link.label} →</span>
