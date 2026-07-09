@@ -7,7 +7,7 @@ import AnswerFirstBlock from '@/components/seo/AnswerFirstBlock';
 import NextStepCta from '@/components/seo/NextStepCta';
 import { bronzeEntries } from '@/data/rewards';
 import { farmingMethods } from '@/data/dungeons';
-import { createBreadcrumbSchema, createFAQSchema, JsonLd } from '@/lib/schema';
+import { createBreadcrumbSchema, createFAQSchema, createArticleSchema, JsonLd } from '@/lib/schema';
 
 const calculatorTypes = ['all', ...Array.from(new Set(bronzeEntries.map(entry => entry.type)))] as string[];
 
@@ -190,6 +190,13 @@ export default function CalculatorPage() {
     { name: 'Home', path: '/' },
     { name: 'Calculator', path: '/calculator' },
   ]), []);
+  const articleSchema = useMemo(() => createArticleSchema({
+    headline: 'Legion Remix Bronze Calculator — Live Costs & Farming Hours',
+    description: 'Plan Legion Remix Bronze spending with this live wishlist calculator. Track reward totals, farming hours, and Infinite Bazaar presets.',
+    url: 'https://legionremixhub.com/calculator',
+    datePublished: '2025-10-07',
+    dateModified: new Date().toISOString(),
+  }), []);
 
   useEffect(() => {
     trackEvent('wishlist_total_changed', {
@@ -218,6 +225,7 @@ export default function CalculatorPage() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-gray-950 py-6 sm:py-12 px-4">
+      <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
       <div className="max-w-7xl mx-auto">

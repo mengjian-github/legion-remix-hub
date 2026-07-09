@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, formatMetaDescription, formatMetaTitle } from '@/lib/seo';
 import { createFAQSchema, createBreadcrumbSchema, JsonLd } from '@/lib/schema';
 
-const pageTitle = formatMetaTitle('Legion Remix FAQ - Frequently Asked Questions');
+const pageTitle = formatMetaTitle('Legion Remix FAQ - Timerunner & Bronze Questions Answered');
 const pageDescription = formatMetaDescription(
-  'Get answers to common Legion Remix questions on leveling, Bronze farming, rewards, class picks, timing, lag fixes, and troubleshooting tips for Timerunners.'
+  'Get fast answers to Legion Remix questions on leveling, Bronze farming, rewards, class picks, Heroic World Tier, lag fixes, and troubleshooting for Timerunners.'
 );
 
 export const metadata: Metadata = {
@@ -261,6 +261,10 @@ export default function FAQPage() {
       <div className="max-w-4xl mx-auto">
         <Link
           href="/"
+          data-track-event="guide_navigation_click"
+          data-track-prop-page="faq"
+          data-track-prop-location="back_to_home"
+          data-track-prop-destination="/"
           className="text-green-400 hover:text-green-300 mb-4 inline-block"
         >
           ← Back to Home
@@ -296,6 +300,10 @@ export default function FAQPage() {
               <a
                 key={category.category}
                 href={`#${category.category.toLowerCase().replace(/\s+/g, '-')}`}
+                data-track-event="faq_quick_nav_click"
+                data-track-prop-page="faq"
+                data-track-prop-location="quick_navigation"
+                data-track-prop-category={category.category}
                 className="text-green-400 hover:text-green-300 text-sm"
               >
                 → {category.category} ({category.questions.length} questions)
@@ -342,18 +350,33 @@ export default function FAQPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/guides/getting-started"
+              data-track-event="next_step_cta_click"
+              data-track-prop-page="faq"
+              data-track-prop-location="still_have_questions"
+              data-track-prop-action="getting_started"
+              data-track-prop-destination="/guides/getting-started"
               className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all"
             >
               Getting Started Guide
             </Link>
             <Link
               href="/guides"
+              data-track-event="next_step_cta_click"
+              data-track-prop-page="faq"
+              data-track-prop-location="still_have_questions"
+              data-track-prop-action="all_guides"
+              data-track-prop-destination="/guides"
               className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-all"
             >
               All Guides
             </Link>
             <Link
               href="/calculator"
+              data-track-event="next_step_cta_click"
+              data-track-prop-page="faq"
+              data-track-prop-location="still_have_questions"
+              data-track-prop-action="bronze_calculator"
+              data-track-prop-destination="/calculator"
               className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg transition-all"
             >
               Bronze Calculator

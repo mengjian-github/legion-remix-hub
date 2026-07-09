@@ -3,7 +3,7 @@ import { buildCanonicalUrl, buildOpenGraphMetadata, buildTwitterMetadata, format
 
 const layoutTitle = formatMetaTitle('Legion Remix Bronze Calculator — Live Costs & Farming Hours');
 const layoutDescription = formatMetaDescription(
-  'Interactive Legion Remix bronze calculator that tracks wishlist costs, farming hours, and Infinite Bazaar presets—perfect for Timerunners comparing bronze calculators or rewards planners.'
+  'Plan Legion Remix Bronze spending with this live wishlist calculator. Track reward totals, farming hours, and Infinite Bazaar presets.'
 );
 
 export const metadata: Metadata = {

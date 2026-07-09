@@ -840,19 +840,43 @@ export default function ClassMountsGuidePage() {
             <h2 className="text-xl font-semibold text-white mb-3">Related Legion Remix Guides</h2>
             <ul className="list-disc list-inside text-sm space-y-2">
               <li>
-                <Link href="/guides/bronze-vendors" className="text-green-400 hover:text-green-300">
+                <Link
+                  href="/guides/bronze-vendors"
+                  data-track-event="next_step_cta_click"
+                  data-track-prop-page="class_mounts"
+                  data-track-prop-location="related_guides"
+                  data-track-prop-action="bronze_vendors"
+                  data-track-prop-destination="/guides/bronze-vendors"
+                  className="text-green-400 hover:text-green-300"
+                >
                   Infinite Bazaar Bronze Vendor Guide
                 </Link>{' '}
                 – plan your class mount Bronze purchases.
               </li>
               <li>
-                <Link href="/guides/suramar-campaign" className="text-green-400 hover:text-green-300">
+                <Link
+                  href="/guides/suramar-campaign"
+                  data-track-event="next_step_cta_click"
+                  data-track-prop-page="class_mounts"
+                  data-track-prop-location="related_guides"
+                  data-track-prop-action="suramar_campaign"
+                  data-track-prop-destination="/guides/suramar-campaign"
+                  className="text-green-400 hover:text-green-300"
+                >
                   Suramar Quest Campaign Guide
                 </Link>{' '}
                 – aligns Ancient Mana farming with class campaign prep.
               </li>
               <li>
-                <Link href="/guides/ancient-mana" className="text-green-400 hover:text-green-300">
+                <Link
+                  href="/guides/ancient-mana"
+                  data-track-event="next_step_cta_click"
+                  data-track-prop-page="class_mounts"
+                  data-track-prop-location="related_guides"
+                  data-track-prop-action="ancient_mana"
+                  data-track-prop-destination="/guides/ancient-mana"
+                  className="text-green-400 hover:text-green-300"
+                >
                   Ancient Mana Guide
                 </Link>{' '}
                 – stock up before Withered Army Training and Broken Shore missions.
