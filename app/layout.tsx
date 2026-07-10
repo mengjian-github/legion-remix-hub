@@ -124,11 +124,7 @@ export default function RootLayout({
             gtag('config', 'G-1CTHKQNSKD');
           `}
         </Script>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1081201777589554"
-          crossOrigin="anonymous"
-        />
+        {/* AdSense account is declared for verification, but ad runtime is paused while business metrics remain not_configured. */}
         <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
