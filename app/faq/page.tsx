@@ -290,6 +290,25 @@ export default function FAQPage() {
               ))}
             </ul>
           </div>
+          <div className="mt-4 rounded-2xl border border-amber-500/50 bg-amber-500/10 p-5">
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-amber-200">Highest-intent next step</p>
+            <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm leading-relaxed text-gray-200">
+                If your question is about Bronze cost, mounts, pets, or vendor timing, open the calculator with a preset instead of leaving after the FAQ answer.
+              </p>
+              <Link
+                href="/calculator?preset=mounts-first-10&utm_source=faq&utm_medium=intent_cta&utm_campaign=legionremixhub_cro"
+                data-track-event="faq_to_calculator_cta_click"
+                data-track-prop-page="faq"
+                data-track-prop-location="hotspot_panel"
+                data-track-prop-action="calculator_mounts_preset"
+                data-track-prop-destination="/calculator?preset=mounts-first-10&utm_source=faq&utm_medium=intent_cta&utm_campaign=legionremixhub_cro"
+                className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl bg-amber-500 px-5 py-3 text-sm font-black text-gray-950 transition hover:bg-amber-400"
+              >
+                Open calculator preset →
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Quick Links */}

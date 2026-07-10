@@ -24,7 +24,7 @@ const calculatorFaq: CalculatorFaqEntry[] = [
   },
   {
     question: 'Can I share my Legion Remix bronze calculator totals with friends?',
-    answer: 'Take a screenshot or export the visible list—guilds often post the totals in Discord so everyone follows the same upgrade order on reset night.'
+    answer: 'Yes. Select rewards, then use Copy / Share Summary to generate a URL with the wishlist encoded so guildmates can open the same Legion Remix Bronze plan instead of rebuilding it by hand.'
   },
   {
     question: 'What presets come with this Legion Remix bronze calculator?',
@@ -59,6 +59,8 @@ export default function CalculatorPage() {
     },
   ], []);
 
+  const validRewardIds = useMemo(() => new Set(bronzeEntries.map((reward) => reward.id)), []);
+
   const applyPresetPack = (preset: typeof presetPacks[number]) => {
     const selectedIds = new Set(preset.rewardIds);
     const presetBronze = preset.rewardIds.reduce((sum, id) => {
@@ -84,7 +86,38 @@ export default function CalculatorPage() {
   useEffect(() => {
     if (appliedUrlPreset || typeof window === 'undefined') return;
 
-    const urlPreset = new URLSearchParams(window.location.search).get('preset');
+    const params = new URLSearchParams(window.location.search);
+    const urlWishlist = params.get('wishlist');
+    if (urlWishlist) {
+      const decodedIds = urlWishlist
+        .split(',')
+        .map((id) => id.trim())
+        .filter((id) => validRewardIds.has(id));
+
+      if (decodedIds.length > 0) {
+        const selectedIds = new Set(decodedIds);
+        setSelectedRewards(selectedIds);
+        const wishlistBronze = decodedIds.reduce((sum, id) => {
+          const reward = bronzeEntries.find((item) => item.id === id);
+          return sum + (reward?.cost?.amount ?? 0);
+        }, 0);
+        trackEvent('calculator_url_wishlist_apply', {
+          source: 'url_query',
+          selected_count: selectedIds.size,
+          total_bronze: wishlistBronze,
+        });
+        trackEvent('tool_result', {
+          tool: 'bronze_calculator',
+          action: 'wishlist_url_apply',
+          selected_count: selectedIds.size,
+          total_bronze: wishlistBronze,
+        });
+        setAppliedUrlPreset(true);
+        return;
+      }
+    }
+
+    const urlPreset = params.get('preset');
     if (!urlPreset) {
       setAppliedUrlPreset(true);
       return;
@@ -100,7 +133,7 @@ export default function CalculatorPage() {
       });
     }
     setAppliedUrlPreset(true);
-  }, [appliedUrlPreset, presetPacks]);
+  }, [appliedUrlPreset, presetPacks, validRewardIds]);
 
   const toggleReward = (rewardId: string) => {
     const reward = bronzeEntries.find(item => item.id === rewardId);
@@ -149,20 +182,34 @@ export default function CalculatorPage() {
   };
 
   const handleShareClick = async () => {
-    const shareText = `Legion Remix wishlist: ${selectedRewards.size} rewards, ${totalBronze.toLocaleString()} Bronze, ${estimatedTime.toFixed(1)}h at top farm speed.`;
+    const shareUrl = buildWishlistUrl(selectedRewards);
+    const shareText = `Legion Remix wishlist: ${selectedRewards.size} rewards, ${totalBronze.toLocaleString()} Bronze, ${estimatedTime.toFixed(1)}h at top farm speed. ${shareUrl}`;
     trackEvent('calculator_copy_or_share', {
       page: 'calculator',
       selected_count: selectedRewards.size,
       total_bronze: totalBronze,
+      has_share_url: selectedRewards.size > 0 ? 'true' : 'false',
     });
 
     try {
       if (navigator.share) {
-        await navigator.share({ title: 'Legion Remix Bronze Calculator', text: shareText, url: window.location.href });
+        await navigator.share({ title: 'Legion Remix Bronze Calculator', text: shareText, url: shareUrl });
       } else {
         await navigator.clipboard.writeText(shareText);
       }
+      trackEvent('tool_result', {
+        tool: 'bronze_calculator',
+        action: 'wishlist_share_success',
+        selected_count: selectedRewards.size,
+        total_bronze: totalBronze,
+      });
     } catch {
+      trackEvent('tool_result', {
+        tool: 'bronze_calculator',
+        action: 'wishlist_share_cancelled_or_failed',
+        selected_count: selectedRewards.size,
+        total_bronze: totalBronze,
+      });
       // User cancelled native share or clipboard was unavailable; analytics has already recorded intent.
     }
   };
@@ -420,7 +467,7 @@ export default function CalculatorPage() {
                         onClick={handleShareClick}
                         className="w-full mt-2 px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-md font-medium transition-colors"
                       >
-                        Copy / Share Summary
+                        Copy / Share Summary URL
                       </button>
                     </>
                   )}
@@ -620,4 +667,17 @@ export default function CalculatorPage() {
       </div>
     </div>
   );
+}
+
+function buildWishlistUrl(selectedRewards: Set<string>) {
+  if (typeof window === 'undefined') return 'https://legionremixhub.com/calculator';
+
+  const url = new URL('/calculator', window.location.origin);
+  if (selectedRewards.size > 0) {
+    url.searchParams.set('wishlist', Array.from(selectedRewards).join(','));
+    url.searchParams.set('utm_source', 'calculator');
+    url.searchParams.set('utm_medium', 'share_url');
+    url.searchParams.set('utm_campaign', 'legionremixhub_cro');
+  }
+  return url.toString();
 }

@@ -124,11 +124,10 @@ export default function RootLayout({
             gtag('config', 'G-1CTHKQNSKD');
           `}
         </Script>
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1081201777589554"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
         />
         <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
